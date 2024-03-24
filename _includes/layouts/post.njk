@@ -1,0 +1,43 @@
+---
+layout: base
+---
+
+<div class="page page-post">
+	<header class="page-header">
+		<h1>{{ title }}</h1>
+		<a href="/" class="link"><i class="fi-home"></i></a>
+	</header>
+	<hr />
+	<ul class="details">
+		<li>
+			<div class="date">
+				<i class="fi-calendar is-light-blue"></i>
+				<span><strong>{{ date.getDay() }}</strong></span>
+				<span><strong>{{ date.toLocaleString("gl", {month: "long"}) }}</strong></span>
+				<span><strong>{{ date.getFullYear() }}</strong></span>
+			</div>
+		</li>
+		<li>
+			<i class="fi-marker is-light-blue"></i>
+			{{ location }}
+		</li>
+		{% if source_url %}
+		<li>
+			<i class="fi-social-facebook is-light-blue"></i>
+			<a href="{{ source_url }}" title="{{ source_name }}" _blank="true">
+				{{ source_name }}
+			<a/>
+		</li>
+		{% endif %}
+	</ul>
+
+	<br />
+
+	{% if image %}
+		<a href="/assets/images/{{ image }}" title="{{ title }}" _blank="true">
+			<img class="image" src="/assets/images/{{ image }}" />
+		</a>
+	{% endif %}
+
+	{{ content | safe }}
+</p>

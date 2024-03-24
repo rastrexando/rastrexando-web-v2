@@ -1,0 +1,68 @@
+---
+layout: base
+title: Inicio - Rastrexando
+eleventyImport:
+  collections: ["post"]
+pagination:
+  data: collections.post
+  size: 30
+  alias: posts
+---
+
+<div class="page page-index">
+	<header class="page-header">
+		<h1>Calendario</h1>
+	</header>
+	<!-- Añadir menú -->
+	<aside>
+		<div>
+			<nav>
+				{% for post in pagination.items | reverse %}
+					<article class="post">
+						<header>
+							<hr />
+							<a class="{% if page.url == post.url %}active{% endif %}" href="{{ post.url }}">
+								<h2>{{ post.data.title }}</h2>
+							</a>
+							<ul class="details">
+								<li>
+									<div class="date">
+										<i class="fi-calendar is-light-blue"></i>
+										<span><strong>{{ post.data.date.getDay() }}</strong></span>
+										<span><strong>{{ post.data.date.toLocaleString("gl", {month: "long"}) }}</strong></span>
+										<span><strong>{{ post.data.date.getFullYear() }}</strong></span>
+									</div>
+								</li>
+								<li>
+									<i class="fi-marker is-light-blue"></i>
+									{{ post.data.location }}
+								</li>
+								{% if post.data.source_url %}
+								<li>
+									<i class="fi-social-facebook is-light-blue"></i>
+									<a href="{{ post.data.source_url }}" title="{{ post.data.source_name }}" _blank="true">
+										{{ post.data.source_name }}
+									</a>
+								</li>
+								{% endif %}
+							</ul>
+						</header>
+					</article>
+				{% endfor %}
+
+				{% if pagination.pages.length > 1 %}
+					<ul class="pagination">
+						<li>Máis:</li>
+						{%- for pageEntry in pagination.pages %}
+							{% if page.url == pagination.hrefs[ loop.index0 ] %}
+								<li>{{ loop.index }}</li>
+							{% else %}
+								<li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
+							{% endif %}
+						{%- endfor %}
+					</ul>
+				{% endif %}
+			</nav>
+		</div>
+	</aside>
+</div>
