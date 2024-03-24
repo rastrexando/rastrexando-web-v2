@@ -1,0 +1,10 @@
+---
+pagination:
+    data: eventos
+    size: 1
+    alias: evento
+permalink: "eventos/{{ evento.title | slugify }}/"
+---
+
+<h2>{{ evento.date }}</h2>
+<h1>{{ evento.title }}</h1>
