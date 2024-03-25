@@ -1,5 +1,9 @@
 ---
 title: Rastrexando
+pagination:
+  data: collections.post
+  size: 5
+  alias: posts
 ---
 
 <!doctype html>
@@ -7,16 +11,30 @@ title: Rastrexando
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/assets/bundle.css">
     <title>{{ title }}</title>
   </head>
   <body>
-		<section>
+		<section class="layout-base">
 			<aside>
+				<a href="/"><img class="image" src="/assets/rastrexando-horizontal.png" /></a>
 				<nav>
 					<ul>
-						<li><a href="/">Rastrexando</a></li>
+						<li><a href="/">Inicio</a></li>
+						{% for post in posts %}
+							<li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+						{% endfor %}
 					</ul>
 				</nav>
+				<ul>
+					{%- for pageEntry in pagination.pages %}
+						{% if page.url == pagination.hrefs[ loop.index0 ] %}
+							<li>{{ loop.index }}</li>
+						{% else %}
+						<li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
+						{% endif %}
+					{%- endfor %}
+				</ul>
 			</aside>
 			<main>
 				{{ content | safe }}

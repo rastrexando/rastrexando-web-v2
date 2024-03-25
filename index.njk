@@ -1,26 +1,6 @@
 ---
 layout: base
 title: Rastrexando
-pagination:
-  data: collections.post
-  size: 5
-  alias: posts
 ---
 
-<h1>Rastrexando</h1>
-<ol>
-{% for post in posts %}
-  <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-{% endfor %}
-</ol>
-
-Páginas:
-  <ul>
-{%- for pageEntry in pagination.pages %}
-	{% if page.url == pagination.hrefs[ loop.index0 ] %}
-    <li>{{ loop.index }}</li>
-	{% else %}
-	<li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
-	{% endif %}
-{%- endfor %}
-  </ul>
+Página de inicio
