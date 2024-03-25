@@ -10,6 +10,17 @@ title: Rastrexando
     <title>{{ title }}</title>
   </head>
   <body>
-    {{ content | safe }}
+		<section>
+			<aside>
+				<nav>
+					<ul>
+						<li><a href="/">Rastrexando</a></li>
+					</ul>
+				</nav>
+			</aside>
+			<main>
+				{{ content | safe }}
+			</main>
+		</section>
   </body>
 </html>
