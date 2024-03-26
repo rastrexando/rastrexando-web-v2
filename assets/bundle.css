@@ -20,29 +20,44 @@ body {
 }
 
 .layout-base > aside {
-	background-color: #EFF2F7;
-	padding: 1rem;
+	height: 100dvh;
+	background-color: white;
+}
+
+#rastrexando-logo img {
+	margin-bottom: 2rem;
 }
 
 .layout-base > main {
-	background-color: black;
+	height: 100dvh;
+}
+
+.container-padding {
 	padding: 1rem;
-	color: white;
 }
 
 .nav-post {
 	display: flex;
-	flex-direction: column;
-	gap: .5rem;
+	flex-direction: row;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	align-items: center;
 }
 
 .nav-post .date {
+	display: flex;
+	flex-direction: column;
 	color:  var(--brand-dark-blue);
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.1rem;
+	gap: .5rem;
 }
 
 .nav-post a {
 	color:  var(--brand-light-blue);
-
+	font-weight: bold;
+	font-size: 1.2rem;
 }
 
 .nav-post a.active {

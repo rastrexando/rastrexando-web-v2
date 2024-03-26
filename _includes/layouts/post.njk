@@ -3,9 +3,11 @@ layout: base
 ---
 
 <h1>{{ title }}</h1>
-{{ page.date.getDay() }}-{{ page.date.getMonth() }}-{{ page.date.getFullYear() }}
+<h2>{{ page.date.toLocaleDateString() }}</h2>
 
 {% if source_url %}
-<a href="{{ source_url }}" title="{{ source_name }}" _blank="true">{{ source_name }}<a/>
+Organiza <a href="{{ source_url }}" title="{{ source_name }}" _blank="true">{{ source_name }}<a/>
 {% endif %}
+
+<br />
 {{ content | safe }}

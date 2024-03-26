@@ -13,20 +13,27 @@ title: Rastrexando
   <body>
 		<section class="layout-base">
 			<aside>
-				<a href="/"><img class="image" src="/assets/rastrexando-horizontal.png" /></a>
-				<nav class="main-nav">
-					{% for post in collections.post %}
-						<article class="nav-post">
-							<div class="date">
-								{{ post.date.toLocaleDateString() }}
-							</div>
-							<a class="{% if page.url == post.url %}active{% endif %}" href="{{ post.url }}">{{ post.data.title }}</a>
-						</article>
-					{% endfor %}
-				</nav>
+				<div class="container-padding">
+					<a id="rastrexando-logo" href="/"><img class="image" src="/assets/rastrexando-horizontal.png" /></a>
+					<nav class="main-nav">
+						{% for post in collections.post %}
+							<article class="nav-post">
+								<div class="date">
+									<span>{{ post.date.getDay() }}</span>
+									<span>{{ post.date.toLocaleString("gl", {month: "long"}) }}</span>
+									<span>{{ post.date.getFullYear() }}</span>
+								</div>
+								<a class="{% if page.url == post.url %}active{% endif %}" href="{{ post.url }}">{{ post.data.title }}</a>
+							</article>
+							<hr />
+						{% endfor %}
+					</nav>
+				</div>
 			</aside>
 			<main>
-				{{ content | safe }}
+				<div class="container-padding">
+					{{ content | safe }}
+				</div>
 			</main>
 		</section>
   </body>
