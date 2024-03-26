@@ -4,4 +4,5 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("assets/bundle.css");
 	eleventyConfig.addPassthroughCopy("assets/rastrexando-circular.png");
 	eleventyConfig.addPassthroughCopy("assets/rastrexando-horizontal.png");
+	eleventyConfig.addPassthroughCopy("assets/images/");
 };

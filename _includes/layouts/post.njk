@@ -1,9 +1,11 @@
 ---
-title: Post
 layout: base
 ---
 
 <h1>{{ title }}</h1>
-hola mundo
+{{ page.date.getDay() }}-{{ page.date.getMonth() }}-{{ page.date.getFullYear() }}
 
+{% if source_url %}
+<a href="{{ source_url }}" title="{{ source_name }}" _blank="true">{{ source_name }}<a/>
+{% endif %}
 {{ content | safe }}
