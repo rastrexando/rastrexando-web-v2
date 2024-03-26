@@ -13,23 +13,25 @@ body {
 }
 
 /* Layout base */
-.layout-base {
-	display: grid;
-	height: 100dvh;
-	grid-template-columns: 1fr 2fr;
+#layout-base {
+	max-width: 600px;
+	margin: 0 auto;
 }
 
-.layout-base > aside {
+#layout-base > aside {
 	height: 100dvh;
 	background-color: white;
 }
 
-#rastrexando-logo img {
-	margin-bottom: 2rem;
+#main-header .container-padding {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	align-items: center;
 }
 
-.layout-base > main {
-	height: 100dvh;
+#rastrexando-logo img {
+	margin-bottom: 2rem;
 }
 
 .container-padding {

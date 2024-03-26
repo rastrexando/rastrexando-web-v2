@@ -11,10 +11,15 @@ title: Rastrexando
     <title>{{ title }}</title>
   </head>
   <body>
-		<section class="layout-base">
-			<aside>
+		<section id="layout-base">
+			<header id="main-header">
 				<div class="container-padding">
 					<a id="rastrexando-logo" href="/"><img class="image" src="/assets/rastrexando-horizontal.png" /></a>
+					<div>Volver</div>
+				</div>
+			</header>
+			<aside>
+				<div class="container-padding">
 					<nav class="main-nav">
 						{% for post in collections.post %}
 							<article class="nav-post">
