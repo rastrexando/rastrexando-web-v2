@@ -3,6 +3,7 @@
 	--brand-dark-blue: #0d0a4c;
 	--brand-light-blue: #259cf4;
 	--almost-black: #1b1c1d;
+	--breakpoint: 500px;
 }
 
 /* Reset */
@@ -34,7 +35,7 @@ main {
 
 /** Para pantallas grandes */
 #layout-base .page-content {
-	max-width: 500px;
+	max-width: var(--breakpoint);
 	width: 100%;
 }
 
@@ -55,6 +56,9 @@ footer {
 	background-color: var(--almost-black);
 	width: 100%;
 	height: 100%;
+}
+
+#main-footer .wrapper {
 	color: white;
 	display: flex;
 	flex-direction: row;
@@ -62,6 +66,10 @@ footer {
 	align-items: center;
 	font-size: 12px;
 	padding: 0rem 1rem;
+	width: 100%;
+	height: 100%;
+	max-width: var(--breakpoint);
+	margin: 0 auto;
 }
 
 #main-footer .left {
@@ -79,6 +87,10 @@ footer {
 
 #main-footer a {
 	color: white;
+}
+
+#main-footer a:hover {
+	color: var(--brand-light-blue);
 }
 
 
@@ -116,7 +128,6 @@ hr {
 }
 
 .page-index .post .date {
-	font-weight: bold;
 	margin-top: .5rem;
 }
 
