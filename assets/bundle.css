@@ -20,7 +20,7 @@ body {
 /* Layout */
 #layout-base {
 	display: grid;
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: 90px 1fr 70px;
   grid-template-columns: 1fr;
 	height: 100dvh;
 }
@@ -48,6 +48,7 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	box-shadow: 0 7px 10px -5px gray;
 }
 
 #main-footer {
@@ -74,7 +75,7 @@ footer {
 
 /* Page */
 .page {
-	padding: 1rem;
+	padding: 1.5rem 1rem;
 }
 
 .page h1, .page h2 {
