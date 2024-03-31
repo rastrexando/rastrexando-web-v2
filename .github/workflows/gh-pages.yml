@@ -40,11 +40,6 @@ jobs:
       - run: npm install
       - run: npm run build-ghpages
 
-      - name: upload static site content
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./_site
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
