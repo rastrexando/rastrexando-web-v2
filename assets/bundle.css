@@ -64,6 +64,14 @@ a {
 	color: var(--brand-dark-blue);
 }
 
+a:hover {
+	color: var(--brand-light-blue);
+}
+
+hr {
+	border: var(--brand-dark-blue) 1px solid;
+}
+
 /* Page index */
 .page-index aside {
 	margin-top: 2rem;
@@ -84,6 +92,7 @@ a {
 
 .page-index .post .date {
 	font-weight: bold;
+	margin-top: .5rem;
 }
 
 .page-index .post .location {
@@ -95,13 +104,14 @@ a {
 	text-decoration: none;
 }
 
-.page-index .post a:hover, .page-index .post a:visited {
+.page-index .post a:hover {
 	text-decoration: underline;
 	color: var(--brand-light-blue);
 }
 
 .page-index .post h2 {
 	font-size: 1.3rem;
+	margin-top: .5rem;
 }
 
 .page-index .post header {
@@ -131,18 +141,28 @@ a {
 	color: var(--brand-light-blue);
 }
 
+.page-index .details {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.page-index .details li {
+	padding: .2rem 0;
+	font-size: 1.1rem;
+}
+
+
 /* Page post */
 .page-post {
 	padding: 1rem 1rem;
 }
 
 .page-post .date {
-	color: var(--brand-light-blue);
+	margin-top: .5rem;
 }
 
 .page-post h1 {
 	color: var(--brand-dark-blue);
-	margin-bottom: .5rem;
 }
 
 .page-post .image {
@@ -157,4 +177,24 @@ a {
 }
 .page-post .details li {
 	padding: .2rem 0;
+	font-size: 1.1rem;
+}
+
+.page-post header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.page-post header i {
+	font-size: 20px;
+}
+
+.page-post header i:hover {
+	color: var(--brand-light-blue);
+}
+
+
+/* Utils */
+.is-light-blue {
+	color: var(--brand-light-blue);
 }

@@ -20,20 +20,32 @@ pagination:
 				{% for post in pagination.items | reverse %}
 					<article class="post">
 						<header>
-							<div class="date">
-								<i class="fi-calendar"></i>
-								<span>{{ post.date.getDay() }}</span>
-								<span>{{ post.date.toLocaleString("gl", {month: "long"}) }}</span>
-								<span>{{ post.date.getFullYear() }}</span>
-							</div>
 							<hr />
 							<a class="{% if page.url == post.url %}active{% endif %}" href="{{ post.url }}">
 								<h2>{{ post.data.title }}</h2>
 							</a>
-							<p class="location">
-								<i class="fi-marker"></i>
-								{{ post.data.location }}
-							</p>
+							<ul class="details">
+								<li>
+									<div class="date">
+										<i class="fi-calendar is-light-blue"></i>
+										<span><strong>{{ post.data.date.getDay() }}</strong></span>
+										<span><strong>{{ post.data.date.toLocaleString("gl", {month: "long"}) }}</strong></span>
+										<span><strong>{{ post.data.date.getFullYear() }}</strong></span>
+									</div>
+								</li>
+								<li>
+									<i class="fi-marker is-light-blue"></i>
+									{{ post.data.location }}
+								</li>
+								{% if post.data.source_url %}
+								<li>
+									<i class="fi-social-facebook is-light-blue"></i>
+									<a href="{{ post.data.source_url }}" title="{{ post.data.source_name }}" _blank="true">
+										{{ post.data.source_name }}
+									<a/>
+								</li>
+								{% endif %}
+							</ul>
 						</header>
 					</article>
 				{% endfor %}
