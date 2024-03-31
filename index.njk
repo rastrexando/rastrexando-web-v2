@@ -5,7 +5,7 @@ eleventyImport:
   collections: ["post"]
 pagination:
   data: collections.post
-  size: 5
+  size: 30
   alias: posts
 ---
 
@@ -17,7 +17,7 @@ pagination:
 	<aside>
 		<div>
 			<nav>
-				{% for post in collections.post | reverse %}
+				{% for post in pagination.items | reverse %}
 					<article class="post">
 						<header>
 							<div class="date">
@@ -37,11 +37,19 @@ pagination:
 						</header>
 					</article>
 				{% endfor %}
-				<ol>
-				{%- for item in pagination.items %}
-					<li>{{ item }}</li>
-				{% endfor -%}
-				</ol>
+
+				{% if pagination.pages.length > 1 %}
+					<ul class="pagination">
+						<li>Máis:</li>
+						{%- for pageEntry in pagination.pages %}
+							{% if page.url == pagination.hrefs[ loop.index0 ] %}
+								<li>{{ loop.index }}</li>
+							{% else %}
+								<li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
+							{% endif %}
+						{%- endfor %}
+					</ul>
+				{% endif %}
 			</nav>
 		</div>
 	</aside>

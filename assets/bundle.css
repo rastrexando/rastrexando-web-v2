@@ -114,3 +114,20 @@ a {
 	color: var(--brand-dark-blue);
 	margin: 0.2rem 0;
 }
+
+.page-index .pagination {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	gap: .5rem;
+	flex-wrap: wrap;
+	padding: 0;
+}
+
+.page-index .pagination a {
+	color: var(--brand-dark-blue);
+}
+
+.page-index .pagination a:hover {
+	color: var(--brand-light-blue);
+}
