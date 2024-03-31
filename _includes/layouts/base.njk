@@ -14,9 +14,14 @@ title: Rastrexando
   <body>
 		<div id="layout-base">
 			<header id="main-header">
-				<a id="rastrexando-logo" href="/">
-					<img class="image" src="/assets/rastrexando-horizontal.png" />
-				</a>
+				<div class="wrapper">
+					<a id="rastrexando-logo" href="/">
+						<img class="image" src="/assets/rastrexando-horizontal.png" />
+					</a>
+					{% if header_icon %}
+						<a href="{{ header_link }}" title="{{ header_title }}" class="link header-icon"><i class="{{ header_icon }}"></i></a>
+					{% endif %}
+				</div>
 			</header>
 			<main>
 				<div class="page-content">
