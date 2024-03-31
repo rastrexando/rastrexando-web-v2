@@ -45,11 +45,26 @@ footer {
 
 #main-header {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	height: 100%;
 	box-shadow: 0 7px 10px -5px gray;
+}
+
+#main-header .header-icon {
+	font-size: 1.5rem;
+}
+
+#main-header .wrapper {
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 12px;
+	padding: 0rem 1rem;
+	width: 100%;
+	height: 100%;
+	max-width: var(--breakpoint);
+	margin: 0 auto;
 }
 
 #main-footer {
@@ -95,7 +110,7 @@ footer {
 
 
 #rastrexando-logo img {
-	max-width: 250px;
+	max-width: 200px;
 }
 
 /* Page */
@@ -209,13 +224,6 @@ hr {
 .page-post .details li {
 	padding: .2rem 0;
 	font-size: 1.1rem;
-}
-
-.page-header {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-	justify-content: space-between;
 }
 
 .page-header i, .page-header h1 {
