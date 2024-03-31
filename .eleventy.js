@@ -7,4 +7,5 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("assets/landing.jpg");
 	eleventyConfig.addPassthroughCopy("assets/images/");
 	eleventyConfig.addPassthroughCopy("assets/foundation-icons/");
+	eleventyConfig.addPassthroughCopy("CNAME");
 };
