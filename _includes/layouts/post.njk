@@ -2,12 +2,38 @@
 layout: base
 ---
 
-<h1>{{ title }}</h1>
-<h2>{{ page.date.toLocaleDateString() }}</h2>
+<div class="page page-post">
+	<div class="date">
+		<i class="fi-calendar"></i>
+		<span>{{ date.getDay() }}</span>
+		<span>{{ date.toLocaleString("gl", {month: "long"}) }}</span>
+		<span>{{ date.getFullYear() }}</span>
+	</div>
+	<hr />
+	<h1>{{ title }}</h1>
 
-{% if source_url %}
-Organiza <a href="{{ source_url }}" title="{{ source_name }}" _blank="true">{{ source_name }}<a/>
-{% endif %}
+	<p>
+		<i class="fi-marker"></i>
+		{{ location }}
+	</p>
 
-<br />
-{{ content | safe }}
+	{% if source_url %}
+	<p>
+		<i class="fi-torso"></i>
+		Organiza
+		<a href="{{ source_url }}" title="{{ source_name }}" _blank="true">
+			{{ source_name }}
+		<a/>
+	</p>
+	{% endif %}
+
+	<br />
+
+	{% if image %}
+		<a href="/assets/images/{{ image }}" title="{{ title }}" _blank="true">
+			<img class="image" src="/assets/images/{{ image }}" />
+		</a>
+	{% endif %}
+
+	{{ content | safe }}
+</p>

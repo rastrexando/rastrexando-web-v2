@@ -131,3 +131,18 @@ a {
 .page-index .pagination a:hover {
 	color: var(--brand-light-blue);
 }
+
+/* Page post */
+.page-post {
+	padding: 1rem 1rem;
+}
+
+.page-post h1 {
+	color: var(--brand-dark-blue);
+	margin-bottom: .5rem;
+}
+
+.page-post .image {
+	max-width: 100%;
+	margin: 1rem 0;
+}
