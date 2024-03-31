@@ -2,6 +2,7 @@
 :root {
 	--brand-dark-blue: #0d0a4c;
 	--brand-light-blue: #259cf4;
+	--almost-black: #1b1c1d;
 }
 
 /* Reset */
@@ -26,7 +27,7 @@ body {
 }
 
 #main-footer {
-	background-color: black;
+	background-color: var(--almost-black);
 	width: 100%;
 	min-height: 50px;
 	color: white;
@@ -37,6 +38,7 @@ body {
 	font-size: 10px;
 	margin-top: 2rem;
 	gap: .5rem;
+	padding: 2rem .5rem;
 }
 
 #main-footer p {

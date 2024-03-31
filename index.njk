@@ -1,6 +1,8 @@
 ---
 layout: base
-title: Rastrexando
+title: Inicio - Rastrexando
+eleventyImport:
+  collections: ["post"]
 ---
 
 <div class="page page-index">
@@ -11,7 +13,7 @@ title: Rastrexando
 	<aside>
 		<div>
 			<nav>
-				{% for post in collections.post %}
+				{% for post in collections.post | reverse %}
 					<article class="post">
 						<header>
 							<div class="date">
@@ -31,6 +33,11 @@ title: Rastrexando
 						</header>
 					</article>
 				{% endfor %}
+				<ol>
+				{%- for item in pagination.items %}
+					<li>{{ item }}</li>
+				{% endfor -%}
+				</ol>
 			</nav>
 		</div>
 	</aside>
