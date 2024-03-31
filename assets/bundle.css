@@ -18,6 +18,22 @@ body {
 }
 
 /* Layout */
+body {
+	display: grid;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: 1fr;
+	height: 100dvh;
+	grid-gap: 2rem;
+}
+
+main {
+	overflow: auto;
+}
+
+footer {
+	height: fit-content;
+}
+
 #main-header {
 	width: 100%;
 	display: flex;
@@ -29,14 +45,13 @@ body {
 #main-footer {
 	background-color: var(--almost-black);
 	width: 100%;
-	min-height: 50px;
+	height: 100%;
 	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	font-size: 10px;
-	margin-top: 2rem;
 	gap: .5rem;
 	padding: 2rem .5rem;
 }
@@ -100,13 +115,8 @@ hr {
 	margin-top: .3rem;
 }
 
-.page-index .post a {
-	text-decoration: none;
-}
-
 .page-index .post a:hover {
-	text-decoration: underline;
-	color: var(--brand-light-blue);
+	color: var(--bsrand-light-blue);
 }
 
 .page-index .post h2 {
