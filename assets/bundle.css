@@ -18,16 +18,24 @@ body {
 }
 
 /* Layout */
-body {
+#layout-base {
 	display: grid;
   grid-template-rows: 100px 1fr 100px;
   grid-template-columns: 1fr;
 	height: 100dvh;
-	grid-gap: 2rem;
 }
 
 main {
 	overflow: auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+/** Para pantallas grandes */
+#layout-base .page-content {
+	max-width: 500px;
+	width: 100%;
 }
 
 footer {
