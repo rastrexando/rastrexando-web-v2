@@ -20,7 +20,7 @@ body {
 /* Layout */
 #layout-base {
 	display: grid;
-  grid-template-rows: 90px 1fr 70px;
+  grid-template-rows: 90px 1fr 40px;
   grid-template-columns: 1fr;
 	height: 100dvh;
 }
@@ -57,17 +57,30 @@ footer {
 	height: 100%;
 	color: white;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 12px;
+	padding: 0rem 1rem;
+}
+
+#main-footer .left {
+	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	font-size: 10px;
 	gap: .5rem;
-	padding: 2rem .5rem;
 }
 
 #main-footer p {
 	margin: 0;
 }
+
+
+#main-footer a {
+	color: white;
+}
+
 
 #rastrexando-logo img {
 	max-width: 250px;
