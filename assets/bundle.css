@@ -96,20 +96,8 @@ hr {
 }
 
 /* Page index */
-.page-index aside {
-	margin-top: 2rem;
-}
-
-.page-index header {
-	text-align: center;
-	color: var(--brand-dark-blue);
-}
-
-.page-index header > i {
-	font-size: 60px;
-}
-
 .page-index .post {
+	margin-top: .7rem;
 	margin-bottom: 2rem;
 }
 
@@ -198,21 +186,28 @@ hr {
 	font-size: 1.1rem;
 }
 
-.page-post header {
+.page-header {
 	display: flex;
+	gap: 1rem;
+	align-items: center;
 	justify-content: space-between;
 }
 
-.page-post header i {
-	font-size: 20px;
+.page-header i, .page-header h1 {
+	font-size: 1.6rem;
+	color: var(--brand-dark-blue);
+	margin: 0;
 }
-
-.page-post header i:hover {
-	color: var(--brand-light-blue);
-}
-
 
 /* Utils */
 .is-light-blue {
+	color: var(--brand-light-blue);
+}
+
+.link i {
+	color: var(--brand-dark-blue);
+}
+
+.link i:hover {
 	color: var(--brand-light-blue);
 }
