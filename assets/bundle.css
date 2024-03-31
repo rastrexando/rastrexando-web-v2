@@ -18,6 +18,15 @@ body {
 	font-family: sans-serif;
 }
 
+/* Fuentes */
+@font-face {
+  font-family: 'Survivor Wood';
+  src: url('/assets/fonts/Survivor-Wood.eot');
+  src: url('/assets/fonts/Survivor-Wood.woff') format('woff'),
+       url('/assets/fonts/Survivor-Wood.woff2') format('woff2'),
+       url('/assets/fonts/Survivor-Wood.ttf') format('truetype');
+}
+
 /* Layout */
 #layout-base {
 	display: grid;
@@ -108,9 +117,23 @@ footer {
 	color: var(--brand-light-blue);
 }
 
+#rastrexando-logo {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	gap: .5rem;
+}
+
+#rastrexando-logo .title {
+	font-family: "Survivor Wood";
+	font-size: 2rem;
+}
 
 #rastrexando-logo img {
 	max-width: 200px;
+	max-height: 80px;
 }
 
 /* Page */
@@ -243,4 +266,8 @@ hr {
 
 .link i:hover {
 	color: var(--brand-light-blue);
+}
+
+.is-survivor-font {
+	font-family: "Survivor Wood";
 }
