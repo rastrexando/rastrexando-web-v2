@@ -7,39 +7,24 @@ title: Rastrexando
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/assets/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/assets/bundle.css">
     <title>{{ title }}</title>
   </head>
   <body>
 		<section id="layout-base">
 			<header id="main-header">
-				<div class="container-padding">
-					<a id="rastrexando-logo" href="/"><img class="image" src="/assets/rastrexando-horizontal.png" /></a>
-					<div>Volver</div>
-				</div>
+					<a id="rastrexando-logo" href="/">
+						<img class="image" src="/assets/rastrexando-horizontal.png" />
+					</a>
 			</header>
-			<aside>
-				<div class="container-padding">
-					<nav class="main-nav">
-						{% for post in collections.post %}
-							<article class="nav-post">
-								<div class="date">
-									<span>{{ post.date.getDay() }}</span>
-									<span>{{ post.date.toLocaleString("gl", {month: "long"}) }}</span>
-									<span>{{ post.date.getFullYear() }}</span>
-								</div>
-								<a class="{% if page.url == post.url %}active{% endif %}" href="{{ post.url }}">{{ post.data.title }}</a>
-							</article>
-							<hr />
-						{% endfor %}
-					</nav>
-				</div>
-			</aside>
 			<main>
-				<div class="container-padding">
-					{{ content | safe }}
-				</div>
+				{{ content | safe }}
 			</main>
 		</section>
+		<footer id="main-footer">
+			<p>Carlos González Goce</p>
+			<p>Rastrexando © 2017-2024</p>
+		</footer>
   </body>
 </html>

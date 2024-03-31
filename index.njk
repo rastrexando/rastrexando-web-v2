@@ -3,4 +3,35 @@ layout: base
 title: Rastrexando
 ---
 
-Página de inicio
+<div class="page page-index">
+	<header>
+		<i class="fi-calendar"></i>
+		<h1>Calendario</h1>
+	</header>
+	<aside>
+		<div>
+			<nav>
+				{% for post in collections.post %}
+					<article class="post">
+						<header>
+							<div class="date">
+								<i class="fi-calendar"></i>
+								<span>{{ post.date.getDay() }}</span>
+								<span>{{ post.date.toLocaleString("gl", {month: "long"}) }}</span>
+								<span>{{ post.date.getFullYear() }}</span>
+							</div>
+							<hr />
+							<a class="{% if page.url == post.url %}active{% endif %}" href="{{ post.url }}">
+								<h2>{{ post.data.title }}</h2>
+							</a>
+							<p class="location">
+								<i class="fi-marker"></i>
+								{{ post.data.location }}
+							</p>
+						</header>
+					</article>
+				{% endfor %}
+			</nav>
+		</div>
+	</aside>
+</div>

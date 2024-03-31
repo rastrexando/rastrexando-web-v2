@@ -1,10 +1,14 @@
 /* Variables */
 :root {
-	--brand-dark-blue: #0C0A4Bff;
-	--brand-light-blue: #2497EFff;
+	--brand-dark-blue: #0d0a4c;
+	--brand-light-blue: #259cf4;
 }
 
 /* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -12,63 +16,99 @@ body {
 	font-family: sans-serif;
 }
 
-/* Layout base */
-#layout-base {
-	max-width: 600px;
-	margin: 0 auto;
-}
-
-#layout-base > aside {
-	height: 100dvh;
-	background-color: white;
-}
-
-#main-header .container-padding {
-	display: flex;
-	flex-direction: row;
-	gap: 2rem;
-	align-items: center;
-}
-
-#rastrexando-logo img {
-	margin-bottom: 2rem;
-}
-
-.container-padding {
-	padding: 1rem;
-}
-
-.nav-post {
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-	margin-bottom: 1rem;
-	align-items: center;
-}
-
-.nav-post .date {
+/* Layout */
+#main-header {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	color:  var(--brand-dark-blue);
-	font-weight: bold;
-	text-align: center;
-	font-size: 1.1rem;
+	justify-content: center;
+	align-items: center;
+}
+
+#main-footer {
+	background-color: black;
+	width: 100%;
+	min-height: 50px;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 10px;
+	margin-top: 2rem;
 	gap: .5rem;
 }
 
-.nav-post a {
-	color:  var(--brand-light-blue);
+#main-footer p {
+	margin: 0;
+}
+
+#rastrexando-logo img {
+	max-width: 250px;
+}
+
+/* Page */
+.page {
+	padding: 0 1rem;
+}
+
+.page h1, .page h2 {
+	padding: 0;
+	margin: 0;
+}
+
+/** Global */
+a {
+	color: var(--brand-dark-blue);
+}
+
+
+/* Page index */
+.page-index aside {
+	margin-top: 2rem;
+}
+
+.page-index header {
+	text-align: center;
+	color: var(--brand-dark-blue);
+}
+
+.page-index header > i {
+	font-size: 60px;
+}
+
+.page-index .post {
+	margin-bottom: 2rem;
+}
+
+.page-index .post .date {
 	font-weight: bold;
-	font-size: 1.2rem;
 }
 
-.nav-post a.active {
-	color:  black;
+.page-index .post .location {
+	margin: 0;
+	margin-top: .3rem;
+}
+
+.page-index .post a {
 	text-decoration: none;
-	cursor: default;
 }
 
-/* Útiles */
-.image {
-	max-width: 100%;
+.page-index .post a:hover, .page-index .post a:visited {
+	text-decoration: underline;
+	color: var(--brand-light-blue);
+}
+
+.page-index .post h2 {
+	font-size: 1.3rem;
+}
+
+.page-index .post header {
+	text-align: left;
+	color: var(--brand-dark-blue);
+}
+
+.page-index .post header hr {
+	color: var(--brand-dark-blue);
+	margin: 0.2rem 0;
 }
