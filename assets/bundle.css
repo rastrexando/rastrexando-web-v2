@@ -64,7 +64,6 @@ a {
 	color: var(--brand-dark-blue);
 }
 
-
 /* Page index */
 .page-index aside {
 	margin-top: 2rem;
@@ -137,6 +136,10 @@ a {
 	padding: 1rem 1rem;
 }
 
+.page-post .date {
+	color: var(--brand-light-blue);
+}
+
 .page-post h1 {
 	color: var(--brand-dark-blue);
 	margin-bottom: .5rem;
@@ -145,4 +148,13 @@ a {
 .page-post .image {
 	max-width: 100%;
 	margin: 1rem 0;
+}
+
+.page-post .details {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.page-post .details li {
+	padding: .2rem 0;
 }

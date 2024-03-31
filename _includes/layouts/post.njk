@@ -5,27 +5,28 @@ layout: base
 <div class="page page-post">
 	<div class="date">
 		<i class="fi-calendar"></i>
-		<span>{{ date.getDay() }}</span>
-		<span>{{ date.toLocaleString("gl", {month: "long"}) }}</span>
-		<span>{{ date.getFullYear() }}</span>
+		<span><strong>{{ date.getDay() }}</strong></span>
+		<span><strong>{{ date.toLocaleString("gl", {month: "long"}) }}</strong></span>
+		<span><strong>{{ date.getFullYear() }}</strong></span>
 	</div>
 	<hr />
 	<h1>{{ title }}</h1>
 
-	<p>
-		<i class="fi-marker"></i>
-		{{ location }}
-	</p>
-
-	{% if source_url %}
-	<p>
-		<i class="fi-torso"></i>
-		Organiza
-		<a href="{{ source_url }}" title="{{ source_name }}" _blank="true">
-			{{ source_name }}
-		<a/>
-	</p>
-	{% endif %}
+	<ul class="details">
+		<li>
+			<i class="fi-marker"></i>
+			{{ location }}
+		</li>
+		{% if source_url %}
+		<li>
+			<i class="fi-social-facebook"></i>
+			Organiza
+			<a href="{{ source_url }}" title="{{ source_name }}" _blank="true">
+				{{ source_name }}
+			<a/>
+		</li>
+		{% endif %}
+	</ul>
 
 	<br />
 
