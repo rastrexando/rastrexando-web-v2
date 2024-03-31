@@ -12,9 +12,7 @@ layout: base
 		<li>
 			<div class="date">
 				<i class="fi-calendar is-light-blue"></i>
-				<span><strong>{{ date.getDay() }}</strong></span>
-				<span><strong>{{ date.toLocaleString("gl", {month: "long"}) }}</strong></span>
-				<span><strong>{{ date.getFullYear() }}</strong></span>
+				{{ date.toLocaleDateString("gl", {weekday: "long", year: "numeric", month: "long", day: "numeric"}) }}
 			</div>
 		</li>
 		<li>

@@ -27,9 +27,7 @@ pagination:
 								<li>
 									<div class="date">
 										<i class="fi-calendar is-light-blue"></i>
-										<span><strong>{{ post.data.date.getDay() }}</strong></span>
-										<span><strong>{{ post.data.date.toLocaleString("gl", {month: "long"}) }}</strong></span>
-										<span><strong>{{ post.data.date.getFullYear() }}</strong></span>
+										{{ post.data.date.toLocaleDateString("gl", {weekday: "long", year: "numeric", month: "long", day: "numeric"}) }}
 									</div>
 								</li>
 								<li>
