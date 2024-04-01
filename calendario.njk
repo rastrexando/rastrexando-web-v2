@@ -1,0 +1,10 @@
+---
+layout: calendar
+pagination:
+  data: years
+  size: 1
+  alias: year
+permalink: "calendarios/{{ year.name | slugify }}/"
+eleventyImport:
+  collections: ["events"]
+---
