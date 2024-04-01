@@ -21,10 +21,10 @@ body {
 /* Fuentes */
 @font-face {
   font-family: 'Survivor Wood';
-  src: url('/assets/fonts/Survivor-Wood.eot');
-  src: url('/assets/fonts/Survivor-Wood.woff') format('woff'),
-       url('/assets/fonts/Survivor-Wood.woff2') format('woff2'),
-       url('/assets/fonts/Survivor-Wood.ttf') format('truetype');
+  src: url('/recursos/fonts/Survivor-Wood.eot');
+  src: url('/recursos/fonts/Survivor-Wood.woff') format('woff'),
+       url('/recursos/fonts/Survivor-Wood.woff2') format('woff2'),
+       url('/recursos/fonts/Survivor-Wood.ttf') format('truetype');
 }
 
 /* Layout */
