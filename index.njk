@@ -11,56 +11,31 @@ pagination:
 ---
 
 <div class="page page-index">
-	<header class="page-header">
-		<h1>Calendario</h1>
-	</header>
-	<aside>
-		<div>
-			<nav>
-				{% for post in pagination.items %}
-					<article class="post">
-						<header>
-							<hr />
-							<a class="link {% if page.url == post.url %}active{% endif %}" href="{{ post.url }}">
-								<h2>{{ post.data.title }}</h2>
-							</a>
-							<ul class="details">
-								<li>
-									<div class="date">
-										<i class="fi-calendar is-light-blue"></i>
-										{{ post.data.date.toLocaleDateString("gl", {weekday: "long", year: "numeric", month: "long", day: "numeric"}) }}
-									</div>
-								</li>
-								<li>
-									<i class="fi-marker is-light-blue"></i>
-									{{ post.data.location }}
-								</li>
-								{% if post.data.source_url %}
-								<li>
-									<i class="fi-social-facebook is-light-blue"></i>
-									<a class="link" href="{{ post.data.source_url }}" title="{{ post.data.source_name }}" _blank="true">
-										{{ post.data.source_name }}
-									</a>
-								</li>
-								{% endif %}
-							</ul>
-						</header>
-					</article>
-				{% endfor %}
+  <header class="page-header">
+    <h1>Calendario</h1>
+  </header>
+  <aside>
+    <div>
+      <nav>
+        {% for post in pagination.items %}
+          {% renderPost post %}
+        {% endfor %}
 
-				{% if pagination.pages.length > 1 %}
-					<ul class="pagination">
-						<li>Máis:</li>
-						{%- for pageEntry in pagination.pages %}
-							{% if page.url == pagination.hrefs[ loop.index0 ] %}
-								<li>{{ loop.index }}</li>
-							{% else %}
-								<li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
-							{% endif %}
-						{%- endfor %}
-					</ul>
-				{% endif %}
-			</nav>
-		</div>
-	</aside>
+        {% if pagination.pages.length > 1 %}
+          <ul class="pagination">
+            <li>Máis:</li>
+            {%- for pageEntry in pagination.pages %}
+              {% if page.url == pagination.hrefs[loop.index0] %}
+                <li>{{ loop.index }}</li>
+              {% else %}
+                <li>
+                  <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" {% endif %}>{{ loop.index }}</a>
+                </li>
+              {% endif %}
+            {%- endfor %}
+          </ul>
+        {% endif %}
+      </nav>
+    </div>
+  </aside>
 </div>
