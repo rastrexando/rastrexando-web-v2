@@ -35,7 +35,7 @@ body {
 	height: 100dvh;
 }
 
-main {
+.page-center-content {
 	overflow: auto;
 	width: 100%;
 	display: flex;
@@ -265,4 +265,15 @@ hr {
 
 .is-survivor-font {
 	font-family: "Survivor Wood";
+}
+
+.relative {
+  position: relative;
+}
+
+/* Short codes */
+.prev-next-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -5,30 +5,11 @@ title: Calendario - Rastrexando
 
 <div class="page page-index">
   <header class="page-header">
-    <h1>Calendario</h1>
+    {% renderPrevNextButtons pagination, "Calendario " + year.name %}
   </header>
-  <aside>
-    <div>
-      <nav>
-        {% for post in collections[year.name] %}
-          {% renderPost post %}
-        {% endfor %}
-
-        {% if pagination.pages.length > 1 %}
-          <ul class="pagination">
-            <li>Máis:</li>
-            {%- for pageEntry in pagination.pages %}
-              {% if page.url == pagination.hrefs[loop.index0] %}
-                <li>{{ loop.index }}</li>
-              {% else %}
-                <li>
-                  <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" {% endif %}>{{ loop.index }}</a>
-                </li>
-              {% endif %}
-            {%- endfor %}
-          </ul>
-        {% endif %}
-      </nav>
-    </div>
-  </aside>
+  <section>
+    {% for post in collections[year.name] %}
+      {% renderPost post %}
+    {% endfor %}
+  </section>
 </div>
