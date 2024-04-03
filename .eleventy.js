@@ -9,13 +9,9 @@ module.exports = function (eleventyConfig) {
   /* Collections */
   const now = new Date();
 
-  eleventyConfig.addCollection("upcomingPosts", function (collectionApi) {
+  eleventyConfig.addCollection("featured", function (collectionApi) {
     return collectionApi.getAllSorted().reverse().filter(function(item) {
-      // Only posts
-      return true
-      return item.data && item.data.tags && "post" in item.data.tags;
-    }).filter(function(item) {
-      // Only upcoming
+      // Solo próximos rastrexos
       return item.data.date > now && item.data.tags.includes("post")
     })
   });

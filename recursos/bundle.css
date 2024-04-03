@@ -282,3 +282,19 @@ hr {
   justify-content: space-between;
   align-items: center;
 }
+
+.highlight-calendar {
+  padding: 1rem;
+  background-color: var(--brand-dark-blue);
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.highlight-calendar:hover {
+  background-color: var(--brand-light-blue);
+  color: var(--brand-dark-blue);
+  font-weight: bold;
+}

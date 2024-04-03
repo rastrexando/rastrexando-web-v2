@@ -4,7 +4,7 @@ title: Inicio - Rastrexando
 eleventyImport:
   data ["years"]
 pagination:
-  data: collections.upcomingPosts
+  data: collections.featured
   size: 10
   reverse: true
   alias: posts
@@ -13,7 +13,7 @@ pagination:
 
 <div class="page page-index">
   <header class="page-header">
-    <h1><i class="fi-fast-forward is-light-blue"></i> Destacados</h1>
+    <h1><i class="fi-star is-light-blue"></i> Destacados</h1>
   </header>
   <aside>
     <div>
@@ -40,18 +40,5 @@ pagination:
     </div>
   </aside>
 
-  <header class="page-header">
-    <h1><i class="fi-calendar is-light-blue"></i> Calendarios</h1>
-  </header>
-  <aside>
-    <div>
-      <nav>
-        <ul>
-          {% for year in years %}
-            <li><a href="calendarios/{{ year.name }}">{{ year.name }}</a></li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-  </aside>
+  <a class="highlight-calendar" href="calendarios/{{ years[years.length-1].name }}">Ver calendario {{ years[years.length-1].name }}</a>
 </div>
