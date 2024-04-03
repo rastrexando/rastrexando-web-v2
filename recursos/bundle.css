@@ -271,6 +271,11 @@ hr {
   position: relative;
 }
 
+.not-allowed {
+  cursor: not-allowed;
+  color: grey;
+}
+
 /* Short codes */
 .prev-next-buttons {
   display: flex;

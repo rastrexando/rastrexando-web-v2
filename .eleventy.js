@@ -22,12 +22,12 @@ module.exports = function (eleventyConfig) {
 
   /* Short codes */
   eleventyConfig.addShortcode("renderPrevNextButtons", function (pagination, title) {
-    let prev = "<span></span>"
+    let prev = "<div class='not-allowed'>Anterior</div>"
     if (pagination.href.previous) {
       prev = `<a href="${pagination.href.previous}">Anterior</a>`
     }
 
-    let next = "<span></span>"
+    let next = "<div class='not-allowed'>Seguinte</div>"
     if (pagination.href.next) {
       next =`<a href="${pagination.href.next}">Seguinte</a>`
     }

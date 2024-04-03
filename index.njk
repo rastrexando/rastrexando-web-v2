@@ -47,7 +47,7 @@ pagination:
     <div>
       <nav>
         <ul>
-          {% for year in years | reversed %}
+          {% for year in years %}
             <li><a href="calendarios/{{ year.name }}">{{ year.name }}</a></li>
           {% endfor %}
         </ul>
