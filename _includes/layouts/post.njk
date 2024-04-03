@@ -8,6 +8,20 @@ title: Evento — Rastrexando
 		<h1>{{ title }}</h1>
 	</header>
 	<hr />
+  <div class="prev-next-buttons">
+    {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
+    {% set nextPost = collections.post | getNextCollectionItem(page) %}
+    {% if previousPost %}
+      <a href="{{ previousPost.url }}">Anterior</a>
+    {% else %}
+      <div class='not-allowed'>Anterior</div>
+    {% endif %}
+    {% if nextPost %}
+      <a href="{{ nextPost.url }}">Seguinte</a>
+    {% else %}
+      <div class='not-allowed'>Seguinte</div>
+    {% endif %}
+  </div>
 	<ul class="details">
 		<li>
 			<div class="date">
