@@ -68,6 +68,7 @@ module.exports = function (eleventyConfig) {
 
     return `
     <article class="post">
+        <hr />
         <header>
             <a class="link" href="${post.url}">
             <h2>${post.data.title}</h2>
