@@ -242,40 +242,40 @@ hr {
 }
 
 /* Page index */
-.page-index .post {
+.post {
   margin-top: 0.7rem;
   margin-bottom: 2rem;
 }
 
-.page-index .post .date {
+.post .date {
   margin-top: 0.5rem;
 }
 
-.page-index .post .location {
+.post .location {
   margin: 0;
   margin-top: 0.3rem;
 }
 
-.page-index .post a:hover {
+.post a:hover {
   color: var(--bsrand-light-blue);
 }
 
-.page-index .post h2 {
+.post h2 {
   font-size: 1.3rem;
   margin-top: 0.5rem;
 }
 
-.page-index .post header {
+.post header {
   text-align: left;
   /* color: var(--brand-dark-blue); */
 }
 
-.page-index .post header hr {
+.post header hr {
   color: var(--brand-dark-blue);
   margin: 0.2rem 0;
 }
 
-.page-index .pagination {
+.pagination {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -284,20 +284,20 @@ hr {
   padding: 0;
 }
 
-.page-index .pagination a {
+.pagination a {
   color: var(--brand-dark-blue);
 }
 
-.page-index .pagination a:hover {
+.pagination a:hover {
   color: var(--brand-light-blue);
 }
 
-.page-index .details {
+.post .details {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.page-index .details li {
+.post .details li {
   padding: 0.2rem 0;
   font-size: 1.1rem;
 }
