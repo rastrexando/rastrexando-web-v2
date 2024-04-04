@@ -16,7 +16,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("toGLMonthDay", function(value) {
     if (value) {
-      return value.toLocaleDateString("gl", {weekday: "long", month: "long", day: "numeric"})
+      return value.toLocaleDateString("gl", {month: "long", day: "numeric"})
     }
     return ""
   });
