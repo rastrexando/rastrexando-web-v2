@@ -10,7 +10,7 @@ title: Evento — Rastrexando
       <li><i class="fi-play is-light-blue"></i></li>
       <li><a class="link" href="/calendarios/{{ date.getFullYear() }}/">{{ date.getFullYear() }}</a></li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li class="is-light-blue">Evento</li>
+      <li class="is-light-blue">{{ date | toGLMonthDay }}</li>
     </ul>
   </nav>
 
@@ -36,7 +36,7 @@ title: Evento — Rastrexando
 		<li>
 			<div class="date">
 				<i class="fi-calendar is-light-blue"></i>
-				{{ date.toLocaleDateString("gl", {weekday: "long", year: "numeric", month: "long", day: "numeric"}) }}
+				{{ date | toGlLocale }}
 			</div>
 		</li>
 		<li>

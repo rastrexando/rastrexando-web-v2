@@ -6,6 +6,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("recursos/");
   eleventyConfig.addPassthroughCopy("CNAME");
 
+  /* Filters */
+  eleventyConfig.addFilter("toGlLocale", function(value) {
+    if (value) {
+      return value.toLocaleDateString("gl", {weekday: "long", year: "numeric", month: "long", day: "numeric"})
+    }
+    return ""
+  });
+
+  eleventyConfig.addFilter("toGLMonthDay", function(value) {
+    if (value) {
+      return value.toLocaleDateString("gl", {weekday: "long", month: "long", day: "numeric"})
+    }
+    return ""
+  });
+
+
   /* Collections */
   const now = new Date();
 
