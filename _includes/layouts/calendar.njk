@@ -3,10 +3,17 @@ layout: base
 title: Calendario - Rastrexando
 ---
 
-<div class="page page-index">
-  <header class="page-header">
-    {% renderPrevNextButtons pagination, "Calendario " + year.name %}
-  </header>
+<div class="page page-calendar">
+  <nav class="breadcrumbs">
+    <ul>
+      <li><a class="link" href="/">Inicio</a></li>
+      <li><i class="fi-play is-light-blue"></i></li>
+      <li class="is-light-blue">{{ year.name }}</li>
+    </ul>
+  </nav>
+
+  {% renderPrevNextButtons pagination, year.name %}
+
   <section>
     {% for post in collections[year.name] %}
       {% renderPost post %}
