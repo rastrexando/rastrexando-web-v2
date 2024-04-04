@@ -223,7 +223,11 @@ hr {
 
 /* Page post */
 .page-post {
-	padding: 1rem 1rem;
+	padding: .3rem 1rem;
+}
+
+.page-post h1 {
+  text-align: center;
 }
 
 .page-post .date {
@@ -248,6 +252,15 @@ hr {
 .page-header i, .page-header h1 {
 	font-size: 1.6rem;
 	margin: 0;
+}
+
+/* Page calendar */
+.page-calendar {
+	padding: .3rem 1rem;
+}
+
+.page-calendar h1 {
+  text-align: center;
 }
 
 /* Utils */
@@ -300,3 +313,16 @@ hr {
   color: var(--brand-dark-blue);
   font-weight: bold;
 }
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
