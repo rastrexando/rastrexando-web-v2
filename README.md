@@ -1,3 +1,6 @@
+---
+eleventyExcludeFromCollections: true
+---
 # Rastrexando Web V2
 
 
