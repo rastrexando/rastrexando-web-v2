@@ -21,7 +21,6 @@ module.exports = function (eleventyConfig) {
     return ""
   });
 
-
   /* Collections */
   const now = new Date();
 
