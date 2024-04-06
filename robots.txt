@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://rastrexando.eu/sitemap.xml
-Host: https://rastrexando.eu
