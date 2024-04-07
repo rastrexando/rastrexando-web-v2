@@ -62,9 +62,15 @@ title: Evento — Rastrexando
 	{% endif %}
 
   {% if videos %}
-    {% for video in videos %}
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.id }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    {% endfor %}
+    <section class="video-section">
+      <hr />
+      <h2>Vídeos</h2>
+      <div class="video-list">
+        {% for video in videos %}
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.id }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {% endfor %}
+      </div>
+    </section>
   {% endif %}
 
 	{{ content | safe }}

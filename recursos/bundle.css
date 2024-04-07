@@ -345,6 +345,22 @@ hr {
   text-align: center;
 }
 
+/* Sections */
+.video-section {
+  margin: 1rem 0;
+}
+
+.video-section h2 {
+  color: var(--brand-dark-blue);
+}
+
+.video-section .video-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 /* Utils */
 .is-light-blue {
   color: var(--brand-light-blue);
