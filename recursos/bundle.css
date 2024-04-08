@@ -241,6 +241,28 @@ hr {
   border: var(--brand-dark-blue) 1px solid;
 }
 
+.table {
+  width: fit-content;
+  border-collapse: collapse;
+}
+
+.table th {
+  color: var(--brand-dark-blue);
+}
+
+.table th, .table td {
+  padding: .5rem 1rem;
+}
+
+.table tr:hover td, .table tr:hover td a {
+  background-color: var(--brand-light-blue);
+  color: white;
+}
+
+.table tr:nth-child(even) {
+  background-color: aliceblue;
+}
+
 /* Page index */
 .post {
   margin-top: 0.7rem;
@@ -398,6 +420,14 @@ hr {
 
 .z-50 {
   z-index: 50;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 /* Short codes */

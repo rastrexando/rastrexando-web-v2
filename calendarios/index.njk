@@ -20,13 +20,23 @@ pagination:
     <h1><i class="fi-calendar is-light-blue"></i> Calendarios</h1>
   </header>
   <section>
-    <p>Arquivo de tódolos eventos ano a ano.</p>
-    <ul class="pagination">
-      {% for year in years | reverse %}
-        <li>
-          <a title="Calendario {{ year.name }}" href="/calendarios/{{ year.name | slugify }}/">{{ year.name }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+    <br />
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">Ano</th>
+          <th class="text-right">Eventos</th>
+          <th class="text-right"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for year in years %}
+          <tr>
+              <td class="text-right"><a title="Calendario {{ year.name }}" href="/calendarios/{{ year.name | slugify }}/">{{ year.name }}</a></td>
+              <td class="text-right">{{ collections[year.name].length }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </section>
 </div>
