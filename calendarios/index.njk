@@ -1,0 +1,32 @@
+---
+layout: base
+title: Calendarios — Rastrexando
+pagination:
+  data: years
+  size: 1
+  alias: year
+---
+
+
+<div class="page">
+  <nav class="breadcrumbs">
+    <ul>
+      <li><a class="link" href="/">Inicio</a></li>
+      <li><i class="fi-play is-light-blue"></i></li>
+      <li>Calendarios</li>
+    </ul>
+  </nav>
+  <header class="page-header">
+    <h1><i class="fi-calendar is-light-blue"></i> Calendarios</h1>
+  </header>
+  <section>
+    <p>Arquivo de tódolos eventos ano a ano.</p>
+    <ul class="pagination">
+      {% for year in years | reverse %}
+        <li>
+          <a title="Calendario {{ year.name }}" href="/calendarios/{{ year.name | slugify }}/">{{ year.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
