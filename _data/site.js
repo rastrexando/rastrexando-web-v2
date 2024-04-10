@@ -2,6 +2,6 @@
 
 module.exports = function () {
   return {
-    url: 'https://rastrexando.eu/'
+    url: 'https://rastrexando.eu'
   }
 }
