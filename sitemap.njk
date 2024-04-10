@@ -1,16 +1,6 @@
 ---
 eleventyExcludeFromCollections: true
-permalink: /sitemap.xml
+permalink: /sitemap.txt
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://sitemaps.org/schemas/sitemap/0.9">
-  {# Calendars #}
-  {% for item in collections.all %}
-    <url>
-      <loc>{{ site.url }}{{ item.url }}</loc>
-      <lastmod>{{ utils.now() }}</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-  {% endfor %}
-</urlset>
+{% for item in collections.all %}{{ site.url }}{{ item.url }}
+{% endfor %}
