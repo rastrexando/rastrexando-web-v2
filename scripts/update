@@ -1,0 +1,2 @@
+# Actualiza librerías JS
+curl --location https://unpkg.com/htmx.org/dist/htmx.min.js -o recursos/js/htmx.min.js

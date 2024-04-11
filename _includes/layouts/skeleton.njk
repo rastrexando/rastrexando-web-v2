@@ -29,8 +29,11 @@ title: Rastrexando
     <meta name="application-name" content="Rastrexando">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+
+    <!-- Scripts -->
+    <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative">
+  <body class="relative" hx-boost="true">
     {{ content | safe }}
   </body>
 </html>
