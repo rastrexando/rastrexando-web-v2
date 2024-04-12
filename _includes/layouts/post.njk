@@ -3,19 +3,19 @@ layout: base
 title: Evento — Rastrexando
 ---
 
-<div class="page page-post">
-  <nav class="breadcrumbs">
-    <ul>
-      <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
-      <li><i class="fi-play is-light-blue"></i></li>
-      <li>{% renderHTMXLink "/calendarios/", "Calendarios", "link" %}</li>
-      <li><i class="fi-play is-light-blue"></i></li>
-      <li>{% renderHTMXLink "/calendarios/" + date.getFullYear() + "/", date.getFullYear(), "link" %}</li>
-      <li><i class="fi-play is-light-blue"></i></li>
-      <li class="is-light-blue">{{ date | toGLMonthDay }}</li>
-    </ul>
-  </nav>
+<nav class="breadcrumbs">
+  <ul>
+    <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
+    <li><i class="fi-play is-light-blue"></i></li>
+    <li>{% renderHTMXLink "/calendarios/", "Calendarios", "link" %}</li>
+    <li><i class="fi-play is-light-blue"></i></li>
+    <li>{% renderHTMXLink "/calendarios/" + date.getFullYear() + "/", date.getFullYear(), "link" %}</li>
+    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="is-light-blue">{{ date | toGLMonthDay }}</li>
+  </ul>
+</nav>
 
+<div class="page page-post">
 	<header class="page-header">
 		<h1>{{ title }}</h1>
 	</header>
