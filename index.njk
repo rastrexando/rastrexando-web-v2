@@ -38,6 +38,6 @@ pagination:
   </section>
 
   <div class="is-flex-centered">
-    <a class="highlight-calendar" href="calendarios/{{ years[years.length-1].name }}">Ver calendario {{ years[years.length-1].name }}</a>
+    {% renderHTMXLink "calendarios/" + years[years.length-1].name + "/", "Ver calendario " + years[years.length-1].name, "highlight-calendar" %}
   </div>
 </div>

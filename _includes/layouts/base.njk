@@ -7,7 +7,14 @@ layout: skeleton
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>

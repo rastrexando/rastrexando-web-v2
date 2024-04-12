@@ -6,11 +6,11 @@ title: Evento — Rastrexando
 <div class="page page-post">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>{% renderHTMXLink "/calendarios/", "Calendarios", "link" %}</li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/{{ date.getFullYear() }}/">{{ date.getFullYear() }}</a></li>
+      <li>{% renderHTMXLink "/calendarios/" + date.getFullYear() + "/", date.getFullYear(), "link" %}</li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">{{ date | toGLMonthDay }}</li>
     </ul>
@@ -24,12 +24,12 @@ title: Evento — Rastrexando
     {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
     {% set nextPost = collections.post | getNextCollectionItem(page) %}
     {% if previousPost %}
-      <a href="{{ previousPost.url }}">Anterior</a>
+      {% renderHTMXLink previousPost.url, "Anterior" %}
     {% else %}
       <div class='not-allowed'>Anterior</div>
     {% endif %}
     {% if nextPost %}
-      <a href="{{ nextPost.url }}">Seguinte</a>
+      {% renderHTMXLink nextPost.url, "Seguinte" %}
     {% else %}
       <div class='not-allowed'>Seguinte</div>
     {% endif %}
@@ -58,7 +58,7 @@ title: Evento — Rastrexando
 	<br />
 
 	{% if image %}
-		<a hx-boost="false" href="/recursos/imaxes/{{ image }}" title="{{ title }}" _blank="true">
+		<a href="/recursos/imaxes/{{ image }}" title="{{ title }}" _blank="true">
 			<img class="image" src="/recursos/imaxes/{{ image }}" />
 		</a>
 	{% endif %}

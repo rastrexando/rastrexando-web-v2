@@ -6,9 +6,13 @@ title: Calendario - Rastrexando
 <div class="page page-calendar">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+        {% renderHTMXLink "/", "Inicio", "link" %}
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+        {% renderHTMXLink "/calendarios/", "Calendarios", "link" %}
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">{{ year.name }}</li>
     </ul>

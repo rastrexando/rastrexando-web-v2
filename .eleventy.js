@@ -32,15 +32,51 @@ module.exports = function (eleventyConfig) {
   });
 
   /* Short codes */
+  eleventyConfig.addShortcode("renderHTMXLink", function(href, title, classes="") {
+    return `
+      <a
+        href="${href}"
+        hx-get="${href}"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="${title}"
+        class="${classes}"
+      >
+        ${title}
+      </a>
+    `
+  })
+
   eleventyConfig.addShortcode("renderPrevNextButtons", function (pagination, title) {
     let prev = "<div class='not-allowed'>Anterior</div>"
     if (pagination.href.previous) {
-      prev = `<a href="${pagination.href.previous}">Anterior</a>`
+      prev = `
+        <a
+          href="${pagination.href.previous}"
+          hx-get="${pagination.href.previous}"
+          hx-push-url="true"
+          hx-target="#main-container"
+          hx-select="#main-container"
+        >
+            Anterior
+        </a>
+      `
     }
 
     let next = "<div class='not-allowed'>Seguinte</div>"
     if (pagination.href.next) {
-      next =`<a href="${pagination.href.next}">Seguinte</a>`
+      next =`
+        <a
+          href="${pagination.href.next}"
+          hx-get="${pagination.href.next}"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
+          Seguinte
+        </a>
+      `
     }
 
     return `
@@ -69,7 +105,14 @@ module.exports = function (eleventyConfig) {
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="${post.url}">
+            <a
+              class="link"
+              hx-get="${post.url}"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="${post.url}"
+            >
             <h2>${post.data.title}</h2>
             </a>
             <ul class="details">
