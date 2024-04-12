@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,9 +61,37 @@
 <div class="page page-calendar">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+        
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+        
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">2023</li>
     </ul>
@@ -64,9 +99,29 @@
 
   
       <div class="prev-next-buttons">
-      <a href="/calendarios/2020/">Anterior</a>
+      
+        <a
+          href="/calendarios/2020/"
+          hx-get="/calendarios/2020/"
+          hx-push-url="true"
+          hx-target="#main-container"
+          hx-select="#main-container"
+        >
+            Anterior
+        </a>
+      
       <h1>2023</h1>
-      <a href="/calendarios/2024/">Seguinte</a>
+      
+        <a
+          href="/calendarios/2024/"
+          hx-get="/calendarios/2024/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
+          Seguinte
+        </a>
+      
       </div>
     
 
@@ -76,7 +131,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2023/2023-06-03-vi-rastrexo-pinheiro/">
+            <a
+              class="link"
+              hx-get="/calendarios/2023/2023-06-03-vi-rastrexo-pinheiro/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2023/2023-06-03-vi-rastrexo-pinheiro/"
+            >
             <h2>VI Rastrexo Piñeiro</h2>
             </a>
             <ul class="details">
@@ -105,7 +167,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2023/2023-07-23-i-rastrexo-coruxo/">
+            <a
+              class="link"
+              hx-get="/calendarios/2023/2023-07-23-i-rastrexo-coruxo/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2023/2023-07-23-i-rastrexo-coruxo/"
+            >
             <h2>I Rastrexo de Coruxo: A escola musical</h2>
             </a>
             <ul class="details">
@@ -134,7 +203,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2023/2023-07-29-rastrexo-infantil-camos/">
+            <a
+              class="link"
+              hx-get="/calendarios/2023/2023-07-29-rastrexo-infantil-camos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2023/2023-07-29-rastrexo-infantil-camos/"
+            >
             <h2>Rastrexo Infantil Camos: Barrio Sésamo S.XXI</h2>
             </a>
             <ul class="details">
@@ -163,7 +239,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2023/2023-09-16-rastrexo-musical/">
+            <a
+              class="link"
+              hx-get="/calendarios/2023/2023-09-16-rastrexo-musical/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2023/2023-09-16-rastrexo-musical/"
+            >
             <h2>Rastrexo musical</h2>
             </a>
             <ul class="details">
@@ -192,7 +275,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2023/2023-09-23-andaina-nocturna-con-probas/">
+            <a
+              class="link"
+              hx-get="/calendarios/2023/2023-09-23-andaina-nocturna-con-probas/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2023/2023-09-23-andaina-nocturna-con-probas/"
+            >
             <h2>Andaina nocturna con probas</h2>
             </a>
             <ul class="details">
@@ -221,7 +311,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2023/2023-08-25-7-caminho-do-terror/">
+            <a
+              class="link"
+              hx-get="/calendarios/2023/2023-08-25-7-caminho-do-terror/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2023/2023-08-25-7-caminho-do-terror/"
+            >
             <h2>7ª Andaina nocturna "O camiño do terror"</h2>
             </a>
             <ul class="details">
@@ -250,7 +347,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2023/2023-11-25-rastrexo-especial-postsamain-ceip-da-cruz-camos/">
+            <a
+              class="link"
+              hx-get="/calendarios/2023/2023-11-25-rastrexo-especial-postsamain-ceip-da-cruz-camos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2023/2023-11-25-rastrexo-especial-postsamain-ceip-da-cruz-camos/"
+            >
             <h2>Rastrexo Especial Postsamain CEIP da Cruz Camos</h2>
             </a>
             <ul class="details">

@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,9 +61,37 @@
 <div class="page page-calendar">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+        
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+        
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">2015</li>
     </ul>
@@ -64,9 +99,29 @@
 
   
       <div class="prev-next-buttons">
-      <a href="/calendarios/2014/">Anterior</a>
+      
+        <a
+          href="/calendarios/2014/"
+          hx-get="/calendarios/2014/"
+          hx-push-url="true"
+          hx-target="#main-container"
+          hx-select="#main-container"
+        >
+            Anterior
+        </a>
+      
       <h1>2015</h1>
-      <a href="/calendarios/2016/">Seguinte</a>
+      
+        <a
+          href="/calendarios/2016/"
+          hx-get="/calendarios/2016/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
+          Seguinte
+        </a>
+      
       </div>
     
 
@@ -76,7 +131,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/1o-desafio-4-estacions-de-couso-ruta-do-estraperlo/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/1o-desafio-4-estacions-de-couso-ruta-do-estraperlo/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/1o-desafio-4-estacions-de-couso-ruta-do-estraperlo/"
+            >
             <h2>1º Desafío 4 Estacións de Couso “Ruta do Estraperlo”</h2>
             </a>
             <ul class="details">
@@ -100,7 +162,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/2o-desafio-4-estacions-de-couso-rastrexo-do-zodiac/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/2o-desafio-4-estacions-de-couso-rastrexo-do-zodiac/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/2o-desafio-4-estacions-de-couso-rastrexo-do-zodiac/"
+            >
             <h2>2º Desafío 4 Estacións de Couso “Rastrexo do Zodíaco”</h2>
             </a>
             <ul class="details">
@@ -124,7 +193,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/ii-rastrexo-de-santa-eulalia-de-batallans/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/ii-rastrexo-de-santa-eulalia-de-batallans/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/ii-rastrexo-de-santa-eulalia-de-batallans/"
+            >
             <h2>II Rastrexo de Santa Eulalia de Batalláns</h2>
             </a>
             <ul class="details">
@@ -148,7 +224,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-da-costeira/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-da-costeira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-da-costeira/"
+            >
             <h2>I Rastrexo da Costeira</h2>
             </a>
             <ul class="details">
@@ -172,7 +255,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-atios/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-atios/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-atios/"
+            >
             <h2>I Rastrexo de Atios</h2>
             </a>
             <ul class="details">
@@ -196,7 +286,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-pineiro/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-pineiro/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-pineiro/"
+            >
             <h2>I Rastrexo de Piñeiro</h2>
             </a>
             <ul class="details">
@@ -220,7 +317,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-ondinas-do-mendo/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-ondinas-do-mendo/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-ondinas-do-mendo/"
+            >
             <h2>I Rastrexo Ondiñas do Mendo</h2>
             </a>
             <ul class="details">
@@ -244,7 +348,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-veteranos-tomineses/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-veteranos-tomineses/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-veteranos-tomineses/"
+            >
             <h2>I Rastrexo Veteranos Tomiñeses</h2>
             </a>
             <ul class="details">
@@ -268,7 +379,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/iii-rastrexo-de-san-pedro-de-batallans/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/iii-rastrexo-de-san-pedro-de-batallans/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/iii-rastrexo-de-san-pedro-de-batallans/"
+            >
             <h2>III Rastrexo de San Pedro de Batalláns</h2>
             </a>
             <ul class="details">
@@ -292,7 +410,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/3o-desafio-4-estacions-de-couso-rastrexo-pirata/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/3o-desafio-4-estacions-de-couso-rastrexo-pirata/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/3o-desafio-4-estacions-de-couso-rastrexo-pirata/"
+            >
             <h2>3º Desafío 4 Estacións de Couso “Rastrexo Pirata”</h2>
             </a>
             <ul class="details">
@@ -316,7 +441,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-areas-areasville/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-areas-areasville/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-areas-areasville/"
+            >
             <h2>I Rastrexo de Areas “AREASVILLE”</h2>
             </a>
             <ul class="details">
@@ -340,7 +472,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/ii-rastrexo-de-pereiras-sinais/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/ii-rastrexo-de-pereiras-sinais/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/ii-rastrexo-de-pereiras-sinais/"
+            >
             <h2>II Rastrexo de Pereiras “SINAIS”</h2>
             </a>
             <ul class="details">
@@ -364,7 +503,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-s-bartolomeu-as-olimpiadas/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-s-bartolomeu-as-olimpiadas/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-s-bartolomeu-as-olimpiadas/"
+            >
             <h2>I Rastrexo de S. Bartolomeu "As Olimpiadas"</h2>
             </a>
             <ul class="details">
@@ -388,7 +534,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-soutolobre/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-soutolobre/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-soutolobre/"
+            >
             <h2>I Rastrexo de Soutolobre</h2>
             </a>
             <ul class="details">
@@ -412,7 +565,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/ii-rastrexo-de-cristinade/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/ii-rastrexo-de-cristinade/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/ii-rastrexo-de-cristinade/"
+            >
             <h2>II Rastrexo de Cristiñade</h2>
             </a>
             <ul class="details">
@@ -436,7 +596,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/iii-rastrexo-de-gulans/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/iii-rastrexo-de-gulans/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/iii-rastrexo-de-gulans/"
+            >
             <h2>III Rastrexo de Guláns</h2>
             </a>
             <ul class="details">
@@ -460,7 +627,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/vi-rastrexo-de-celeiros-super-celeiros/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/vi-rastrexo-de-celeiros-super-celeiros/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/vi-rastrexo-de-celeiros-super-celeiros/"
+            >
             <h2>VI Rastrexo de Celeiros “Súper Celeiros”</h2>
             </a>
             <ul class="details">
@@ -484,7 +658,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/ii-rastrexo-de-fornelos-da-ribeira/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/ii-rastrexo-de-fornelos-da-ribeira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/ii-rastrexo-de-fornelos-da-ribeira/"
+            >
             <h2>II Rastrexo de Fornelos da Ribeira</h2>
             </a>
             <ul class="details">
@@ -508,7 +689,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/xiii-rastrexo-de-pexegueiro/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/xiii-rastrexo-de-pexegueiro/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/xiii-rastrexo-de-pexegueiro/"
+            >
             <h2>XIII Rastrexo de Pexegueiro</h2>
             </a>
             <ul class="details">
@@ -532,7 +720,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/vi-rastrexo-de-oliveira/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/vi-rastrexo-de-oliveira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/vi-rastrexo-de-oliveira/"
+            >
             <h2>VI Rastrexo de Oliveira</h2>
             </a>
             <ul class="details">
@@ -556,7 +751,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/iii-rastrexo-vila-de-as-neves/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/iii-rastrexo-vila-de-as-neves/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/iii-rastrexo-vila-de-as-neves/"
+            >
             <h2>III Rastrexo Vila de As Neves</h2>
             </a>
             <ul class="details">
@@ -580,7 +782,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/x-rastrexo-de-fozara/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/x-rastrexo-de-fozara/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/x-rastrexo-de-fozara/"
+            >
             <h2>X Rastrexo de Fozara</h2>
             </a>
             <ul class="details">
@@ -604,7 +813,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/iii-rastrexo-de-maceira/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/iii-rastrexo-de-maceira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/iii-rastrexo-de-maceira/"
+            >
             <h2>III Rastrexo de Maceira</h2>
             </a>
             <ul class="details">
@@ -628,7 +844,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/xviii-rastrexo-de-xinzo/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/xviii-rastrexo-de-xinzo/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/xviii-rastrexo-de-xinzo/"
+            >
             <h2>XVIII Rastrexo de Xinzo</h2>
             </a>
             <ul class="details">
@@ -652,7 +875,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/iv-rastrexo-arcos/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/iv-rastrexo-arcos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/iv-rastrexo-arcos/"
+            >
             <h2>IV Rastrexo Arcos</h2>
             </a>
             <ul class="details">
@@ -676,7 +906,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/vi-rastrexo-de-taborda-2/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/vi-rastrexo-de-taborda-2/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/vi-rastrexo-de-taborda-2/"
+            >
             <h2>VI Rastrexo de Taborda</h2>
             </a>
             <ul class="details">
@@ -700,7 +937,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-internacional/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-internacional/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-internacional/"
+            >
             <h2>I Rastrexo Internacional de Herville</h2>
             </a>
             <ul class="details">
@@ -724,7 +968,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-rubios/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-rubios/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-rubios/"
+            >
             <h2>I Rastrexo de Rubiós</h2>
             </a>
             <ul class="details">
@@ -748,7 +999,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-villar/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-villar/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-villar/"
+            >
             <h2>I Rastrexo de Villar</h2>
             </a>
             <ul class="details">
@@ -772,7 +1030,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/iii-rastrexo-de-moreira/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/iii-rastrexo-de-moreira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/iii-rastrexo-de-moreira/"
+            >
             <h2>III Rastrexo de Moreira</h2>
             </a>
             <ul class="details">
@@ -796,7 +1061,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-ac-leitarello-a-prehistoria/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-ac-leitarello-a-prehistoria/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-ac-leitarello-a-prehistoria/"
+            >
             <h2>I Rastrexo A.C. Leitarello “A Prehistoria”</h2>
             </a>
             <ul class="details">
@@ -820,7 +1092,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-marenum-san-salvador-de-tebra/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-marenum-san-salvador-de-tebra/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-marenum-san-salvador-de-tebra/"
+            >
             <h2>I Rastrexo Marenum San Salvador de Tebra</h2>
             </a>
             <ul class="details">
@@ -844,7 +1123,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/ii-rastrexo-de-entenza-imperio-a-turonia/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/ii-rastrexo-de-entenza-imperio-a-turonia/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/ii-rastrexo-de-entenza-imperio-a-turonia/"
+            >
             <h2>II Rastrexo de Entenza "Imperio A Turonia"</h2>
             </a>
             <ul class="details">
@@ -868,7 +1154,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/ii-rastrexo-san-esteban-de-budino/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/ii-rastrexo-san-esteban-de-budino/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/ii-rastrexo-san-esteban-de-budino/"
+            >
             <h2>II Rastrexo San Esteban de Budiño</h2>
             </a>
             <ul class="details">
@@ -892,7 +1185,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/4o-reto-do-desafio-4-estacions-rastrexo-tenebroso/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/4o-reto-do-desafio-4-estacions-rastrexo-tenebroso/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/4o-reto-do-desafio-4-estacions-rastrexo-tenebroso/"
+            >
             <h2>4º Reto do Desafío 4 Estacións "Rastrexo Tenebroso"</h2>
             </a>
             <ul class="details">
@@ -916,7 +1216,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/ii-rastrexo-de-torneiros/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/ii-rastrexo-de-torneiros/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/ii-rastrexo-de-torneiros/"
+            >
             <h2>II Rastrexo de Torneiros</h2>
             </a>
             <ul class="details">
@@ -940,7 +1247,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2015/i-rastrexo-de-vincios-cuvi/">
+            <a
+              class="link"
+              hx-get="/calendarios/2015/i-rastrexo-de-vincios-cuvi/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2015/i-rastrexo-de-vincios-cuvi/"
+            >
             <h2>I Rastrexo de Vincios (CUVI</h2>
             </a>
             <ul class="details">

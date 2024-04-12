@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,11 +61,47 @@
 <div class="page page-post">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/2017/">2017</a></li>
+      <li>
+      <a
+        href="/calendarios/2017/"
+        hx-get="/calendarios/2017/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="2017"
+        class="link"
+      >
+        2017
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">14 de outubro</li>
     </ul>
@@ -72,10 +115,34 @@
     
     
     
-      <a href="/calendarios/2017/iv-rastrexo-de-torneiros/">Anterior</a>
+      
+      <a
+        href="/calendarios/2017/iv-rastrexo-de-torneiros/"
+        hx-get="/calendarios/2017/iv-rastrexo-de-torneiros/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Anterior"
+        class=""
+      >
+        Anterior
+      </a>
     
     
-      <a href="/calendarios/2017/21-10-2017-tomino-ii-rastrexo-de-estas-tempo-atras/">Seguinte</a>
+    
+      
+      <a
+        href="/calendarios/2017/21-10-2017-tomino-ii-rastrexo-de-estas-tempo-atras/"
+        hx-get="/calendarios/2017/21-10-2017-tomino-ii-rastrexo-de-estas-tempo-atras/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Seguinte"
+        class=""
+      >
+        Seguinte
+      </a>
+    
     
   </div>
 	<ul class="details">
@@ -102,7 +169,7 @@
 	<br />
 
 	
-		<a hx-boost="false" href="/recursos/imaxes/2012-2020/9e/c3d563-442d-406d-9469-f4bd43ac1ef6.jpg" title="I Rastrexo Erizana" _blank="true">
+		<a href="/recursos/imaxes/2012-2020/9e/c3d563-442d-406d-9469-f4bd43ac1ef6.jpg" title="I Rastrexo Erizana" _blank="true">
 			<img class="image" src="/recursos/imaxes/2012-2020/9e/c3d563-442d-406d-9469-f4bd43ac1ef6.jpg" />
 		</a>
 	

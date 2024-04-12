@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,9 +61,37 @@
 <div class="page page-calendar">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+        
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+        
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">2020</li>
     </ul>
@@ -64,9 +99,29 @@
 
   
       <div class="prev-next-buttons">
-      <a href="/calendarios/2019/">Anterior</a>
+      
+        <a
+          href="/calendarios/2019/"
+          hx-get="/calendarios/2019/"
+          hx-push-url="true"
+          hx-target="#main-container"
+          hx-select="#main-container"
+        >
+            Anterior
+        </a>
+      
       <h1>2020</h1>
-      <a href="/calendarios/2023/">Seguinte</a>
+      
+        <a
+          href="/calendarios/2023/"
+          hx-get="/calendarios/2023/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
+          Seguinte
+        </a>
+      
       </div>
     
 
@@ -76,7 +131,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/">
+            <a
+              class="link"
+              hx-get="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
+            >
             <h2>IV Rastrexo de Baredo "O Gran Imperio Co-Chino"</h2>
             </a>
             <ul class="details">
@@ -105,7 +167,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/">
+            <a
+              class="link"
+              hx-get="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
+            >
             <h2>III Rastrexo Festas da Peregrina</h2>
             </a>
             <ul class="details">
@@ -134,7 +203,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/">
+            <a
+              class="link"
+              hx-get="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
+            >
             <h2>VII Rastrexo de Pereiras</h2>
             </a>
             <ul class="details">
@@ -163,7 +239,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/">
+            <a
+              class="link"
+              hx-get="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
+            >
             <h2>IV Rastrexo de Camos</h2>
             </a>
             <ul class="details">

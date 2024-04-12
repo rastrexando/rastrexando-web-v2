@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,11 +61,47 @@
 <div class="page page-post">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/2024/">2024</a></li>
+      <li>
+      <a
+        href="/calendarios/2024/"
+        hx-get="/calendarios/2024/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="2024"
+        class="link"
+      >
+        2024
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">6 de xullo</li>
     </ul>
@@ -72,7 +115,19 @@
     
     
     
-      <a href="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/">Anterior</a>
+      
+      <a
+        href="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
+        hx-get="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Anterior"
+        class=""
+      >
+        Anterior
+      </a>
+    
     
     
       <div class='not-allowed'>Seguinte</div>
@@ -102,7 +157,7 @@
 	<br />
 
 	
-		<a hx-boost="false" href="/recursos/imaxes/2024/2024-07-06-super-camos.jpeg" title="7º Rastrexo Super Camos" _blank="true">
+		<a href="/recursos/imaxes/2024/2024-07-06-super-camos.jpeg" title="7º Rastrexo Super Camos" _blank="true">
 			<img class="image" src="/recursos/imaxes/2024/2024-07-06-super-camos.jpeg" />
 		</a>
 	

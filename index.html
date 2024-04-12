@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -63,7 +70,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/">
+            <a
+              class="link"
+              hx-get="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
+            >
             <h2>VII Rastrexo de Piñeiro</h2>
             </a>
             <ul class="details">
@@ -92,7 +106,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2024/2024-07-06-super-camos/">
+            <a
+              class="link"
+              hx-get="/calendarios/2024/2024-07-06-super-camos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2024/2024-07-06-super-camos/"
+            >
             <h2>7º Rastrexo Super Camos</h2>
             </a>
             <ul class="details">
@@ -122,7 +143,19 @@
   </section>
 
   <div class="is-flex-centered">
-    <a class="highlight-calendar" href="calendarios/2024">Ver calendario 2024</a>
+    
+      <a
+        href="calendarios/2024/"
+        hx-get="calendarios/2024/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Ver calendario 2024"
+        class="highlight-calendar"
+      >
+        Ver calendario 2024
+      </a>
+    
   </div>
 </div>
 

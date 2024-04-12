@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,11 +61,47 @@
 <div class="page page-post">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/2019/">2019</a></li>
+      <li>
+      <a
+        href="/calendarios/2019/"
+        hx-get="/calendarios/2019/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="2019"
+        class="link"
+      >
+        2019
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">21 de setembro</li>
     </ul>
@@ -72,10 +115,34 @@
     
     
     
-      <a href="/calendarios/2019/14-09-2019-mondariz-orienta-tea-2019/">Anterior</a>
+      
+      <a
+        href="/calendarios/2019/14-09-2019-mondariz-orienta-tea-2019/"
+        hx-get="/calendarios/2019/14-09-2019-mondariz-orienta-tea-2019/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Anterior"
+        class=""
+      >
+        Anterior
+      </a>
     
     
-      <a href="/calendarios/2019/12-10-2019-tomino-iii-rastrexo-cristelos/">Seguinte</a>
+    
+      
+      <a
+        href="/calendarios/2019/12-10-2019-tomino-iii-rastrexo-cristelos/"
+        hx-get="/calendarios/2019/12-10-2019-tomino-iii-rastrexo-cristelos/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Seguinte"
+        class=""
+      >
+        Seguinte
+      </a>
+    
     
   </div>
 	<ul class="details">
@@ -102,7 +169,7 @@
 	<br />
 
 	
-		<a hx-boost="false" href="/recursos/imaxes/2012-2020/bf/af3778-9859-4d39-896d-9630b43f4c83.jpg" title="VI Andaina Nocturna &quot;El Manicomio&quot;" _blank="true">
+		<a href="/recursos/imaxes/2012-2020/bf/af3778-9859-4d39-896d-9630b43f4c83.jpg" title="VI Andaina Nocturna &quot;El Manicomio&quot;" _blank="true">
 			<img class="image" src="/recursos/imaxes/2012-2020/bf/af3778-9859-4d39-896d-9630b43f4c83.jpg" />
 		</a>
 	

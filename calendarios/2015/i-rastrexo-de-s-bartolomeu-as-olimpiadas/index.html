@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,11 +61,47 @@
 <div class="page page-post">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/2015/">2015</a></li>
+      <li>
+      <a
+        href="/calendarios/2015/"
+        hx-get="/calendarios/2015/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="2015"
+        class="link"
+      >
+        2015
+      </a>
+    </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">18 de xullo</li>
     </ul>
@@ -72,10 +115,34 @@
     
     
     
-      <a href="/calendarios/2015/ii-rastrexo-de-pereiras-sinais/">Anterior</a>
+      
+      <a
+        href="/calendarios/2015/ii-rastrexo-de-pereiras-sinais/"
+        hx-get="/calendarios/2015/ii-rastrexo-de-pereiras-sinais/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Anterior"
+        class=""
+      >
+        Anterior
+      </a>
     
     
-      <a href="/calendarios/2015/i-rastrexo-de-soutolobre/">Seguinte</a>
+    
+      
+      <a
+        href="/calendarios/2015/i-rastrexo-de-soutolobre/"
+        hx-get="/calendarios/2015/i-rastrexo-de-soutolobre/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Seguinte"
+        class=""
+      >
+        Seguinte
+      </a>
+    
     
   </div>
 	<ul class="details">
@@ -95,7 +162,7 @@
 	<br />
 
 	
-		<a hx-boost="false" href="/recursos/imaxes/2012-2020/49/4470f9-363d-4918-9eb5-7f7582075efa.jpeg" title="I Rastrexo de S. Bartolomeu &quot;As Olimpiadas&quot;" _blank="true">
+		<a href="/recursos/imaxes/2012-2020/49/4470f9-363d-4918-9eb5-7f7582075efa.jpeg" title="I Rastrexo de S. Bartolomeu &quot;As Olimpiadas&quot;" _blank="true">
 			<img class="image" src="/recursos/imaxes/2012-2020/49/4470f9-363d-4918-9eb5-7f7582075efa.jpeg" />
 		</a>
 	

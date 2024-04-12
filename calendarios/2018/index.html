@@ -30,13 +30,20 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
   </head>
-  <body class="relative" hx-boost="true">
+  <body class="relative">
     
 <div id="layout-base">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
-        <a id="rastrexando-logo" href="/">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
@@ -54,9 +61,37 @@
 <div class="page page-calendar">
   <nav class="breadcrumbs">
     <ul>
-      <li><a class="link" href="/">Inicio</a></li>
+      <li>
+        
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
-      <li><a class="link" href="/calendarios/">Calendarios</a></li>
+      <li>
+        
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    
+      </li>
       <li><i class="fi-play is-light-blue"></i></li>
       <li class="is-light-blue">2018</li>
     </ul>
@@ -64,9 +99,29 @@
 
   
       <div class="prev-next-buttons">
-      <a href="/calendarios/2017/">Anterior</a>
+      
+        <a
+          href="/calendarios/2017/"
+          hx-get="/calendarios/2017/"
+          hx-push-url="true"
+          hx-target="#main-container"
+          hx-select="#main-container"
+        >
+            Anterior
+        </a>
+      
       <h1>2018</h1>
-      <a href="/calendarios/2019/">Seguinte</a>
+      
+        <a
+          href="/calendarios/2019/"
+          hx-get="/calendarios/2019/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-push-url="true"
+        >
+          Seguinte
+        </a>
+      
       </div>
     
 
@@ -76,7 +131,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/10-03-2018-couso-rastrexo-couso-loca-academia-de-p/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/10-03-2018-couso-rastrexo-couso-loca-academia-de-p/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/10-03-2018-couso-rastrexo-couso-loca-academia-de-p/"
+            >
             <h2>Rastrexo Couso "Loca Academia de Policía"</h2>
             </a>
             <ul class="details">
@@ -105,7 +167,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/24-03-2018-salceda-de-caselas-andaina-nocturna-ext/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/24-03-2018-salceda-de-caselas-andaina-nocturna-ext/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/24-03-2018-salceda-de-caselas-andaina-nocturna-ext/"
+            >
             <h2>Andaina Nocturna Extrema San Xurxo</h2>
             </a>
             <ul class="details">
@@ -134,7 +203,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/14-04-2018-gondomar-andaina-nocturna-viaxe-no-temp/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/14-04-2018-gondomar-andaina-nocturna-viaxe-no-temp/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/14-04-2018-gondomar-andaina-nocturna-viaxe-no-temp/"
+            >
             <h2>Andaina Nocturna Viaxe no Tempo</h2>
             </a>
             <ul class="details">
@@ -158,7 +234,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/14-04-2018-salceda-de-caselas-iii-rastrexo-imperio/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/14-04-2018-salceda-de-caselas-iii-rastrexo-imperio/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/14-04-2018-salceda-de-caselas-iii-rastrexo-imperio/"
+            >
             <h2>III Rastrexo Imperio A Turonia</h2>
             </a>
             <ul class="details">
@@ -187,7 +270,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/21-04-2018-pontevedra-i-rastrexo-ponte-a-fuxir/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/21-04-2018-pontevedra-i-rastrexo-ponte-a-fuxir/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/21-04-2018-pontevedra-i-rastrexo-ponte-a-fuxir/"
+            >
             <h2>I Rastrexo Ponte a Fuxir</h2>
             </a>
             <ul class="details">
@@ -216,7 +306,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/28-04-2018-salceda-de-caselas-rastrexo-extremo/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/28-04-2018-salceda-de-caselas-rastrexo-extremo/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/28-04-2018-salceda-de-caselas-rastrexo-extremo/"
+            >
             <h2>Rastrexo Extremo</h2>
             </a>
             <ul class="details">
@@ -240,7 +337,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/05-05-2018-crecente-ii-rastrexo-lobarinas-crecente/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/05-05-2018-crecente-ii-rastrexo-lobarinas-crecente/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/05-05-2018-crecente-ii-rastrexo-lobarinas-crecente/"
+            >
             <h2>II Rastrexo Lobariñas - Crecente "A Aldea do Terror"</h2>
             </a>
             <ul class="details">
@@ -269,7 +373,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/12-05-2018-salceda-de-caselas-iii-rastrexo-da-pico/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/12-05-2018-salceda-de-caselas-iii-rastrexo-da-pico/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/12-05-2018-salceda-de-caselas-iii-rastrexo-da-pico/"
+            >
             <h2>III Rastrexo da Picoña</h2>
             </a>
             <ul class="details">
@@ -298,7 +409,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/19-05-2018-tomino-3o-rastrexo-de-amorin/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/19-05-2018-tomino-3o-rastrexo-de-amorin/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/19-05-2018-tomino-3o-rastrexo-de-amorin/"
+            >
             <h2>3º Rastrexo de Amorín</h2>
             </a>
             <ul class="details">
@@ -327,7 +445,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/13-05-2018-moana-superheroes/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/13-05-2018-moana-superheroes/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/13-05-2018-moana-superheroes/"
+            >
             <h2>Superheroes</h2>
             </a>
             <ul class="details">
@@ -356,7 +481,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/26-05-2018-baiona-ii-rastrexo-de-baredo-terra-de-v/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/26-05-2018-baiona-ii-rastrexo-de-baredo-terra-de-v/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/26-05-2018-baiona-ii-rastrexo-de-baredo-terra-de-v/"
+            >
             <h2>II Rastrexo de Baredo Terra de Vikingos</h2>
             </a>
             <ul class="details">
@@ -385,7 +517,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/26-05-2018-mos-iii-rastrexo-tameiga/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/26-05-2018-mos-iii-rastrexo-tameiga/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/26-05-2018-mos-iii-rastrexo-tameiga/"
+            >
             <h2>III Rastrexo Tameiga</h2>
             </a>
             <ul class="details">
@@ -414,7 +553,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/02-06-2018-moana-i-rastrexo-festas-da-peregrina-me/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/02-06-2018-moana-i-rastrexo-festas-da-peregrina-me/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/02-06-2018-moana-i-rastrexo-festas-da-peregrina-me/"
+            >
             <h2>I Rastrexo Festas da Peregrina - Meira</h2>
             </a>
             <ul class="details">
@@ -443,7 +589,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/02-06-2018-porrino-iii-rastrexo-costeira/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/02-06-2018-porrino-iii-rastrexo-costeira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/02-06-2018-porrino-iii-rastrexo-costeira/"
+            >
             <h2>III Rastrexo Costeira</h2>
             </a>
             <ul class="details">
@@ -472,7 +625,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/09-06-2017-tomino-iv-rastrexo-pineiro-buscando-a-n/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/09-06-2017-tomino-iv-rastrexo-pineiro-buscando-a-n/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/09-06-2017-tomino-iv-rastrexo-pineiro-buscando-a-n/"
+            >
             <h2>IV Rastrexo Piñeiro "Buscando a Nemo"</h2>
             </a>
             <ul class="details">
@@ -501,7 +661,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/16-06-2018-salceda-de-caselas-ii-rastrexo-soutelo-/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/16-06-2018-salceda-de-caselas-ii-rastrexo-soutelo-/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/16-06-2018-salceda-de-caselas-ii-rastrexo-soutelo-/"
+            >
             <h2>II Rastrexo Soutelo Jumanji</h2>
             </a>
             <ul class="details">
@@ -530,7 +697,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/14-07-2018-nigran-ii-rastrexo-de-camos/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/14-07-2018-nigran-ii-rastrexo-de-camos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/14-07-2018-nigran-ii-rastrexo-de-camos/"
+            >
             <h2>II Rastrexo de Camos “Un paseo de recuerdos”</h2>
             </a>
             <ul class="details">
@@ -559,7 +733,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/07-07-2018-mos-v-rastrexo-de-pereiras/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/07-07-2018-mos-v-rastrexo-de-pereiras/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/07-07-2018-mos-v-rastrexo-de-pereiras/"
+            >
             <h2>V Rastrexo de Pereiras</h2>
             </a>
             <ul class="details">
@@ -588,7 +769,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/13-07-2018-salvaterra-de-mino-vi-rastrexo-infantil/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/13-07-2018-salvaterra-de-mino-vi-rastrexo-infantil/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/13-07-2018-salvaterra-de-mino-vi-rastrexo-infantil/"
+            >
             <h2>VI Rastrexo Infantil Fornelos e Lourido</h2>
             </a>
             <ul class="details">
@@ -617,7 +805,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/14-07-2018-gondomar-rastrexo-vincios-eu-fun-a-exb/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/14-07-2018-gondomar-rastrexo-vincios-eu-fun-a-exb/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/14-07-2018-gondomar-rastrexo-vincios-eu-fun-a-exb/"
+            >
             <h2>Rastrexo Vincios "Eu Fun a EXB"</h2>
             </a>
             <ul class="details">
@@ -646,7 +841,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/14-07-2018-ponteareas-iv-rastrexo-de-areas/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/14-07-2018-ponteareas-iv-rastrexo-de-areas/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/14-07-2018-ponteareas-iv-rastrexo-de-areas/"
+            >
             <h2>IV Rastrexo de Areas</h2>
             </a>
             <ul class="details">
@@ -675,7 +877,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/20-07-2018-pontevedra-rastrexo-festivexe-2018/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/20-07-2018-pontevedra-rastrexo-festivexe-2018/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/20-07-2018-pontevedra-rastrexo-festivexe-2018/"
+            >
             <h2>Rastrexo Festivexe 2018</h2>
             </a>
             <ul class="details">
@@ -704,7 +913,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/21-07-2018-crecente-iv-rastrexo-de-villar/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/21-07-2018-crecente-iv-rastrexo-de-villar/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/21-07-2018-crecente-iv-rastrexo-de-villar/"
+            >
             <h2>IV Rastrexo de Villar</h2>
             </a>
             <ul class="details">
@@ -733,7 +949,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/21-07-2018-ponteareas-vi-rastrexo-de-gulans/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/21-07-2018-ponteareas-vi-rastrexo-de-gulans/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/21-07-2018-ponteareas-vi-rastrexo-de-gulans/"
+            >
             <h2>VI Rastrexo de Guláns</h2>
             </a>
             <ul class="details">
@@ -762,7 +985,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/16-06-2018-ponteareas-ii-rastrexo-infantil-de-oliv/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/16-06-2018-ponteareas-ii-rastrexo-infantil-de-oliv/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/16-06-2018-ponteareas-ii-rastrexo-infantil-de-oliv/"
+            >
             <h2>II Rastrexo Infantil de Oliveira "Pijama Party"</h2>
             </a>
             <ul class="details">
@@ -791,7 +1021,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/28-07-2018-nigran-i-rastrexo-de-nigran/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/28-07-2018-nigran-i-rastrexo-de-nigran/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/28-07-2018-nigran-i-rastrexo-de-nigran/"
+            >
             <h2>I Rastrexo de Nigrán</h2>
             </a>
             <ul class="details">
@@ -820,7 +1057,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/29-07-2018-mondariz-iii-rastrexo-infantil-mondariz/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/29-07-2018-mondariz-iii-rastrexo-infantil-mondariz/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/29-07-2018-mondariz-iii-rastrexo-infantil-mondariz/"
+            >
             <h2>III Rastrexo Infantil Mondariz</h2>
             </a>
             <ul class="details">
@@ -844,7 +1088,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/04-08-2018-bueu-orienta-ons/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/04-08-2018-bueu-orienta-ons/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/04-08-2018-bueu-orienta-ons/"
+            >
             <h2>Orienta Ons</h2>
             </a>
             <ul class="details">
@@ -873,7 +1124,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/04-08-2018-gondomar-ii-rastrexo-infantil-vincios/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/04-08-2018-gondomar-ii-rastrexo-infantil-vincios/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/04-08-2018-gondomar-ii-rastrexo-infantil-vincios/"
+            >
             <h2>II Rastrexo Infantil Vincios</h2>
             </a>
             <ul class="details">
@@ -902,7 +1160,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/04-08-2018-ponteareas-ix-rastrexo-santiago-de-oliv/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/04-08-2018-ponteareas-ix-rastrexo-santiago-de-oliv/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/04-08-2018-ponteareas-ix-rastrexo-santiago-de-oliv/"
+            >
             <h2>IX Rastrexo Santiago de Oliveira</h2>
             </a>
             <ul class="details">
@@ -931,7 +1196,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/11-08-2018-arbo-ii-rastrexo-barca-de-loimil-arbo-i/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/11-08-2018-arbo-ii-rastrexo-barca-de-loimil-arbo-i/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/11-08-2018-arbo-ii-rastrexo-barca-de-loimil-arbo-i/"
+            >
             <h2>II Rastrexo Barca de Loimil-Arbo "Imos de Romaría"</h2>
             </a>
             <ul class="details">
@@ -960,7 +1232,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/11-08-2018-nigran-i-rastrexo-infantil-camos/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/11-08-2018-nigran-i-rastrexo-infantil-camos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/11-08-2018-nigran-i-rastrexo-infantil-camos/"
+            >
             <h2>I Rastrexo Infantil Camos</h2>
             </a>
             <ul class="details">
@@ -984,7 +1263,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/14-08-2018-as-neves-vi-rastrexo-vila-de-as-neves/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/14-08-2018-as-neves-vi-rastrexo-vila-de-as-neves/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/14-08-2018-as-neves-vi-rastrexo-vila-de-as-neves/"
+            >
             <h2>VI Rastrexo Vila de As Neves</h2>
             </a>
             <ul class="details">
@@ -1013,7 +1299,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/18-08-2018-salvaterra-de-mino-v-rastrexo-de-fornel/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/18-08-2018-salvaterra-de-mino-v-rastrexo-de-fornel/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/18-08-2018-salvaterra-de-mino-v-rastrexo-de-fornel/"
+            >
             <h2>V Rastrexo de Fornelos</h2>
             </a>
             <ul class="details">
@@ -1037,7 +1330,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/24-08-2018-nigran-iv-andaina-o-camino-do-terror-ve/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/24-08-2018-nigran-iv-andaina-o-camino-do-terror-ve/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/24-08-2018-nigran-iv-andaina-o-camino-do-terror-ve/"
+            >
             <h2>IV Andaina “O Camiño do terror” (venres)</h2>
             </a>
             <ul class="details">
@@ -1061,7 +1361,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/25-08-2018-nigran-iv-andaina-o-camino-do-terror-sa/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/25-08-2018-nigran-iv-andaina-o-camino-do-terror-sa/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/25-08-2018-nigran-iv-andaina-o-camino-do-terror-sa/"
+            >
             <h2>IV Andaina “O Camiño do terror” (sábado)</h2>
             </a>
             <ul class="details">
@@ -1085,7 +1392,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/25-08-2018-o-rosal-v-andaina-nocturna-eiras/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/25-08-2018-o-rosal-v-andaina-nocturna-eiras/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/25-08-2018-o-rosal-v-andaina-nocturna-eiras/"
+            >
             <h2>V Andaina Nocturna Eiras</h2>
             </a>
             <ul class="details">
@@ -1114,7 +1428,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/25-08-2018-tui-xvi-rastrexo-de-pexegueiro-juego-de/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/25-08-2018-tui-xvi-rastrexo-de-pexegueiro-juego-de/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/25-08-2018-tui-xvi-rastrexo-de-pexegueiro-juego-de/"
+            >
             <h2>XVI Rastrexo de Pexegueiro “Juego de Tronos”</h2>
             </a>
             <ul class="details">
@@ -1143,7 +1464,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/01-09-2018-as-neves-ii-rastrexo-lendas-de-taboexa/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/01-09-2018-as-neves-ii-rastrexo-lendas-de-taboexa/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/01-09-2018-as-neves-ii-rastrexo-lendas-de-taboexa/"
+            >
             <h2>II Rastrexo Lendas de Taboexa</h2>
             </a>
             <ul class="details">
@@ -1172,7 +1500,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/08-09-2018-mondariz-orienta-tea-2018/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/08-09-2018-mondariz-orienta-tea-2018/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/08-09-2018-mondariz-orienta-tea-2018/"
+            >
             <h2>Orienta-Tea 2018</h2>
             </a>
             <ul class="details">
@@ -1196,7 +1531,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/15-09-2018-porrino-v-rastrexo-de-torneiros/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/15-09-2018-porrino-v-rastrexo-de-torneiros/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/15-09-2018-porrino-v-rastrexo-de-torneiros/"
+            >
             <h2>V Rastrexo de Torneiros</h2>
             </a>
             <ul class="details">
@@ -1225,7 +1567,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/01-09-2018-salceda-de-caselas-rastrexo-entroido-pi/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/01-09-2018-salceda-de-caselas-rastrexo-entroido-pi/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/01-09-2018-salceda-de-caselas-rastrexo-entroido-pi/"
+            >
             <h2>Rastrexo Entroido Picoña</h2>
             </a>
             <ul class="details">
@@ -1254,7 +1603,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/06-10-2018-salceda-de-caselas-andaina-nocturna-con/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/06-10-2018-salceda-de-caselas-andaina-nocturna-con/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/06-10-2018-salceda-de-caselas-andaina-nocturna-con/"
+            >
             <h2>Andaina Nocturna con probas Castro Barreiro 2018</h2>
             </a>
             <ul class="details">
@@ -1283,7 +1639,14 @@
     <article class="post">
         <hr />
         <header>
-            <a class="link" href="/calendarios/2018/31-10-2018-salceda-de-caselas-andaina-terrorifica/">
+            <a
+              class="link"
+              hx-get="/calendarios/2018/31-10-2018-salceda-de-caselas-andaina-terrorifica/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-push-url="true"
+              href="/calendarios/2018/31-10-2018-salceda-de-caselas-andaina-terrorifica/"
+            >
             <h2>Andaina Terrorífica</h2>
             </a>
             <ul class="details">
