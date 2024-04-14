@@ -42,6 +42,7 @@ body {
   position: relative;
   z-index: 10;
   margin-top: 10px;
+  overflow-y: auto;
 }
 
 /*
@@ -54,13 +55,13 @@ body {
   z-index: 0;
 }
 .animated-section {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 170px;
   padding-top: 1rem;
   background: #bae1ff;
   overflow: hidden;
-  z-idnex: 5;
+  z-index: 5;
 }
 .animated-section .air {
   position: absolute;
