@@ -216,6 +216,8 @@ footer {
 #rastrexando-logo img {
   max-width: 200px;
   max-height: 80px;
+  animation: rotateLogo 4s infinite ease-in-out;
+  animation-iteration-count: 1
 }
 
 /* Page */
@@ -469,3 +471,11 @@ hr {
   gap: 0.5rem;
   flex-wrap: nowrap;
 }
+
+/* Animations */
+@keyframes rotateLogo {
+  50% {
+    transform: rotate(-45deg);
+  }
+}
+

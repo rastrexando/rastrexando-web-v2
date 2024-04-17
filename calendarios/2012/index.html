@@ -32,7 +32,7 @@
   </head>
   <body class="relative">
     
-<div id="layout-base">
+<div id="layout-base" hx-indicator="#rastrexando-logo img">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
@@ -42,6 +42,7 @@
           hx-get="/"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
           hx-push-url="true"
         >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
@@ -67,6 +68,7 @@
         hx-get="/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Inicio"
         class="link"
@@ -83,6 +85,7 @@
         hx-get="/calendarios/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Calendarios"
         class="link"
@@ -107,6 +110,7 @@
           hx-get="/calendarios/2013/"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
           hx-push-url="true"
         >
           Seguinte
@@ -126,6 +130,7 @@
               hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2012/vii-rastrexo-de-fozara/"
             >

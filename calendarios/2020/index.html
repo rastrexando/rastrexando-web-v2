@@ -32,7 +32,7 @@
   </head>
   <body class="relative">
     
-<div id="layout-base">
+<div id="layout-base" hx-indicator="#rastrexando-logo img">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
@@ -42,6 +42,7 @@
           hx-get="/"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
           hx-push-url="true"
         >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
@@ -67,6 +68,7 @@
         hx-get="/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Inicio"
         class="link"
@@ -83,6 +85,7 @@
         hx-get="/calendarios/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Calendarios"
         class="link"
@@ -106,6 +109,7 @@
           hx-push-url="true"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
         >
             Anterior
         </a>
@@ -117,6 +121,7 @@
           hx-get="/calendarios/2023/"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
           hx-push-url="true"
         >
           Seguinte
@@ -136,6 +141,7 @@
               hx-get="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
             >
@@ -172,6 +178,7 @@
               hx-get="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
             >
@@ -208,6 +215,7 @@
               hx-get="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
             >
@@ -244,6 +252,7 @@
               hx-get="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
             >

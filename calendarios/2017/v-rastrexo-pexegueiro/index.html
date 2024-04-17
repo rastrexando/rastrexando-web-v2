@@ -32,7 +32,7 @@
   </head>
   <body class="relative">
     
-<div id="layout-base">
+<div id="layout-base" hx-indicator="#rastrexando-logo img">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
@@ -42,6 +42,7 @@
           hx-get="/"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
           hx-push-url="true"
         >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
@@ -66,6 +67,7 @@
         hx-get="/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Inicio"
         class="link"
@@ -80,6 +82,7 @@
         hx-get="/calendarios/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Calendarios"
         class="link"
@@ -94,6 +97,7 @@
         hx-get="/calendarios/2017/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="2017"
         class="link"
@@ -121,6 +125,7 @@
         hx-get="/calendarios/2017/v-rastrexo-vila-de-as-neves/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Anterior"
         class=""
@@ -136,6 +141,7 @@
         hx-get="/calendarios/2017/ii-rastrexo-de-vincios-20000-leguas-de-viaxe-subma/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Seguinte"
         class=""

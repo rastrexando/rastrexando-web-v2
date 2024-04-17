@@ -32,7 +32,7 @@
   </head>
   <body class="relative">
     
-<div id="layout-base">
+<div id="layout-base" hx-indicator="#rastrexando-logo img">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
       <header class="wrapper">
@@ -42,6 +42,7 @@
           hx-get="/"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
           hx-push-url="true"
         >
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
@@ -67,6 +68,7 @@
         hx-get="/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Inicio"
         class="link"
@@ -83,6 +85,7 @@
         hx-get="/calendarios/"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="Calendarios"
         class="link"
@@ -106,6 +109,7 @@
           hx-push-url="true"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
         >
             Anterior
         </a>
@@ -126,6 +130,7 @@
               hx-get="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
             >
@@ -162,6 +167,7 @@
               hx-get="/calendarios/2024/2024-07-06-super-camos/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2024/2024-07-06-super-camos/"
             >
@@ -198,6 +204,7 @@
               hx-get="/calendarios/2024/2024-09-07-ii-rastrexo-coruxo/"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="/calendarios/2024/2024-09-07-ii-rastrexo-coruxo/"
             >
