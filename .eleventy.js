@@ -39,6 +39,7 @@ module.exports = function (eleventyConfig) {
         hx-get="${href}"
         hx-target="#main-container"
         hx-select="#main-container"
+        hx-swap="outerHTML"
         hx-push-url="true"
         title="${title}"
         class="${classes}"
@@ -58,6 +59,7 @@ module.exports = function (eleventyConfig) {
           hx-push-url="true"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
         >
             Anterior
         </a>
@@ -72,6 +74,7 @@ module.exports = function (eleventyConfig) {
           hx-get="${pagination.href.next}"
           hx-target="#main-container"
           hx-select="#main-container"
+          hx-swap="outerHTML"
           hx-push-url="true"
         >
           Seguinte
@@ -110,6 +113,7 @@ module.exports = function (eleventyConfig) {
               hx-get="${post.url}"
               hx-target="#main-container"
               hx-select="#main-container"
+              hx-swap="outerHTML"
               hx-push-url="true"
               href="${post.url}"
             >
