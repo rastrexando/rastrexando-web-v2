@@ -77,3 +77,27 @@ title: Evento — Rastrexando
 
 	{{ content | safe }}
 </div>
+
+<script type="application/ld+json">
+{
+  "name": "{{ title }}",
+  "startDate": "{{ date | dateOnly }}",
+  "url": "{{ page.url }}",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "description": "",
+  {% if image %}
+	"image": "/recursos/imaxes/{{ image }}",
+  {% else %}
+  "image": null,
+	{% endif %}
+  "@context": "http://schema.org",
+  "@type": "Event",
+  "endDate": "2019-10-12",
+  "eventStatus": "EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "{{ location }}"
+  },
+  "organizer": { "@type": "Organization", "name": "{{ source_name }}", "url": "{{ source_url }}" }
+}
+</script>
