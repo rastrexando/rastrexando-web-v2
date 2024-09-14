@@ -187,6 +187,14 @@ footer {
   gap: 0.5rem;
 }
 
+#main-footer .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: .7rem;
+}
+
 #main-footer p {
   margin: 0;
 }
@@ -479,3 +487,13 @@ hr {
   }
 }
 
+
+/* FAQ */
+.faq-question {
+  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+
+.faq-answer {
+  margin-top: 0;
+}
