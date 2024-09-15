@@ -81,12 +81,12 @@ title: Evento — Rastrexando
     <h3>Compartir</h3>
     <ul class="share-options">
       <li class="share-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url }}">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | url }}">
           <i class="fi-social-facebook is-light-blue"></i>
         </a>
       </li>
       <li class="share-item">
-        <a href="whatsapp://send/?text={{ title }} {{ page.url }}">
+        <a href="whatsapp://send/?text={{ title }} {{ page.url | url }}">
           <img src="/recursos/whatsapp-icon.webp" />
         </a>
       </li>

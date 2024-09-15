@@ -517,6 +517,10 @@ hr {
   padding: 0;
 }
 
+.share-item {
+  max-width: 30px;
+}
+
 .share-item, .share-item img {
   font-size: 2.5rem;
   width: 30px;
