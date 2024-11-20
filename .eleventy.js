@@ -31,15 +31,17 @@ module.exports = function (eleventyConfig) {
   const now = new Date();
 
   eleventyConfig.addCollection("featured", function (collectionApi) {
-    const all = collectionApi.getAllSorted().reverse()
-
-    const upcoming = all.filter(function(item) {
+    const upcoming = collectionApi.getAllSorted().reverse().filter(function(item) {
       // Solo próximos rastrexos
       return item.data.date > now && item.data.tags.includes("post")
     })
 
+    const all = collectionApi.getAllSorted().reverse().filter(function(item) {
+      // Solo próximos rastrexos
+      return item.data && item.data.tags && item.data.tags.includes("post")
+    })
+
     if (upcoming.length == 0) {
-      // No hay próximos, simplemente mostramos los tres últimos
       return all.slice(0, 3)
     }
 
