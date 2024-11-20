@@ -40,7 +40,7 @@ module.exports = function (eleventyConfig) {
 
     if (upcoming.length == 0) {
       // No hay próximos, simplemente mostramos los tres últimos
-      return all.slice(3)
+      return all.slice(0, 3)
     }
 
     return upcoming
