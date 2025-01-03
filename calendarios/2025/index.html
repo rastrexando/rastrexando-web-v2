@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
-    <title>Inicio - Rastrexando</title>
+    <title>Calendario - Rastrexando</title>
 
 		<!-- Meta -->
 		<meta name="author" content="Carlos González Goce">
     <meta name="keywords" content="rastrexo,rastrexar,rastrexando,andaina,galicia"/>
-    <meta property="og:title" content="Inicio - Rastrexando">
+    <meta property="og:title" content="Calendario - Rastrexando">
     <meta name="description" content="Rastrexando — A túa plataforma de referencia para non perderte ningún Rastrexo">
     <meta property="og:description" content="Rastrexando — A túa plataforma de referencia para non perderte ningún Rastrexo">
 
@@ -59,13 +59,67 @@
     <div class="page-center-content">
       <div class="page-content">
         
+<nav class="breadcrumbs">
+  <ul>
+    <li>
+      
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    
+    </li>
+    <li><i class="fi-play is-light-blue"></i></li>
+    <li>
+      
+      <a
+        href="/calendarios/"
+        hx-get="/calendarios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendarios"
+        class="link"
+      >
+        Calendarios
+      </a>
+    
+    </li>
+    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="is-light-blue">2025</li>
+  </ul>
+</nav>
 
-<div class="page page-index">
-  <header class="page-header">
-    <h1><i class="fi-star is-light-blue"></i> Destacados</h1>
-  </header>
+<div class="page page-calendar">
+  
+      <div class="prev-next-buttons">
+      
+        <a
+          href="/calendarios/2024/"
+          hx-get="/calendarios/2024/"
+          hx-push-url="true"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+        >
+            Anterior
+        </a>
+      
+      <h1>2025</h1>
+      <div class='not-allowed'>Seguinte</div>
+      </div>
+    
+
   <section>
-    <br />
     
       
     <article class="post">
@@ -104,74 +158,8 @@
     </article>
     
     
-
-    
   </section>
-
-  <div class="is-flex-centered">
-    
-      <a
-        href="calendarios/2025/"
-        hx-get="calendarios/2025/"
-        hx-target="#main-container"
-        hx-select="#main-container"
-        hx-swap="outerHTML"
-        hx-push-url="true"
-        title="Ver calendario 2025"
-        class="highlight-calendar"
-      >
-        Ver calendario 2025
-      </a>
-    
-  </div>
 </div>
-
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "WebSite",
-  "url": "https://www.rastrexando.eu",
-  "name": "Rastrexando",
-  "author": { "@type": "Person", "name": "Carlos González Goce" },
-  "description": "A túa comunidade do mundo do Rastrexo"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": "Rastrexando",
-  "legalName": "Rastrexando",
-  "url": "https://www.rastrexando.eu",
-  "logo": "https://rastrexando.eu/recursos/rastrexando-simbolo.png",
-  "foundingDate": "2017",
-  "founders": [
-    {
-      "@type": "Person",
-      "name": "Carlos González Goce",
-      "sameAs": [
-        "https://www.linkedin.com/in/carlos-goce/"
-      ]
-    }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Baiona",
-    "addressRegion": "Pontevedra",
-    "addressCountry": "SPAIN"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "url": "https://www.rastrexando.eu/contacto/",
-    "email": "carlos@rastrexando.eu"
-  },
-  "sameAs": [
-    "https://www.facebook.com/rastrexando/"
-  ]
-}
-</script>
-
 
       </div>
     </div>
