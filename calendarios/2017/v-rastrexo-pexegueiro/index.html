@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>XV Rastrexo Pexegueiro</title>
@@ -75,7 +78,7 @@
         Inicio
       </a>
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       <a
         href="/calendarios/"
@@ -90,7 +93,7 @@
         Calendarios
       </a>
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       <a
         href="/calendarios/2017/"
@@ -105,16 +108,53 @@
         2017
       </a>
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">19 de ago.</li>
   </ul>
 </nav>
 
+
+  <a class="event-hero-link" href="/recursos/imaxes/2012-2020/6d/088a93-5fb2-43a2-9bd1-d2691bfd0eea.jpg" title="XV Rastrexo Pexegueiro" target="_blank">
+    <img class="event-hero" src="/recursos/imaxes/2012-2020/6d/088a93-5fb2-43a2-9bd1-d2691bfd0eea.jpg" alt="XV Rastrexo Pexegueiro" />
+    <span class="hero-expand-hint"><i class="fi-arrows-expand"></i></span>
+  </a>
+
+
 <div class="page page-post">
-	<header class="page-header">
-		<h1>XV Rastrexo Pexegueiro</h1>
-	</header>
-	<hr />
+
+  <div class="event-type-row">
+    
+      
+        <span class="type-pill rastrexo">Rastrexo</span>
+      
+    
+    
+    
+  </div>
+
+  <h1>XV Rastrexo Pexegueiro</h1>
+
+  <div class="event-info">
+    <div class="event-info-item">
+      <i class="fi-calendar is-light-blue"></i>
+      <span>sábado, 19 de agosto de 2017</span>
+    </div>
+    <div class="event-info-item">
+      <i class="fi-marker is-light-blue"></i>
+      <span>Pexegueiro, Tui</span>
+    </div>
+    
+    <div class="event-info-item">
+      <i class="fi-social-facebook is-light-blue"></i>
+      <a href="https://www.facebook.com/profile.php?id=100005506787811" title="Centro Cultural Pexegueiro" target="_blank">Centro Cultural Pexegueiro</a>
+    </div>
+    
+  </div>
+
+  
+
+  
+
   <div class="prev-next-buttons">
     
     
@@ -127,10 +167,10 @@
         hx-select="#main-container"
         hx-swap="outerHTML"
         hx-push-url="true"
-        title="Anterior"
+        title="← Anterior"
         class=""
       >
-        Anterior
+        ← Anterior
       </a>
     
     
@@ -143,46 +183,15 @@
         hx-select="#main-container"
         hx-swap="outerHTML"
         hx-push-url="true"
-        title="Seguinte"
+        title="Seguinte →"
         class=""
       >
-        Seguinte
+        Seguinte →
       </a>
     
     
   </div>
-	<ul class="details">
-		<li>
-			<div class="date">
-				<i class="fi-calendar is-light-blue"></i>
-				sábado, 19 de agosto de 2017
-			</div>
-		</li>
-		<li>
-			<i class="fi-marker is-light-blue"></i>
-			Pexegueiro, Tui
-		</li>
-		
-		<li>
-			<i class="fi-social-facebook is-light-blue"></i>
-			<a href="https://www.facebook.com/profile.php?id=100005506787811" title="Centro Cultural Pexegueiro" _blank="true">
-				Centro Cultural Pexegueiro
-			<a/>
-		</li>
-    
-	</ul>
 
-	<br />
-
-	
-		<a href="/recursos/imaxes/2012-2020/6d/088a93-5fb2-43a2-9bd1-d2691bfd0eea.jpg" title="XV Rastrexo Pexegueiro" _blank="true">
-			<img class="image" src="/recursos/imaxes/2012-2020/6d/088a93-5fb2-43a2-9bd1-d2691bfd0eea.jpg" />
-		</a>
-	
-
-  
-
-	
 </div>
 
 <script type="application/ld+json">
@@ -193,11 +202,10 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "description": "",
   
-	"image": "/recursos/imaxes/2012-2020/6d/088a93-5fb2-43a2-9bd1-d2691bfd0eea.jpg",
+  "image": "/recursos/imaxes/2012-2020/6d/088a93-5fb2-43a2-9bd1-d2691bfd0eea.jpg",
   
   "@context": "http://schema.org",
   "@type": "Event",
-  "endDate": "2019-10-12",
   "eventStatus": "EventScheduled",
   "location": {
     "@type": "Place",
@@ -212,19 +220,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

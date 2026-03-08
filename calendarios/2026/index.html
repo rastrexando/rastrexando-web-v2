@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
@@ -77,7 +80,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       
       <a
@@ -94,7 +97,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">2026</li>
   </ul>
 </nav>
@@ -110,12 +113,10 @@
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
-        >
-            Anterior
-        </a>
+        >← Anterior</a>
       
       <h1>2026</h1>
-      <div class='not-allowed'>Seguinte</div>
+      <div class='not-allowed'>Seguinte →</div>
       </div>
     
 
@@ -123,38 +124,29 @@
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2026/iv-rsatrexo-coruxo/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2026/iv-rsatrexo-coruxo/"
-            >
-            <h2>IV Rastrexo de Coruxo: El Gran Juego de la OCA</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 9 de maio de 2026
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Coruxo, Vigo
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexocoruxo" title="Unión Musical de Coruxo" _blank="true">
-            Unión Musical de Coruxo
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2026/iv-rsatrexo-coruxo/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2026/iv-rsatrexo-coruxo/"
+      >
+        <div class="post-card-date">
+          <span class="day">9</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Rastrexo de Coruxo: El Gran Juego de la OCA</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            <span class="relative-date">En 2 meses</span>
+            <span><i class="fi-marker is-light-blue"></i> Coruxo, Vigo</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Unión Musical de Coruxo</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
@@ -166,19 +158,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

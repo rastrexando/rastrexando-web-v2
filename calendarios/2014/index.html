@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
@@ -77,7 +80,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       
       <a
@@ -94,7 +97,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">2014</li>
   </ul>
 </nav>
@@ -110,9 +113,7 @@
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
-        >
-            Anterior
-        </a>
+        >← Anterior</a>
       
       <h1>2014</h1>
       
@@ -123,9 +124,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >
-          Seguinte
-        </a>
+        >Seguinte →</a>
       
       </div>
     
@@ -134,198 +133,169 @@
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2014/i-rastrexo-de-santa-eulalia-de-batallans/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2014/i-rastrexo-de-santa-eulalia-de-batallans/"
-            >
-            <h2>I Rastrexo de Santa Eulalia de Batalláns</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 28 de xuño de 2014
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Santa Eulalia de Batalláns, As Neves
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2014/i-rastrexo-de-santa-eulalia-de-batallans/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2014/i-rastrexo-de-santa-eulalia-de-batallans/"
+      >
+        <div class="post-card-date">
+          <span class="day">28</span>
+          <span class="month">xuño</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">I Rastrexo de Santa Eulalia de Batalláns</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Santa Eulalia de Batalláns, As Neves</span>
+            
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2014/1o-rastrexo-benefico-mouriscados/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2014/1o-rastrexo-benefico-mouriscados/"
-            >
-            <h2>1º Rastrexo Benéfico Mouriscados</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 12 de xullo de 2014
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Mouriscados, Mondariz
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2014/1o-rastrexo-benefico-mouriscados/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2014/1o-rastrexo-benefico-mouriscados/"
+      >
+        <div class="post-card-date">
+          <span class="day">12</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">1º Rastrexo Benéfico Mouriscados</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Mouriscados, Mondariz</span>
+            
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2014/o-segredo-das-meigas/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2014/o-segredo-das-meigas/"
-            >
-            <h2>O segredo das meigas</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                venres, 15 de agosto de 2014
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Chan das Pipas, Redondela
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2014/o-segredo-das-meigas/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2014/o-segredo-das-meigas/"
+      >
+        <div class="post-card-date">
+          <span class="day">15</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">O segredo das meigas</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Chan das Pipas, Redondela</span>
+            <span>CC Chan das Pipas</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2014/viii-rastrexo-de-fozara-a-lenda-das-pipas/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2014/viii-rastrexo-de-fozara-a-lenda-das-pipas/"
-            >
-            <h2>VIII Rastrexo de Fozara "A Lenda das Pipas"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 16 de agosto de 2014
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Fozara, Ponteareas
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2014/viii-rastrexo-de-fozara-a-lenda-das-pipas/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2014/viii-rastrexo-de-fozara-a-lenda-das-pipas/"
+      >
+        <div class="post-card-date">
+          <span class="day">16</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VIII Rastrexo de Fozara "A Lenda das Pipas"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Fozara, Ponteareas</span>
+            <span>Centro Cultural Fozara</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2014/rastrexo-arcos-2014/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2014/rastrexo-arcos-2014/"
-            >
-            <h2>Rastrexo Arcos 2014</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 30 de agosto de 2014
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Arcos, Ponteareas
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2014/rastrexo-arcos-2014/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2014/rastrexo-arcos-2014/"
+      >
+        <div class="post-card-date">
+          <span class="day">30</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Rastrexo Arcos 2014</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Arcos, Ponteareas</span>
+            <span>Casa Cultural de Arcos</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2014/21-09-2014-salvaterra-de-mino-iii-rastrexo-de-lira/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2014/21-09-2014-salvaterra-de-mino-iii-rastrexo-de-lira/"
-            >
-            <h2>III Rastrexo de Lira</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                domingo, 21 de setembro de 2014
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Lira, Salvaterra de Miño
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/RastrexoDeLira/photos/a.686764378074041.1073741827.354455234638292/686764344740711/?type=3" title="Rastrexo de Lira" _blank="true">
-            Rastrexo de Lira
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2014/21-09-2014-salvaterra-de-mino-iii-rastrexo-de-lira/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2014/21-09-2014-salvaterra-de-mino-iii-rastrexo-de-lira/"
+      >
+        <div class="post-card-date">
+          <span class="day">21</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">III Rastrexo de Lira</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Lira, Salvaterra de Miño</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo de Lira</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
@@ -337,19 +307,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

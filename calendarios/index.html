@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendarios — Rastrexando</title>
@@ -62,7 +65,6 @@
 <nav class="breadcrumbs">
   <ul>
     <li>
-      
       <a
         href="/"
         hx-get="/"
@@ -75,96 +77,239 @@
       >
         Inicio
       </a>
-    
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>Calendarios</li>
   </ul>
 </nav>
 
-<div class="page">
+<div class="page page-calendarios">
   <header class="page-header">
     <h1><i class="fi-calendar is-light-blue"></i> Calendarios</h1>
   </header>
-  <section>
-    <br />
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="text-center">Ano</th>
-          <th class="text-right">Eventos</th>
-          <th class="text-right"></th>
-        </tr>
-      </thead>
-      <tbody>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2012" href="/calendarios/2012/">2012</a></td>
-              <td class="text-right">1</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2013" href="/calendarios/2013/">2013</a></td>
-              <td class="text-right">3</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2014" href="/calendarios/2014/">2014</a></td>
-              <td class="text-right">6</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2015" href="/calendarios/2015/">2015</a></td>
-              <td class="text-right">37</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2016" href="/calendarios/2016/">2016</a></td>
-              <td class="text-right">42</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2017" href="/calendarios/2017/">2017</a></td>
-              <td class="text-right">52</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2018" href="/calendarios/2018/">2018</a></td>
-              <td class="text-right">44</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2019" href="/calendarios/2019/">2019</a></td>
-              <td class="text-right">28</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2020" href="/calendarios/2020/">2020</a></td>
-              <td class="text-right">4</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2023" href="/calendarios/2023/">2023</a></td>
-              <td class="text-right">7</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2024" href="/calendarios/2024/">2024</a></td>
-              <td class="text-right">13</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2025" href="/calendarios/2025/">2025</a></td>
-              <td class="text-right">11</td>
-          </tr>
-        
-          <tr>
-              <td class="text-right"><a title="Calendario 2026" href="/calendarios/2026/">2026</a></td>
-              <td class="text-right">1</td>
-          </tr>
-        
-      </tbody>
-    </table>
+  <section class="year-grid">
+    
+      <a
+        class="year-card year-card--current"
+        href="/calendarios/2026/"
+        hx-get="/calendarios/2026/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2026"
+      >
+        <span class="year-number">2026</span>
+        <span class="year-count">
+          1
+          evento
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2025/"
+        hx-get="/calendarios/2025/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2025"
+      >
+        <span class="year-number">2025</span>
+        <span class="year-count">
+          11
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2024/"
+        hx-get="/calendarios/2024/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2024"
+      >
+        <span class="year-number">2024</span>
+        <span class="year-count">
+          13
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2023/"
+        hx-get="/calendarios/2023/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2023"
+      >
+        <span class="year-number">2023</span>
+        <span class="year-count">
+          7
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2020/"
+        hx-get="/calendarios/2020/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2020"
+      >
+        <span class="year-number">2020</span>
+        <span class="year-count">
+          4
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2019/"
+        hx-get="/calendarios/2019/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2019"
+      >
+        <span class="year-number">2019</span>
+        <span class="year-count">
+          28
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2018/"
+        hx-get="/calendarios/2018/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2018"
+      >
+        <span class="year-number">2018</span>
+        <span class="year-count">
+          44
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2017/"
+        hx-get="/calendarios/2017/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2017"
+      >
+        <span class="year-number">2017</span>
+        <span class="year-count">
+          52
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2016/"
+        hx-get="/calendarios/2016/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2016"
+      >
+        <span class="year-number">2016</span>
+        <span class="year-count">
+          42
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2015/"
+        hx-get="/calendarios/2015/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2015"
+      >
+        <span class="year-number">2015</span>
+        <span class="year-count">
+          37
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2014/"
+        hx-get="/calendarios/2014/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2014"
+      >
+        <span class="year-number">2014</span>
+        <span class="year-count">
+          6
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2013/"
+        hx-get="/calendarios/2013/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2013"
+      >
+        <span class="year-number">2013</span>
+        <span class="year-count">
+          3
+          eventos
+        </span>
+      </a>
+    
+      <a
+        class="year-card"
+        href="/calendarios/2012/"
+        hx-get="/calendarios/2012/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Calendario 2012"
+      >
+        <span class="year-number">2012</span>
+        <span class="year-count">
+          1
+          evento
+        </span>
+      </a>
+    
   </section>
 </div>
 
@@ -173,19 +318,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

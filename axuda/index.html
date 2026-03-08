@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Axuda - Rastrexando</title>
@@ -223,19 +226,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

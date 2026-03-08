@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
@@ -77,7 +80,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       
       <a
@@ -94,7 +97,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">2013</li>
   </ul>
 </nav>
@@ -110,9 +113,7 @@
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
-        >
-            Anterior
-        </a>
+        >← Anterior</a>
       
       <h1>2013</h1>
       
@@ -123,9 +124,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >
-          Seguinte
-        </a>
+        >Seguinte →</a>
       
       </div>
     
@@ -134,97 +133,85 @@
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2013/viii-rastrexo-de-fozara/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2013/viii-rastrexo-de-fozara/"
-            >
-            <h2>VIII Rastrexo de Fozara</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                martes, 13 de agosto de 2013
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Fozara, Ponteareas
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2013/viii-rastrexo-de-fozara/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2013/viii-rastrexo-de-fozara/"
+      >
+        <div class="post-card-date">
+          <span class="day">13</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VIII Rastrexo de Fozara</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Fozara, Ponteareas</span>
+            <span>Organizan Centro Cultural y A.C. Pedra de Garza</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2013/rastrexo-de-arcos-2013/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2013/rastrexo-de-arcos-2013/"
-            >
-            <h2>Rastrexo de Arcos 2013</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 31 de agosto de 2013
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Arcos, Ponteareas
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2013/rastrexo-de-arcos-2013/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2013/rastrexo-de-arcos-2013/"
+      >
+        <div class="post-card-date">
+          <span class="day">31</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Rastrexo de Arcos 2013</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Arcos, Ponteareas</span>
+            
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2013/i-rastrexo-infantil-de-arcos/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2013/i-rastrexo-infantil-de-arcos/"
-            >
-            <h2>I Rastrexo Infantil de Arcos</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 21 de setembro de 2013
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Arcos, Ponteareas
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2013/i-rastrexo-infantil-de-arcos/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2013/i-rastrexo-infantil-de-arcos/"
+      >
+        <div class="post-card-date">
+          <span class="day">21</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">I Rastrexo Infantil de Arcos</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Arcos, Ponteareas</span>
+            <span>Rastrexo de Arcos</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
@@ -236,19 +223,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
@@ -77,7 +80,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       
       <a
@@ -94,7 +97,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">2012</li>
   </ul>
 </nav>
@@ -102,7 +105,7 @@
 <div class="page page-calendar">
   
       <div class="prev-next-buttons">
-      <div class='not-allowed'>Anterior</div>
+      <div class='not-allowed'>← Anterior</div>
       <h1>2012</h1>
       
         <a
@@ -112,9 +115,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >
-          Seguinte
-        </a>
+        >Seguinte →</a>
       
       </div>
     
@@ -123,33 +124,29 @@
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2012/vii-rastrexo-de-fozara/"
-            >
-            <h2>VII Rastrexo de Fozara</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 11 de agosto de 2012
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Fozara, Ponteareas
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2012/vii-rastrexo-de-fozara/"
+      >
+        <div class="post-card-date">
+          <span class="day">11</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VII Rastrexo de Fozara</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Fozara, Ponteareas</span>
+            <span>Centro Cultural de Fozara</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
@@ -161,19 +158,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

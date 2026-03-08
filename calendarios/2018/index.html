@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
@@ -77,7 +80,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       
       <a
@@ -94,7 +97,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">2018</li>
   </ul>
 </nav>
@@ -110,9 +113,7 @@
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
-        >
-            Anterior
-        </a>
+        >← Anterior</a>
       
       <h1>2018</h1>
       
@@ -123,9 +124,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >
-          Seguinte
-        </a>
+        >Seguinte →</a>
       
       </div>
     
@@ -134,1589 +133,1233 @@
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/10-03-2018-couso-rastrexo-couso-loca-academia-de-p/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/10-03-2018-couso-rastrexo-couso-loca-academia-de-p/"
-            >
-            <h2>Rastrexo Couso "Loca Academia de Policía"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 24 de marzo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Casa Veciñal, Couso
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/Rastrexo-Couso-1704453026509884/" title="Cmd. de Montes de Couso, Comisión San Cristobal e Os Avispados" _blank="true">
-            Cmd. de Montes de Couso, Comisión San Cristobal e Os Avispados
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/24-03-2018-salceda-de-caselas-andaina-nocturna-ext/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/24-03-2018-salceda-de-caselas-andaina-nocturna-ext/"
-            >
-            <h2>Andaina Nocturna Extrema San Xurxo</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 24 de marzo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                San Xurxo, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/events/160788404623185" title="Carnaval San Xurxo" _blank="true">
-            Carnaval San Xurxo
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/14-04-2018-gondomar-andaina-nocturna-viaxe-no-temp/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/14-04-2018-gondomar-andaina-nocturna-viaxe-no-temp/"
-            >
-            <h2>Andaina Nocturna Viaxe no Tempo</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 14 de abril de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Couso, Gondomar
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/10-03-2018-couso-rastrexo-couso-loca-academia-de-p/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/10-03-2018-couso-rastrexo-couso-loca-academia-de-p/"
+      >
+        <div class="post-card-date">
+          <span class="day">24</span>
+          <span class="month">mar.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Rastrexo Couso "Loca Academia de Policía"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Casa Veciñal, Couso</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Cmd. de Montes de Couso, Comisión San Cristobal e Os Avispados</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/14-04-2018-salceda-de-caselas-iii-rastrexo-imperio/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/14-04-2018-salceda-de-caselas-iii-rastrexo-imperio/"
-            >
-            <h2>III Rastrexo Imperio A Turonia</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 14 de abril de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Entenza, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/aturonia/" title="A Turonia" _blank="true">
-            A Turonia
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/21-04-2018-pontevedra-i-rastrexo-ponte-a-fuxir/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/21-04-2018-pontevedra-i-rastrexo-ponte-a-fuxir/"
-            >
-            <h2>I Rastrexo Ponte a Fuxir</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 21 de abril de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Salcedo, Pontevedra
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/PonteAFuxir/?ref=bookmarks" title="Ponte a Fuxir" _blank="true">
-            Ponte a Fuxir
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/28-04-2018-salceda-de-caselas-rastrexo-extremo/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/28-04-2018-salceda-de-caselas-rastrexo-extremo/"
-            >
-            <h2>Rastrexo Extremo</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 28 de abril de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                San Xurxo, Salceda de Caselas
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/24-03-2018-salceda-de-caselas-andaina-nocturna-ext/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/24-03-2018-salceda-de-caselas-andaina-nocturna-ext/"
+      >
+        <div class="post-card-date">
+          <span class="day">24</span>
+          <span class="month">mar.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Andaina Nocturna Extrema San Xurxo</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> San Xurxo, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Carnaval San Xurxo</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/05-05-2018-crecente-ii-rastrexo-lobarinas-crecente/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/05-05-2018-crecente-ii-rastrexo-lobarinas-crecente/"
-            >
-            <h2>II Rastrexo Lobariñas - Crecente "A Aldea do Terror"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 5 de maio de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Lobariñas, Crecente
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/groups/690106014415765/" title="Rastrexo Lobariñas" _blank="true">
-            Rastrexo Lobariñas
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/12-05-2018-salceda-de-caselas-iii-rastrexo-da-pico/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/12-05-2018-salceda-de-caselas-iii-rastrexo-da-pico/"
-            >
-            <h2>III Rastrexo da Picoña</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 12 de maio de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                A Picoña, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexopikona.salceda?fref=ts" title="Pikoña Salceda" _blank="true">
-            Pikoña Salceda
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/19-05-2018-tomino-3o-rastrexo-de-amorin/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/19-05-2018-tomino-3o-rastrexo-de-amorin/"
-            >
-            <h2>3º Rastrexo de Amorín</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 19 de maio de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Campo de Fútbol de Amorin, Tomiño
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexoamorin/" title="Campo de Fútbol de Amorin" _blank="true">
-            Campo de Fútbol de Amorin
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/13-05-2018-moana-superheroes/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/13-05-2018-moana-superheroes/"
-            >
-            <h2>Superheroes</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                domingo, 20 de maio de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Meira, Moaña
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/fiestasdelaperegrinademeira/" title="Festas da Peregrina Meira" _blank="true">
-            Festas da Peregrina Meira
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/26-05-2018-baiona-ii-rastrexo-de-baredo-terra-de-v/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/26-05-2018-baiona-ii-rastrexo-de-baredo-terra-de-v/"
-            >
-            <h2>II Rastrexo de Baredo Terra de Vikingos</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 26 de maio de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Baredo, Baiona
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/Estumballadas-1500579673349181/" title="Estumballadas" _blank="true">
-            Estumballadas
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/26-05-2018-mos-iii-rastrexo-tameiga/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/26-05-2018-mos-iii-rastrexo-tameiga/"
-            >
-            <h2>III Rastrexo Tameiga</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 26 de maio de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Tameiga, Mos
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/saneleuterio.tameiga.9/" title="Comisión de Festas San Eleuterio 2018" _blank="true">
-            Comisión de Festas San Eleuterio 2018
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/02-06-2018-moana-i-rastrexo-festas-da-peregrina-me/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/02-06-2018-moana-i-rastrexo-festas-da-peregrina-me/"
-            >
-            <h2>I Rastrexo Festas da Peregrina - Meira</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 2 de xuño de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Meira, Moaña
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://goo.gl/forms/Y7e3IMBQs9YaXmtc2" title="Comisión de Festas da Peregrina" _blank="true">
-            Comisión de Festas da Peregrina
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/02-06-2018-porrino-iii-rastrexo-costeira/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/02-06-2018-porrino-iii-rastrexo-costeira/"
-            >
-            <h2>III Rastrexo Costeira</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 2 de xuño de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                A Costeira, Porriño
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/Rastrexo-costeira-830836753712618/" title="Rastrexo Costeira" _blank="true">
-            Rastrexo Costeira
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/09-06-2017-tomino-iv-rastrexo-pineiro-buscando-a-n/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/09-06-2017-tomino-iv-rastrexo-pineiro-buscando-a-n/"
-            >
-            <h2>IV Rastrexo Piñeiro "Buscando a Nemo"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 9 de xuño de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Piñeiro, Tomiño
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/romeriacabalo/" title="Romería Cabalar Piñeiro" _blank="true">
-            Romería Cabalar Piñeiro
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/16-06-2018-salceda-de-caselas-ii-rastrexo-soutelo-/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/16-06-2018-salceda-de-caselas-ii-rastrexo-soutelo-/"
-            >
-            <h2>II Rastrexo Soutelo Jumanji</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 16 de xuño de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Soutelo, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100016913326846" title="Entroido Soutelo" _blank="true">
-            Entroido Soutelo
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/14-07-2018-nigran-ii-rastrexo-de-camos/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/14-07-2018-nigran-ii-rastrexo-de-camos/"
-            >
-            <h2>II Rastrexo de Camos “Un paseo de recuerdos”</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 30 de xuño de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Camos, Nigrán
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/Comision-de-Camos-San-Roque-2017-1390557741001575/?fref=nf&pnref=story" title="Comunidad de Montes e Comisión de Festas de Camos" _blank="true">
-            Comunidad de Montes e Comisión de Festas de Camos
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/07-07-2018-mos-v-rastrexo-de-pereiras/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/07-07-2018-mos-v-rastrexo-de-pereiras/"
-            >
-            <h2>V Rastrexo de Pereiras</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 7 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Pereiras, Mos
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexopereiras/?fref=ts" title="Rastrexo de Pereiras" _blank="true">
-            Rastrexo de Pereiras
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/13-07-2018-salvaterra-de-mino-vi-rastrexo-infantil/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/13-07-2018-salvaterra-de-mino-vi-rastrexo-infantil/"
-            >
-            <h2>VI Rastrexo Infantil Fornelos e Lourido</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                venres, 13 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Fornelos da Ribeira, Salvaterra de Miño
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/RastrexoInfantilFornelosLourido/" title="Rastrexo infantil Fornelos e Lourido" _blank="true">
-            Rastrexo infantil Fornelos e Lourido
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/14-07-2018-gondomar-rastrexo-vincios-eu-fun-a-exb/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/14-07-2018-gondomar-rastrexo-vincios-eu-fun-a-exb/"
-            >
-            <h2>Rastrexo Vincios "Eu Fun a EXB"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 14 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Vincios, Gondomar
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100004974829035&hc_ref=ARSZkZUbefX7u0d1gAo3sVMjqCgKMyPpX8s6KzhTgAFeJvK6P6osSbgM8b5kH-qIdOQ" title="AVV Galiñeiro de Vincios" _blank="true">
-            AVV Galiñeiro de Vincios
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/14-07-2018-ponteareas-iv-rastrexo-de-areas/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/14-07-2018-ponteareas-iv-rastrexo-de-areas/"
-            >
-            <h2>IV Rastrexo de Areas</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 14 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Areas, Ponteareas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexoareas/" title="Rastrexo Areas" _blank="true">
-            Rastrexo Areas
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/20-07-2018-pontevedra-rastrexo-festivexe-2018/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/20-07-2018-pontevedra-rastrexo-festivexe-2018/"
-            >
-            <h2>Rastrexo Festivexe 2018</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                venres, 20 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                San Andrés de Xeve, Pontevedra
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexofestixeve" title="Rastrexo Festivexe" _blank="true">
-            Rastrexo Festivexe
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/21-07-2018-crecente-iv-rastrexo-de-villar/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/21-07-2018-crecente-iv-rastrexo-de-villar/"
-            >
-            <h2>IV Rastrexo de Villar</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 21 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Vilar, Crecente
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/RastrexoDeVillar/?fref=ts" title="Rastrexo de Villar" _blank="true">
-            Rastrexo de Villar
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/21-07-2018-ponteareas-vi-rastrexo-de-gulans/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/21-07-2018-ponteareas-vi-rastrexo-de-gulans/"
-            >
-            <h2>VI Rastrexo de Guláns</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 21 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Guláns, Ponteareas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/RastrexoGulans-Gulans-771944396173859/?fref=ts" title="Rastrexo Gulans" _blank="true">
-            Rastrexo Gulans
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/16-06-2018-ponteareas-ii-rastrexo-infantil-de-oliv/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/16-06-2018-ponteareas-ii-rastrexo-infantil-de-oliv/"
-            >
-            <h2>II Rastrexo Infantil de Oliveira "Pijama Party"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 28 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Santiago de Oliveira, Ponteareas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexo.oliveira/" title="Rastrexo Oliveira" _blank="true">
-            Rastrexo Oliveira
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/28-07-2018-nigran-i-rastrexo-de-nigran/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/28-07-2018-nigran-i-rastrexo-de-nigran/"
-            >
-            <h2>I Rastrexo de Nigrán</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 28 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                As Angustias, Nigrán
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/ASOCIACION-CULTURAL-AS-ANGUSTIAS-108305035928648/" title="Comisión de Fiestas y Asociación Cultural Las Angustias" _blank="true">
-            Comisión de Fiestas y Asociación Cultural Las Angustias
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/29-07-2018-mondariz-iii-rastrexo-infantil-mondariz/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/29-07-2018-mondariz-iii-rastrexo-infantil-mondariz/"
-            >
-            <h2>III Rastrexo Infantil Mondariz</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                domingo, 29 de xullo de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Gargamala, Mondariz
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/14-04-2018-gondomar-andaina-nocturna-viaxe-no-temp/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/14-04-2018-gondomar-andaina-nocturna-viaxe-no-temp/"
+      >
+        <div class="post-card-date">
+          <span class="day">14</span>
+          <span class="month">abr.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Andaina Nocturna Viaxe no Tempo</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
             
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/04-08-2018-bueu-orienta-ons/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/04-08-2018-bueu-orienta-ons/"
-            >
-            <h2>Orienta Ons</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 4 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Illa de Ons, Bueu
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://m.facebook.com/territoriocomanche16/" title="Territorio Comanche" _blank="true">
-            Territorio Comanche
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/04-08-2018-gondomar-ii-rastrexo-infantil-vincios/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/04-08-2018-gondomar-ii-rastrexo-infantil-vincios/"
-            >
-            <h2>II Rastrexo Infantil Vincios</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 4 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Vincios, Gondomar
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100004974829035&hc_ref=ARQsxJ5Yy5Rucfdjb-QW0bGz4pkurfgTcmtraBEEwznhTgAGIgUVKup2bfWyOAHuNYg&fref=nf" title="Avv Galiñeiro de Vincios" _blank="true">
-            Avv Galiñeiro de Vincios
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/04-08-2018-ponteareas-ix-rastrexo-santiago-de-oliv/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/04-08-2018-ponteareas-ix-rastrexo-santiago-de-oliv/"
-            >
-            <h2>IX Rastrexo Santiago de Oliveira</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 4 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Santiago de Oliveira, Ponteareas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexo.oliveira/" title="Rastrexo Oliveira" _blank="true">
-            Rastrexo Oliveira
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/11-08-2018-arbo-ii-rastrexo-barca-de-loimil-arbo-i/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/11-08-2018-arbo-ii-rastrexo-barca-de-loimil-arbo-i/"
-            >
-            <h2>II Rastrexo Barca de Loimil-Arbo "Imos de Romaría"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 11 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Barca de Loimil, Arbo
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/Barca-de-Loimil-113324502355872/?hc_ref=ARSlIqTW2Bm_-Udf0F41-pijvFNv1r6XaSkxs2Dp_GUmzgL2-ujZaf3VhIPomR-BfxI&fref=nf" title="Asociación Cultural Barca de Loimil - Arbo" _blank="true">
-            Asociación Cultural Barca de Loimil - Arbo
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/11-08-2018-nigran-i-rastrexo-infantil-camos/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/11-08-2018-nigran-i-rastrexo-infantil-camos/"
-            >
-            <h2>I Rastrexo Infantil Camos</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 11 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Camos, Nigrán
-            </li>
+            <span><i class="fi-marker is-light-blue"></i> Couso, Gondomar</span>
             
-            </ul>
-        </header>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/14-08-2018-as-neves-vi-rastrexo-vila-de-as-neves/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/14-08-2018-as-neves-vi-rastrexo-vila-de-as-neves/"
-            >
-            <h2>VI Rastrexo Vila de As Neves</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                martes, 14 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Campo de Fútbol de As Neves, As Neves
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://nieves-futbol-club.reservio.com" title="Nieves F.C." _blank="true">
-            Nieves F.C.
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/18-08-2018-salvaterra-de-mino-v-rastrexo-de-fornel/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/18-08-2018-salvaterra-de-mino-v-rastrexo-de-fornel/"
-            >
-            <h2>V Rastrexo de Fornelos</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 18 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Fornelos, Salvaterra de Miño
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/14-04-2018-salceda-de-caselas-iii-rastrexo-imperio/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/14-04-2018-salceda-de-caselas-iii-rastrexo-imperio/"
+      >
+        <div class="post-card-date">
+          <span class="day">14</span>
+          <span class="month">abr.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">III Rastrexo Imperio A Turonia</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Entenza, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> A Turonia</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/24-08-2018-nigran-iv-andaina-o-camino-do-terror-ve/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/24-08-2018-nigran-iv-andaina-o-camino-do-terror-ve/"
-            >
-            <h2>IV Andaina “O Camiño do terror” (venres)</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                venres, 24 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Parada, Nigrán
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/21-04-2018-pontevedra-i-rastrexo-ponte-a-fuxir/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/21-04-2018-pontevedra-i-rastrexo-ponte-a-fuxir/"
+      >
+        <div class="post-card-date">
+          <span class="day">21</span>
+          <span class="month">abr.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">I Rastrexo Ponte a Fuxir</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
+            <span><i class="fi-marker is-light-blue"></i> Salcedo, Pontevedra</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Ponte a Fuxir</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/25-08-2018-nigran-iv-andaina-o-camino-do-terror-sa/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/25-08-2018-nigran-iv-andaina-o-camino-do-terror-sa/"
-            >
-            <h2>IV Andaina “O Camiño do terror” (sábado)</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 25 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Parada, Nigrán
-            </li>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/28-04-2018-salceda-de-caselas-rastrexo-extremo/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/28-04-2018-salceda-de-caselas-rastrexo-extremo/"
+      >
+        <div class="post-card-date">
+          <span class="day">28</span>
+          <span class="month">abr.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Rastrexo Extremo</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
             
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/25-08-2018-o-rosal-v-andaina-nocturna-eiras/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/25-08-2018-o-rosal-v-andaina-nocturna-eiras/"
-            >
-            <h2>V Andaina Nocturna Eiras</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 25 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Eiras, O Rosal
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/comparsaciklon/?hc_ref=ARTXP_u_odqLklUp7JLF2mDheqEshUwymuchDOaXADei2RBQzmnM7X-OzjVrgSg_n6o&fref=nf" title="Comparsa Ciklon" _blank="true">
-            Comparsa Ciklon
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/25-08-2018-tui-xvi-rastrexo-de-pexegueiro-juego-de/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/25-08-2018-tui-xvi-rastrexo-de-pexegueiro-juego-de/"
-            >
-            <h2>XVI Rastrexo de Pexegueiro “Juego de Tronos”</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 25 de agosto de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Pexegueiro, Tui
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100005506787811" title="Rastrexo Pexegueiro" _blank="true">
-            Rastrexo Pexegueiro
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/01-09-2018-as-neves-ii-rastrexo-lendas-de-taboexa/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/01-09-2018-as-neves-ii-rastrexo-lendas-de-taboexa/"
-            >
-            <h2>II Rastrexo Lendas de Taboexa</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 1 de setembro de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Taboexa, As Neves
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/cipcsanmamed.taboexa?hc_ref=ARQ6KZN8EczGrFH-Ei9jvefTGpsH_El03uzgiaVS3nL991X0hU9Ii_3Xe4P8KW_uHmI" title="CIPC San Mamed Taboexa" _blank="true">
-            CIPC San Mamed Taboexa
-            </a>
-        </li>
-            </ul>
-        </header>
-    </article>
-    
-    
-      
-    <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/08-09-2018-mondariz-orienta-tea-2018/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/08-09-2018-mondariz-orienta-tea-2018/"
-            >
-            <h2>Orienta-Tea 2018</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 8 de setembro de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Praia Fluvial do Val Mondariz, Mondariz
-            </li>
+            <span><i class="fi-marker is-light-blue"></i> San Xurxo, Salceda de Caselas</span>
             
-            </ul>
-        </header>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/15-09-2018-porrino-v-rastrexo-de-torneiros/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/15-09-2018-porrino-v-rastrexo-de-torneiros/"
-            >
-            <h2>V Rastrexo de Torneiros</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 15 de setembro de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Torneiros, Porriño
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100012406548602" title="Rastrexo Torneiros" _blank="true">
-            Rastrexo Torneiros
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/05-05-2018-crecente-ii-rastrexo-lobarinas-crecente/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/05-05-2018-crecente-ii-rastrexo-lobarinas-crecente/"
+      >
+        <div class="post-card-date">
+          <span class="day">5</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo Lobariñas - Crecente "A Aldea do Terror"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Lobariñas, Crecente</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Lobariñas</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/01-09-2018-salceda-de-caselas-rastrexo-entroido-pi/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/01-09-2018-salceda-de-caselas-rastrexo-entroido-pi/"
-            >
-            <h2>Rastrexo Entroido Picoña</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 29 de setembro de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                A Picoña, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/entroidopiconha/" title="Entroido Picoña" _blank="true">
-            Entroido Picoña
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/12-05-2018-salceda-de-caselas-iii-rastrexo-da-pico/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/12-05-2018-salceda-de-caselas-iii-rastrexo-da-pico/"
+      >
+        <div class="post-card-date">
+          <span class="day">12</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">III Rastrexo da Picoña</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> A Picoña, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Pikoña Salceda</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/06-10-2018-salceda-de-caselas-andaina-nocturna-con/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/06-10-2018-salceda-de-caselas-andaina-nocturna-con/"
-            >
-            <h2>Andaina Nocturna con probas Castro Barreiro 2018</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 6 de outubro de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Centro Cultural Castro Barreiro, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="http://carnavalcastrobarreiro.com" title="Carnaval Castro Barreiro" _blank="true">
-            Carnaval Castro Barreiro
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/19-05-2018-tomino-3o-rastrexo-de-amorin/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/19-05-2018-tomino-3o-rastrexo-de-amorin/"
+      >
+        <div class="post-card-date">
+          <span class="day">19</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">3º Rastrexo de Amorín</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Campo de Fútbol de Amorin, Tomiño</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Campo de Fútbol de Amorin</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2018/31-10-2018-salceda-de-caselas-andaina-terrorifica/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2018/31-10-2018-salceda-de-caselas-andaina-terrorifica/"
-            >
-            <h2>Andaina Terrorífica</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                mércores, 31 de outubro de 2018
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                San Esteban de Budiño, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/carnavales.sanesteban/?hc_ref=ARSn8YuNf5ZUqAJ9pmFfGi1sjApcLgCCUuiiAtD_vDtB0GdIFLHabT-_FYRbKuPek7U" title="Comparsa Talismán" _blank="true">
-            Comparsa Talismán
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/13-05-2018-moana-superheroes/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/13-05-2018-moana-superheroes/"
+      >
+        <div class="post-card-date">
+          <span class="day">20</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Superheroes</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Meira, Moaña</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Festas da Peregrina Meira</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/26-05-2018-baiona-ii-rastrexo-de-baredo-terra-de-v/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/26-05-2018-baiona-ii-rastrexo-de-baredo-terra-de-v/"
+      >
+        <div class="post-card-date">
+          <span class="day">26</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo de Baredo Terra de Vikingos</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Baredo, Baiona</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Estumballadas</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/26-05-2018-mos-iii-rastrexo-tameiga/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/26-05-2018-mos-iii-rastrexo-tameiga/"
+      >
+        <div class="post-card-date">
+          <span class="day">26</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">III Rastrexo Tameiga</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Tameiga, Mos</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Comisión de Festas San Eleuterio 2018</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/02-06-2018-moana-i-rastrexo-festas-da-peregrina-me/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/02-06-2018-moana-i-rastrexo-festas-da-peregrina-me/"
+      >
+        <div class="post-card-date">
+          <span class="day">2</span>
+          <span class="month">xuño</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">I Rastrexo Festas da Peregrina - Meira</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Meira, Moaña</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Comisión de Festas da Peregrina</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/02-06-2018-porrino-iii-rastrexo-costeira/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/02-06-2018-porrino-iii-rastrexo-costeira/"
+      >
+        <div class="post-card-date">
+          <span class="day">2</span>
+          <span class="month">xuño</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">III Rastrexo Costeira</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> A Costeira, Porriño</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Costeira</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/09-06-2017-tomino-iv-rastrexo-pineiro-buscando-a-n/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/09-06-2017-tomino-iv-rastrexo-pineiro-buscando-a-n/"
+      >
+        <div class="post-card-date">
+          <span class="day">9</span>
+          <span class="month">xuño</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Rastrexo Piñeiro "Buscando a Nemo"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Piñeiro, Tomiño</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Romería Cabalar Piñeiro</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/16-06-2018-salceda-de-caselas-ii-rastrexo-soutelo-/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/16-06-2018-salceda-de-caselas-ii-rastrexo-soutelo-/"
+      >
+        <div class="post-card-date">
+          <span class="day">16</span>
+          <span class="month">xuño</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo Soutelo Jumanji</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Soutelo, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Entroido Soutelo</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/14-07-2018-nigran-ii-rastrexo-de-camos/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/14-07-2018-nigran-ii-rastrexo-de-camos/"
+      >
+        <div class="post-card-date">
+          <span class="day">30</span>
+          <span class="month">xuño</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo de Camos “Un paseo de recuerdos”</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Camos, Nigrán</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Comunidad de Montes e Comisión de Festas de Camos</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/07-07-2018-mos-v-rastrexo-de-pereiras/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/07-07-2018-mos-v-rastrexo-de-pereiras/"
+      >
+        <div class="post-card-date">
+          <span class="day">7</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">V Rastrexo de Pereiras</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Pereiras, Mos</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo de Pereiras</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/13-07-2018-salvaterra-de-mino-vi-rastrexo-infantil/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/13-07-2018-salvaterra-de-mino-vi-rastrexo-infantil/"
+      >
+        <div class="post-card-date">
+          <span class="day">13</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VI Rastrexo Infantil Fornelos e Lourido</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Fornelos da Ribeira, Salvaterra de Miño</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo infantil Fornelos e Lourido</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/14-07-2018-gondomar-rastrexo-vincios-eu-fun-a-exb/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/14-07-2018-gondomar-rastrexo-vincios-eu-fun-a-exb/"
+      >
+        <div class="post-card-date">
+          <span class="day">14</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Rastrexo Vincios "Eu Fun a EXB"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Vincios, Gondomar</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> AVV Galiñeiro de Vincios</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/14-07-2018-ponteareas-iv-rastrexo-de-areas/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/14-07-2018-ponteareas-iv-rastrexo-de-areas/"
+      >
+        <div class="post-card-date">
+          <span class="day">14</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Rastrexo de Areas</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Areas, Ponteareas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Areas</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/20-07-2018-pontevedra-rastrexo-festivexe-2018/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/20-07-2018-pontevedra-rastrexo-festivexe-2018/"
+      >
+        <div class="post-card-date">
+          <span class="day">20</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Rastrexo Festivexe 2018</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> San Andrés de Xeve, Pontevedra</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Festivexe</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/21-07-2018-crecente-iv-rastrexo-de-villar/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/21-07-2018-crecente-iv-rastrexo-de-villar/"
+      >
+        <div class="post-card-date">
+          <span class="day">21</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Rastrexo de Villar</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Vilar, Crecente</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo de Villar</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/21-07-2018-ponteareas-vi-rastrexo-de-gulans/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/21-07-2018-ponteareas-vi-rastrexo-de-gulans/"
+      >
+        <div class="post-card-date">
+          <span class="day">21</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VI Rastrexo de Guláns</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Guláns, Ponteareas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Gulans</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/16-06-2018-ponteareas-ii-rastrexo-infantil-de-oliv/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/16-06-2018-ponteareas-ii-rastrexo-infantil-de-oliv/"
+      >
+        <div class="post-card-date">
+          <span class="day">28</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo Infantil de Oliveira "Pijama Party"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Santiago de Oliveira, Ponteareas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Oliveira</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/28-07-2018-nigran-i-rastrexo-de-nigran/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/28-07-2018-nigran-i-rastrexo-de-nigran/"
+      >
+        <div class="post-card-date">
+          <span class="day">28</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">I Rastrexo de Nigrán</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> As Angustias, Nigrán</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Comisión de Fiestas y Asociación Cultural Las Angustias</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/29-07-2018-mondariz-iii-rastrexo-infantil-mondariz/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/29-07-2018-mondariz-iii-rastrexo-infantil-mondariz/"
+      >
+        <div class="post-card-date">
+          <span class="day">29</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">III Rastrexo Infantil Mondariz</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Gargamala, Mondariz</span>
+            
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/04-08-2018-bueu-orienta-ons/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/04-08-2018-bueu-orienta-ons/"
+      >
+        <div class="post-card-date">
+          <span class="day">4</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Orienta Ons</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Illa de Ons, Bueu</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Territorio Comanche</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/04-08-2018-gondomar-ii-rastrexo-infantil-vincios/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/04-08-2018-gondomar-ii-rastrexo-infantil-vincios/"
+      >
+        <div class="post-card-date">
+          <span class="day">4</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo Infantil Vincios</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Vincios, Gondomar</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Avv Galiñeiro de Vincios</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/04-08-2018-ponteareas-ix-rastrexo-santiago-de-oliv/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/04-08-2018-ponteareas-ix-rastrexo-santiago-de-oliv/"
+      >
+        <div class="post-card-date">
+          <span class="day">4</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IX Rastrexo Santiago de Oliveira</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Santiago de Oliveira, Ponteareas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Oliveira</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/11-08-2018-arbo-ii-rastrexo-barca-de-loimil-arbo-i/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/11-08-2018-arbo-ii-rastrexo-barca-de-loimil-arbo-i/"
+      >
+        <div class="post-card-date">
+          <span class="day">11</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo Barca de Loimil-Arbo "Imos de Romaría"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Barca de Loimil, Arbo</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Asociación Cultural Barca de Loimil - Arbo</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/11-08-2018-nigran-i-rastrexo-infantil-camos/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/11-08-2018-nigran-i-rastrexo-infantil-camos/"
+      >
+        <div class="post-card-date">
+          <span class="day">11</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">I Rastrexo Infantil Camos</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Camos, Nigrán</span>
+            
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/14-08-2018-as-neves-vi-rastrexo-vila-de-as-neves/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/14-08-2018-as-neves-vi-rastrexo-vila-de-as-neves/"
+      >
+        <div class="post-card-date">
+          <span class="day">14</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VI Rastrexo Vila de As Neves</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Campo de Fútbol de As Neves, As Neves</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Nieves F.C.</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/18-08-2018-salvaterra-de-mino-v-rastrexo-de-fornel/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/18-08-2018-salvaterra-de-mino-v-rastrexo-de-fornel/"
+      >
+        <div class="post-card-date">
+          <span class="day">18</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">V Rastrexo de Fornelos</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Fornelos, Salvaterra de Miño</span>
+            <span>Asociación Cultural As Dores de Fornelos</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/24-08-2018-nigran-iv-andaina-o-camino-do-terror-ve/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/24-08-2018-nigran-iv-andaina-o-camino-do-terror-ve/"
+      >
+        <div class="post-card-date">
+          <span class="day">24</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Andaina “O Camiño do terror” (venres)</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Parada, Nigrán</span>
+            <span>CC Parada do Miñor</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/25-08-2018-nigran-iv-andaina-o-camino-do-terror-sa/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/25-08-2018-nigran-iv-andaina-o-camino-do-terror-sa/"
+      >
+        <div class="post-card-date">
+          <span class="day">25</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Andaina “O Camiño do terror” (sábado)</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Parada, Nigrán</span>
+            <span>CC Parada do Miñor</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/25-08-2018-o-rosal-v-andaina-nocturna-eiras/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/25-08-2018-o-rosal-v-andaina-nocturna-eiras/"
+      >
+        <div class="post-card-date">
+          <span class="day">25</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">V Andaina Nocturna Eiras</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Eiras, O Rosal</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Comparsa Ciklon</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/25-08-2018-tui-xvi-rastrexo-de-pexegueiro-juego-de/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/25-08-2018-tui-xvi-rastrexo-de-pexegueiro-juego-de/"
+      >
+        <div class="post-card-date">
+          <span class="day">25</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">XVI Rastrexo de Pexegueiro “Juego de Tronos”</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Pexegueiro, Tui</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Pexegueiro</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/01-09-2018-as-neves-ii-rastrexo-lendas-de-taboexa/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/01-09-2018-as-neves-ii-rastrexo-lendas-de-taboexa/"
+      >
+        <div class="post-card-date">
+          <span class="day">1</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo Lendas de Taboexa</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Taboexa, As Neves</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> CIPC San Mamed Taboexa</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/08-09-2018-mondariz-orienta-tea-2018/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/08-09-2018-mondariz-orienta-tea-2018/"
+      >
+        <div class="post-card-date">
+          <span class="day">8</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Orienta-Tea 2018</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Praia Fluvial do Val Mondariz, Mondariz</span>
+            <span>Concello de Mondariz</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/15-09-2018-porrino-v-rastrexo-de-torneiros/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/15-09-2018-porrino-v-rastrexo-de-torneiros/"
+      >
+        <div class="post-card-date">
+          <span class="day">15</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">V Rastrexo de Torneiros</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Torneiros, Porriño</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Torneiros</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/01-09-2018-salceda-de-caselas-rastrexo-entroido-pi/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/01-09-2018-salceda-de-caselas-rastrexo-entroido-pi/"
+      >
+        <div class="post-card-date">
+          <span class="day">29</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Rastrexo Entroido Picoña</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> A Picoña, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Entroido Picoña</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/06-10-2018-salceda-de-caselas-andaina-nocturna-con/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/06-10-2018-salceda-de-caselas-andaina-nocturna-con/"
+      >
+        <div class="post-card-date">
+          <span class="day">6</span>
+          <span class="month">out.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Andaina Nocturna con probas Castro Barreiro 2018</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Centro Cultural Castro Barreiro, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Carnaval Castro Barreiro</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    
+      
+    <article class="post">
+      <a
+        class="post-card"
+        hx-get="/calendarios/2018/31-10-2018-salceda-de-caselas-andaina-terrorifica/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2018/31-10-2018-salceda-de-caselas-andaina-terrorifica/"
+      >
+        <div class="post-card-date">
+          <span class="day">31</span>
+          <span class="month">out.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Andaina Terrorífica</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> San Esteban de Budiño, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Comparsa Talismán</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
@@ -1728,19 +1371,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

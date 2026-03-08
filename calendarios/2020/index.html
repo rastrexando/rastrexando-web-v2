@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
@@ -77,7 +80,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       
       <a
@@ -94,7 +97,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">2020</li>
   </ul>
 </nav>
@@ -110,9 +113,7 @@
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
-        >
-            Anterior
-        </a>
+        >← Anterior</a>
       
       <h1>2020</h1>
       
@@ -123,9 +124,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >
-          Seguinte
-        </a>
+        >Seguinte →</a>
       
       </div>
     
@@ -134,149 +133,113 @@
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
-            >
-            <h2>IV Rastrexo de Baredo "O Gran Imperio Co-Chino"</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 9 de maio de 2020
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Baredo, Baiona
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/estumballadas/" title="Estumballadas" _blank="true">
-            Estumballadas
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"
+      >
+        <div class="post-card-date">
+          <span class="day">9</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Rastrexo de Baredo "O Gran Imperio Co-Chino"</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Baredo, Baiona</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Estumballadas</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
-            >
-            <h2>III Rastrexo Festas da Peregrina</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 23 de maio de 2020
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Meira, Moaña
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/fiestasdelaperegrinademeira/" title="Festas da Peregrina" _blank="true">
-            Festas da Peregrina
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"
+      >
+        <div class="post-card-date">
+          <span class="day">23</span>
+          <span class="month">maio</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">III Rastrexo Festas da Peregrina</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Meira, Moaña</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Festas da Peregrina</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
-            >
-            <h2>VII Rastrexo de Pereiras</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 4 de xullo de 2020
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Pereiras, Mos
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexopereiras/" title="Rastrexo Pereiras" _blank="true">
-            Rastrexo Pereiras
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"
+      >
+        <div class="post-card-date">
+          <span class="day">4</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VII Rastrexo de Pereiras</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Pereiras, Mos</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Pereiras</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
-            >
-            <h2>IV Rastrexo de Camos</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 18 de xullo de 2020
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Camos, Nigrán
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/Rastrexo-Camos-1520050731385810/" title="Rastrexo Camos" _blank="true">
-            Rastrexo Camos
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"
+      >
+        <div class="post-card-date">
+          <span class="day">18</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Rastrexo de Camos</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Camos, Nigrán</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Camos</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
@@ -288,19 +251,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>

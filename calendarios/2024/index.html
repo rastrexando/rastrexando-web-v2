@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
@@ -77,7 +80,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>
       
       <a
@@ -94,7 +97,7 @@
       </a>
     
     </li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">2024</li>
   </ul>
 </nav>
@@ -110,9 +113,7 @@
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
-        >
-            Anterior
-        </a>
+        >← Anterior</a>
       
       <h1>2024</h1>
       
@@ -123,9 +124,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >
-          Seguinte
-        </a>
+        >Seguinte →</a>
       
       </div>
     
@@ -134,482 +133,365 @@
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
-            >
-            <h2>VII Rastrexo de Piñeiro</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 1 de xuño de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Piñeiro, Tomiño
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/romeriacabalo" title="Romería do Cabalo Piñeiro" _blank="true">
-            Romería do Cabalo Piñeiro
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-06-01-vii-rastrexo-pinheiro/"
+      >
+        <div class="post-card-date">
+          <span class="day">1</span>
+          <span class="month">xuño</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VII Rastrexo de Piñeiro</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Piñeiro, Tomiño</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Romería do Cabalo Piñeiro</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-07-06-super-camos/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-07-06-super-camos/"
-            >
-            <h2>7º Rastrexo Super Camos</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 13 de xullo de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Camos, Nigrán
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100057577212657" title="Rastrexo Camos" _blank="true">
-            Rastrexo Camos
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-07-06-super-camos/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-07-06-super-camos/"
+      >
+        <div class="post-card-date">
+          <span class="day">13</span>
+          <span class="month">xul.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">7º Rastrexo Super Camos</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Camos, Nigrán</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Camos</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-08-02-iv-rastrexo-festivexe/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-08-02-iv-rastrexo-festivexe/"
-            >
-            <h2>VI Rastrexo Festivexe: O xogo da lura</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                venres, 2 de agosto de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Campo de Vilar, Fragoso - Pontevedra
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexofestixeve" title="Rastrexo Festivexe" _blank="true">
-            Rastrexo Festivexe
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-08-02-iv-rastrexo-festivexe/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-08-02-iv-rastrexo-festivexe/"
+      >
+        <div class="post-card-date">
+          <span class="day">2</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">VI Rastrexo Festivexe: O xogo da lura</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Campo de Vilar, Fragoso - Pontevedra</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Festivexe</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-08-03-4-rastrexo-infantil-super-camos/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-08-03-4-rastrexo-infantil-super-camos/"
-            >
-            <h2>4º Rastrexo infantil Super Camos</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                domingo, 4 de agosto de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Camos, Nigrán
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100057577212657" title="Rastrexo Camos" _blank="true">
-            Rastrexo Camos
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-08-03-4-rastrexo-infantil-super-camos/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-08-03-4-rastrexo-infantil-super-camos/"
+      >
+        <div class="post-card-date">
+          <span class="day">4</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">4º Rastrexo infantil Super Camos</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Camos, Nigrán</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Rastrexo Camos</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-08-23-camiño-do-terror/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-08-23-camiño-do-terror/"
-            >
-            <h2>Camiño do terror 2024</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                venres, 23 de agosto de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Parada, Nigrán
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/OCaminodoTerror" title="Centro Cultural Parada" _blank="true">
-            Centro Cultural Parada
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-08-23-camiño-do-terror/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-08-23-camiño-do-terror/"
+      >
+        <div class="post-card-date">
+          <span class="day">23</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Camiño do terror 2024</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Parada, Nigrán</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Centro Cultural Parada</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-08-24-camiño-do-terror/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-08-24-camiño-do-terror/"
-            >
-            <h2>Camiño do terror 2024</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 24 de agosto de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Parada, Nigrán
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/OCaminodoTerror" title="Centro Cultural Parada" _blank="true">
-            Centro Cultural Parada
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-08-24-camiño-do-terror/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-08-24-camiño-do-terror/"
+      >
+        <div class="post-card-date">
+          <span class="day">24</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Camiño do terror 2024</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Parada, Nigrán</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Centro Cultural Parada</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
-            >
-            <h2>IV Rastrexo solidario Verducido</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 31 de agosto de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Verducido de Xeve, Pontevedra
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/asociacionculturalverducido" title="Asociación Cultural de Verducido" _blank="true">
-            Asociación Cultural de Verducido
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
+      >
+        <div class="post-card-date">
+          <span class="day">31</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">IV Rastrexo solidario Verducido</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Verducido de Xeve, Pontevedra</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Asociación Cultural de Verducido</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-08-31-xviii-rastrexo-pexegueiro/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-08-31-xviii-rastrexo-pexegueiro/"
-            >
-            <h2>XVIII Rastrexo Pexegueiro</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 31 de agosto de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Pexegueiro, Tui
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100005506787811" title="Centro Cultural Pexegueiro" _blank="true">
-            Centro Cultural Pexegueiro
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-08-31-xviii-rastrexo-pexegueiro/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-08-31-xviii-rastrexo-pexegueiro/"
+      >
+        <div class="post-card-date">
+          <span class="day">31</span>
+          <span class="month">ago.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">XVIII Rastrexo Pexegueiro</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Pexegueiro, Tui</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Centro Cultural Pexegueiro</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-09-07-ii-rastrexo-coruxo/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-09-07-ii-rastrexo-coruxo/"
-            >
-            <h2>II Rastrexo de Coruxo</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 7 de setembro de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Coruxo, Vigo
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/rastrexocoruxo" title="Unión Musical de Coruxo" _blank="true">
-            Unión Musical de Coruxo
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-09-07-ii-rastrexo-coruxo/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-09-07-ii-rastrexo-coruxo/"
+      >
+        <div class="post-card-date">
+          <span class="day">7</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Rastrexo de Coruxo</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Coruxo, Vigo</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Unión Musical de Coruxo</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-09-21-andaina-nocturna-castro-barreiro/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-09-21-andaina-nocturna-castro-barreiro/"
-            >
-            <h2>Andaina Nocturna Castro Barreiro</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 21 de setembro de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Centro Cultural Social de Castro Barreiro, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/CastroBarreiroNSN" title="Carnaval Castro Barreiro" _blank="true">
-            Carnaval Castro Barreiro
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-09-21-andaina-nocturna-castro-barreiro/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-09-21-andaina-nocturna-castro-barreiro/"
+      >
+        <div class="post-card-date">
+          <span class="day">21</span>
+          <span class="month">set.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Andaina Nocturna Castro Barreiro</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Centro Cultural Social de Castro Barreiro, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Carnaval Castro Barreiro</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-10-19-ii-andaina-terrorifica-os-imprescindibles/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-10-19-ii-andaina-terrorifica-os-imprescindibles/"
-            >
-            <h2>II Andaina Terrorífica</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 19 de outubro de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Coruxo, Vigo
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/profile.php?id=100094030441582" title="Comparsa Os Imprescindibles" _blank="true">
-            Comparsa Os Imprescindibles
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-10-19-ii-andaina-terrorifica-os-imprescindibles/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-10-19-ii-andaina-terrorifica-os-imprescindibles/"
+      >
+        <div class="post-card-date">
+          <span class="day">19</span>
+          <span class="month">out.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">II Andaina Terrorífica</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Coruxo, Vigo</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Comparsa Os Imprescindibles</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/2024-10-26-andaina-do-terror-couso/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/2024-10-26-andaina-do-terror-couso/"
-            >
-            <h2>Andaina do terror en Couso</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                sábado, 26 de outubro de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                Couso, Gondomar
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/comparsapoliticamenteincorrectos" title="Políticamente Incorrectos" _blank="true">
-            Políticamente Incorrectos
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/2024-10-26-andaina-do-terror-couso/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/2024-10-26-andaina-do-terror-couso/"
+      >
+        <div class="post-card-date">
+          <span class="day">26</span>
+          <span class="month">out.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Andaina do terror en Couso</p>
+          <div class="post-card-meta">
+            <span class="type-pill andaina">Andaina</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> Couso, Gondomar</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Políticamente Incorrectos</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
       
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="/calendarios/2024/virxe-da-picoña/"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="/calendarios/2024/virxe-da-picoña/"
-            >
-            <h2>Andaina do Terror Picoña</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                xoves, 31 de outubro de 2024
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                A Picoña, Salceda de Caselas
-            </li>
-            <li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="https://www.facebook.com/story.php?story_fbid=545980158369205&id=100088716768123&mibextid=WC7FNe&rdid=unwPK6jXXU5VUiXK" title="Festa Virxe da O Picoña" _blank="true">
-            Festa Virxe da O Picoña
-            </a>
-        </li>
-            </ul>
-        </header>
+      <a
+        class="post-card"
+        hx-get="/calendarios/2024/virxe-da-picoña/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="/calendarios/2024/virxe-da-picoña/"
+      >
+        <div class="post-card-date">
+          <span class="day">31</span>
+          <span class="month">out.</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">Andaina do Terror Picoña</p>
+          <div class="post-card-meta">
+            <span class="type-pill rastrexo">Rastrexo</span>
+            
+            <span><i class="fi-marker is-light-blue"></i> A Picoña, Salceda de Caselas</span>
+            <span><i class="fi-social-facebook is-light-blue"></i> Festa Virxe da O Picoña</span>
+          </div>
+        </div>
+      </a>
     </article>
     
     
@@ -621,19 +503,21 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <div class="left">
-        <p>Rastrexando</p>
-        ©
-        <p>2017-2026</p>
-      </div>
-      <div class="right">
-        <a href="/axuda/">Axuda</a>
-        <span>|</span>
-        <div>
-          <i class="fi-mail"></i>
-          <a href="mailto:carlos@rastrexando.eu">Contacto</a>
-        </div>
-      </div>
+      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <nav class="footer-nav">
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
     </div>
   </footer>
 </div>
