@@ -487,6 +487,7 @@ hr {
 /* Hero image — sits above .page-post, full width of the column */
 .event-hero-link {
   display: block;
+  position: relative;
   margin: 0 1rem 0;
 }
 
@@ -496,6 +497,22 @@ hr {
   object-fit: cover;
   display: block;
   border-radius: 12px;
+  cursor: zoom-in;
+}
+
+.hero-expand-hint {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .page-post {
