@@ -15,11 +15,67 @@ title: Evento — Rastrexando
   </ul>
 </nav>
 
+{% if image %}
+  <a class="event-hero-link" href="/recursos/imaxes/{{ image }}" title="{{ title }}" target="_blank">
+    <img class="event-hero" src="/recursos/imaxes/{{ image }}" alt="{{ title }}" />
+  </a>
+{% endif %}
+
 <div class="page page-post">
-	<header class="page-header">
-		<h1>{{ title }}</h1>
-	</header>
-	<hr />
+
+  <div class="event-type-row">
+    {% if tags %}
+      {% if "andaina" in tags %}
+        <span class="type-pill andaina">Andaina</span>
+      {% else %}
+        <span class="type-pill rastrexo">Rastrexo</span>
+      {% endif %}
+    {% endif %}
+    {% set relDate = date | toRelativeDate %}
+    {% if relDate %}
+      <span class="relative-date">{{ relDate }}</span>
+    {% endif %}
+  </div>
+
+  <h1>{{ title }}</h1>
+
+  <div class="event-info">
+    <div class="event-info-item">
+      <i class="fi-calendar is-light-blue"></i>
+      <span>{{ date | toGlLocale }}</span>
+    </div>
+    <div class="event-info-item">
+      <i class="fi-marker is-light-blue"></i>
+      <span>{{ location }}</span>
+    </div>
+    {% if source_url %}
+    <div class="event-info-item">
+      <i class="fi-social-facebook is-light-blue"></i>
+      <a href="{{ source_url }}" title="{{ source_name }}" target="_blank">{{ source_name }}</a>
+    </div>
+    {% elif source_name %}
+    <div class="event-info-item">
+      <i class="fi-home is-light-blue"></i>
+      <span>{{ source_name }}</span>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if videos %}
+    <section class="video-section">
+      <h2>Vídeos</h2>
+      <div class="video-list">
+        {% for video in videos %}
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.id }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {{ content | safe }}
+
+  <hr class="post-divider" />
+
   <div class="prev-next-buttons">
     {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
     {% set nextPost = collections.post | getNextCollectionItem(page) %}
@@ -34,53 +90,7 @@ title: Evento — Rastrexando
       <div class='not-allowed'>Seguinte →</div>
     {% endif %}
   </div>
-	<ul class="details">
-		<li>
-			<div class="date">
-				<i class="fi-calendar is-light-blue"></i>
-				{{ date | toGlLocale }}
-			</div>
-		</li>
-		<li>
-			<i class="fi-marker is-light-blue"></i>
-			{{ location }}
-		</li>
-		{% if source_url %}
-		<li>
-			<i class="fi-social-facebook is-light-blue"></i>
-			<a href="{{ source_url }}" title="{{ source_name }}" _blank="true">
-				{{ source_name }}
-			<a/>
-		</li>
-    {% elif source_name %}
-    <li>
-      <i class="fi-home is-light-blue"></i>
-      {{ source_name }}
-    </li>
-		{% endif %}
-	</ul>
 
-	<br />
-
-	{% if image %}
-		<a href="/recursos/imaxes/{{ image }}" title="{{ title }}" target="_blank">
-			<img class="hero-image" src="/recursos/imaxes/{{ image }}" alt="{{ title }}" />
-		</a>
-	{% endif %}
-
-  {% if videos %}
-    <section class="video-section">
-      <hr />
-      <h2>Vídeos</h2>
-      <div class="video-list">
-        {% for video in videos %}
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.id }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        {% endfor %}
-      </div>
-    </section>
-  {% endif %}
-
-	{{ content | safe }}
 </div>
 
 <script type="application/ld+json">
@@ -91,13 +101,12 @@ title: Evento — Rastrexando
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "description": "",
   {% if image %}
-	"image": "/recursos/imaxes/{{ image }}",
+  "image": "/recursos/imaxes/{{ image }}",
   {% else %}
   "image": null,
-	{% endif %}
+  {% endif %}
   "@context": "http://schema.org",
   "@type": "Event",
-  "endDate": "2019-10-12",
   "eventStatus": "EventScheduled",
   "location": {
     "@type": "Place",

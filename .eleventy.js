@@ -21,6 +21,17 @@ module.exports = function (eleventyConfig) {
     return ""
   });
 
+  eleventyConfig.addFilter("toRelativeDate", function(date) {
+    const now = new Date();
+    const diffDays = Math.ceil((date - now) / (1000 * 60 * 60 * 24));
+    if (diffDays === 0) return "Hoxe";
+    if (diffDays === 1) return "Mañá";
+    if (diffDays > 1 && diffDays < 30) return `En ${diffDays} días`;
+    if (diffDays >= 30 && diffDays < 60) return "En 1 mes";
+    if (diffDays >= 60 && diffDays < 365) return `En ${Math.round(diffDays / 30)} meses`;
+    return "";
+  });
+
   eleventyConfig.addFilter("dateOnly", function (dateVal, locale = "en-us") {
     var theDate = new Date(dateVal);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
