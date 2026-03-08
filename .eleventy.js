@@ -67,7 +67,7 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addShortcode("renderPrevNextButtons", function (pagination, title) {
-    let prev = "<div class='not-allowed'>Anterior</div>"
+    let prev = "<div class='not-allowed'>← Anterior</div>"
     if (pagination.href.previous) {
       prev = `
         <a
@@ -77,13 +77,11 @@ module.exports = function (eleventyConfig) {
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
-        >
-            Anterior
-        </a>
+        >← Anterior</a>
       `
     }
 
-    let next = "<div class='not-allowed'>Seguinte</div>"
+    let next = "<div class='not-allowed'>Seguinte →</div>"
     if (pagination.href.next) {
       next =`
         <a
@@ -93,9 +91,7 @@ module.exports = function (eleventyConfig) {
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >
-          Seguinte
-        </a>
+        >Seguinte →</a>
       `
     }
 
@@ -109,47 +105,67 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addShortcode("renderPost", function (post) {
-    const localeDate = post.data.date.toLocaleDateString("gl", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
-    let sourceHTML = ""
+    const date = post.data.date;
+    const day = date.toLocaleDateString("gl", { day: "numeric" });
+    const month = date.toLocaleDateString("gl", { month: "short" });
 
-    if (post.data.source_url) {
-        sourceHTML = `<li>
-            <i class="fi-social-facebook is-light-blue"></i>
-            <a class="link" href="${post.data.source_url}" title="${post.data.source_name}" _blank="true">
-            ${post.data.source_name }
-            </a>
-        </li>`
+    const tags = post.data.tags || [];
+    const isAndaina = tags.includes("andaina");
+    const now = new Date();
+    const diffMs = date - now;
+    const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+    const isUpcoming = diffDays > 0;
+
+    const typeLabel = isAndaina ? "Andaina" : "Rastrexo";
+    const typeClass = isAndaina ? "andaina" : "rastrexo";
+    const typePill = `<span class="type-pill ${typeClass}">${typeLabel}</span>`;
+
+    let relativeLabel = "";
+    if (diffDays === 0) {
+      relativeLabel = `<span class="relative-date">Hoxe</span>`;
+    } else if (diffDays === 1) {
+      relativeLabel = `<span class="relative-date">Mañá</span>`;
+    } else if (diffDays > 1 && diffDays < 30) {
+      relativeLabel = `<span class="relative-date">En ${diffDays} días</span>`;
+    } else if (diffDays >= 30 && diffDays < 60) {
+      relativeLabel = `<span class="relative-date">En 1 mes</span>`;
+    } else if (diffDays >= 60 && diffDays < 365) {
+      relativeLabel = `<span class="relative-date">En ${Math.round(diffDays / 30)} meses</span>`;
     }
+
+    const locationHTML = post.data.location
+      ? `<span><i class="fi-marker is-light-blue"></i> ${post.data.location}</span>`
+      : "";
+
+    const sourceHTML = post.data.source_url
+      ? `<span><i class="fi-social-facebook is-light-blue"></i> ${post.data.source_name}</span>`
+      : (post.data.source_name ? `<span>${post.data.source_name}</span>` : "");
 
     return `
     <article class="post">
-        <hr />
-        <header>
-            <a
-              class="link"
-              hx-get="${post.url}"
-              hx-target="#main-container"
-              hx-select="#main-container"
-              hx-swap="outerHTML"
-              hx-push-url="true"
-              href="${post.url}"
-            >
-            <h2>${post.data.title}</h2>
-            </a>
-            <ul class="details">
-            <li>
-                <div class="date">
-                <i class="fi-calendar is-light-blue"></i>
-                ${localeDate}
-                </div>
-            </li>
-            <li>
-                <i class="fi-marker is-light-blue"></i>
-                ${post.data.location}
-            </li>
+      <a
+        class="post-card"
+        hx-get="${post.url}"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        href="${post.url}"
+      >
+        <div class="post-card-date">
+          <span class="day">${day}</span>
+          <span class="month">${month}</span>
+        </div>
+        <div class="post-card-body">
+          <p class="post-card-title">${post.data.title}</p>
+          <div class="post-card-meta">
+            ${typePill}
+            ${relativeLabel}
+            ${locationHTML}
             ${sourceHTML}
-            </ul>
-        </header>
+          </div>
+        </div>
+      </a>
     </article>
     `;
   });

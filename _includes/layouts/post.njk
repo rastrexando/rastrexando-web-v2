@@ -6,11 +6,11 @@ title: Evento — Rastrexando
 <nav class="breadcrumbs">
   <ul>
     <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>{% renderHTMXLink "/calendarios/", "Calendarios", "link" %}</li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li>{% renderHTMXLink "/calendarios/" + date.getFullYear() + "/", date.getFullYear(), "link" %}</li>
-    <li><i class="fi-play is-light-blue"></i></li>
+    <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">{{ date | toGLMonthDay }}</li>
   </ul>
 </nav>
@@ -24,14 +24,14 @@ title: Evento — Rastrexando
     {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
     {% set nextPost = collections.post | getNextCollectionItem(page) %}
     {% if previousPost %}
-      {% renderHTMXLink previousPost.url, "Anterior" %}
+      {% renderHTMXLink previousPost.url, "← Anterior" %}
     {% else %}
-      <div class='not-allowed'>Anterior</div>
+      <div class='not-allowed'>← Anterior</div>
     {% endif %}
     {% if nextPost %}
-      {% renderHTMXLink nextPost.url, "Seguinte" %}
+      {% renderHTMXLink nextPost.url, "Seguinte →" %}
     {% else %}
-      <div class='not-allowed'>Seguinte</div>
+      <div class='not-allowed'>Seguinte →</div>
     {% endif %}
   </div>
 	<ul class="details">
@@ -63,8 +63,8 @@ title: Evento — Rastrexando
 	<br />
 
 	{% if image %}
-		<a href="/recursos/imaxes/{{ image }}" title="{{ title }}" _blank="true">
-			<img class="image" src="/recursos/imaxes/{{ image }}" />
+		<a href="/recursos/imaxes/{{ image }}" title="{{ title }}" target="_blank">
+			<img class="hero-image" src="/recursos/imaxes/{{ image }}" alt="{{ title }}" />
 		</a>
 	{% endif %}
 

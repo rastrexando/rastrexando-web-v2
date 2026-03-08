@@ -1,9 +1,12 @@
 /* Variables */
 :root {
-  --brand-dark-blue: #0d0a4c;
+  --brand-dark-blue:  #0d0a4c;
   --brand-light-blue: #259cf4;
-  --almost-black: #1b1c1d;
-  --breakpoint: 500px;
+  --brand-amber:      #e8952a;
+  --brand-green:      #2d7d4f;
+  --almost-black:     #1b1c1d;
+  --surface:          #f5f7fa;
+  --breakpoint:       500px;
 }
 
 /* Reset */
@@ -17,7 +20,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 /* Fuentes */
@@ -32,13 +35,12 @@ body {
 /* Layout */
 #layout-base {
   display: grid;
-  grid-template-rows: 90px 1fr 40px;
+  grid-template-rows: 60px 1fr 40px;
   grid-template-columns: 1fr;
   height: 100dvh;
 }
 
 #main-container {
-  /* margin-top: 50px; */
   position: relative;
   z-index: 10;
   margin-top: 10px;
@@ -57,8 +59,8 @@ body {
 .animated-section {
   position: fixed;
   width: 100%;
-  height: 170px;
-  padding-top: 1rem;
+  height: 130px;
+  padding-top: 0.5rem;
   background: #bae1ff;
   overflow: hidden;
   z-index: 5;
@@ -218,12 +220,12 @@ footer {
 
 #rastrexando-logo .title {
   font-family: "Survivor Wood";
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 #rastrexando-logo img {
   max-width: 200px;
-  max-height: 80px;
+  max-height: 46px;
   animation: rotateLogo 4s infinite ease-in-out;
   animation-iteration-count: 1
 }
@@ -249,7 +251,8 @@ a:hover {
 }
 
 hr {
-  border: var(--brand-dark-blue) 1px solid;
+  border: none;
+  border-top: 1px solid #e2e6ec;
 }
 
 .table {
@@ -274,39 +277,135 @@ hr {
   background-color: aliceblue;
 }
 
-/* Page index */
+/* ============================================================
+   Event cards (homepage + calendar list)
+   ============================================================ */
 .post {
-  margin-top: 0.7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-.post .date {
-  margin-top: 0.5rem;
+.post article-card {
+  display: block;
 }
 
-.post .location {
-  margin: 0;
-  margin-top: 0.3rem;
+/* Card shell */
+.post-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(13, 10, 76, 0.10);
+  overflow: hidden;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
-.post a:hover {
-  color: var(--bsrand-light-blue);
+.post-card:hover {
+  box-shadow: 0 6px 18px rgba(13, 10, 76, 0.18);
+  transform: translateY(-2px);
 }
 
-.post h2 {
-  font-size: 1.3rem;
-  margin-top: 0.5rem;
+/* Date badge (left column) */
+.post-card-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-dark-blue);
+  color: white;
+  min-width: 58px;
+  padding: 0.75rem 0.5rem;
+  flex-shrink: 0;
+  line-height: 1.1;
 }
 
-.post header {
-  text-align: left;
-  /* color: var(--brand-dark-blue); */
+.post-card-date .day {
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-.post header hr {
+.post-card-date .month {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+/* Card body (right column) */
+.post-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.post-card-title {
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--brand-dark-blue);
-  margin: 0.2rem 0;
+  margin: 0;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.post-card:hover .post-card-title {
+  color: var(--brand-light-blue);
+}
+
+.post-card-meta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #555;
+}
+
+.post-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* Relative date label (upcoming events only) */
+.relative-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-amber);
+}
+
+/* Type pill badge */
+.type-pill {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.type-pill.rastrexo {
+  background: var(--brand-dark-blue);
+  color: white;
+}
+
+.type-pill.andaina {
+  background: var(--brand-green);
+  color: white;
+}
+
 
 .pagination {
   display: flex;
@@ -315,6 +414,7 @@ hr {
   gap: 0.5rem;
   flex-wrap: wrap;
   padding: 0;
+  margin-top: 1rem;
 }
 
 .pagination a {
@@ -325,32 +425,40 @@ hr {
   color: var(--brand-light-blue);
 }
 
-.post .details {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.post .details li {
-  padding: 0.2rem 0;
-  font-size: 1.1rem;
-}
-
-/* Page post */
+/* ============================================================
+   Event detail page
+   ============================================================ */
 .page-post {
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 1rem 1.5rem;
 }
 
 .page-post h1 {
   text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  margin: 0.5rem 0;
 }
 
 .page-post .date {
   margin-top: 0.5rem;
 }
 
+/* Hero image */
+.page-post .hero-image {
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 0 0 12px 12px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Fallback for non-hero inline image (kept for backwards compat) */
 .page-post .image {
   max-width: 100%;
   margin: 1rem 0;
+  border-radius: 8px;
 }
 
 .page-post .details {
@@ -359,8 +467,8 @@ hr {
   list-style: none;
 }
 .page-post .details li {
-  padding: 0.2rem 0;
-  font-size: 1.1rem;
+  padding: 0.3rem 0;
+  font-size: 1rem;
 }
 
 .page-header i,
@@ -369,7 +477,9 @@ hr {
   margin: 0;
 }
 
-/* Page calendar */
+/* ============================================================
+   Calendar page
+   ============================================================ */
 .page-calendar {
   padding: 0.3rem 1rem;
 }
@@ -378,7 +488,9 @@ hr {
   text-align: center;
 }
 
-/* Sections */
+/* ============================================================
+   Video section
+   ============================================================ */
 .video-section {
   margin: 1rem 0;
 }
@@ -394,7 +506,99 @@ hr {
   gap: 2rem;
 }
 
-/* Utils */
+/* ============================================================
+   Prev / Next pill buttons
+   ============================================================ */
+.prev-next-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.prev-next-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 2px solid var(--brand-dark-blue);
+  border-radius: 20px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--brand-dark-blue);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.prev-next-buttons a:hover {
+  background: var(--brand-dark-blue);
+  color: white;
+}
+
+.prev-next-buttons .not-allowed {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: not-allowed;
+  color: #bbb;
+}
+
+/* ============================================================
+   CTA button
+   ============================================================ */
+.highlight-calendar {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--brand-dark-blue);
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(13, 10, 76, 0.25);
+  transition: background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+}
+
+.highlight-calendar:hover {
+  background-color: var(--brand-amber);
+  color: white;
+  box-shadow: 0 6px 16px rgba(232, 149, 42, 0.35);
+}
+
+/* ============================================================
+   Breadcrumbs
+   ============================================================ */
+.breadcrumbs {
+  margin-bottom: 0.75rem;
+  padding: 0 1rem;
+}
+
+.breadcrumbs ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 0.35rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.breadcrumb-sep {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   Utils
+   ============================================================ */
 .is-light-blue {
   color: var(--brand-light-blue);
 }
@@ -419,7 +623,7 @@ hr {
 
 .not-allowed {
   cursor: not-allowed;
-  color: grey;
+  color: #bbb;
 }
 
 .is-flex-centered {
@@ -427,6 +631,8 @@ hr {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .z-50 {
@@ -441,56 +647,19 @@ hr {
   text-align: right;
 }
 
-/* Short codes */
-.prev-next-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.highlight-calendar {
-  padding: 1rem;
-  background-color: var(--brand-dark-blue);
-  color: white;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 10px;
-}
-
-.highlight-calendar:hover {
-  background-color: var(--brand-light-blue);
-  color: var(--brand-dark-blue);
-  font-weight: bold;
-}
-
-.breadcrumbs {
-  margin-bottom: 1rem;
-  padding: 0 1rem;
-}
-
-.breadcrumbs ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  flex-wrap: nowrap;
-}
-
-/* Animations */
+/* ============================================================
+   Animations
+   ============================================================ */
 @keyframes rotateLogo {
   50% {
     transform: rotate(-45deg);
   }
 }
 
-
-/* FAQ */
+/* ============================================================
+   FAQ
+   ============================================================ */
 .faq-question {
-  margin-bottom: 20px;
   margin-bottom: 5px;
 }
 
