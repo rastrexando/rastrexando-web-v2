@@ -35,7 +35,7 @@ body {
 /* Layout */
 #layout-base {
   display: grid;
-  grid-template-rows: 60px 1fr 40px;
+  grid-template-rows: 60px 1fr 50px;
   grid-template-columns: 1fr;
   height: 100dvh;
 }
@@ -161,52 +161,55 @@ footer {
   margin: 0 auto;
 }
 
+
 #main-footer {
   background-color: var(--almost-black);
   width: 100%;
   height: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 #main-footer .wrapper {
-  color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
-  padding: 0rem 1rem;
+  padding: 0 1rem;
   width: 100%;
   height: 100%;
   max-width: var(--breakpoint);
   margin: 0 auto;
 }
 
-#main-footer .left {
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.footer-nav {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
 
-#main-footer .right {
+.footer-nav a {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  gap: .7rem;
+  gap: 0.25rem;
+  transition: color 0.15s ease;
 }
 
-#main-footer p {
-  margin: 0;
-}
-
-#main-footer a {
+.footer-nav a:hover {
   color: white;
 }
 
-#main-footer a:hover {
-  color: var(--brand-light-blue);
+.footer-sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.7rem;
 }
 
 #rastrexando-logo {
@@ -604,7 +607,7 @@ hr {
    ============================================================ */
 .prev-next-buttons {
   position: fixed;
-  bottom: 40px; /* sits directly above the footer */
+  bottom: 50px; /* sits directly above the footer */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
