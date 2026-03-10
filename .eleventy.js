@@ -126,9 +126,20 @@ module.exports = function (eleventyConfig) {
 
     return `
       <div class="prev-next-buttons">
-      ${prev}
-      <h1>${title}</h1>
-      ${next}
+        <a
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+          class="home-btn"
+          title="Inicio"
+        ><i class="fi-home"></i></a>
+        <div class="prev-next-pair">
+          ${prev}
+          ${next}
+        </div>
       </div>
     `;
   })

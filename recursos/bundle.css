@@ -642,14 +642,6 @@ hr {
   box-shadow: 0 -4px 16px rgba(13, 10, 76, 0.08);
 }
 
-/* Year label inside calendar floating nav */
-.prev-next-buttons h1 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0;
-  color: var(--brand-dark-blue);
-  white-space: nowrap;
-}
 
 .prev-next-buttons a {
   display: inline-flex;
@@ -683,6 +675,21 @@ hr {
   cursor: not-allowed;
   color: #ccc;
   white-space: nowrap;
+}
+
+/* Home icon button — circular, sits in the center slot */
+.prev-next-buttons a.home-btn {
+  padding: 0.35rem 0.55rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Prev/next pair grouped on the right side of the nav bar */
+.prev-next-pair {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* ============================================================
