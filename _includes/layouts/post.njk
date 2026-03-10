@@ -7,8 +7,6 @@ title: Evento — Rastrexando
   <ul>
     <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
     <li class="breadcrumb-sep">›</li>
-    <li>{% renderHTMXLink "/calendarios/", "Calendarios", "link" %}</li>
-    <li class="breadcrumb-sep">›</li>
     <li>{% renderHTMXLink "/calendarios/" + date.getFullYear() + "/", date.getFullYear(), "link" %}</li>
     <li class="breadcrumb-sep">›</li>
     <li class="is-light-blue">{{ date | toGLMonthDay }}</li>
