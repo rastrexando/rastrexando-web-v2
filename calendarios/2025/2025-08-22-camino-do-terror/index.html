@@ -81,21 +81,6 @@
     <li class="breadcrumb-sep">›</li>
     <li>
       <a
-        href="/calendarios/"
-        hx-get="/calendarios/"
-        hx-target="#main-container"
-        hx-select="#main-container"
-        hx-swap="outerHTML"
-        hx-push-url="true"
-        title="Calendarios"
-        class="link"
-      >
-        Calendarios
-      </a>
-    </li>
-    <li class="breadcrumb-sep">›</li>
-    <li>
-      <a
         href="/calendarios/2025/"
         hx-get="/calendarios/2025/"
         hx-target="#main-container"
@@ -160,8 +145,19 @@ Os días 22 e 23 de Agosto.
   <div class="prev-next-buttons">
     
     
-    
+    <a
+      href="/"
+      hx-get="/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+      title="Inicio"
+      class="home-btn"
+    ><i class="fi-home"></i></a>
+    <div class="prev-next-pair">
       
+        
       <a
         href="/calendarios/2025/02-08-mauri/"
         hx-get="/calendarios/2025/02-08-mauri/"
@@ -175,9 +171,9 @@ Os días 22 e 23 de Agosto.
         ← Anterior
       </a>
     
-    
-    
       
+      
+        
       <a
         href="/calendarios/2025/2025-08-30-v-rastrexo-verducido/"
         hx-get="/calendarios/2025/2025-08-30-v-rastrexo-verducido/"
@@ -191,7 +187,8 @@ Os días 22 e 23 de Agosto.
         Seguinte →
       </a>
     
-    
+      
+    </div>
   </div>
 
 </div>
@@ -231,7 +228,7 @@ Os días 22 e 23 de Agosto.
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >Axuda</a>
+        ><i class="fi-info"></i> Axuda</a>
         <span class="footer-sep">·</span>
         <a href="mailto:carlos@rastrexando.eu">
           <i class="fi-mail"></i> Contacto

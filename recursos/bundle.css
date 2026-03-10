@@ -35,7 +35,7 @@ body {
 /* Layout */
 #layout-base {
   display: grid;
-  grid-template-rows: 60px 1fr 50px;
+  grid-template-rows: 60px 1fr 40px;
   grid-template-columns: 1fr;
   height: 100dvh;
 }
@@ -624,7 +624,7 @@ hr {
    ============================================================ */
 .prev-next-buttons {
   position: fixed;
-  bottom: 50px; /* sits directly above the footer */
+  bottom: 40px; /* sits directly above the footer */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -642,14 +642,6 @@ hr {
   box-shadow: 0 -4px 16px rgba(13, 10, 76, 0.08);
 }
 
-/* Year label inside calendar floating nav */
-.prev-next-buttons h1 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0;
-  color: var(--brand-dark-blue);
-  white-space: nowrap;
-}
 
 .prev-next-buttons a {
   display: inline-flex;
@@ -683,6 +675,21 @@ hr {
   cursor: not-allowed;
   color: #ccc;
   white-space: nowrap;
+}
+
+/* Home icon button — circular, sits in the center slot */
+.prev-next-buttons a.home-btn {
+  padding: 0.35rem 0.55rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Prev/next pair grouped on the right side of the nav bar */
+.prev-next-pair {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* ============================================================
@@ -802,3 +809,97 @@ hr {
 .faq-answer {
   margin-top: 0;
 }
+
+/* ============================================================
+   Stats strip (landing page)
+   ============================================================ */
+.stats-strip {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1.25rem 1rem;
+  margin: 1.5rem 0;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.stat-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Year covers grid (landing page)
+   ============================================================ */
+.year-covers-section {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.year-covers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.year-cover-item {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  background-image: var(--cover-img);
+  background-size: cover;
+  background-position: center;
+  transition: filter 0.2s ease;
+}
+
+.year-cover-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.1) 55%, transparent 100%);
+  transition: opacity 0.2s ease;
+}
+
+.year-cover-item:hover::after {
+  opacity: 0.55;
+}
+
+.year-cover-item:hover {
+  filter: brightness(1.15);
+}
+
+.year-cover-item.no-image::after {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+}
+
+.year-cover-label {
+  position: relative;
+  z-index: 1;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+

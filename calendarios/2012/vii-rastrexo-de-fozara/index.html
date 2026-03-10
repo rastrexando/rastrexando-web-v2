@@ -81,21 +81,6 @@
     <li class="breadcrumb-sep">›</li>
     <li>
       <a
-        href="/calendarios/"
-        hx-get="/calendarios/"
-        hx-target="#main-container"
-        hx-select="#main-container"
-        hx-swap="outerHTML"
-        hx-push-url="true"
-        title="Calendarios"
-        class="link"
-      >
-        Calendarios
-      </a>
-    </li>
-    <li class="breadcrumb-sep">›</li>
-    <li>
-      <a
         href="/calendarios/2012/"
         hx-get="/calendarios/2012/"
         hx-target="#main-container"
@@ -171,11 +156,22 @@
   <div class="prev-next-buttons">
     
     
-    
-      <div class='not-allowed'>← Anterior</div>
-    
-    
+    <a
+      href="/"
+      hx-get="/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+      title="Inicio"
+      class="home-btn"
+    ><i class="fi-home"></i></a>
+    <div class="prev-next-pair">
       
+        <div class='not-allowed'>← Anterior</div>
+      
+      
+        
       <a
         href="/calendarios/2013/viii-rastrexo-de-fozara/"
         hx-get="/calendarios/2013/viii-rastrexo-de-fozara/"
@@ -189,7 +185,8 @@
         Seguinte →
       </a>
     
-    
+      
+    </div>
   </div>
 
 </div>
@@ -229,7 +226,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >Axuda</a>
+        ><i class="fi-info"></i> Axuda</a>
         <span class="footer-sep">·</span>
         <a href="mailto:carlos@rastrexando.eu">
           <i class="fi-mail"></i> Contacto

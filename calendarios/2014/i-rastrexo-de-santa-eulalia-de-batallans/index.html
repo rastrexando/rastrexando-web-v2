@@ -81,21 +81,6 @@
     <li class="breadcrumb-sep">›</li>
     <li>
       <a
-        href="/calendarios/"
-        hx-get="/calendarios/"
-        hx-target="#main-container"
-        hx-select="#main-container"
-        hx-swap="outerHTML"
-        hx-push-url="true"
-        title="Calendarios"
-        class="link"
-      >
-        Calendarios
-      </a>
-    </li>
-    <li class="breadcrumb-sep">›</li>
-    <li>
-      <a
         href="/calendarios/2014/"
         hx-get="/calendarios/2014/"
         hx-target="#main-container"
@@ -148,8 +133,19 @@
   <div class="prev-next-buttons">
     
     
-    
+    <a
+      href="/"
+      hx-get="/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+      title="Inicio"
+      class="home-btn"
+    ><i class="fi-home"></i></a>
+    <div class="prev-next-pair">
       
+        
       <a
         href="/calendarios/2013/i-rastrexo-infantil-de-arcos/"
         hx-get="/calendarios/2013/i-rastrexo-infantil-de-arcos/"
@@ -163,9 +159,9 @@
         ← Anterior
       </a>
     
-    
-    
       
+      
+        
       <a
         href="/calendarios/2014/1o-rastrexo-benefico-mouriscados/"
         hx-get="/calendarios/2014/1o-rastrexo-benefico-mouriscados/"
@@ -179,7 +175,8 @@
         Seguinte →
       </a>
     
-    
+      
+    </div>
   </div>
 
 </div>
@@ -219,7 +216,7 @@
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >Axuda</a>
+        ><i class="fi-info"></i> Axuda</a>
         <span class="footer-sep">·</span>
         <a href="mailto:carlos@rastrexando.eu">
           <i class="fi-mail"></i> Contacto
