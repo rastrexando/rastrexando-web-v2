@@ -37,9 +37,25 @@ pagination:
     {% endif %}
   </section>
 
-  <div class="is-flex-centered">
-    {% renderHTMXLink "calendarios/" + years[years.length-1].name + "/", "Ver calendario " + years[years.length-1].name, "highlight-calendar" %}
-  </div>
+  <section class="year-covers-section">
+    <div class="year-covers-grid">
+      {% for item in collections.yearCovers | reverse %}
+      <a
+        class="year-cover-item{% if not item.image %} no-image{% endif %}"
+        href="{{ item.url }}"
+        hx-get="{{ item.url }}"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        {% if item.image %}style="--cover-img: url('/recursos/imaxes/{{ item.image }}')"{% endif %}
+      >
+        <span class="year-cover-label">{{ item.year }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
 </div>
 
 <script type="application/ld+json">

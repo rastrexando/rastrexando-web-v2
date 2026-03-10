@@ -59,6 +59,24 @@ module.exports = function (eleventyConfig) {
     return upcoming
   });
 
+  eleventyConfig.addCollection("yearCovers", function(collectionApi) {
+    const years = require("./_data/years.json");
+    const all = collectionApi.getAllSorted();
+    return years.map(function(y) {
+      const post = all.find(function(item) {
+        return item.data.tags &&
+               item.data.tags.includes("post") &&
+               item.data.tags.includes(String(y.name)) &&
+               item.data.image;
+      });
+      return {
+        year: y.name,
+        image: post ? post.data.image : null,
+        url: "/calendarios/" + y.name + "/"
+      };
+    });
+  });
+
   /* Short codes */
   eleventyConfig.addShortcode("renderHTMXLink", function(href, title, classes="") {
     return `
