@@ -35,7 +35,7 @@ body {
 /* Layout */
 #layout-base {
   display: grid;
-  grid-template-rows: 60px 1fr 50px;
+  grid-template-rows: 60px 1fr 40px;
   grid-template-columns: 1fr;
   height: 100dvh;
 }
@@ -624,7 +624,7 @@ hr {
    ============================================================ */
 .prev-next-buttons {
   position: fixed;
-  bottom: 50px; /* sits directly above the footer */
+  bottom: 40px; /* sits directly above the footer */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
