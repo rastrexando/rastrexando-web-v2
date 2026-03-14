@@ -35,7 +35,7 @@ body {
 /* Layout */
 #layout-base {
   display: grid;
-  grid-template-rows: 60px 1fr 40px;
+  grid-template-rows: 72px 1fr 40px;
   grid-template-columns: 1fr;
   height: 100dvh;
 }
@@ -59,7 +59,7 @@ body {
 .animated-section {
   position: fixed;
   width: 100%;
-  height: 130px;
+  height: 142px;
   padding-top: 0.5rem;
   background: #bae1ff;
   overflow: hidden;
@@ -218,17 +218,17 @@ footer {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  gap: 0.5rem;
+  gap: 0.65rem;
 }
 
 #rastrexando-logo .title {
   font-family: "Survivor Wood";
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 
 #rastrexando-logo img {
   max-width: 200px;
-  max-height: 46px;
+  max-height: 58px;
   animation: rotateLogo 4s infinite ease-in-out;
   animation-iteration-count: 1
 }
@@ -584,9 +584,13 @@ hr {
   display: block;
 }
 
+.page-header {
+  margin-bottom: 0.75rem;
+}
+
 .page-header i,
 .page-header h1 {
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   margin: 0;
 }
 
@@ -597,9 +601,6 @@ hr {
   padding: 0.3rem 1rem 5rem;
 }
 
-.page-calendar h1 {
-  text-align: center;
-}
 
 /* ============================================================
    Video section
@@ -842,6 +843,15 @@ hr {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text-muted);
+}
+
+/* ============================================================
+   Section divider
+   ============================================================ */
+.section-divider {
+  height: 1px;
+  margin: 1.25rem 1rem;
+  background: linear-gradient(to right, transparent, #c8d4e0, transparent);
 }
 
 /* ============================================================

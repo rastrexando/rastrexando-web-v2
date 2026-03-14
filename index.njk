@@ -16,7 +16,6 @@ pagination:
     <h1><i class="fi-star is-light-blue"></i> Destacados</h1>
   </header>
   <section>
-    <br />
     {% for post in pagination.items %}
       {% renderPost post %}
     {% endfor %}
@@ -36,6 +35,8 @@ pagination:
       </ul>
     {% endif %}
   </section>
+
+  <div class="section-divider"></div>
 
   <section class="year-covers-section">
     <div class="year-covers-grid">

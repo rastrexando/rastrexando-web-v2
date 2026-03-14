@@ -12,6 +12,9 @@ title: Calendario - Rastrexando
 </nav>
 
 <div class="page page-calendar">
+  <header class="page-header">
+    <h1><i class="fi-calendar is-light-blue"></i> {{ year.name }}</h1>
+  </header>
   {% renderPrevNextButtons pagination, year.name %}
 
   <section>
