@@ -104,23 +104,22 @@ title: Evento — Rastrexando
 
 <script type="application/ld+json">
 {
-  "name": "{{ title }}",
-  "startDate": "{{ date | dateOnly }}",
-  "url": "{{ page.url }}",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "description": "",
-  {% if image %}
-  "image": "/recursos/imaxes/{{ image }}",
-  {% else %}
-  "image": null,
-  {% endif %}
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "Event",
-  "eventStatus": "EventScheduled",
+  "name": "{{ title }}",
+  "url": "https://www.rastrexando.eu{{ page.url }}",
+  "startDate": "{{ date | dateOnly }}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
     "name": "{{ location }}"
-  },
-  "organizer": { "@type": "Organization", "name": "{{ source_name }}", "url": "{{ source_url }}" }
+  }{% if image %},
+  "image": "https://www.rastrexando.eu/recursos/imaxes/{{ image }}"{% endif %}{% if source_name %},
+  "organizer": {
+    "@type": "Organization",
+    "name": "{{ source_name }}"{% if source_url %},
+    "url": "{{ source_url }}"{% endif %}
+  }{% endif %}
 }
 </script>

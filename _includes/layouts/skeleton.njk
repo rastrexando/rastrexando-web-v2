@@ -35,6 +35,46 @@ title: Rastrexando
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.rastrexando.eu",
+      "name": "Rastrexando",
+      "description": "A túa plataforma de referencia para non perderte ningún Rastrexo"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Rastrexando",
+      "url": "https://www.rastrexando.eu",
+      "logo": "https://www.rastrexando.eu/recursos/rastrexando-simbolo.png",
+      "foundingDate": "2017",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Carlos González Goce",
+          "sameAs": ["https://www.linkedin.com/in/carlos-goce/"]
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Baiona",
+        "addressRegion": "Pontevedra",
+        "addressCountry": "ES"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "carlos@rastrexando.eu"
+      },
+      "sameAs": ["https://www.facebook.com/rastrexando/"]
+    }
+    </script>
   </head>
   <body class="relative">
     {{ content | safe }}
