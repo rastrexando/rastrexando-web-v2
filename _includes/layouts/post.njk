@@ -75,8 +75,8 @@ title: Evento — Rastrexando
 
   <div class="share-row">
     <span class="share-label">Compartir:</span>
-    <a class="share-btn share-whatsapp" href="https://wa.me/?text=https://www.rastrexando.eu{{ page.url }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.rastrexando.eu{{ page.url }}" target="_blank" rel="noopener noreferrer"><i class="fi-social-facebook"></i> Facebook</a>
+    <a class="share-btn share-whatsapp" href="https://wa.me/?text=https://rastrexando.eu{{ page.url }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://rastrexando.eu{{ page.url }}" target="_blank" rel="noopener noreferrer"><i class="fi-social-facebook"></i> Facebook</a>
   </div>
 
   <div class="prev-next-buttons">
@@ -101,7 +101,7 @@ title: Evento — Rastrexando
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "{{ title }}",
-  "url": "https://www.rastrexando.eu{{ page.url }}",
+  "url": "https://rastrexando.eu{{ page.url }}",
   "startDate": "{{ date | dateOnly }}",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -109,7 +109,7 @@ title: Evento — Rastrexando
     "@type": "Place",
     "name": "{{ location }}"
   }{% if image %},
-  "image": "https://www.rastrexando.eu/recursos/imaxes/{{ image }}"{% endif %}{% if source_name %},
+  "image": "https://rastrexando.eu/recursos/imaxes/{{ image }}"{% endif %}{% if source_name %},
   "organizer": {
     "@type": "Organization",
     "name": "{{ source_name }}"{% if source_url %},
