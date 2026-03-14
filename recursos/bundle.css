@@ -181,6 +181,20 @@ footer {
   margin: 0 auto;
 }
 
+.footer-home {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.15s ease;
+}
+
+.footer-home:hover {
+  color: white;
+}
+
 .footer-copy {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
@@ -219,6 +233,12 @@ footer {
   align-items: center;
   text-decoration: none;
   gap: 0.65rem;
+  cursor: pointer;
+}
+
+#rastrexando-logo:hover,
+#rastrexando-logo:focus {
+  color: var(--brand-dark-blue);
 }
 
 #rastrexando-logo .title {
@@ -589,7 +609,8 @@ hr {
 }
 
 .page-header i,
-.page-header h1 {
+.page-header h1,
+.page-header h2 {
   font-size: 1.1rem;
   margin: 0;
 }
@@ -678,20 +699,6 @@ hr {
   white-space: nowrap;
 }
 
-/* Home icon button — circular, sits in the center slot */
-.prev-next-buttons a.home-btn {
-  padding: 0.35rem 0.55rem;
-  border-radius: 50%;
-  font-size: 1rem;
-  line-height: 1;
-}
-
-/* Prev/next pair grouped on the right side of the nav bar */
-.prev-next-pair {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 
 /* ============================================================
    CTA button

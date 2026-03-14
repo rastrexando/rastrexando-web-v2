@@ -35,7 +35,15 @@ layout: skeleton
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <span class="footer-copy">© 2017–2026 Rastrexando</span>
+      <a
+        class="footer-home"
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+      ><i class="fi-home"></i> Inicio</a>
       <nav class="footer-nav">
         <a
           href="/axuda/"
@@ -45,6 +53,10 @@ layout: skeleton
           hx-swap="outerHTML"
           hx-push-url="true"
         ><i class="fi-info"></i> Axuda</a>
+        <span class="footer-sep">·</span>
+        <a href="https://www.facebook.com/rastrexando" target="_blank" rel="noopener noreferrer">
+          <i class="fi-social-facebook"></i> Facebook
+        </a>
         <span class="footer-sep">·</span>
         <a href="mailto:carlos@rastrexando.eu">
           <i class="fi-mail"></i> Contacto

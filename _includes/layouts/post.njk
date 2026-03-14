@@ -76,28 +76,16 @@ title: Evento — Rastrexando
   <div class="prev-next-buttons">
     {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
     {% set nextPost = collections.post | getNextCollectionItem(page) %}
-    <a
-      href="/"
-      hx-get="/"
-      hx-target="#main-container"
-      hx-select="#main-container"
-      hx-swap="outerHTML"
-      hx-push-url="true"
-      title="Inicio"
-      class="home-btn"
-    ><i class="fi-home"></i></a>
-    <div class="prev-next-pair">
-      {% if previousPost %}
-        {% renderHTMXLink previousPost.url, "← Anterior" %}
-      {% else %}
-        <div class='not-allowed'>← Anterior</div>
-      {% endif %}
-      {% if nextPost %}
-        {% renderHTMXLink nextPost.url, "Seguinte →" %}
-      {% else %}
-        <div class='not-allowed'>Seguinte →</div>
-      {% endif %}
-    </div>
+    {% if previousPost %}
+      {% renderHTMXLink previousPost.url, "← Anterior" %}
+    {% else %}
+      <div class='not-allowed'>← Anterior</div>
+    {% endif %}
+    {% if nextPost %}
+      {% renderHTMXLink nextPost.url, "Seguinte →" %}
+    {% else %}
+      <div class='not-allowed'>Seguinte →</div>
+    {% endif %}
   </div>
 
 </div>
