@@ -701,6 +701,52 @@ hr {
 
 
 /* ============================================================
+   Share row (event detail page)
+   ============================================================ */
+.share-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0.5rem;
+  flex-wrap: wrap;
+}
+
+.share-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.share-btn:hover {
+  opacity: 0.8;
+}
+
+.share-whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+.share-facebook {
+  background: #1877f2;
+  color: white;
+}
+
+
+/* ============================================================
    CTA button
    ============================================================ */
 .highlight-calendar {

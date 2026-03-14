@@ -73,6 +73,12 @@ title: Evento — Rastrexando
 
   {{ content | safe }}
 
+  <div class="share-row">
+    <span class="share-label">Compartir:</span>
+    <a class="share-btn share-whatsapp" href="https://wa.me/?text=https://www.rastrexando.eu{{ page.url }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.rastrexando.eu{{ page.url }}" target="_blank" rel="noopener noreferrer"><i class="fi-social-facebook"></i> Facebook</a>
+  </div>
+
   <div class="prev-next-buttons">
     {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
     {% set nextPost = collections.post | getNextCollectionItem(page) %}
