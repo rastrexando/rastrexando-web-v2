@@ -138,15 +138,15 @@ module.exports = function (eleventyConfig) {
 
     let relativeLabel = "";
     if (diffDays === 0) {
-      relativeLabel = `<span class="relative-date">Hoxe</span>`;
+      relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">Hoxe</span>`;
     } else if (diffDays === 1) {
-      relativeLabel = `<span class="relative-date">Mañá</span>`;
+      relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">Mañá</span>`;
     } else if (diffDays > 1 && diffDays < 30) {
-      relativeLabel = `<span class="relative-date">En ${diffDays} días</span>`;
+      relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">En ${diffDays} días</span>`;
     } else if (diffDays >= 30 && diffDays < 60) {
-      relativeLabel = `<span class="relative-date">En 1 mes</span>`;
+      relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">En 1 mes</span>`;
     } else if (diffDays >= 60 && diffDays < 365) {
-      relativeLabel = `<span class="relative-date">En ${Math.round(diffDays / 30)} meses</span>`;
+      relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">En ${Math.round(diffDays / 30)} meses</span>`;
     }
 
     const locationHTML = post.data.location

@@ -32,7 +32,7 @@ title: Evento — Rastrexando
     {% endif %}
     {% set relDate = date | toRelativeDate %}
     {% if relDate %}
-      <span class="relative-date">{{ relDate }}</span>
+      <span class="relative-date" data-date="{{ date.toISOString() }}">{{ relDate }}</span>
     {% endif %}
   </div>
 
