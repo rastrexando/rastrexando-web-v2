@@ -6,7 +6,13 @@
   --brand-green:      #2d7d4f;
   --almost-black:     #1b1c1d;
   --surface:          #f5f7fa;
-  --breakpoint:       500px;
+  --breakpoint:       720px;
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --breakpoint: 860px;
+  }
 }
 
 /* Reset */
@@ -19,7 +25,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: clamp(16px, 1rem + 0.25vw, 20px);
   font-family: 'Inter', system-ui, sans-serif;
 }
 
@@ -38,6 +44,12 @@ body {
   grid-template-rows: 72px 1fr 40px;
   grid-template-columns: 1fr;
   height: 100dvh;
+}
+
+@media (min-width: 640px) {
+  #layout-base {
+    grid-template-rows: 80px 1fr 48px;
+  }
 }
 
 #main-container {
@@ -153,8 +165,8 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
-  padding: 0rem 1rem;
+  font-size: 0.75rem;
+  padding: 0 1rem;
   width: 100%;
   height: 100%;
   max-width: var(--breakpoint);
@@ -513,7 +525,7 @@ hr {
 
 .event-hero {
   width: 100%;
-  height: 220px;
+  height: clamp(200px, 30vw, 400px);
   object-fit: cover;
   display: block;
   border-radius: 12px;
@@ -922,6 +934,20 @@ hr {
   overflow: hidden;
 }
 
+@media (min-width: 640px) {
+  .year-covers-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (min-width: 960px) {
+  .year-covers-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+}
+
 .year-cover-item {
   aspect-ratio: 1 / 1;
   position: relative;
@@ -964,5 +990,80 @@ hr {
   font-weight: 700;
   color: white;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+@media (min-width: 640px) {
+  .year-cover-label {
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+/* ============================================================
+   Responsive: page padding & layout adjustments
+   ============================================================ */
+@media (min-width: 640px) {
+  .page {
+    padding: 2rem 2rem;
+  }
+
+  .page-post {
+    padding: 1.25rem 2rem 5rem;
+  }
+
+  .page-calendar {
+    padding: 0.5rem 2rem 5rem;
+  }
+
+  .breadcrumbs {
+    padding: 0 2rem;
+  }
+
+  .event-hero-link {
+    margin: 0 2rem;
+  }
+
+  .section-divider {
+    margin: 1.5rem 2rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .page {
+    padding: 2.5rem 3rem;
+  }
+
+  .page-post {
+    padding: 1.5rem 3rem 5rem;
+  }
+
+  .page-calendar {
+    padding: 0.75rem 3rem 5rem;
+  }
+
+  .breadcrumbs {
+    padding: 0 3rem;
+  }
+
+  .event-hero-link {
+    margin: 0 3rem;
+  }
+
+  .section-divider {
+    margin: 2rem 3rem;
+  }
+}
+
+/* Year grid: more columns on wider screens */
+@media (min-width: 640px) {
+  .year-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .year-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
