@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
     if (diffDays === 0) return "Hoxe";
     if (diffDays === 1) return "Mañá";
     if (diffDays > 1 && diffDays < 30) return `En ${diffDays} días`;
-    if (diffDays >= 30 && diffDays < 60) return "En 1 mes";
+    if (diffDays >= 30 && diffDays < 60) return "Nun mes";
     if (diffDays >= 60 && diffDays < 365) return `En ${Math.round(diffDays / 30)} meses`;
     return "";
   });
@@ -144,7 +144,7 @@ module.exports = function (eleventyConfig) {
     } else if (diffDays > 1 && diffDays < 30) {
       relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">En ${diffDays} días</span>`;
     } else if (diffDays >= 30 && diffDays < 60) {
-      relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">En 1 mes</span>`;
+      relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">Nun mes</span>`;
     } else if (diffDays >= 60 && diffDays < 365) {
       relativeLabel = `<span class="relative-date" data-date="${date.toISOString()}">En ${Math.round(diffDays / 30)} meses</span>`;
     }
