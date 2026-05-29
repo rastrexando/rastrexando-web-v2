@@ -9,7 +9,7 @@ function updateRelativeDates() {
     if (diffDays === 0) label = "Hoxe";
     else if (diffDays === 1) label = "Mañá";
     else if (diffDays > 1 && diffDays < 30) label = "En " + diffDays + " días";
-    else if (diffDays >= 30 && diffDays < 60) label = "En 1 mes";
+    else if (diffDays >= 30 && diffDays < 60) label = "Nun mes";
     else if (diffDays >= 60 && diffDays < 365) label = "En " + Math.round(diffDays / 30) + " meses";
     if (label) {
       span.textContent = label;
