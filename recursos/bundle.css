@@ -193,6 +193,12 @@ footer {
   margin: 0 auto;
 }
 
+@media (min-width: 640px) {
+  #main-footer .wrapper {
+    padding: 0 2rem;
+  }
+}
+
 .footer-home {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.7);
@@ -658,7 +664,7 @@ hr {
    ============================================================ */
 .prev-next-buttons {
   position: fixed;
-  bottom: 40px; /* sits directly above the footer */
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -675,7 +681,6 @@ hr {
   border-top: 1px solid #e2e6ec;
   box-shadow: 0 -4px 16px rgba(13, 10, 76, 0.08);
 }
-
 
 .prev-next-buttons a {
   display: inline-flex;
@@ -709,6 +714,36 @@ hr {
   cursor: not-allowed;
   color: #ccc;
   white-space: nowrap;
+}
+
+/* Desktop: floating pill navigation */
+@media (min-width: 768px) {
+  .prev-next-buttons {
+    width: auto;
+    max-width: none;
+    bottom: 1.5rem;
+    border-radius: 999px;
+    border: 1px solid #e2e6ec;
+    border-top: 1px solid #e2e6ec;
+    box-shadow: 0 4px 24px rgba(13, 10, 76, 0.12);
+    padding: 0.4rem 0.75rem;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .prev-next-buttons a,
+  .prev-next-buttons .not-allowed {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .page-post {
+    padding-bottom: 3rem;
+  }
+
+  .page-calendar {
+    padding-bottom: 3rem;
+  }
 }
 
 
