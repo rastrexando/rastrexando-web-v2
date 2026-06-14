@@ -542,15 +542,18 @@ hr {
   position: absolute;
   bottom: 0.6rem;
   right: 0.6rem;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 0.3rem 0.5rem;
+  padding: 0.5rem 0.85rem;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1;
   pointer-events: none;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .page-post {
