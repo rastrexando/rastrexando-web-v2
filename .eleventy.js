@@ -38,6 +38,11 @@ module.exports = function (eleventyConfig) {
     return theDate.toLocaleDateString(locale, options);
   });
 
+  eleventyConfig.addFilter("b64encode", function (value) {
+    if (!value) return "";
+    return Buffer.from(String(value), "utf-8").toString("base64");
+  });
+
   /* Collections */
   const now = new Date();
 

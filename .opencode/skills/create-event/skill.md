@@ -14,6 +14,7 @@ Collect from the user:
 - **image_url**: URL to download the event poster/image from
 - **body** (optional): HTML content for the event description. See "Body text rules" below.
 - **videos** (optional): Array of YouTube video objects with `id` and `title`
+- **registration_email** (optional): Email address where participants can register. When provided, a registration button will appear automatically on the event page for future events. The email address is obfuscated in the HTML to avoid spam bots.
 
 ## Body text rules
 
@@ -72,10 +73,13 @@ source_url: <source_url>
 source_name: "<source_name>"
 location: "<location>"
 image: <year>/<image-filename>
+registration_email: <registration_email>
 ---
 
 <optional body HTML>
 ```
+
+If `registration_email` is not provided, omit that line from the frontmatter.
 
 If videos are provided, add them to the frontmatter:
 

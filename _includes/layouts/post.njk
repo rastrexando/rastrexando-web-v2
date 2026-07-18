@@ -60,6 +60,25 @@ title: Evento — Rastrexando
     {% endif %}
   </div>
 
+  {% if registration_email %}
+    {% set emailBody %}Boas,
+
+Quero inscribirme no evento "{{ title }}" ({{ date | toGlLocale }}).
+
+Nome:
+Número de participantes:
+
+---
+https://rastrexando.eu{{ page.url }}{% endset %}
+    <button type="button" class="register-btn"
+            data-e="{{ registration_email | b64encode }}"
+            data-subject="Inscrición: {{ title }}"
+            data-body="{{ emailBody }}"
+            data-event-date="{{ date.toISOString() }}">
+      <i class="fi-mail"></i> Apuntarse
+    </button>
+  {% endif %}
+
   {% if videos %}
     <section class="video-section">
       <h2>Vídeos</h2>
