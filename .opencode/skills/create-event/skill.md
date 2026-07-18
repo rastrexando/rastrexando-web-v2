@@ -12,8 +12,17 @@ Collect from the user:
 - **source_url**: Facebook page or website URL
 - **source_name**: Organizer name
 - **image_url**: URL to download the event poster/image from
-- **body** (optional): HTML content for the event description. Skip personal information (emails, phone numbers, registration details, prices). Only include general event descriptions if provided.
+- **body** (optional): HTML content for the event description. See "Body text rules" below.
 - **videos** (optional): Array of YouTube video objects with `id` and `title`
+
+## Body text rules
+
+When the user provides descriptive text for the event:
+- **Translate to Galician** if the text is in Spanish (the site language is Galician)
+- **Exclude personal information**: email addresses, phone numbers, registration/contact details
+- **Keep general event info**: descriptions, team sizes, prices, fundraising purpose, age ranges, etc.
+- Wrap each paragraph in `<p>` tags
+- Place body content after the frontmatter closing `---`
 
 ## Workflow
 
