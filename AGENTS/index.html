@@ -1,0 +1,41 @@
+<h1>Rastrexando Web V2</h1>
+<h2>Overview</h2>
+<ul>
+<li>Eleventy static site, Galician language</li>
+<li>Catalogs &quot;rastrexos&quot; (treasure hunts) and &quot;andainas&quot; (walking events) across Galicia</li>
+<li>Dev: <code>npx @11ty/eleventy --serve</code></li>
+<li>Build: <code>npx @11ty/eleventy</code></li>
+</ul>
+<h2>Structure</h2>
+<ul>
+<li><code>calendarios/&lt;year&gt;/&lt;slug&gt;.njk</code> — event files</li>
+<li><code>recursos/imaxes/&lt;year&gt;/</code> — event images</li>
+<li><code>_includes/layouts/</code> — Nunjucks layouts (post, base, calendar, skeleton)</li>
+<li><code>_data/</code> — site data (years.json, site.js)</li>
+<li><code>.eleventy.js</code> — config (filters, collections, shortcodes)</li>
+</ul>
+<h2>Event Frontmatter</h2>
+<pre><code class="language-yaml">layout: post
+tags: [&quot;post&quot;, &quot;&lt;year&gt;&quot;, &quot;&lt;rastrexo|andaina&gt;&quot;]
+title: &quot;&lt;event title&gt;&quot;
+date: &lt;YYYY-MM-DD&gt;
+source_url: &lt;facebook or website url&gt;
+source_name: &quot;&lt;organizer name&gt;&quot;
+location: &quot;&lt;city&gt;, &lt;province&gt;&quot;
+image: &lt;year&gt;/&lt;image-filename&gt;
+videos: # optional
+  - id: &lt;youtube-video-id&gt;
+    title: &quot;&lt;video title&gt;&quot;
+</code></pre>
+<h2>Conventions</h2>
+<ul>
+<li>Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., <code>ix-rastrexo-camos.njk</code>)</li>
+<li>Images stored in <code>recursos/imaxes/&lt;year&gt;/</code> and referenced as <code>&lt;year&gt;/filename.ext</code></li>
+<li>Tags must include: &quot;post&quot;, year, and type (&quot;rastrexo&quot; or &quot;andaina&quot;)</li>
+<li>Year directories must exist in both <code>calendarios/</code> and <code>recursos/imaxes/</code></li>
+<li>Year must be listed in <code>_data/years.json</code></li>
+</ul>
+<h2>Skills</h2>
+<ul>
+<li><a href=".opencode/skills/create-event/skill.md">Create Event</a> — create new rastrexos/andainas</li>
+</ul>

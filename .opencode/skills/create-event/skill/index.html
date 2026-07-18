@@ -1,0 +1,79 @@
+<h1>Create Event Skill</h1>
+<p>This skill creates new rastrexos (treasure hunts) or andainas (walking events) for the Rastrexando site.</p>
+<h2>Required Information</h2>
+<p>Collect from the user:</p>
+<ul>
+<li><strong>title</strong>: Event name (e.g., &quot;IX Rastrexo Camos&quot;)</li>
+<li><strong>date</strong>: Event date (YYYY-MM-DD format)</li>
+<li><strong>type</strong>: Either &quot;rastrexo&quot; or &quot;andaina&quot;</li>
+<li><strong>location</strong>: City and province (e.g., &quot;Campos, Nigrán&quot;)</li>
+<li><strong>source_url</strong>: Facebook page or website URL</li>
+<li><strong>source_name</strong>: Organizer name</li>
+<li><strong>image_url</strong>: URL to download the event poster/image from</li>
+<li><strong>body</strong> (optional): HTML content for the event description. Skip personal information (emails, phone numbers, registration details, prices). Only include general event descriptions if provided.</li>
+<li><strong>videos</strong> (optional): Array of YouTube video objects with <code>id</code> and <code>title</code></li>
+</ul>
+<h2>Workflow</h2>
+<h3>1. Generate the filename slug</h3>
+<p>Convert the title to a slug:</p>
+<ul>
+<li>Lowercase all letters</li>
+<li>Replace spaces with hyphens</li>
+<li>Preserve Roman numerals (I, II, III, IV, V, VI, VII, VIII, IX, X, etc.)</li>
+<li>Remove special characters except hyphens</li>
+<li>Example: &quot;IX Rastrexo Camos&quot; → <code>ix-rastrexo-camos</code></li>
+<li>Example: &quot;IV Rastrexo de Coruxo: El Gran Juego&quot; → <code>iv-rastrexo-coruxo-el-gran-juego</code></li>
+</ul>
+<h3>2. Determine the year</h3>
+<p>Extract the year from the date field (first 4 characters).</p>
+<h3>3. Download the image</h3>
+<pre><code class="language-bash">curl -L -o recursos/imaxes/&lt;year&gt;/&lt;image-filename&gt; &lt;image_url&gt;
+</code></pre>
+<p>The image filename should be descriptive and lowercase (e.g., <code>ix-camos.jpg</code>, <code>areas.jpeg</code>).</p>
+<h3>4. Create year directories if needed</h3>
+<p>Check if these exist, create if missing:</p>
+<ul>
+<li><code>calendarios/&lt;year&gt;/</code></li>
+<li><code>recursos/imaxes/&lt;year&gt;/</code></li>
+</ul>
+<h3>5. Update years.json if needed</h3>
+<p>Check if the year exists in <code>_data/years.json</code>. If not, add it in chronological order.</p>
+<h3>6. Create the event file</h3>
+<p>Create <code>calendarios/&lt;year&gt;/&lt;slug&gt;.njk</code> with this template:</p>
+<pre><code class="language-njk">---
+layout: post
+tags: [&quot;post&quot;, &quot;&lt;year&gt;&quot;, &quot;&lt;type&gt;&quot;]
+title: &quot;&lt;title&gt;&quot;
+date: &lt;YYYY-MM-DD&gt;
+source_url: &lt;source_url&gt;
+source_name: &quot;&lt;source_name&gt;&quot;
+location: &quot;&lt;location&gt;&quot;
+image: &lt;year&gt;/&lt;image-filename&gt;
+---
+
+&lt;optional body HTML&gt;
+</code></pre>
+<p>If videos are provided, add them to the frontmatter:</p>
+<pre><code class="language-yaml">videos:
+  - id: &lt;youtube-video-id&gt;
+    title: &quot;&lt;video title&gt;&quot;
+</code></pre>
+<h3>7. Verify the build</h3>
+<p>Run <code>npx @11ty/eleventy</code> to ensure the site builds without errors.</p>
+<h2>Example</h2>
+<p>User provides:</p>
+<ul>
+<li>title: &quot;IX Rastrexo Camos&quot;</li>
+<li>date: &quot;2026-07-11&quot;</li>
+<li>type: &quot;rastrexo&quot;</li>
+<li>location: &quot;Campos, Nigrán&quot;</li>
+<li>source_url: &quot;https://www.facebook.com/profile.php?id=100057577212657&quot;</li>
+<li>source_name: &quot;Rastrexo Camos&quot;</li>
+<li>image_url: &quot;https://example.com/poster.jpg&quot;</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>Filename: <code>calendarios/2026/ix-rastrexo-camos.njk</code></li>
+<li>Image: <code>recursos/imaxes/2026/ix-camos.jpg</code></li>
+<li>Frontmatter image field: <code>2026/ix-camos.jpg</code></li>
+</ul>
