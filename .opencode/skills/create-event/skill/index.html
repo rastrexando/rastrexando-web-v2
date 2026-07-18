@@ -10,8 +10,17 @@
 <li><strong>source_url</strong>: Facebook page or website URL</li>
 <li><strong>source_name</strong>: Organizer name</li>
 <li><strong>image_url</strong>: URL to download the event poster/image from</li>
-<li><strong>body</strong> (optional): HTML content for the event description. Skip personal information (emails, phone numbers, registration details, prices). Only include general event descriptions if provided.</li>
+<li><strong>body</strong> (optional): HTML content for the event description. See &quot;Body text rules&quot; below.</li>
 <li><strong>videos</strong> (optional): Array of YouTube video objects with <code>id</code> and <code>title</code></li>
+</ul>
+<h2>Body text rules</h2>
+<p>When the user provides descriptive text for the event:</p>
+<ul>
+<li><strong>Translate to Galician</strong> if the text is in Spanish (the site language is Galician)</li>
+<li><strong>Exclude personal information</strong>: email addresses, phone numbers, registration/contact details</li>
+<li><strong>Keep general event info</strong>: descriptions, team sizes, prices, fundraising purpose, age ranges, etc.</li>
+<li>Wrap each paragraph in <code>&lt;p&gt;</code> tags</li>
+<li>Place body content after the frontmatter closing <code>---</code></li>
 </ul>
 <h2>Workflow</h2>
 <h3>1. Generate the filename slug</h3>
