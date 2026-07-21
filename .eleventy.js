@@ -120,6 +120,12 @@ module.exports = function (eleventyConfig) {
     `;
   })
 
+  eleventyConfig.addShortcode("renderNotice", function (date, message) {
+    const [year, month, day] = date.split("-");
+    const formattedDate = `${day}-${month}-${year}`;
+    return `<p class="event-notice"><i class="fi-alert"></i> <strong>${formattedDate}:</strong> ${message}</p>`;
+  })
+
   eleventyConfig.addShortcode("renderPost", function (post) {
     const date = post.data.date;
     const day = date.toLocaleDateString("gl", { day: "numeric" });
