@@ -617,6 +617,25 @@ hr {
   margin: 1.25rem 0;
 }
 
+.event-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  background: #fff8e6;
+  border: 1px solid #f0d98c;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  color: #7a5d00;
+}
+
+.event-notice i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
 /* Constrain any images inside event body content */
 .page-post img {
   max-width: 100%;
