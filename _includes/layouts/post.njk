@@ -102,7 +102,7 @@ title: Evento — Rastrexando
   "@type": "Event",
   "name": "{{ title }}",
   "url": "https://rastrexando.eu{{ page.url }}",
-  "startDate": "{{ date | dateOnly }}",
+  "startDate": "{{ date | toISODate }}",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
