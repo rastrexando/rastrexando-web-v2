@@ -1,3 +1,6 @@
+const path = require("node:path");
+const Image = require("@11ty/eleventy-img").default;
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("skeleton", "layouts/skeleton.njk");
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
@@ -124,7 +127,7 @@ module.exports = function (eleventyConfig) {
     return `<p class="event-notice"><i class="fi-alert"></i> <strong>${formattedDate}:</strong> ${message}</p>`;
   })
 
-  eleventyConfig.addShortcode("renderPost", function (post) {
+  eleventyConfig.addAsyncShortcode("renderPost", async function (post) {
     const date = post.data.date;
     const day = date.toLocaleDateString("gl", { day: "numeric" });
     const month = date.toLocaleDateString("gl", { month: "short" });
@@ -135,7 +138,6 @@ module.exports = function (eleventyConfig) {
     const now = new Date();
     const diffMs = date - now;
     const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
-    const isUpcoming = diffDays > 0;
 
     const typeLabel = isAndaina ? "Andaina" : isOrientacion ? "Orientación" : "Rastrexo";
     const typeClass = isAndaina ? "andaina" : isOrientacion ? "orientacion" : "rastrexo";
@@ -155,17 +157,46 @@ module.exports = function (eleventyConfig) {
     }
 
     const locationHTML = post.data.location
-      ? `<span><i class="fi-marker is-light-blue"></i> ${post.data.location}</span>`
+      ? `<span class="post-card-location"><i class="fi-marker"></i> ${post.data.location}</span>`
       : "";
 
     const sourceHTML = post.data.source_url
-      ? `<span><i class="fi-social-facebook is-light-blue"></i> ${post.data.source_name}</span>`
-      : (post.data.source_name ? `<span>${post.data.source_name}</span>` : "");
+      ? `<span class="post-card-source"><i class="fi-social-facebook"></i> ${post.data.source_name}</span>`
+      : (post.data.source_name ? `<span class="post-card-source">${post.data.source_name}</span>` : "");
+
+    let thumbnailUrl = "";
+    if (post.data.image) {
+      const originalUrl = `/recursos/imaxes/${post.data.image}`;
+      try {
+        const metadata = await Image(
+          path.join(__dirname, "recursos", "imaxes", post.data.image),
+          {
+            widths: [208],
+            formats: ["webp"],
+            outputDir: path.join(__dirname, "_site", "recursos", "imaxes", "miniaturas"),
+            urlPath: "/recursos/imaxes/miniaturas/",
+            outputOptions: {
+              webp: { quality: 72 }
+            }
+          }
+        );
+        thumbnailUrl = metadata.webp[0].url;
+      } catch (error) {
+        console.warn(`Non se puido crear a miniatura de ${post.data.image}: ${error.message}`);
+        thumbnailUrl = originalUrl;
+      }
+    }
+
+    const mediaHTML = post.data.image
+      ? `<div class="post-card-media"><img class="post-card-image" src="${thumbnailUrl}" alt="" loading="lazy" decoding="async">${typePill}</div>`
+      : `<div class="post-card-media post-card-media--fallback"><span class="day">${day}</span><span class="month">${month}</span>${typePill}</div>`;
+
+    const fullDate = date.toLocaleDateString("gl", { day: "numeric", month: "long", year: "numeric" });
 
     return `
     <article class="post">
       <a
-        class="post-card"
+        class="post-card post-card--${typeClass}${post.data.image ? " post-card--has-image" : ""}"
         hx-get="${post.url}"
         hx-target="#main-container"
         hx-select="#main-container"
@@ -173,15 +204,14 @@ module.exports = function (eleventyConfig) {
         hx-push-url="true"
         href="${post.url}"
       >
-        <div class="post-card-date">
-          <span class="day">${day}</span>
-          <span class="month">${month}</span>
-        </div>
+        ${mediaHTML}
         <div class="post-card-body">
+          <div class="post-card-date-line">
+            <span><i class="fi-calendar"></i> ${fullDate}</span>
+            ${relativeLabel}
+          </div>
           <p class="post-card-title">${post.data.title}</p>
           <div class="post-card-meta">
-            ${typePill}
-            ${relativeLabel}
             ${locationHTML}
             ${sourceHTML}
           </div>
