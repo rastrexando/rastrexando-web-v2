@@ -916,6 +916,82 @@ hr {
   padding: 0.3rem 1rem 5rem;
 }
 
+.year-event-count {
+  margin-left: 0.35rem;
+  color: #777;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.month-index {
+  display: flex;
+  gap: 0.45rem;
+  margin: 0.9rem 0 1.4rem;
+  padding: 0.15rem 0 0.55rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.month-index a {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #d8e0e8;
+  border-radius: 999px;
+  color: var(--brand-dark-blue);
+  background: white;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.month-index a:hover,
+.month-index a:focus-visible,
+.month-index a[aria-current="date"] {
+  border-color: var(--brand-light-blue);
+  background: #e8f4fd;
+}
+
+.calendar-month {
+  scroll-margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.month-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #dce8f2;
+}
+
+.month-heading h2 {
+  color: var(--brand-dark-blue);
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.month-heading span {
+  color: #747980;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.calendar-month--current .month-heading {
+  border-color: var(--brand-amber);
+}
+
+.calendar-month--current .month-heading::after {
+  content: "Mes actual";
+  margin-left: auto;
+  color: #8a5308;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 
 /* ============================================================
    Video section
