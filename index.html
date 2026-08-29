@@ -119,11 +119,14 @@
         
 
 <div class="page page-index">
-  
-  <header class="page-header">
-    <h1><i class="fi-star is-light-blue"></i> Destacados</h1>
+  <header class="home-section-header">
+    <div>
+      <h1><i class="fi-star is-light-blue"></i> Destacados</h1>
+      <p>Unha selección de rastrexos e andainas</p>
+    </div>
   </header>
-  <section>
+  <section aria-label="Eventos destacados">
+    
     
       
     <article class="post">
@@ -154,26 +157,56 @@
     
 
     
+    
   </section>
 
   <div class="section-divider"></div>
-  
 
-  <section class="year-covers-section">
-    <div class="year-covers-grid">
-      
+  
+  <section class="active-calendar-section" aria-labelledby="active-calendar-title">
+    <header class="home-section-header home-section-header--action">
+      <div>
+        <h2 id="active-calendar-title">Calendario 2026</h2>
+        <p>Consulta todos os eventos publicados deste ano</p>
+      </div>
       <a
-        class="year-cover-item"
         href="/calendarios/2026/"
         hx-get="/calendarios/2026/"
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
         hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2026/iv-coruxo.jpg')"
+      >Ver calendario <span aria-hidden="true">→</span></a>
+    </header>
+
+    
+      <a
+        class="active-year-card"
+        href="/calendarios/2026/"
+        hx-get="/calendarios/2026/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/cabeceiras/dU3BLXdBQs-1151.webp')"
       >
-        <span class="year-cover-label">2026</span>
+        <span class="active-year-number">2026</span>
+        <span class="active-year-count">9 eventos</span>
       </a>
+    
+  </section>
+
+  <section class="year-covers-section">
+    <header class="home-section-header">
+      <div>
+        <h2>Arquivo</h2>
+        <p>Explora os calendarios de anos anteriores</p>
+      </div>
+    </header>
+    <div class="year-covers-grid">
+      
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -182,11 +215,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2025/iii-coruxo.png')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/lHyZHRcMlJ-400.webp')"
       >
-        <span class="year-cover-label">2025</span>
+        <span class="year-cover-label">2025 <small>11 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -195,11 +231,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2024/2024-06-01-vii-rastrexo-pinheiro.jpeg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/ODGM56o72o-400.webp')"
       >
-        <span class="year-cover-label">2024</span>
+        <span class="year-cover-label">2024 <small>13 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -208,11 +247,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2023/vi-rastrexo-pinheiro.jpeg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/TShwBY5S23-400.webp')"
       >
-        <span class="year-cover-label">2023</span>
+        <span class="year-cover-label">2023 <small>7 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -221,11 +263,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/3c/6532c9-ca79-45c7-b0af-ea7dc2670596.jpg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/Hd1MofEs6E-400.webp')"
       >
-        <span class="year-cover-label">2020</span>
+        <span class="year-cover-label">2020 <small>4 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -234,11 +279,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/36/30216a-c074-41b5-8761-6eb14bdd4f8b.jpeg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/IBUiCptrQX-400.webp')"
       >
-        <span class="year-cover-label">2019</span>
+        <span class="year-cover-label">2019 <small>28 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -247,11 +295,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/41/d72762-8292-4a68-9e37-c6ff09b27a31.jpg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/KsVUXSr1Ku-400.webp')"
       >
-        <span class="year-cover-label">2018</span>
+        <span class="year-cover-label">2018 <small>44 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -260,11 +311,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/82/1756f4-0a4f-4d15-804c-e2b745182166.png')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/iR8Ax6UIox-400.webp')"
       >
-        <span class="year-cover-label">2017</span>
+        <span class="year-cover-label">2017 <small>52 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -273,11 +327,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/62/e2db87-8b21-4f09-9dd0-ce99956d7724.jpg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/YCk6skduqp-400.webp')"
       >
-        <span class="year-cover-label">2016</span>
+        <span class="year-cover-label">2016 <small>42 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -286,11 +343,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/8e/ecd056-e13d-40a9-ae79-fab3c19c0653.jpg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/V-47nBYdND-400.webp')"
       >
-        <span class="year-cover-label">2015</span>
+        <span class="year-cover-label">2015 <small>37 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -299,11 +359,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/78/cedd02-1a92-45bf-aa79-c6625282ae64.jpg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/9R7f1ihl1o-400.webp')"
       >
-        <span class="year-cover-label">2014</span>
+        <span class="year-cover-label">2014 <small>6 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -312,11 +375,14 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/7b/2a334f-d32e-4e4f-b67b-b0cc61af61cd.jpg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/9nOLJQqtoX-400.webp')"
       >
-        <span class="year-cover-label">2013</span>
+        <span class="year-cover-label">2013 <small>3 eventos</small></span>
       </a>
+    
+      
+      
+      
       
       <a
         class="year-cover-item"
@@ -325,18 +391,38 @@
         hx-target="#main-container"
         hx-select="#main-container"
         hx-swap="outerHTML"
-        hx-push-url="true"
-        style="--cover-img: url('/recursos/imaxes/2012-2020/da/697478-ff62-4e38-ac5d-67447a823c28.jpg')"
+        hx-push-url="true" style="--cover-img: url('/recursos/imaxes/portadas-ano/BieRAoCxTm-400.webp')"
       >
-        <span class="year-cover-label">2012</span>
+        <span class="year-cover-label">2012 <small>1 evento</small></span>
       </a>
+    
+      
       
     </div>
   </section>
 
+  <aside class="home-help-card">
+    <div>
+      <strong>Que é un rastrexo?</strong>
+      <span>Descubre como funcionan e que necesitas para participar.</span>
+    </div>
+    
+      <a
+        href="/axuda/"
+        hx-get="/axuda/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Consulta a guía →"
+        class=""
+      >
+        Consulta a guía →
+      </a>
+    
+  </aside>
+
 </div>
-
-
 
       </div>
     </div>

@@ -6,6 +6,16 @@
   --brand-green:      #2d7d4f;
   --almost-black:     #1b1c1d;
   --surface:          #f5f7fa;
+  --card-bg:          #ffffff;
+  --card-border:      #dfe5ec;
+  --text-primary:     #20232a;
+  --text-muted:       #676d76;
+  --font-size-page-title: clamp(1.65rem, 1.4rem + 1vw, 2rem);
+  --font-size-event-title: clamp(1.45rem, 1.25rem + 0.8vw, 1.75rem);
+  --font-size-section-title: clamp(1.2rem, 1.1rem + 0.4vw, 1.35rem);
+  --font-size-card-title: 1.15rem;
+  --font-size-body: 1rem;
+  --line-height-body: 1.65;
   --breakpoint:       720px;
 }
 
@@ -25,8 +35,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-size: clamp(16px, 1rem + 0.25vw, 20px);
+  color: var(--text-primary);
+  font-size: var(--font-size-body);
   font-family: 'Inter', system-ui, sans-serif;
+  line-height: var(--line-height-body);
 }
 
 /* Fuentes */
@@ -282,6 +294,37 @@ footer {
   margin: 0;
 }
 
+.page p,
+.page li {
+  line-height: var(--line-height-body);
+}
+
+.page section > h2,
+.page section > h3 {
+  color: var(--brand-dark-blue);
+  font-size: var(--font-size-section-title);
+  line-height: 1.3;
+}
+
+.page section > h3 {
+  margin: 1.75rem 0 0.65rem;
+}
+
+.page-prose section > p,
+.page-prose section > h2,
+.page-prose section > h3 {
+  max-width: 68ch;
+}
+
+.page-prose section > p {
+  margin: 0.75rem 0;
+}
+
+.page-copyright {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
 /** Global */
 a {
   color: var(--brand-dark-blue);
@@ -407,56 +450,6 @@ hr {
   outline-offset: 3px;
 }
 
-.post-card--past {
-  box-shadow: 0 1px 5px rgba(13, 10, 76, 0.07);
-}
-
-.post-card--past .post-card-date,
-.post-card--past .post-card-image {
-  filter: saturate(0.55);
-}
-
-.post-card--today {
-  outline: 2px solid var(--brand-amber);
-  outline-offset: -2px;
-}
-
-/* Date badge (left column) */
-.post-card-date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--brand-dark-blue);
-  color: white;
-  min-width: 58px;
-  padding: 0.75rem 0.5rem;
-  flex-shrink: 0;
-  line-height: 1.1;
-}
-
-.post-card--andaina .post-card-date {
-  background: var(--brand-green);
-}
-
-.post-card--orientacion .post-card-date {
-  background: var(--brand-amber);
-  color: var(--brand-dark-blue);
-}
-
-.post-card-date .day {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.post-card-date .month {
-  font-size: 0.65rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.85;
-}
-
 /* Card body (right column) */
 .post-card-body {
   display: flex;
@@ -515,21 +508,6 @@ hr {
   font-size: 0.75rem;
 }
 
-.post-card-image {
-  width: 78px;
-  min-height: 100%;
-  object-fit: cover;
-  object-position: center;
-  flex-shrink: 0;
-  border-left: 1px solid #e2e6ec;
-}
-
-@media (min-width: 640px) {
-  .post-card-image {
-    width: 104px;
-  }
-}
-
 /* Relative date label (upcoming events only) */
 .relative-date {
   font-size: 0.75rem;
@@ -537,7 +515,6 @@ hr {
   color: var(--brand-amber);
 }
 
-.event-state,
 .relative-date {
   border-radius: 999px;
   padding: 0.12rem 0.42rem;
@@ -545,27 +522,6 @@ hr {
 
 .post-card .relative-date {
   background: #fff4e5;
-}
-
-.event-state--today {
-  background: var(--brand-amber);
-  color: var(--brand-dark-blue);
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.event-state--upcoming {
-  background: #fff4e5;
-  color: #9a5b08;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.event-state--past {
-  background: #edf0f3;
-  color: #626870;
-  font-size: 0.72rem;
-  font-weight: 600;
 }
 
 /* Type pill badge */
@@ -698,7 +654,7 @@ hr {
 }
 
 .post-card-title {
-  font-size: 1.15rem;
+  font-size: var(--font-size-card-title);
   line-height: 1.3;
 }
 
@@ -826,9 +782,10 @@ hr {
 
 .page-post h1 {
   text-align: center;
-  font-size: 1.25rem;
-  line-height: 1.3;
-  margin: 0 0 1rem;
+  font-size: var(--font-size-event-title);
+  line-height: 1.25;
+  margin: 0 auto 1.25rem;
+  max-width: 28ch;
   color: var(--brand-dark-blue);
 }
 
@@ -899,19 +856,68 @@ hr {
 }
 
 .page-header {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
-.page-header i,
 .page-header h1,
 .page-header h2 {
-  font-size: 1.1rem;
+  color: var(--brand-dark-blue);
+  font-size: var(--font-size-page-title);
+  line-height: 1.15;
   margin: 0;
+}
+
+.page-header i {
+  font-size: 0.82em;
 }
 
 /* ============================================================
    Calendar page
    ============================================================ */
+.year-hero {
+  position: relative;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 0 1rem 1rem;
+  padding: 1rem 1.15rem;
+  overflow: hidden;
+  border-radius: 12px;
+  color: white;
+  background-color: var(--brand-dark-blue);
+  background-image:
+    linear-gradient(to right, rgba(13, 10, 76, 0.92), rgba(13, 10, 76, 0.12)),
+    var(--year-hero-img);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 3px 12px rgba(13, 10, 76, 0.16);
+}
+
+.year-hero-eyebrow {
+  margin-bottom: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.82;
+}
+
+.year-hero h1 {
+  margin: 0;
+  color: white;
+  font-size: clamp(2.25rem, 8vw, 3.5rem);
+  line-height: 1;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+.year-hero-count {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .page-calendar {
   padding: 0.3rem 1rem 5rem;
 }
@@ -968,7 +974,7 @@ hr {
 
 .month-heading h2 {
   color: var(--brand-dark-blue);
-  font-size: 1.2rem;
+  font-size: var(--font-size-section-title);
   text-transform: capitalize;
 }
 
@@ -1002,6 +1008,8 @@ hr {
 
 .video-section h2 {
   color: var(--brand-dark-blue);
+  font-size: var(--font-size-section-title);
+  line-height: 1.3;
 }
 
 .video-section .video-list {
@@ -1307,6 +1315,135 @@ hr {
 }
 
 /* ============================================================
+   Home hierarchy
+   ============================================================ */
+.home-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.home-section-header h1,
+.home-section-header h2 {
+  margin: 0;
+  color: var(--brand-dark-blue);
+  font-size: var(--font-size-section-title);
+  line-height: 1.25;
+}
+
+.home-section-header p {
+  margin: 0.2rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.home-section-header--action > a {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.active-calendar-section {
+  margin: 0.5rem 0 2rem;
+}
+
+.empty-featured {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 1px dashed #c9d6e2;
+  border-radius: 12px;
+  color: var(--text-muted);
+  background: #f8fafc;
+  font-size: 0.88rem;
+}
+
+.active-year-card {
+  position: relative;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem 1.15rem;
+  overflow: hidden;
+  border-radius: 12px;
+  color: white;
+  background-color: var(--brand-dark-blue);
+  background-image:
+    linear-gradient(to right, rgba(13, 10, 76, 0.9), rgba(13, 10, 76, 0.18)),
+    var(--cover-img);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 3px 12px rgba(13, 10, 76, 0.16);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.active-year-card:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(13, 10, 76, 0.22);
+}
+
+.active-year-card:focus-visible {
+  outline: 3px solid var(--brand-light-blue);
+  outline-offset: 3px;
+}
+
+.active-year-number {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+}
+
+.active-year-count {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.home-help-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: #f7fbfe;
+}
+
+.home-help-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.home-help-card strong {
+  color: var(--brand-dark-blue);
+  font-size: 0.95rem;
+}
+
+.home-help-card span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.home-help-card > a {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ============================================================
    Year covers grid (landing page)
    ============================================================ */
 .year-covers-section {
@@ -1379,10 +1516,229 @@ hr {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
+.year-cover-label small {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  opacity: 0.82;
+}
+
 @media (min-width: 640px) {
   .year-cover-label {
     font-size: 1rem;
     padding: 0.6rem 0.8rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-section-header--action,
+  .home-help-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .active-year-card {
+    min-height: 145px;
+  }
+}
+
+/* ============================================================
+   Help page
+   ============================================================ */
+.help-page-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.help-page-header p {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.help-page-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  border-radius: 50%;
+  color: white;
+  background: var(--brand-light-blue);
+  font-size: 1.25rem;
+}
+
+.help-page-icon i {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.help-intro {
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--brand-light-blue);
+  border-radius: 0 12px 12px 0;
+  background: #f2f8fd;
+}
+
+.help-intro h2,
+.help-intro p {
+  margin-top: 0;
+}
+
+.help-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-section,
+.about-rastrexando {
+  margin-top: 2.25rem;
+}
+
+.help-section-header {
+  margin-bottom: 0.8rem;
+}
+
+.help-section-header h2,
+.help-section-header p {
+  margin: 0;
+}
+
+.help-section-header p {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.faq-list details {
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: white;
+}
+
+.faq-list details[open] {
+  border-color: #bcdcf4;
+  box-shadow: 0 3px 12px rgba(13, 10, 76, 0.07);
+}
+
+.faq-list summary {
+  position: relative;
+  padding: 0.85rem 2.6rem 0.85rem 1rem;
+  color: var(--brand-dark-blue);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  color: var(--brand-light-blue);
+  font-size: 1.25rem;
+  transform: translateY(-50%);
+}
+
+.faq-list details[open] summary::after {
+  content: "−";
+}
+
+.faq-list summary:focus-visible {
+  outline: 3px solid var(--brand-light-blue);
+  outline-offset: -3px;
+}
+
+.faq-content {
+  padding: 0 1rem 0.9rem;
+  border-top: 1px solid #edf0f3;
+}
+
+.faq-content p {
+  margin: 0.75rem 0 0;
+  font-size: 0.92rem;
+}
+
+.help-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  color: white;
+  background: var(--brand-dark-blue);
+}
+
+.help-contact h2,
+.help-contact p {
+  margin: 0;
+  color: white;
+}
+
+.help-contact h2 {
+  font-size: 1.05rem;
+}
+
+.help-contact p {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  opacity: 0.78;
+}
+
+.help-contact a {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  color: var(--brand-dark-blue);
+  background: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.about-rastrexando {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.about-notice {
+  padding: 0.7rem 0.85rem;
+  border-radius: 8px;
+  background: #fff8e6;
+  color: #6d5308;
+}
+
+.about-links {
+  display: flex;
+  gap: 0.65rem 1rem;
+  flex-wrap: wrap;
+}
+
+.about-links a {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .help-contact {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
@@ -1410,6 +1766,13 @@ hr {
     margin: 0 2rem;
   }
 
+  .year-hero {
+    min-height: 210px;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 1.25rem 1.5rem;
+  }
+
   .section-divider {
     margin: 1.5rem 2rem;
   }
@@ -1434,6 +1797,11 @@ hr {
 
   .event-hero-link {
     margin: 0 3rem;
+  }
+
+  .year-hero {
+    margin-right: 3rem;
+    margin-left: 3rem;
   }
 
   .section-divider {
