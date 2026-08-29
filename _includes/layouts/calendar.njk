@@ -13,13 +13,31 @@ title: Calendario - Rastrexando
 
 <div class="page page-calendar">
   <header class="page-header">
-    <h1><i class="fi-calendar is-light-blue"></i> {{ year.name }}</h1>
+    <h1><i class="fi-calendar is-light-blue"></i> {{ year.name }} <span class="year-event-count">{{ collections[year.name].length }} eventos</span></h1>
   </header>
   {% renderPrevNextButtons pagination, year.name %}
 
-  <section>
-    {% for post in collections[year.name] %}
-      {% renderPost post %}
+  {% set monthGroups = collections[year.name] | groupEventsByMonth %}
+
+  {% if monthGroups.length > 1 %}
+    <nav class="month-index" aria-label="Meses con eventos">
+      {% for month in monthGroups %}
+        <a href="#{{ month.id }}"{% if month.isCurrent %} aria-current="date"{% endif %}>{{ month.name }}</a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+
+  <div class="calendar-months">
+    {% for month in monthGroups %}
+      <section class="calendar-month{% if month.isCurrent %} calendar-month--current{% endif %}" id="{{ month.id }}">
+        <header class="month-heading">
+          <h2>{{ month.name }}</h2>
+          <span>{{ month.events.length }} {% if month.events.length == 1 %}evento{% else %}eventos{% endif %}</span>
+        </header>
+        {% for post in month.events %}
+          {% renderPost post %}
+        {% endfor %}
+      </section>
     {% endfor %}
-  </section>
+  </div>
 </div>

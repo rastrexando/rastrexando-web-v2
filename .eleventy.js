@@ -39,6 +39,32 @@ module.exports = function (eleventyConfig) {
     return new Date(dateVal).toISOString().slice(0, 10);
   });
 
+  eleventyConfig.addFilter("groupEventsByMonth", function (events) {
+    const today = new Date();
+    const groups = [];
+
+    for (const event of events || []) {
+      const eventDate = event.data.date;
+      const monthIndex = eventDate.getMonth();
+      let group = groups.find(item => item.monthIndex === monthIndex);
+
+      if (!group) {
+        group = {
+          monthIndex,
+          id: `mes-${monthIndex + 1}`,
+          name: eventDate.toLocaleDateString("gl", { month: "long" }),
+          isCurrent: eventDate.getFullYear() === today.getFullYear() && monthIndex === today.getMonth(),
+          events: []
+        };
+        groups.push(group);
+      }
+
+      group.events.push(event);
+    }
+
+    return groups;
+  });
+
   /* Collections */
   const now = new Date();
 
