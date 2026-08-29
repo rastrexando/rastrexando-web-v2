@@ -14,7 +14,7 @@ title: Evento — Rastrexando
 </nav>
 
 {% if image %}
-  <a class="event-hero-link" href="/recursos/imaxes/{{ image }}" title="{{ title }}" target="_blank">
+  <a class="event-hero-link" href="/recursos/imaxes/{{ image }}" title="{{ title }}" target="_blank" rel="noopener noreferrer">
     <img class="event-hero" src="/recursos/imaxes/{{ image }}" alt="{{ title }}" />
     <span class="hero-expand-hint"><i class="fi-arrows-expand"></i> Ampliar imaxe</span>
   </a>
@@ -52,7 +52,7 @@ title: Evento — Rastrexando
     {% if source_url %}
     <div class="event-info-item">
       <i class="fi-social-facebook is-light-blue"></i>
-      <a href="{{ source_url }}" title="{{ source_name }}" target="_blank">{{ source_name }}</a>
+      <a href="{{ source_url }}" title="{{ source_name }}" target="_blank" rel="noopener noreferrer">{{ source_name }}</a>
     </div>
     {% elif source_name %}
     <div class="event-info-item">
