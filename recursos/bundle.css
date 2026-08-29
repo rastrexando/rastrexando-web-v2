@@ -499,6 +499,11 @@ hr {
   color: white;
 }
 
+.type-pill.orientacion {
+  background: var(--brand-amber);
+  color: var(--brand-dark-blue);
+}
+
 
 .pagination {
   display: flex;
@@ -1123,4 +1128,3 @@ hr {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
