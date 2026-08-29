@@ -12,11 +12,14 @@ pagination:
 
 
 <div class="page page-index">
-  {% if pagination.items.length > 0 %}
-  <header class="page-header">
-    <h1><i class="fi-star is-light-blue"></i> Próximos eventos</h1>
+  <header class="home-section-header">
+    <div>
+      <h1><i class="fi-star is-light-blue"></i> Destacados</h1>
+      <p>Unha selección de rastrexos e andainas</p>
+    </div>
   </header>
-  <section>
+  <section aria-label="Eventos destacados">
+    {% if pagination.items.length > 0 %}
     {% for post in pagination.items %}
       {% renderPost post %}
     {% endfor %}
@@ -35,14 +38,55 @@ pagination:
         {%- endfor %}
       </ul>
     {% endif %}
+    {% else %}
+      <p class="empty-featured">Agora mesmo non hai eventos destacados. Consulta o calendario para ver todos os publicados.</p>
+    {% endif %}
   </section>
 
   <div class="section-divider"></div>
-  {% endif %}
+
+  {% set activeYear = collections.yearCovers | last %}
+  <section class="active-calendar-section" aria-labelledby="active-calendar-title">
+    <header class="home-section-header home-section-header--action">
+      <div>
+        <h2 id="active-calendar-title">Calendario {{ activeYear.year }}</h2>
+        <p>Consulta todos os eventos publicados deste ano</p>
+      </div>
+      <a
+        href="{{ activeYear.url }}"
+        hx-get="{{ activeYear.url }}"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+      >Ver calendario <span aria-hidden="true">→</span></a>
+    </header>
+
+    <a
+      class="active-year-card{% if not activeYear.image %} no-image{% endif %}"
+      href="{{ activeYear.url }}"
+      hx-get="{{ activeYear.url }}"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+      {% if activeYear.image %}style="--cover-img: url('/recursos/imaxes/{{ activeYear.image }}')"{% endif %}
+    >
+      <span class="active-year-number">{{ activeYear.year }}</span>
+      <span class="active-year-count">{{ activeYear.count }} {% if activeYear.count == 1 %}evento{% else %}eventos{% endif %}</span>
+    </a>
+  </section>
 
   <section class="year-covers-section">
+    <header class="home-section-header">
+      <div>
+        <h2>Arquivo</h2>
+        <p>Explora os calendarios de anos anteriores</p>
+      </div>
+    </header>
     <div class="year-covers-grid">
       {% for item in collections.yearCovers | reverse %}
+      {% if item.year != activeYear.year %}
       <a
         class="year-cover-item{% if not item.image %} no-image{% endif %}"
         href="{{ item.url }}"
@@ -53,11 +97,19 @@ pagination:
         hx-push-url="true"
         {% if item.image %}style="--cover-img: url('/recursos/imaxes/{{ item.image }}')"{% endif %}
       >
-        <span class="year-cover-label">{{ item.year }}</span>
+        <span class="year-cover-label">{{ item.year }} <small>{{ item.count }} {% if item.count == 1 %}evento{% else %}eventos{% endif %}</small></span>
       </a>
+      {% endif %}
       {% endfor %}
     </div>
   </section>
 
-</div>
+  <aside class="home-help-card">
+    <div>
+      <strong>Que é un rastrexo?</strong>
+      <span>Descubre como funcionan e que necesitas para participar.</span>
+    </div>
+    {% renderHTMXLink "/axuda/", "Consulta a guía →" %}
+  </aside>
 
+</div>
