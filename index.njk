@@ -62,19 +62,7 @@ pagination:
       >Ver calendario <span aria-hidden="true">→</span></a>
     </header>
 
-    <a
-      class="active-year-card{% if not activeYear.image %} no-image{% endif %}"
-      href="{{ activeYear.url }}"
-      hx-get="{{ activeYear.url }}"
-      hx-target="#main-container"
-      hx-select="#main-container"
-      hx-swap="outerHTML"
-      hx-push-url="true"
-      {% if activeYear.image %}style="--cover-img: url('/recursos/imaxes/{{ activeYear.image }}')"{% endif %}
-    >
-      <span class="active-year-number">{{ activeYear.year }}</span>
-      <span class="active-year-count">{{ activeYear.count }} {% if activeYear.count == 1 %}evento{% else %}eventos{% endif %}</span>
-    </a>
+    {% renderActiveYearCard activeYear %}
   </section>
 
   <section class="year-covers-section">
@@ -87,18 +75,7 @@ pagination:
     <div class="year-covers-grid">
       {% for item in collections.yearCovers | reverse %}
       {% if item.year != activeYear.year %}
-      <a
-        class="year-cover-item{% if not item.image %} no-image{% endif %}"
-        href="{{ item.url }}"
-        hx-get="{{ item.url }}"
-        hx-target="#main-container"
-        hx-select="#main-container"
-        hx-swap="outerHTML"
-        hx-push-url="true"
-        {% if item.image %}style="--cover-img: url('/recursos/imaxes/{{ item.image }}')"{% endif %}
-      >
-        <span class="year-cover-label">{{ item.year }} <small>{{ item.count }} {% if item.count == 1 %}evento{% else %}eventos{% endif %}</small></span>
-      </a>
+      {% renderYearCoverItem item %}
       {% endif %}
       {% endfor %}
     </div>

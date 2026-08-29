@@ -874,6 +874,50 @@ hr {
 /* ============================================================
    Calendar page
    ============================================================ */
+.year-hero {
+  position: relative;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 0 1rem 1rem;
+  padding: 1rem 1.15rem;
+  overflow: hidden;
+  border-radius: 12px;
+  color: white;
+  background-color: var(--brand-dark-blue);
+  background-image:
+    linear-gradient(to right, rgba(13, 10, 76, 0.92), rgba(13, 10, 76, 0.12)),
+    var(--year-hero-img);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 3px 12px rgba(13, 10, 76, 0.16);
+}
+
+.year-hero-eyebrow {
+  margin-bottom: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.82;
+}
+
+.year-hero h1 {
+  margin: 0;
+  color: white;
+  font-size: clamp(2.25rem, 8vw, 3.5rem);
+  line-height: 1;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+.year-hero-count {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .page-calendar {
   padding: 0.3rem 1rem 5rem;
 }
@@ -1722,6 +1766,13 @@ hr {
     margin: 0 2rem;
   }
 
+  .year-hero {
+    min-height: 210px;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 1.25rem 1.5rem;
+  }
+
   .section-divider {
     margin: 1.5rem 2rem;
   }
@@ -1746,6 +1797,11 @@ hr {
 
   .event-hero-link {
     margin: 0 3rem;
+  }
+
+  .year-hero {
+    margin-right: 3rem;
+    margin-left: 3rem;
   }
 
   .section-divider {

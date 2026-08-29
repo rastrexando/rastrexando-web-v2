@@ -1,6 +1,26 @@
 const path = require("node:path");
 const Image = require("@11ty/eleventy-img").default;
 
+async function createImageVariant(image, width, folder, quality = 76) {
+  const originalUrl = `/recursos/imaxes/${image}`;
+  try {
+    const metadata = await Image(
+      path.join(__dirname, "recursos", "imaxes", image),
+      {
+        widths: [width],
+        formats: ["webp"],
+        outputDir: path.join(__dirname, "_site", "recursos", "imaxes", folder),
+        urlPath: `/recursos/imaxes/${folder}/`,
+        outputOptions: { webp: { quality } }
+      }
+    );
+    return metadata.webp[0].url;
+  } catch (error) {
+    console.warn(`Non se puido optimizar ${image}: ${error.message}`);
+    return originalUrl;
+  }
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("skeleton", "layouts/skeleton.njk");
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
@@ -65,6 +85,10 @@ module.exports = function (eleventyConfig) {
     return groups;
   });
 
+  eleventyConfig.addFilter("findYearCover", function (covers, year) {
+    return (covers || []).find(item => String(item.year) === String(year));
+  });
+
   /* Collections */
   const now = new Date();
 
@@ -76,6 +100,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("yearCovers", function(collectionApi) {
     const years = require("./_data/years.json");
+    const coverImages = require("./_data/yearCoverImages.json");
     const all = collectionApi.getAllSorted();
     return years.map(function(y) {
       const posts = all.filter(function(item) {
@@ -83,10 +108,9 @@ module.exports = function (eleventyConfig) {
                item.data.tags.includes("post") &&
                item.data.tags.includes(String(y.name));
       });
-      const post = posts.find(item => item.data.image);
       return {
         year: y.name,
-        image: post ? post.data.image : null,
+        image: coverImages[String(y.name)] || null,
         count: posts.length,
         url: "/calendarios/" + y.name + "/"
       };
@@ -153,6 +177,70 @@ module.exports = function (eleventyConfig) {
     const formattedDate = `${day}-${month}-${year}`;
     return `<p class="event-notice"><i class="fi-alert"></i> <strong>${formattedDate}:</strong> ${message}</p>`;
   })
+
+  eleventyConfig.addAsyncShortcode("renderYearHero", async function (cover) {
+    if (!cover) return "";
+    const imageUrl = cover.image
+      ? await createImageVariant(cover.image, 1200, "cabeceiras", 78)
+      : "";
+    const style = imageUrl ? ` style="--year-hero-img: url('${imageUrl}')"` : "";
+    const eventLabel = cover.count === 1 ? "evento" : "eventos";
+
+    return `
+      <header class="year-hero${imageUrl ? "" : " no-image"}"${style}>
+        <span class="year-hero-eyebrow">Calendario</span>
+        <h1>${cover.year}</h1>
+        <span class="year-hero-count">${cover.count} ${eventLabel}</span>
+      </header>
+    `;
+  });
+
+  eleventyConfig.addAsyncShortcode("renderActiveYearCard", async function (cover) {
+    if (!cover) return "";
+    const imageUrl = cover.image
+      ? await createImageVariant(cover.image, 1200, "cabeceiras", 78)
+      : "";
+    const style = imageUrl ? ` style="--cover-img: url('${imageUrl}')"` : "";
+    const eventLabel = cover.count === 1 ? "evento" : "eventos";
+
+    return `
+      <a
+        class="active-year-card${imageUrl ? "" : " no-image"}"
+        href="${cover.url}"
+        hx-get="${cover.url}"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"${style}
+      >
+        <span class="active-year-number">${cover.year}</span>
+        <span class="active-year-count">${cover.count} ${eventLabel}</span>
+      </a>
+    `;
+  });
+
+  eleventyConfig.addAsyncShortcode("renderYearCoverItem", async function (cover) {
+    if (!cover) return "";
+    const imageUrl = cover.image
+      ? await createImageVariant(cover.image, 400, "portadas-ano", 74)
+      : "";
+    const style = imageUrl ? ` style="--cover-img: url('${imageUrl}')"` : "";
+    const eventLabel = cover.count === 1 ? "evento" : "eventos";
+
+    return `
+      <a
+        class="year-cover-item${imageUrl ? "" : " no-image"}"
+        href="${cover.url}"
+        hx-get="${cover.url}"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"${style}
+      >
+        <span class="year-cover-label">${cover.year} <small>${cover.count} ${eventLabel}</small></span>
+      </a>
+    `;
+  });
 
   eleventyConfig.addAsyncShortcode("renderPost", async function (post) {
     const date = post.data.date;

@@ -11,10 +11,10 @@ title: Calendario - Rastrexando
   </ul>
 </nav>
 
+{% set yearCover = collections.yearCovers | findYearCover(year.name) %}
+{% renderYearHero yearCover %}
+
 <div class="page page-calendar">
-  <header class="page-header">
-    <h1><i class="fi-calendar is-light-blue"></i> {{ year.name }} <span class="year-event-count">{{ collections[year.name].length }} eventos</span></h1>
-  </header>
   {% renderPrevNextButtons pagination, year.name %}
 
   {% set monthGroups = collections[year.name] | groupEventsByMonth %}
