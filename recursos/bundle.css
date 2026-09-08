@@ -1081,7 +1081,7 @@ hr {
   .prev-next-buttons {
     width: auto;
     max-width: none;
-    bottom: 1.5rem;
+    bottom: calc(48px + 1.5rem);
     border-radius: 999px;
     border: 1px solid #e2e6ec;
     border-top: 1px solid #e2e6ec;
