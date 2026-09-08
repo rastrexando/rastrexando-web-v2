@@ -275,8 +275,11 @@ module.exports = function (eleventyConfig) {
       ? `<span class="post-card-location"><i class="fi-marker"></i> ${post.data.location}</span>`
       : "";
 
+    const sourceIcon = post.data.source_url?.includes("instagram.com")
+      ? "fi-social-instagram"
+      : "fi-social-facebook";
     const sourceHTML = post.data.source_url
-      ? `<span class="post-card-source"><i class="fi-social-facebook"></i> ${post.data.source_name}</span>`
+      ? `<span class="post-card-source"><i class="${sourceIcon}"></i> ${post.data.source_name}</span>`
       : (post.data.source_name ? `<span class="post-card-source">${post.data.source_name}</span>` : "");
 
     let thumbnailUrl = "";

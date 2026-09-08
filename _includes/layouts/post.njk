@@ -51,7 +51,11 @@ title: Evento — Rastrexando
     </div>
     {% if source_url %}
     <div class="event-info-item">
+      {% if "instagram.com" in source_url %}
+      <i class="fi-social-instagram is-light-blue"></i>
+      {% else %}
       <i class="fi-social-facebook is-light-blue"></i>
+      {% endif %}
       <a href="{{ source_url }}" title="{{ source_name }}" target="_blank" rel="noopener noreferrer">{{ source_name }}</a>
     </div>
     {% elif source_name %}
