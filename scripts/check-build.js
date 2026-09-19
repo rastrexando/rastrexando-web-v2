@@ -223,6 +223,18 @@ for (const resource of localMapResources) {
   check(fs.existsSync(path.join(outputRoot, resource)), `Falta o recurso local do mapa: ${resource}`);
 }
 
+const bottomNavigationResource = "recursos/js/bottom-navigation.js";
+const bottomNavigationPath = path.join(outputRoot, bottomNavigationResource);
+check(fs.existsSync(bottomNavigationPath), `Falta o control da navegación inferior: ${bottomNavigationResource}`);
+if (fs.existsSync(bottomNavigationPath)) {
+  const bottomNavigationSource = fs.readFileSync(bottomNavigationPath, "utf8");
+  check(
+    bottomNavigationSource.includes("IntersectionObserver") &&
+      bottomNavigationSource.includes("prev-next-buttons--docked"),
+    "A navegación inferior non evita o solapamento co footer"
+  );
+}
+
 const years = require(path.join(projectRoot, "_data", "years.json"));
 const activeYear = String(years.at(-1).name);
 const homeMap = checkMapYear("/", activeYear, "Inicio");
@@ -258,6 +270,11 @@ if (eventDetailPath && fs.existsSync(eventDetailPath)) {
   check(!eventDetailHtml.includes("data-calendar-map"), "A ficha de evento inclúe por erro o mapa anual");
   check(eventDetailHtml.includes("data-event-map"), "A ficha non inclúe o seu mapa Leaflet");
   check(!eventDetailHtml.includes("<iframe"), "A ficha aínda usa un iframe para o mapa");
+  check(eventDetailHtml.includes('class="prev-next-buttons"'), "A ficha non inclúe a navegación entre eventos");
+  check(
+    eventDetailHtml.includes('src="/recursos/js/bottom-navigation.js"'),
+    "A ficha non carga o control que evita tapar o footer"
+  );
 }
 
 const legacyCamosPath = outputPathForUrl(new URL(legacyCamosUrl).pathname);

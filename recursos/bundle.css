@@ -1532,7 +1532,7 @@ hr {
    ============================================================ */
 .prev-next-buttons {
   position: fixed;
-  bottom: 0.75rem;
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 2rem);
@@ -1583,6 +1583,12 @@ hr {
   cursor: not-allowed;
   color: #ccc;
   white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .prev-next-buttons--docked {
+    position: absolute;
+  }
 }
 
 /* Desktop: floating pill navigation */
