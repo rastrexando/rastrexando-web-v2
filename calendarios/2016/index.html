@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -92,9 +93,9 @@
   <body class="relative">
     
 <div id="layout-base" hx-indicator="#rastrexando-logo img">
-  <div class="animated-bg-wrapper">
-    <section class="animated-section">
-      <header class="wrapper">
+  <div class="site-header-shell">
+      <span class="star-glints" aria-hidden="true"></span>
+      <header id="main-header" class="wrapper">
         <a
           id="rastrexando-logo"
           href="/"
@@ -104,15 +105,43 @@
           hx-swap="outerHTML"
           hx-push-url="true"
         >
-          <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
-          <span class="title">Rastrexando</span>
+          <img class="image" src="/recursos/rastrexando-circular.png" alt="Curuxa e lúa de Rastrexando" />
+          <span class="brand-copy">
+            <span class="title">Rastrexando</span>
+            <span class="tagline">Rastrexos e andainas</span>
+          </span>
         </a>
+        
+        <nav class="header-nav" aria-label="Navegación principal">
+          <a
+            href="/"
+            hx-get="/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-home"></i> Inicio</a>
+          <a
+            href="/calendarios/2026/"
+            hx-get="/calendarios/2026/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            aria-current="page"
+          ><i class="fi-calendar"></i> Calendario</a>
+          <a
+            href="/axuda/"
+            hx-get="/axuda/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-info"></i> Axuda</a>
+        </nav>
       </header>
-      <div class='air air1'></div>
-      <div class='air air2'></div>
-      <div class='air air3'></div>
-      <div class='air air4'></div>
-    </section>
   </div>
   <main id="main-container">
     <div class="page-center-content">
@@ -207,8 +236,9 @@
           <h2>abril</h2>
           <span>2 eventos</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -234,8 +264,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -261,7 +291,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-5">
@@ -269,8 +300,9 @@
           <h2>maio</h2>
           <span>5 eventos</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -296,8 +328,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -323,8 +355,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -350,8 +382,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -377,8 +409,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -404,7 +436,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-6">
@@ -412,8 +445,9 @@
           <h2>xuño</h2>
           <span>7 eventos</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -439,8 +473,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -466,8 +500,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -493,8 +527,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -520,8 +554,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -547,8 +581,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -574,8 +608,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -601,7 +635,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-7">
@@ -609,8 +644,9 @@
           <h2>xullo</h2>
           <span>14 eventos</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -636,8 +672,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -663,8 +699,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -690,8 +726,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -717,8 +753,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -744,8 +780,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -771,8 +807,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -798,8 +834,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -825,8 +861,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -852,8 +888,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -879,8 +915,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo"
@@ -906,8 +942,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -933,8 +969,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo"
@@ -960,8 +996,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -987,7 +1023,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-8">
@@ -995,8 +1032,9 @@
           <h2>agosto</h2>
           <span>6 eventos</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo"
@@ -1022,8 +1060,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1049,8 +1087,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1076,8 +1114,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1103,8 +1141,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1130,8 +1168,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1157,7 +1195,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-9">
@@ -1165,8 +1204,9 @@
           <h2>setembro</h2>
           <span>4 eventos</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1192,8 +1232,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1219,8 +1259,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1246,8 +1286,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1273,7 +1313,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-10">
@@ -1281,8 +1322,9 @@
           <h2>outubro</h2>
           <span>2 eventos</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--andaina post-card--has-image"
@@ -1308,8 +1350,8 @@
       </a>
     </article>
     
-        
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1335,7 +1377,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-11">
@@ -1343,8 +1386,9 @@
           <h2>novembro</h2>
           <span>1 evento</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1370,7 +1414,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
       <section class="calendar-month" id="mes-12">
@@ -1378,8 +1423,9 @@
           <h2>decembro</h2>
           <span>1 evento</span>
         </header>
-        
+        <div class="calendar-events-grid">
           
+            
     <article class="post">
       <a
         class="post-card post-card--rastrexo post-card--has-image"
@@ -1405,7 +1451,8 @@
       </a>
     </article>
     
-        
+          
+        </div>
       </section>
     
   </div>
@@ -1416,16 +1463,30 @@
   </main>
   <footer id="main-footer">
     <div class="wrapper">
-      <a
-        class="footer-home"
-        href="/"
-        hx-get="/"
-        hx-target="#main-container"
-        hx-select="#main-container"
-        hx-swap="outerHTML"
-        hx-push-url="true"
-      ><i class="fi-home"></i> Inicio</a>
-      <nav class="footer-nav">
+      <div class="footer-brand">
+        <a
+          class="footer-brand-link"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          <img class="footer-symbol" src="/recursos/rastrexando-contratipo.png" alt="" loading="lazy" decoding="async" />
+          <span>Rastrexando</span>
+        </a>
+        <span class="footer-copy">Rastrexos e andainas en Galicia · 2017–2026</span>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación secundaria">
+        <a
+          href="/calendarios/2026/"
+          hx-get="/calendarios/2026/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-calendar"></i> Calendario</a>
         <a
           href="/axuda/"
           hx-get="/axuda/"
@@ -1434,11 +1495,9 @@
           hx-swap="outerHTML"
           hx-push-url="true"
         ><i class="fi-info"></i> Axuda</a>
-        <span class="footer-sep">·</span>
         <a href="https://www.facebook.com/rastrexando" target="_blank" rel="noopener noreferrer">
           <i class="fi-social-facebook"></i> Facebook
         </a>
-        <span class="footer-sep">·</span>
         <a href="mailto:carlos@rastrexando.eu">
           <i class="fi-mail"></i> Contacto
         </a>
