@@ -3,7 +3,18 @@ title: Rastrexando
 layout: skeleton
 ---
 
-<div id="layout-base" hx-indicator="#rastrexando-logo img">
+<div id="layout-base" hx-indicator="#global-htmx-indicator">
+  <div
+    id="global-htmx-indicator"
+    class="htmx-indicator global-htmx-indicator"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <span class="global-htmx-indicator-glow" aria-hidden="true"></span>
+    <img src="/recursos/rastrexando-simbolo.png" alt="" width="64" height="64" />
+    <span class="visually-hidden">Cargando contido…</span>
+  </div>
   <div class="site-header-shell">
       <span class="star-glints" aria-hidden="true"></span>
       <header id="main-header" class="wrapper">

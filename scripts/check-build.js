@@ -107,6 +107,21 @@ check(!fs.existsSync(path.join(outputRoot, "AGENTS", "index.html")), "Publicouse
 check(!fs.existsSync(path.join(outputRoot, "CORRECCIONS", "index.html")), "Publicouse CORRECCIONS.md");
 check(!fs.existsSync(path.join(outputRoot, ".opencode")), "Publicouse o directorio .opencode");
 
+const homePath = path.join(outputRoot, "index.html");
+if (fs.existsSync(homePath)) {
+  const homeHtml = fs.readFileSync(homePath, "utf8");
+  check(
+    homeHtml.includes('hx-indicator="#global-htmx-indicator"'),
+    "O layout non usa o indicador HTMX global"
+  );
+  check(
+    homeHtml.includes('id="global-htmx-indicator"') &&
+      homeHtml.includes('src="/recursos/rastrexando-simbolo.png"'),
+    "Falta a coruxa do indicador HTMX global"
+  );
+  check(homeHtml.includes('role="status"'), "O indicador HTMX non comunica o seu estado de forma accesible");
+}
+
 const robotsPath = path.join(outputRoot, "robots.txt");
 if (fs.existsSync(robotsPath)) {
   const robots = fs.readFileSync(robotsPath, "utf8");
