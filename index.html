@@ -8,6 +8,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Inicio - Rastrexando</title>
 
@@ -47,8 +50,11 @@
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
     <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -306,6 +312,33 @@
         <span class="active-year-number">2026</span>
         <span class="active-year-count">13 eventos</span>
       </a>
+    
+    
+      <section class="calendar-map-card" data-calendar-map aria-labelledby="calendar-map-2026-title">
+        <div class="calendar-map-heading">
+          <div>
+            <span class="calendar-map-eyebrow">Localizacións aproximadas</span>
+            <h2 id="calendar-map-2026-title">Mapa de eventos de 2026</h2>
+          </div>
+          <p class="calendar-map-summary" data-map-summary aria-live="polite"></p>
+        </div>
+        <div
+          id="calendar-map-2026"
+          class="calendar-map-canvas"
+          data-map-canvas
+          role="region"
+          aria-label="Mapa interactivo dos eventos de 2026"
+        ></div>
+        <p class="calendar-map-empty" data-map-empty hidden>Non hai eventos con localización dispoñible neste calendario.</p>
+        <div class="calendar-map-legend" aria-label="Lenda do mapa">
+          <span class="calendar-map-legend-title">Lenda:</span>
+          <span><i class="calendar-map-key calendar-map-key--upcoming" aria-hidden="true">P</i> Hoxe ou próximos</span>
+          <span><i class="calendar-map-key calendar-map-key--past" aria-hidden="true">✓</i> Pasados</span>
+          <span><i class="calendar-map-key calendar-map-key--mixed" aria-hidden="true">±</i> Mixtos</span>
+        </div>
+        <p class="calendar-map-notice">As localizacións son aproximadas. Amplía os grupos e selecciona un marcador para ver os eventos.</p>
+        <script type="application/json" data-calendar-map-data>{"year":"2026","locations":[{"name":"Coruxo, Vigo","lat":42.186553,"lng":-8.770139,"events":[{"title":"IV Rastrexo de Coruxo: El Gran Juego de la OCA","date":"2026-05-09","url":"/calendarios/2026/iv-rastrexo-coruxo/"},{"title":"IV Andaina Terrorífica","date":"2026-09-19","url":"/calendarios/2026/iv-andaina-terrorifica/"}]},{"name":"Areas, Tui","lat":42.035443,"lng":-8.668101,"events":[{"title":"I Rastrexo Areas","date":"2026-06-20","url":"/calendarios/2026/i-rastrexo-areas/"}]},{"name":"Camos, Nigrán","lat":42.152804,"lng":-8.772146,"events":[{"title":"IX Rastrexo Camos En el país de las maravillas","date":"2026-07-11","url":"/calendarios/2026/ix-rastrexo-camos/"},{"title":"Rastrexo Camos Especial CEIP da Cruz","date":"2026-08-01","url":"/calendarios/2026/rastrexo-camos-especial-ceip-da-cruz/"}]},{"name":"Montecastelo, Nigrán","lat":42.129716,"lng":-8.777186,"events":[{"title":"10ª Andaina Nocturna \"O Camiño do Terror\" (venres)","date":"2026-08-21","url":"/calendarios/2026/10-andaina-nocturna-o-camiño-do-terror-21/"},{"title":"10ª Andaina Nocturna \"O Camiño do Terror\" (sábado)","date":"2026-08-22","url":"/calendarios/2026/10-andaina-nocturna-o-camiño-do-terror-22/"}]},{"name":"Verducido de Xeve, Pontevedra","lat":42.479421,"lng":-8.619367,"events":[{"title":"VI Rastrexo solidario Los Pitufos","date":"2026-08-22","url":"/calendarios/2026/verducido-los-pitufos/"}]},{"name":"Pexegueiro, Tui","lat":42.045161,"lng":-8.700029,"events":[{"title":"XX Rastrexo Pexegueiro. Plan de atraco: 20 anos na sombra","date":"2026-08-22","url":"/calendarios/2026/xx-pexegueiro/"}]},{"name":"Santiaguiño, Mos","lat":42.227963,"lng":-8.612556,"events":[{"title":"Triloxía de Samaín 2026 — Capítulo 1: O Camiño","date":"2026-10-17","url":"/calendarios/2026/triloxia-samain-2026-capitulo-1-o-camino/"}]},{"name":"Chandebrito, Nigrán","lat":42.157515,"lng":-8.754744,"events":[{"title":"Triloxía de Samaín 2026 — Capítulo 2: A Montaña","date":"2026-10-24","url":"/calendarios/2026/triloxia-samain-2026-capitulo-2-a-montana/"}]},{"name":"Couso, Gondomar","lat":42.080216,"lng":-8.742374,"events":[{"title":"Túnel do terror","date":"2026-10-24","url":"/calendarios/2026/tunel-do-terror-couso/"}]},{"name":"Fornelos Wake, Fornelos de Montes","lat":42.336114,"lng":-8.482866,"events":[{"title":"Triloxía de Samaín 2026 — Capítulo 3: O Encoro","date":"2026-10-31","url":"/calendarios/2026/triloxia-samain-2026-capitulo-3-o-encoro/"}]}]}</script>
+      </section>
     
   </section>
 

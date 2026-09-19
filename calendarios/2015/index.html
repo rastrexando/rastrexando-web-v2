@@ -8,6 +8,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
 
@@ -47,8 +50,11 @@
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
     <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -179,6 +185,34 @@
     
 
 <div class="page page-calendar">
+  
+      <section class="calendar-map-card" data-calendar-map aria-labelledby="calendar-map-2015-title">
+        <div class="calendar-map-heading">
+          <div>
+            <span class="calendar-map-eyebrow">Localizacións aproximadas</span>
+            <h2 id="calendar-map-2015-title">Mapa de eventos de 2015</h2>
+          </div>
+          <p class="calendar-map-summary" data-map-summary aria-live="polite"></p>
+        </div>
+        <div
+          id="calendar-map-2015"
+          class="calendar-map-canvas"
+          data-map-canvas
+          role="region"
+          aria-label="Mapa interactivo dos eventos de 2015"
+        ></div>
+        <p class="calendar-map-empty" data-map-empty hidden>Non hai eventos con localización dispoñible neste calendario.</p>
+        <div class="calendar-map-legend" aria-label="Lenda do mapa">
+          <span class="calendar-map-legend-title">Lenda:</span>
+          <span><i class="calendar-map-key calendar-map-key--upcoming" aria-hidden="true">P</i> Hoxe ou próximos</span>
+          <span><i class="calendar-map-key calendar-map-key--past" aria-hidden="true">✓</i> Pasados</span>
+          <span><i class="calendar-map-key calendar-map-key--mixed" aria-hidden="true">±</i> Mixtos</span>
+        </div>
+        <p class="calendar-map-notice">As localizacións son aproximadas. Amplía os grupos e selecciona un marcador para ver os eventos.</p>
+        <script type="application/json" data-calendar-map-data>{"year":"2015","locations":[{"name":"Couso, Gondomar","lat":42.080216,"lng":-8.742374,"events":[{"title":"1º Desafío 4 Estacións de Couso “Ruta do Estraperlo”","date":"2015-02-21","url":"/calendarios/2015/1o-desafio-4-estacions-de-couso-ruta-do-estraperlo/"},{"title":"2º Desafío 4 Estacións de Couso “Rastrexo do Zodíaco”","date":"2015-04-18","url":"/calendarios/2015/2o-desafio-4-estacions-de-couso-rastrexo-do-zodiac/"},{"title":"3º Desafío 4 Estacións de Couso “Rastrexo Pirata”","date":"2015-06-27","url":"/calendarios/2015/3o-desafio-4-estacions-de-couso-rastrexo-pirata/"},{"title":"4º Reto do Desafío 4 Estacións \"Rastrexo Tenebroso\"","date":"2015-11-07","url":"/calendarios/2015/4o-reto-do-desafio-4-estacions-rastrexo-tenebroso/"}]},{"name":"Santa Eulalia de Batalláns, As Neves","lat":42.158072,"lng":-8.403808,"events":[{"title":"II Rastrexo de Santa Eulalia de Batalláns","date":"2015-05-09","url":"/calendarios/2015/ii-rastrexo-de-santa-eulalia-de-batallans/"}]},{"name":"Mosende, O Porriño","lat":42.127249,"lng":-8.660504,"events":[{"title":"I Rastrexo da Costeira","date":"2015-05-30","url":"/calendarios/2015/i-rastrexo-da-costeira/"}]},{"name":"Atios, O Porriño","lat":42.13903,"lng":-8.604438,"events":[{"title":"I Rastrexo de Atios","date":"2015-06-06","url":"/calendarios/2015/i-rastrexo-de-atios/"}]},{"name":"Piñeiro, Tomiño","lat":42.017221,"lng":-8.702357,"events":[{"title":"I Rastrexo de Piñeiro","date":"2015-06-13","url":"/calendarios/2015/i-rastrexo-de-pineiro/"}]},{"name":"Leirado, Salvaterra de Miño","lat":42.130237,"lng":-8.454703,"events":[{"title":"I Rastrexo Ondiñas do Mendo","date":"2015-06-13","url":"/calendarios/2015/i-rastrexo-ondinas-do-mendo/"},{"title":"I Rastrexo A.C. Leitarello “A Prehistoria”","date":"2015-09-12","url":"/calendarios/2015/i-rastrexo-ac-leitarello-a-prehistoria/"}]},{"name":"Campo de Fútbol A Carballa, Tomiño","lat":41.989739,"lng":-8.731341,"events":[{"title":"I Rastrexo Veteranos Tomiñeses","date":"2015-06-20","url":"/calendarios/2015/i-rastrexo-veteranos-tomineses/"}]},{"name":"San Pedro de Batalláns, As Neves","lat":42.154991,"lng":-8.412105,"events":[{"title":"III Rastrexo de San Pedro de Batalláns","date":"2015-06-20","url":"/calendarios/2015/iii-rastrexo-de-san-pedro-de-batallans/"}]},{"name":"Areas, Ponteareas","lat":42.171662,"lng":-8.525121,"events":[{"title":"I Rastrexo de Areas “AREASVILLE”","date":"2015-07-04","url":"/calendarios/2015/i-rastrexo-de-areas-areasville/"}]},{"name":"Pereiras, Mos","lat":42.171232,"lng":-8.646779,"events":[{"title":"II Rastrexo de Pereiras “SINAIS”","date":"2015-07-04","url":"/calendarios/2015/ii-rastrexo-de-pereiras-sinais/"}]},{"name":"San Bartolomeu, Tui","lat":42.055539,"lng":-8.637469,"events":[{"title":"I Rastrexo de S. Bartolomeu \"As Olimpiadas\"","date":"2015-07-18","url":"/calendarios/2015/i-rastrexo-de-s-bartolomeu-as-olimpiadas/"}]},{"name":"Soutolobre, Salvaterra de Miño","lat":42.129676,"lng":-8.474013,"events":[{"title":"I Rastrexo de Soutolobre","date":"2015-07-18","url":"/calendarios/2015/i-rastrexo-de-soutolobre/"}]},{"name":"Cristiñade, Ponteareas","lat":42.138039,"lng":-8.536776,"events":[{"title":"II Rastrexo de Cristiñade","date":"2015-07-18","url":"/calendarios/2015/ii-rastrexo-de-cristinade/"}]},{"name":"Guláns, Ponteareas","lat":42.151886,"lng":-8.556394,"events":[{"title":"III Rastrexo de Guláns","date":"2015-07-25","url":"/calendarios/2015/iii-rastrexo-de-gulans/"}]},{"name":"Celeiros, Ponteareas","lat":42.163332,"lng":-8.455794,"events":[{"title":"VI Rastrexo de Celeiros “Súper Celeiros”","date":"2015-07-31","url":"/calendarios/2015/vi-rastrexo-de-celeiros-super-celeiros/"}]},{"name":"Fornelos da Ribeira, Salvaterra de Miño","lat":42.130584,"lng":-8.499884,"events":[{"title":"II Rastrexo de Fornelos da Ribeira","date":"2015-08-01","url":"/calendarios/2015/ii-rastrexo-de-fornelos-da-ribeira/"}]},{"name":"Pexegueiro, Tui","lat":42.045161,"lng":-8.700029,"events":[{"title":"XIII Rastrexo de Pexegueiro","date":"2015-08-01","url":"/calendarios/2015/xiii-rastrexo-de-pexegueiro/"}]},{"name":"Oliveira, Ponteareas","lat":42.179826,"lng":-8.452213,"events":[{"title":"VI Rastrexo de Oliveira","date":"2015-08-08","url":"/calendarios/2015/vi-rastrexo-de-oliveira/"}]},{"name":"Campo de Fútbol de As Neves, As Neves","lat":42.092004,"lng":-8.417931,"events":[{"title":"III Rastrexo Vila de As Neves","date":"2015-08-14","url":"/calendarios/2015/iii-rastrexo-vila-de-as-neves/"}]},{"name":"Fozara, Ponteareas","lat":42.231898,"lng":-8.512039,"events":[{"title":"X Rastrexo de Fozara","date":"2015-08-15","url":"/calendarios/2015/x-rastrexo-de-fozara/"}]},{"name":"Maceira, Covelo","lat":42.26314,"lng":-8.345354,"events":[{"title":"III Rastrexo de Maceira","date":"2015-08-22","url":"/calendarios/2015/iii-rastrexo-de-maceira/"}]},{"name":"Xinzo, Ponteareas","lat":42.18354,"lng":-8.56591,"events":[{"title":"XVIII Rastrexo de Xinzo","date":"2015-08-22","url":"/calendarios/2015/xviii-rastrexo-de-xinzo/"}]},{"name":"Arcos, Ponteareas","lat":42.179275,"lng":-8.474091,"events":[{"title":"IV Rastrexo Arcos","date":"2015-08-29","url":"/calendarios/2015/iv-rastrexo-arcos/"}]},{"name":"Taborda, Tomiño","lat":41.998999,"lng":-8.717769,"events":[{"title":"VI Rastrexo de Taborda","date":"2015-08-29","url":"/calendarios/2015/vi-rastrexo-de-taborda-2/"}]},{"name":"Herville, Mos","lat":42.151468,"lng":-8.673732,"events":[{"title":"I Rastrexo Internacional de Herville","date":"2015-09-03","url":"/calendarios/2015/i-rastrexo-internacional/"}]},{"name":"Rubiós, As Neves","lat":42.114293,"lng":-8.42124,"events":[{"title":"I Rastrexo de Rubiós","date":"2015-09-05","url":"/calendarios/2015/i-rastrexo-de-rubios/"}]},{"name":"Vilar, Crecente","lat":42.164191,"lng":-8.23965,"events":[{"title":"I Rastrexo de Villar","date":"2015-09-05","url":"/calendarios/2015/i-rastrexo-de-villar/"}]},{"name":"Moreira, Ponteareas","lat":42.146426,"lng":-8.501669,"events":[{"title":"III Rastrexo de Moreira","date":"2015-09-05","url":"/calendarios/2015/iii-rastrexo-de-moreira/"}]},{"name":"San Salvador de Tebra, Tomiño","lat":42.026052,"lng":-8.723826,"events":[{"title":"I Rastrexo Marenum San Salvador de Tebra","date":"2015-10-10","url":"/calendarios/2015/i-rastrexo-marenum-san-salvador-de-tebra/"}]},{"name":"Entrenza, Salceda de Caselas","lat":42.080779,"lng":-8.563582,"events":[{"title":"II Rastrexo de Entenza \"Imperio A Turonia\"","date":"2015-10-24","url":"/calendarios/2015/ii-rastrexo-de-entenza-imperio-a-turonia/"}]},{"name":"San Esteban de Budiño, Salceda de Caselas","lat":42.100025,"lng":-8.629071,"events":[{"title":"II Rastrexo San Esteban de Budiño","date":"2015-10-31","url":"/calendarios/2015/ii-rastrexo-san-esteban-de-budino/"}]},{"name":"Torneiros, Porriño","lat":42.153705,"lng":-8.641605,"events":[{"title":"II Rastrexo de Torneiros","date":"2015-11-14","url":"/calendarios/2015/ii-rastrexo-de-torneiros/"}]},{"name":"Vincios, Gondomar","lat":42.143957,"lng":-8.727187,"events":[{"title":"I Rastrexo de Vincios (CUVI","date":"2015-11-28","url":"/calendarios/2015/i-rastrexo-de-vincios-cuvi/"}]}]}</script>
+      </section>
+    
+
   
       <div class="prev-next-buttons">
         

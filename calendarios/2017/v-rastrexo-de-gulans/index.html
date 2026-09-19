@@ -8,6 +8,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>V Rastrexo de Guláns</title>
 
@@ -47,8 +50,11 @@
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
     <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -239,12 +245,18 @@
           rel="noopener noreferrer"
         >Abrir</a>
       </div>
-      <iframe
-        class="event-map-frame"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.574394%2C42.139886%2C-8.538394%2C42.163886&amp;layer=mapnik&amp;marker=42.151886%2C-8.556394"
-        title="Localización aproximada de Guláns, Ponteareas"
-        loading="lazy"
-      ></iframe>
+      <div
+        class="event-map-frame event-map-leaflet"
+        data-event-map
+        data-lat="42.151886"
+        data-lng="-8.556394"
+        data-location="Guláns, Ponteareas"
+        role="region"
+        aria-label="Localización aproximada de Guláns, Ponteareas"
+      ></div>
+      <noscript>
+        <p><a href="https://www.openstreetmap.org/?mlat=42.151886&amp;mlon=-8.556394#map=14/42.151886/-8.556394">Ver a localización aproximada en OpenStreetMap</a></p>
+      </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
   

@@ -968,11 +968,22 @@ hr {
 }
 
 .event-map-frame {
-  display: block;
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: 280px;
+  display: block;
+  contain: layout paint;
+  isolation: isolate;
+  overflow: hidden;
   border: 1px solid #e2e6ec;
   border-radius: 12px;
+  background: #e9eef3;
+}
+
+.event-map-frame:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 2px;
 }
 
 .event-map-notice {
@@ -1004,6 +1015,313 @@ hr {
 
 .page-header i {
   font-size: 0.82em;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ============================================================
+   Interactive calendar map
+   ============================================================ */
+.calendar-map-card {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: 0 3px 14px rgba(13, 10, 76, 0.09);
+}
+
+.active-year-card + .calendar-map-card {
+  margin-top: 1rem;
+}
+
+.calendar-map-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.calendar-map-heading h2 {
+  margin: 0;
+  color: var(--brand-dark-blue);
+  font-size: var(--font-size-section-title);
+  line-height: 1.25;
+}
+
+.calendar-map-eyebrow {
+  display: block;
+  margin-bottom: 0.1rem;
+  color: var(--text-muted);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.calendar-map-summary {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.calendar-map-canvas {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 280px;
+  contain: layout paint;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #cbd7e3;
+  border-radius: 10px;
+  background: #e9eef3;
+}
+
+.calendar-map-canvas:focus-visible,
+.calendar-map-canvas .leaflet-interactive:focus-visible,
+.calendar-map-canvas .leaflet-marker-icon:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 2px;
+}
+
+.calendar-map-empty {
+  margin: 0;
+  padding: 2rem 1rem;
+  border: 1px dashed #c9d6e2;
+  border-radius: 10px;
+  color: var(--text-muted);
+  background: #f8fafc;
+  text-align: center;
+}
+
+.calendar-map-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.calendar-map-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.calendar-map-legend-title {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.calendar-map-key {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 0 0 1px rgba(13, 10, 76, 0.18);
+  font-size: 0.63rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.calendar-map-key--upcoming,
+.calendar-map-marker--upcoming,
+.calendar-map-cluster--upcoming,
+.calendar-map-popup-status--upcoming {
+  background: var(--brand-light-blue);
+}
+
+.calendar-map-key--past,
+.calendar-map-marker--past,
+.calendar-map-cluster--past,
+.calendar-map-popup-status--past {
+  background: #69727d;
+}
+
+.calendar-map-key--mixed,
+.calendar-map-marker--mixed,
+.calendar-map-cluster--mixed,
+.calendar-map-popup-status--mixed {
+  background: #75529b;
+}
+
+.calendar-map-notice {
+  margin: 0.55rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.calendar-map-div-icon,
+.calendar-map-cluster-icon {
+  border: 0;
+  background: transparent;
+}
+
+.calendar-map-marker {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  border-radius: 50% 50% 50% 8px;
+  color: white;
+  box-shadow: 0 3px 9px rgba(13, 10, 76, 0.4);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  transform: rotate(-45deg);
+}
+
+.calendar-map-marker > span {
+  transform: rotate(45deg);
+}
+
+.calendar-map-marker-count {
+  position: absolute;
+  right: -7px;
+  top: -7px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 999px;
+  color: var(--brand-dark-blue);
+  background: white;
+  box-shadow: 0 1px 5px rgba(13, 10, 76, 0.25);
+  font-size: 0.62rem;
+  transform: rotate(45deg) !important;
+}
+
+.calendar-map-cluster {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-content: center;
+  border: 4px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 3px 11px rgba(13, 10, 76, 0.38);
+  text-align: center;
+}
+
+.calendar-map-cluster strong {
+  font-size: 0.9rem;
+  line-height: 0.9;
+}
+
+.calendar-map-cluster small {
+  margin-top: 0.14rem;
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.calendar-map-popup {
+  min-width: 200px;
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.calendar-map-popup-location {
+  display: block;
+  color: var(--brand-dark-blue);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.calendar-map-popup-status {
+  display: inline-flex;
+  margin-top: 0.35rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.calendar-map-popup ul {
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.calendar-map-popup li + li {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid #e2e6ec;
+}
+
+.calendar-map-popup a {
+  display: block;
+  color: var(--brand-dark-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.calendar-map-popup time {
+  display: block;
+  margin-top: 0.08rem;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  text-transform: capitalize;
+}
+
+.calendar-map-card .leaflet-control-attribution {
+  font-size: 0.6rem;
+}
+
+@media (max-width: 520px) {
+  .calendar-map-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .calendar-map-canvas {
+    height: 245px;
+  }
+
+  .calendar-map-summary {
+    white-space: normal;
+  }
+}
+
+@media (min-width: 768px) {
+  .calendar-map-card {
+    padding: 1rem;
+  }
+
+  .calendar-map-canvas {
+    height: 360px;
+  }
 }
 
 /* ============================================================

@@ -8,6 +8,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
 
@@ -47,8 +50,11 @@
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
     <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -179,6 +185,34 @@
     
 
 <div class="page page-calendar">
+  
+      <section class="calendar-map-card" data-calendar-map aria-labelledby="calendar-map-2020-title">
+        <div class="calendar-map-heading">
+          <div>
+            <span class="calendar-map-eyebrow">Localizacións aproximadas</span>
+            <h2 id="calendar-map-2020-title">Mapa de eventos de 2020</h2>
+          </div>
+          <p class="calendar-map-summary" data-map-summary aria-live="polite"></p>
+        </div>
+        <div
+          id="calendar-map-2020"
+          class="calendar-map-canvas"
+          data-map-canvas
+          role="region"
+          aria-label="Mapa interactivo dos eventos de 2020"
+        ></div>
+        <p class="calendar-map-empty" data-map-empty hidden>Non hai eventos con localización dispoñible neste calendario.</p>
+        <div class="calendar-map-legend" aria-label="Lenda do mapa">
+          <span class="calendar-map-legend-title">Lenda:</span>
+          <span><i class="calendar-map-key calendar-map-key--upcoming" aria-hidden="true">P</i> Hoxe ou próximos</span>
+          <span><i class="calendar-map-key calendar-map-key--past" aria-hidden="true">✓</i> Pasados</span>
+          <span><i class="calendar-map-key calendar-map-key--mixed" aria-hidden="true">±</i> Mixtos</span>
+        </div>
+        <p class="calendar-map-notice">As localizacións son aproximadas. Amplía os grupos e selecciona un marcador para ver os eventos.</p>
+        <script type="application/json" data-calendar-map-data>{"year":"2020","locations":[{"name":"Baredo, Baiona","lat":42.097364,"lng":-8.873602,"events":[{"title":"IV Rastrexo de Baredo \"O Gran Imperio Co-Chino\"","date":"2020-05-09","url":"/calendarios/2020/09-05-2020-baiona-iv-rastrexo-de-baredo-o-gran-imp/"}]},{"name":"Meira, Moaña","lat":42.282205,"lng":-8.720737,"events":[{"title":"III Rastrexo Festas da Peregrina","date":"2020-05-23","url":"/calendarios/2020/23-05-2020-moana-iii-rastrexo-festas-da-peregrina/"}]},{"name":"Pereiras, Mos","lat":42.171232,"lng":-8.646779,"events":[{"title":"VII Rastrexo de Pereiras","date":"2020-07-04","url":"/calendarios/2020/04-07-2020-mos-vii-rastrexo-de-pereiras/"}]},{"name":"Camos, Nigrán","lat":42.152804,"lng":-8.772146,"events":[{"title":"IV Rastrexo de Camos","date":"2020-07-18","url":"/calendarios/2020/16-07-2020-nigran-iv-rastrexo-de-camos/"}]}]}</script>
+      </section>
+    
+
   
       <div class="prev-next-buttons">
         

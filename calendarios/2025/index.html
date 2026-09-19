@@ -8,6 +8,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
 
@@ -47,8 +50,11 @@
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
     <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -179,6 +185,34 @@
     
 
 <div class="page page-calendar">
+  
+      <section class="calendar-map-card" data-calendar-map aria-labelledby="calendar-map-2025-title">
+        <div class="calendar-map-heading">
+          <div>
+            <span class="calendar-map-eyebrow">Localizacións aproximadas</span>
+            <h2 id="calendar-map-2025-title">Mapa de eventos de 2025</h2>
+          </div>
+          <p class="calendar-map-summary" data-map-summary aria-live="polite"></p>
+        </div>
+        <div
+          id="calendar-map-2025"
+          class="calendar-map-canvas"
+          data-map-canvas
+          role="region"
+          aria-label="Mapa interactivo dos eventos de 2025"
+        ></div>
+        <p class="calendar-map-empty" data-map-empty hidden>Non hai eventos con localización dispoñible neste calendario.</p>
+        <div class="calendar-map-legend" aria-label="Lenda do mapa">
+          <span class="calendar-map-legend-title">Lenda:</span>
+          <span><i class="calendar-map-key calendar-map-key--upcoming" aria-hidden="true">P</i> Hoxe ou próximos</span>
+          <span><i class="calendar-map-key calendar-map-key--past" aria-hidden="true">✓</i> Pasados</span>
+          <span><i class="calendar-map-key calendar-map-key--mixed" aria-hidden="true">±</i> Mixtos</span>
+        </div>
+        <p class="calendar-map-notice">As localizacións son aproximadas. Amplía os grupos e selecciona un marcador para ver os eventos.</p>
+        <script type="application/json" data-calendar-map-data>{"year":"2025","locations":[{"name":"Coruxo, Vigo","lat":42.186553,"lng":-8.770139,"events":[{"title":"III Rastrexo de Coruxo","date":"2025-05-10","url":"/calendarios/2025/2025-05-10-iii-rastrexo-coruxo/"},{"title":"III Andaina Terrorífica","date":"2025-10-25","url":"/calendarios/2025/2025-10-25-iii-andaina-terrorífica/"}]},{"name":"Camos, Nigrán","lat":42.152804,"lng":-8.772146,"events":[{"title":"8º Rastrexo Camos","date":"2025-07-05","url":"/calendarios/2025/camos/"},{"title":"Super Rastrexo Solidario \"Un mundo para Mauri\"","date":"2025-08-02","url":"/calendarios/2025/02-08-mauri/"},{"title":"Rastrexo Especial Camos: Cuentos de Navidad","date":"2025-11-29","url":"/calendarios/2025/rastrexo-camos-nadal/"}]},{"name":"Parada, Nigrán","lat":42.129716,"lng":-8.777186,"events":[{"title":"9ª Andaina Nocturna \"O Camiño do Terror\"","date":"2025-08-22","url":"/calendarios/2025/2025-08-22-camino-do-terror/"}]},{"name":"Verducido de Xeve, Pontevedra","lat":42.479421,"lng":-8.619367,"events":[{"title":"V Rastrexo solidario Verducido: Cuentos clásicos","date":"2025-08-30","url":"/calendarios/2025/2025-08-30-v-rastrexo-verducido/"}]},{"name":"Pexegueiro, Tui","lat":42.045161,"lng":-8.700029,"events":[{"title":"XIX Rastrexo Pexegueiro As Paraolimpiadas","date":"2025-08-30","url":"/calendarios/2025/2025-08-30-xix-rastrexo-pexegueiro/"}]},{"name":"Guillarei, Tui","lat":42.068222,"lng":-8.615528,"events":[{"title":"I Andaina Lenda da Pedra de Guillarei","date":"2025-09-06","url":"/calendarios/2025/2025-09-06-i-andaina-lenda-guillarei/"}]},{"name":"Baredo, Baiona","lat":42.097364,"lng":-8.873602,"events":[{"title":"I Rastrexo Comisión de Festas Virxe da Cela \"A nosa verbena\"","date":"2025-09-20","url":"/calendarios/2025/2025-09-20-i-rastrexo-a-cela-baredo/"}]},{"name":"Couso, Gondomar","lat":42.080216,"lng":-8.742374,"events":[{"title":"III Andaina do terror","date":"2025-11-01","url":"/calendarios/2025/2025-11-01-iii-andaina-do-terror-couso/"}]}]}</script>
+      </section>
+    
+
   
       <div class="prev-next-buttons">
         

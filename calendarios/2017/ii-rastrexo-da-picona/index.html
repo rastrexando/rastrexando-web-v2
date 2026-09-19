@@ -8,6 +8,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>II Rastrexo da Picoña</title>
 
@@ -47,8 +50,11 @@
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
     <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -239,12 +245,18 @@
           rel="noopener noreferrer"
         >Abrir</a>
       </div>
-      <iframe
-        class="event-map-frame"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.579019%2C42.109567%2C-8.543019%2C42.133567&amp;layer=mapnik&amp;marker=42.121567%2C-8.561019"
-        title="Localización aproximada de A Picoña, Salceda de Caselas"
-        loading="lazy"
-      ></iframe>
+      <div
+        class="event-map-frame event-map-leaflet"
+        data-event-map
+        data-lat="42.121567"
+        data-lng="-8.561019"
+        data-location="A Picoña, Salceda de Caselas"
+        role="region"
+        aria-label="Localización aproximada de A Picoña, Salceda de Caselas"
+      ></div>
+      <noscript>
+        <p><a href="https://www.openstreetmap.org/?mlat=42.121567&amp;mlon=-8.561019#map=14/42.121567/-8.561019">Ver a localización aproximada en OpenStreetMap</a></p>
+      </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
   

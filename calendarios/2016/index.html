@@ -8,6 +8,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
 		<link rel="stylesheet" href="/recursos/bundle.css">
     <title>Calendario - Rastrexando</title>
 
@@ -47,8 +50,11 @@
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
     <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -179,6 +185,34 @@
     
 
 <div class="page page-calendar">
+  
+      <section class="calendar-map-card" data-calendar-map aria-labelledby="calendar-map-2016-title">
+        <div class="calendar-map-heading">
+          <div>
+            <span class="calendar-map-eyebrow">Localizacións aproximadas</span>
+            <h2 id="calendar-map-2016-title">Mapa de eventos de 2016</h2>
+          </div>
+          <p class="calendar-map-summary" data-map-summary aria-live="polite"></p>
+        </div>
+        <div
+          id="calendar-map-2016"
+          class="calendar-map-canvas"
+          data-map-canvas
+          role="region"
+          aria-label="Mapa interactivo dos eventos de 2016"
+        ></div>
+        <p class="calendar-map-empty" data-map-empty hidden>Non hai eventos con localización dispoñible neste calendario.</p>
+        <div class="calendar-map-legend" aria-label="Lenda do mapa">
+          <span class="calendar-map-legend-title">Lenda:</span>
+          <span><i class="calendar-map-key calendar-map-key--upcoming" aria-hidden="true">P</i> Hoxe ou próximos</span>
+          <span><i class="calendar-map-key calendar-map-key--past" aria-hidden="true">✓</i> Pasados</span>
+          <span><i class="calendar-map-key calendar-map-key--mixed" aria-hidden="true">±</i> Mixtos</span>
+        </div>
+        <p class="calendar-map-notice">As localizacións son aproximadas. Amplía os grupos e selecciona un marcador para ver os eventos.</p>
+        <script type="application/json" data-calendar-map-data>{"year":"2016","locations":[{"name":"Cristelos, Tomiño","lat":42.031859,"lng":-8.769917,"events":[{"title":"I Rastrexo de Cristelos \"Rastrexo en Festas\"","date":"2016-04-16","url":"/calendarios/2016/i-rastrexo-de-cristelos-rastrexo-en-festas/"},{"title":"I Rastrexo infantil de Cristelos","date":"2016-09-02","url":"/calendarios/2016/i-rastrexo-infantil-de-cristelos/"}]},{"name":"Amorín, Tomiño","lat":41.993067,"lng":-8.694004,"events":[{"title":"I Rastrexo de Amorín","date":"2016-04-30","url":"/calendarios/2016/i-rastrexo-de-amorin/"}]},{"name":"Tameiga, Mos","lat":42.197257,"lng":-8.651504,"events":[{"title":"I Xogos Olímpicos de Tameiga","date":"2016-05-07","url":"/calendarios/2016/i-xogos-olimpicos-de-tameiga/"}]},{"name":"Batalláns, As Neves","lat":42.158194,"lng":-8.383652,"events":[{"title":"III Rastrexo de Santa Eulalia de Batallans","date":"2016-05-14","url":"/calendarios/2016/iii-rastrexo-de-santa-eulalia-de-batallans/"},{"title":"IV Rastrexo de San Pedro","date":"2016-06-25","url":"/calendarios/2016/iv-rastrexo-de-san-pedro/"},{"title":"II Rastrexo Infantil de Santa Eulalia de Batalláns","date":"2016-07-22","url":"/calendarios/2016/ii-rastrexo-infantil-de-santa-eulalia-de-batallans/"}]},{"name":"Taborda, Tomiño","lat":41.998999,"lng":-8.717769,"events":[{"title":"Rastrexo Pirata","date":"2016-05-14","url":"/calendarios/2016/rastrexo-pirata/"},{"title":"VII Rastrexo de Taborda","date":"2016-08-27","url":"/calendarios/2016/vi-rastrexo-de-taborda/"}]},{"name":"Vilar, Crecente","lat":42.164191,"lng":-8.23965,"events":[{"title":"II Rastrexo de Villar \"JUMANJI\"","date":"2016-05-21","url":"/calendarios/2016/ii-rastrexo-de-villar-jumanji/"}]},{"name":"Cabral, Vigo","lat":42.224405,"lng":-8.651949,"events":[{"title":"I Rastrexo Vigo \"Os Superheroes\"","date":"2016-05-28","url":"/calendarios/2016/i-rastrexo-vigo-os-superheroes/"}]},{"name":"Piñeiro, Tomiño","lat":42.017221,"lng":-8.702357,"events":[{"title":"II Rastrexo de Piñeiro \"Divergente\"","date":"2016-06-04","url":"/calendarios/2016/ii-rastrexo-de-pineiro-divergente/"}]},{"name":"Xinzo, Ponteareas","lat":42.18354,"lng":-8.56591,"events":[{"title":"XIX Rastrexo de Xinzo","date":"2016-06-10","url":"/calendarios/2016/xix-rastrexo-de-xinzo/"}]},{"name":"A Costeira, Porriño","lat":42.137074,"lng":-8.665213,"events":[{"title":"2º Rastrexo Costeira","date":"2016-06-11","url":"/calendarios/2016/2o-rastrexo-costeira/"}]},{"name":"Paramos, Tui","lat":42.060897,"lng":-8.605703,"events":[{"title":"I Rastrexo de Paramos","date":"2016-06-18","url":"/calendarios/2016/i-rastrexo-de-paramos/"}]},{"name":"Couso, Gondomar","lat":42.080216,"lng":-8.742374,"events":[{"title":"Rastrexo de Couso","date":"2016-06-18","url":"/calendarios/2016/rastrexo-de-couso/"}]},{"name":"Viladesuso, Oia","lat":42.042023,"lng":-8.864618,"events":[{"title":"I Rastrexo de Viladesuso - Oia","date":"2016-06-24","url":"/calendarios/2016/i-rastrexo-de-viladesuso-oia/"}]},{"name":"Areas, Ponteareas","lat":42.171662,"lng":-8.525121,"events":[{"title":"II Rastrexo de Areas","date":"2016-07-02","url":"/calendarios/2016/ii-rastrexo-de-areas/"}]},{"name":"Pereiras, Mos","lat":42.171232,"lng":-8.646779,"events":[{"title":"III Rastrexo de Pereiras","date":"2016-07-02","url":"/calendarios/2016/iii-rastrexo-de-pereiras/"}]},{"name":"San Esteban de Budiño, Salceda de Caselas","lat":42.100025,"lng":-8.629071,"events":[{"title":"Los Juegos del Hambre (Parte II)","date":"2016-07-09","url":"/calendarios/2016/los-juegos-del-hambre-parte-ii/"},{"title":"II Rastrexo Infantil San Estevo de Budiño \"Dragon Ball\"","date":"2016-07-24","url":"/calendarios/2016/ii-rastrexo-infantil-san-estevo-de-budino-dragon-b/"},{"title":"2º Rastrexo Infantil San Esteban de Budiño","date":"2016-12-18","url":"/calendarios/2016/2o-rastrexo-infantil-san-esteban-de-budino/"}]},{"name":"Torneiros, Porriño","lat":42.153705,"lng":-8.641605,"events":[{"title":"I Rastrexo Infantil de Torneiros \"Galiza Profunda\"","date":"2016-07-16","url":"/calendarios/2016/i-rastrexo-infantil-de-torneiros-galiza-profunda/"},{"title":"III Rastrexo de Torneiros","date":"2016-09-17","url":"/calendarios/2016/iii-rastrexo-de-torneiros/"}]},{"name":"Soutolobre, Salvaterra de Miño","lat":42.129676,"lng":-8.474013,"events":[{"title":"II Rastrexo de Soutolobre","date":"2016-07-16","url":"/calendarios/2016/ii-rastrexo-de-soutolobre/"}]},{"name":"Cristiñade, Ponteareas","lat":42.138039,"lng":-8.536776,"events":[{"title":"III Rastrexo de Cristiñade","date":"2016-07-16","url":"/calendarios/2016/iii-rastrexo-de-cristinade/"}]},{"name":"San Bartolomeu, Tui","lat":42.055539,"lng":-8.637469,"events":[{"title":"Rastrexo de San Bartolomeu \"En busca do tesouro\"","date":"2016-07-16","url":"/calendarios/2016/rastrexo-de-san-bartolomeu-en-busca-do-tesouro/"}]},{"name":"Atios, Porriño","lat":42.13903,"lng":-8.604438,"events":[{"title":"II Rastrexo Virxe da Guía","date":"2016-07-23","url":"/calendarios/2016/ii-rastrexo-virxe-da-guia/"}]},{"name":"Guláns, Ponteareas","lat":42.151886,"lng":-8.556394,"events":[{"title":"IV Rastrexo de Guláns","date":"2016-07-23","url":"/calendarios/2016/iv-rastrexo-de-gulans/"}]},{"name":"Fornelos da Ribeira, Salvaterra de Miño","lat":42.130584,"lng":-8.499884,"events":[{"title":"4 Rastrexo Infantil Fornelos e Lourido","date":"2016-07-29","url":"/calendarios/2016/4-rastrexo-infantil-fornelos-e-lourido/"},{"title":"III Rastrexo de Fornelos","date":"2016-08-05","url":"/calendarios/2016/iii-rastrexo-de-fornelos/"}]},{"name":"Herville, Mos","lat":42.151468,"lng":-8.673732,"events":[{"title":"II Rastrexo de Herville","date":"2016-07-30","url":"/calendarios/2016/ii-rastrexo-de-herville/"}]},{"name":"Mondariz","lat":42.239049,"lng":-8.453225,"events":[{"title":"I Rastrexo Infantil de Mondariz","date":"2016-07-31","url":"/calendarios/2016/i-rastrexo-infantil-de-mondariz/"}]},{"name":"Oliveira, Ponteareas","lat":42.179826,"lng":-8.452213,"events":[{"title":"VII Rastrexo de Oliveira","date":"2016-08-06","url":"/calendarios/2016/vii-rastrexo-de-oliveira/"}]},{"name":"Pexegueiro, Tui","lat":42.045161,"lng":-8.700029,"events":[{"title":"XIV Rastrexo de Pexegueiro \"Rastreo Labrego\"","date":"2016-08-13","url":"/calendarios/2016/xiv-rastrexo-de-pexegueiro-rastreo-labrego/"}]},{"name":"As Neves","lat":42.123075,"lng":-8.397746,"events":[{"title":"IV Rastrexo Vila das Neves","date":"2016-08-14","url":"/calendarios/2016/iv-rastrexo-vila-das-neves/"}]},{"name":"Vincios, Gondomar","lat":42.143957,"lng":-8.727187,"events":[{"title":"I Rastrexo de Vincios \"Campeonato de Rallye\"","date":"2016-08-20","url":"/calendarios/2016/i-rastrexo-de-vincios-campeonato-de-rallye/"}]},{"name":"Sanxenxo","lat":42.422077,"lng":-8.835337,"events":[{"title":"I Rastrexo de Sanxenxo","date":"2016-09-17","url":"/calendarios/2016/i-rastrexo-de-sanxenxo/"}]},{"name":"Estás, Tomiño","lat":41.975786,"lng":-8.770785,"events":[{"title":"I Rastrexo de Estás","date":"2016-09-24","url":"/calendarios/2016/i-rastrexo-de-estas/"}]},{"name":"Centro Cultural Social de Castro Barreiro, Salceda de Caselas","lat":42.116725,"lng":-8.546697,"events":[{"title":"Noite Cavernícola","date":"2016-10-08","url":"/calendarios/2016/noite-cavernicola/"}]},{"name":"San Salvador de Tebra, Tomiño","lat":42.026052,"lng":-8.723826,"events":[{"title":"II Rastrexo Marenum San Salvador de Tebra","date":"2016-10-22","url":"/calendarios/2016/ii-rastrexo-marenum-san-salvador-de-tebra/"}]},{"name":"IES María Soliño, Cangas","lat":42.277514,"lng":-8.791418,"events":[{"title":"I Rastrexo María Soliño","date":"2016-11-05","url":"/calendarios/2016/i-rastrexo-maria-solino/"}]}]}</script>
+      </section>
+    
+
   
       <div class="prev-next-buttons">
         
