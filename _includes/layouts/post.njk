@@ -86,12 +86,18 @@ title: Evento — Rastrexando
           rel="noopener noreferrer"
         >Abrir</a>
       </div>
-      <iframe
-        class="event-map-frame"
-        src="{{ eventMapLat | mapEmbedUrl(eventMapLng) }}"
-        title="Localización aproximada de {{ location }}"
-        loading="lazy"
-      ></iframe>
+      <div
+        class="event-map-frame event-map-leaflet"
+        data-event-map
+        data-lat="{{ eventMapLat }}"
+        data-lng="{{ eventMapLng }}"
+        data-location="{{ location }}"
+        role="region"
+        aria-label="Localización aproximada de {{ location }}"
+      ></div>
+      <noscript>
+        <p><a href="{{ eventMapLat | mapLinkUrl(eventMapLng) }}">Ver a localización aproximada en OpenStreetMap</a></p>
+      </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
   {% endif %}

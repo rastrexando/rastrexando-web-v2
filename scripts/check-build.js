@@ -56,6 +56,46 @@ function urlForOutputPath(file) {
   return `/${relativePath}`;
 }
 
+function calendarMapData(urlPath, label) {
+  const file = outputPathForUrl(urlPath);
+  check(file && fs.existsSync(file), `${label}: falta a páxina xerada`);
+  if (!file || !fs.existsSync(file)) return null;
+
+  const html = fs.readFileSync(file, "utf8");
+  const matches = [...html.matchAll(/<script type="application\/json" data-calendar-map-data>([\s\S]*?)<\/script>/g)];
+  check(matches.length === 1, `${label}: debe conter exactamente un mapa anual`);
+  if (matches.length !== 1) return null;
+
+  try {
+    return JSON.parse(matches[0][1]);
+  } catch (error) {
+    check(false, `${label}: os datos JSON do mapa non son válidos (${error.message})`);
+    return null;
+  }
+}
+
+function checkMapYear(urlPath, expectedYear, label) {
+  const data = calendarMapData(urlPath, label);
+  if (!data) return null;
+
+  check(data.year === expectedYear, `${label}: o mapa declara o ano ${data.year} en lugar de ${expectedYear}`);
+  check(Array.isArray(data.locations), `${label}: locations non é unha lista`);
+
+  const events = Array.isArray(data.locations)
+    ? data.locations.flatMap((location) => location.events || [])
+    : [];
+  check(events.length > 0, `${label}: o mapa non inclúe eventos`);
+  for (const event of events) {
+    check(event.date.startsWith(`${expectedYear}-`), `${label}: inclúe unha data doutro ano (${event.date})`);
+    check(
+      event.url.startsWith(`/calendarios/${expectedYear}/`),
+      `${label}: inclúe unha URL doutro calendario (${event.url})`
+    );
+  }
+
+  return { data, events };
+}
+
 const files = walk(outputRoot);
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
 
@@ -154,6 +194,55 @@ for (const htmlFile of htmlFiles) {
     const target = outputPathForUrl(localUrl);
     check(target && fs.existsSync(target), `${relativeFile}: referencia local rota ${localUrl}`);
   }
+}
+
+const localMapResources = [
+  "recursos/vendor/leaflet/leaflet.css",
+  "recursos/vendor/leaflet/leaflet.js",
+  "recursos/vendor/leaflet.markercluster/MarkerCluster.css",
+  "recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css",
+  "recursos/vendor/leaflet.markercluster/leaflet.markercluster.js",
+  "recursos/js/calendar-map.js"
+];
+for (const resource of localMapResources) {
+  check(fs.existsSync(path.join(outputRoot, resource)), `Falta o recurso local do mapa: ${resource}`);
+}
+
+const years = require(path.join(projectRoot, "_data", "years.json"));
+const activeYear = String(years.at(-1).name);
+const homeMap = checkMapYear("/", activeYear, "Inicio");
+const activeMap = checkMapYear(`/calendarios/${activeYear}/`, activeYear, `Calendario ${activeYear}`);
+const historicMap = checkMapYear("/calendarios/2018/", "2018", "Calendario histórico 2018");
+
+if (homeMap && activeMap) {
+  check(
+    JSON.stringify(homeMap.data) === JSON.stringify(activeMap.data),
+    "Inicio e calendario activo non reutilizan os mesmos datos do mapa"
+  );
+}
+
+if (activeMap) {
+  check(
+    activeMap.data.locations.some((location) => (location.events || []).length > 1),
+    `Calendario ${activeYear}: non hai eventos agrupados nunha mesma localización`
+  );
+}
+
+const map2026 = activeYear === "2026"
+  ? activeMap
+  : checkMapYear("/calendarios/2026/", "2026", "Calendario 2026");
+if (map2026) {
+  const dates = map2026.events.map((event) => event.date);
+  check(dates.some((date) => date < "2026-09-19"), "Calendario 2026: falta un caso de evento pasado");
+  check(dates.some((date) => date >= "2026-09-19"), "Calendario 2026: falta un caso de evento actual ou próximo");
+}
+
+const eventDetailPath = outputPathForUrl("/calendarios/2026/iv-rastrexo-coruxo/");
+if (eventDetailPath && fs.existsSync(eventDetailPath)) {
+  const eventDetailHtml = fs.readFileSync(eventDetailPath, "utf8");
+  check(!eventDetailHtml.includes("data-calendar-map"), "A ficha de evento inclúe por erro o mapa anual");
+  check(eventDetailHtml.includes("data-event-map"), "A ficha non inclúe o seu mapa Leaflet");
+  check(!eventDetailHtml.includes("<iframe"), "A ficha aínda usa un iframe para o mapa");
 }
 
 const legacyCamosPath = outputPathForUrl(new URL(legacyCamosUrl).pathname);

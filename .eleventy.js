@@ -27,6 +27,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addLayoutAlias("calendar", "layouts/calendar.njk");
   eleventyConfig.addPassthroughCopy("recursos/");
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/leaflet/dist": "recursos/vendor/leaflet"
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/leaflet.markercluster/dist": "recursos/vendor/leaflet.markercluster"
+  });
   eleventyConfig.addPassthroughCopy("CNAME");
 
   /* Filters */
@@ -152,6 +158,78 @@ module.exports = function (eleventyConfig) {
   });
 
   /* Short codes */
+  eleventyConfig.addShortcode("renderCalendarMap", function(events, locations, year) {
+    const groupedLocations = new Map();
+
+    for (const event of events || []) {
+      const eventLocation = locations?.[event.data.location] || {};
+      const latitude = Number(event.data.map_lat ?? eventLocation.lat);
+      const longitude = Number(event.data.map_lng ?? eventLocation.lng);
+
+      if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) continue;
+
+      const key = `${latitude.toFixed(6)},${longitude.toFixed(6)}`;
+      let group = groupedLocations.get(key);
+
+      if (!group) {
+        group = {
+          name: event.data.location || "Localización aproximada",
+          lat: latitude,
+          lng: longitude,
+          events: []
+        };
+        groupedLocations.set(key, group);
+      }
+
+      group.events.push({
+        title: event.data.title,
+        date: event.data.date.toISOString().slice(0, 10),
+        url: event.url
+      });
+    }
+
+    const mapData = {
+      year: String(year),
+      locations: Array.from(groupedLocations.values()).map((group) => ({
+        ...group,
+        events: group.events.sort((first, second) => first.date.localeCompare(second.date))
+      }))
+    };
+    const serializedData = JSON.stringify(mapData)
+      .replaceAll("<", "\\u003c")
+      .replaceAll("\u2028", "\\u2028")
+      .replaceAll("\u2029", "\\u2029");
+    const mapId = `calendar-map-${String(year).replace(/[^0-9A-Za-z_-]/g, "-")}`;
+
+    return `
+      <section class="calendar-map-card" data-calendar-map aria-labelledby="${mapId}-title">
+        <div class="calendar-map-heading">
+          <div>
+            <span class="calendar-map-eyebrow">Localizacións aproximadas</span>
+            <h2 id="${mapId}-title">Mapa de eventos de ${year}</h2>
+          </div>
+          <p class="calendar-map-summary" data-map-summary aria-live="polite"></p>
+        </div>
+        <div
+          id="${mapId}"
+          class="calendar-map-canvas"
+          data-map-canvas
+          role="region"
+          aria-label="Mapa interactivo dos eventos de ${year}"
+        ></div>
+        <p class="calendar-map-empty" data-map-empty hidden>Non hai eventos con localización dispoñible neste calendario.</p>
+        <div class="calendar-map-legend" aria-label="Lenda do mapa">
+          <span class="calendar-map-legend-title">Lenda:</span>
+          <span><i class="calendar-map-key calendar-map-key--upcoming" aria-hidden="true">P</i> Hoxe ou próximos</span>
+          <span><i class="calendar-map-key calendar-map-key--past" aria-hidden="true">✓</i> Pasados</span>
+          <span><i class="calendar-map-key calendar-map-key--mixed" aria-hidden="true">±</i> Mixtos</span>
+        </div>
+        <p class="calendar-map-notice">As localizacións son aproximadas. Amplía os grupos e selecciona un marcador para ver os eventos.</p>
+        <script type="application/json" data-calendar-map-data>${serializedData}</script>
+      </section>
+    `;
+  });
+
   eleventyConfig.addShortcode("renderHTMXLink", function(href, title, classes="") {
     return `
       <a

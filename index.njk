@@ -65,6 +65,7 @@ pagination:
     </header>
 
     {% renderActiveYearCard activeYear %}
+    {% renderCalendarMap collections[activeYear.year], locations, activeYear.year %}
   </section>
 
   <section class="year-covers-section">
