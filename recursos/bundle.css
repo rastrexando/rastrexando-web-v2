@@ -81,16 +81,43 @@ body {
   position: relative;
   z-index: 200;
   flex: 0 0 auto;
+  overflow: hidden;
+  isolation: isolate;
   color: white;
   background:
-    radial-gradient(circle at 12% -40%, rgba(37, 156, 244, 0.42), transparent 38%),
-    radial-gradient(circle at 92% 130%, rgba(232, 149, 42, 0.2), transparent 32%),
-    linear-gradient(135deg, #0d0a4c 0%, #17266d 58%, #12598b 100%);
-  border-bottom: 3px solid rgba(37, 156, 244, 0.72);
-  box-shadow: 0 5px 18px rgba(13, 10, 76, 0.2);
+    radial-gradient(circle at 82% -120%, rgba(37, 156, 244, 0.58), transparent 48%),
+    radial-gradient(circle at 8% 180%, rgba(232, 149, 42, 0.3), transparent 36%),
+    linear-gradient(118deg, #09072f 0%, #11195a 52%, #123f70 100%);
+  box-shadow: 0 5px 18px rgba(13, 10, 76, 0.22);
+}
+
+.site-header-shell::before {
+  content: "";
+  position: absolute;
+  inset: -90px -40px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.52;
+  background:
+    repeating-radial-gradient(ellipse at 8% 110%, transparent 0 24px, rgba(255, 255, 255, 0.1) 25px 26px, transparent 27px 48px),
+    repeating-radial-gradient(ellipse at 95% -15%, transparent 0 34px, rgba(117, 204, 255, 0.11) 35px 37px, transparent 38px 66px);
+}
+
+.site-header-shell::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--brand-amber) 0 24%, var(--brand-light-blue) 48% 100%);
 }
 
 #main-header {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: var(--breakpoint);
   min-height: 106px;
@@ -225,6 +252,7 @@ body {
 #rastrexando-logo {
   display: flex;
   flex-direction: row;
+  justify-self: center;
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -247,15 +275,34 @@ body {
   border-radius: 6px;
 }
 
+#rastrexando-logo .brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
 #rastrexando-logo .title {
   font-family: "Survivor Wood";
-  font-size: 1.8rem;
+  font-size: 1.85rem;
+  line-height: 0.9;
+  letter-spacing: 0.015em;
+}
+
+#rastrexando-logo .tagline {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.58rem;
+  font-weight: 700;
   line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 #rastrexando-logo img {
-  max-width: 54px;
-  max-height: 48px;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.28));
 }
 
 /* Page */
