@@ -5,6 +5,7 @@ layout: skeleton
 
 <div id="layout-base" hx-indicator="#rastrexando-logo img">
   <div class="site-header-shell">
+      <span class="star-glints" aria-hidden="true"></span>
       <header id="main-header" class="wrapper">
         <a
           id="rastrexando-logo"
@@ -64,13 +65,17 @@ layout: skeleton
     <div class="wrapper">
       <div class="footer-brand">
         <a
+          class="footer-brand-link"
           href="/"
           hx-get="/"
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >Rastrexando</a>
+        >
+          <img class="footer-symbol" src="/recursos/rastrexando-contratipo.png" alt="" loading="lazy" decoding="async" />
+          <span>Rastrexando</span>
+        </a>
         <span class="footer-copy">Rastrexos e andainas en Galicia · 2017–{{ currentYear.year }}</span>
       </div>
       <nav class="footer-nav" aria-label="Navegación secundaria">

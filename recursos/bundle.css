@@ -85,9 +85,9 @@ body {
   isolation: isolate;
   color: white;
   background:
-    radial-gradient(circle at 82% -120%, rgba(37, 156, 244, 0.58), transparent 48%),
-    radial-gradient(circle at 8% 180%, rgba(232, 149, 42, 0.3), transparent 36%),
-    linear-gradient(118deg, #09072f 0%, #11195a 52%, #123f70 100%);
+    radial-gradient(ellipse at 78% 135%, rgba(37, 156, 244, 0.28), transparent 48%),
+    radial-gradient(ellipse at 14% 160%, rgba(232, 149, 42, 0.16), transparent 34%),
+    linear-gradient(180deg, #05051b 0%, #0b0d38 54%, #102b52 100%);
   box-shadow: 0 5px 18px rgba(13, 10, 76, 0.22);
 }
 
@@ -97,22 +97,73 @@ body {
   inset: -90px -40px;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.52;
-  background:
-    repeating-radial-gradient(ellipse at 8% 110%, transparent 0 24px, rgba(255, 255, 255, 0.1) 25px 26px, transparent 27px 48px),
-    repeating-radial-gradient(ellipse at 95% -15%, transparent 0 34px, rgba(117, 204, 255, 0.11) 35px 37px, transparent 38px 66px);
+  opacity: 0.9;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(142, 209, 255, 0.88) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle, rgba(255, 226, 170, 0.82) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.58) 0 0.7px, transparent 1.3px);
+  background-position:
+    13px 17px,
+    71px 41px,
+    37px 68px,
+    109px 9px;
+  background-size:
+    137px 83px,
+    191px 109px,
+    223px 131px,
+    89px 67px;
+  animation: starfield-drift 42s ease-in-out infinite alternate;
 }
 
-.site-header-shell::after {
-  content: "";
+.star-glints,
+.star-glints::before {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  z-index: 2;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
-  background: linear-gradient(90deg, var(--brand-amber) 0 24%, var(--brand-light-blue) 48% 100%);
+  content: "";
+  background-repeat: no-repeat;
+}
+
+.star-glints {
+  background-image:
+    radial-gradient(circle at 9% 28%, rgba(255, 255, 255, 0.95) 0 1px, rgba(142, 209, 255, 0.42) 2px, transparent 5px),
+    radial-gradient(circle at 38% 67%, rgba(255, 226, 170, 0.95) 0 1px, rgba(255, 226, 170, 0.3) 2px, transparent 4px),
+    radial-gradient(circle at 79% 23%, rgba(255, 255, 255, 0.95) 0 1px, rgba(142, 209, 255, 0.38) 2px, transparent 5px);
+  animation: star-glimmer 4.8s ease-in-out infinite alternate;
+}
+
+.star-glints::before {
+  background-image:
+    radial-gradient(circle at 24% 76%, rgba(255, 255, 255, 0.9) 0 1px, rgba(255, 255, 255, 0.3) 2px, transparent 4px),
+    radial-gradient(circle at 61% 34%, rgba(142, 209, 255, 0.96) 0 1px, rgba(142, 209, 255, 0.32) 2px, transparent 5px),
+    radial-gradient(circle at 93% 70%, rgba(255, 226, 170, 0.9) 0 1px, rgba(255, 226, 170, 0.28) 2px, transparent 4px);
+  animation: star-glimmer 6.2s 1.7s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes starfield-drift {
+  from {
+    transform: translate3d(-3px, -1px, 0) scale(1.005);
+  }
+  to {
+    transform: translate3d(7px, 3px, 0) scale(1.015);
+  }
+}
+
+@keyframes star-glimmer {
+  0%, 28% {
+    opacity: 0.28;
+    filter: brightness(0.85);
+  }
+  55% {
+    opacity: 0.95;
+    filter: brightness(1.35);
+  }
+  78%, 100% {
+    opacity: 0.48;
+    filter: brightness(1);
+  }
 }
 
 #main-header {
@@ -196,7 +247,10 @@ body {
   text-align: center;
 }
 
-.footer-brand > a {
+.footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   color: white;
   font-family: "Survivor Wood";
   font-size: 1.35rem;
@@ -204,9 +258,22 @@ body {
   text-decoration: none;
 }
 
-.footer-brand > a:hover,
-.footer-brand > a:focus-visible {
+.footer-brand-link:hover,
+.footer-brand-link:focus-visible {
   color: #8ed1ff;
+}
+
+.footer-brand-link:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.footer-symbol {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
 }
 
 .footer-copy {
@@ -289,7 +356,7 @@ body {
 }
 
 #rastrexando-logo .tagline {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(174, 220, 255, 0.72);
   font-size: 0.58rem;
   font-weight: 700;
   line-height: 1;
@@ -302,7 +369,9 @@ body {
   height: 56px;
   flex: 0 0 56px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.28));
+  filter:
+    drop-shadow(0 0 10px rgba(142, 209, 255, 0.24))
+    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.32));
 }
 
 /* Page */
