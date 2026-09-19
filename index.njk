@@ -18,11 +18,13 @@ pagination:
       <p>Unha selección de rastrexos e andainas</p>
     </div>
   </header>
-  <section aria-label="Eventos destacados">
+  <section class="featured-section" aria-label="Eventos destacados">
     {% if pagination.items.length > 0 %}
-    {% for post in pagination.items %}
-      {% renderPost post %}
-    {% endfor %}
+    <div class="featured-grid">
+      {% for post in pagination.items %}
+        {% renderPost post %}
+      {% endfor %}
+    </div>
 
     {% if pagination.pages.length > 1 %}
       <ul class="pagination">

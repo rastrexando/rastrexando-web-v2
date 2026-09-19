@@ -6,7 +6,7 @@ layout: skeleton
 <div id="layout-base" hx-indicator="#rastrexando-logo img">
   <div class="animated-bg-wrapper">
     <section class="animated-section">
-      <header class="wrapper">
+      <header id="main-header" class="wrapper">
         <a
           id="rastrexando-logo"
           href="/"
@@ -19,6 +19,36 @@ layout: skeleton
           <img class="image" src="/recursos/rastrexando-simbolo.png" alt="Curuxa de Rastrexando" />
           <span class="title">Rastrexando</span>
         </a>
+        {% set currentYear = collections.yearCovers | last %}
+        <nav class="header-nav" aria-label="Navegación principal">
+          <a
+            href="/"
+            hx-get="/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            {% if page.url == "/" %}aria-current="page"{% endif %}
+          ><i class="fi-home"></i> Inicio</a>
+          <a
+            href="{{ currentYear.url }}"
+            hx-get="{{ currentYear.url }}"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            {% if "/calendarios/" in page.url %}aria-current="page"{% endif %}
+          ><i class="fi-calendar"></i> Calendario</a>
+          <a
+            href="/axuda/"
+            hx-get="/axuda/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            {% if page.url == "/axuda/" %}aria-current="page"{% endif %}
+          ><i class="fi-info"></i> Axuda</a>
+        </nav>
       </header>
       <div class='air air1'></div>
       <div class='air air2'></div>

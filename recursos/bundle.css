@@ -17,11 +17,13 @@
   --font-size-body: 1rem;
   --line-height-body: 1.65;
   --breakpoint:       720px;
+  --desktop-content-width: 1180px;
+  --reading-width: 68ch;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   :root {
-    --breakpoint: 860px;
+    --breakpoint: var(--desktop-content-width);
   }
 }
 
@@ -36,6 +38,7 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text-primary);
+  background: var(--surface);
   font-size: var(--font-size-body);
   font-family: 'Inter', system-ui, sans-serif;
   line-height: var(--line-height-body);
@@ -163,7 +166,7 @@ footer {
 
 #main-header {
   width: 100%;
-  height: 100%;
+  height: 72px;
   box-shadow: 0 7px 10px -5px gray;
 }
 
@@ -171,7 +174,7 @@ footer {
   font-size: 1.5rem;
 }
 
-#main-header .wrapper {
+#main-header {
   color: white;
   display: flex;
   flex-direction: row;
@@ -206,6 +209,10 @@ footer {
 }
 
 @media (min-width: 640px) {
+  #main-header {
+    height: 80px;
+  }
+
   #main-footer .wrapper {
     padding: 0 2rem;
   }
@@ -281,6 +288,10 @@ footer {
   max-height: 58px;
   animation: rotateLogo 4s infinite ease-in-out;
   animation-iteration-count: 1
+}
+
+.header-nav {
+  display: none;
 }
 
 /* Page */
@@ -1819,5 +1830,226 @@ hr {
 @media (min-width: 960px) {
   .year-grid {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* ============================================================
+   Desktop layout
+   ============================================================ */
+@media (min-width: 1024px) {
+  .animated-section {
+    box-shadow: 0 7px 12px -7px rgba(13, 10, 76, 0.45);
+  }
+
+  #main-header {
+    justify-content: space-between;
+    padding: 0 3rem;
+    box-shadow: none;
+  }
+
+  #rastrexando-logo {
+    flex: 0 0 auto;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .header-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 42px;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    color: var(--brand-dark-blue);
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .header-nav a:hover,
+  .header-nav a:focus-visible,
+  .header-nav a[aria-current="page"] {
+    color: var(--brand-dark-blue);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .header-nav a:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 2px;
+  }
+
+  #main-footer .wrapper {
+    padding-inline: 3rem;
+  }
+
+  .page-prose {
+    max-width: 860px;
+    margin-inline: auto;
+  }
+
+  .page-index .home-section-header h1,
+  .page-index .home-section-header h2 {
+    font-size: clamp(1.4rem, 1.1rem + 0.5vw, 1.75rem);
+  }
+
+  .featured-grid,
+  .calendar-events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .featured-grid .post,
+  .calendar-events-grid .post {
+    height: 100%;
+    margin: 0;
+  }
+
+  .featured-grid .post-card,
+  .calendar-events-grid .post-card {
+    height: 100%;
+    min-height: 164px;
+  }
+
+  .featured-grid .post-card-media,
+  .calendar-events-grid .post-card-media {
+    width: 112px;
+    min-height: 164px;
+    flex-basis: 112px;
+  }
+
+  .featured-grid .post-card-media .post-card-image,
+  .calendar-events-grid .post-card-media .post-card-image {
+    min-height: 164px;
+  }
+
+  .featured-grid .post-card-body,
+  .calendar-events-grid .post-card-body {
+    padding: 1rem 1.1rem;
+  }
+
+  .featured-grid .post-card-date-line,
+  .calendar-events-grid .post-card-date-line {
+    font-size: 0.88rem;
+  }
+
+  .active-calendar-section {
+    margin-block: 0.75rem 2.5rem;
+  }
+
+  .active-year-card {
+    min-height: 220px;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .year-covers-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .home-help-card {
+    padding: 1.25rem 1.4rem;
+  }
+
+  .year-hero {
+    min-height: 240px;
+    padding: 1.6rem 1.8rem;
+  }
+
+  .month-index {
+    gap: 0.6rem;
+    overflow: visible;
+  }
+
+  .month-index a {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+  }
+
+  .calendar-month {
+    margin-bottom: 2.75rem;
+  }
+
+  .month-heading {
+    margin-bottom: 1rem;
+  }
+
+  .event-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+    gap: 2rem;
+    align-items: start;
+    margin: 0 3rem 4rem;
+  }
+
+  .event-detail-layout .event-hero-link {
+    position: sticky;
+    top: 1.5rem;
+    margin: 0;
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #e9eef3;
+    box-shadow: 0 5px 20px rgba(13, 10, 76, 0.12);
+  }
+
+  .event-detail-layout .event-hero {
+    height: clamp(500px, 70vh, 720px);
+    object-fit: contain;
+    border-radius: 0;
+  }
+
+  .event-detail-layout .page-post {
+    min-width: 0;
+    padding: 1rem 0 4rem;
+  }
+
+  .event-detail-layout .event-type-row {
+    justify-content: flex-start;
+    margin-bottom: 0.8rem;
+  }
+
+  .event-detail-layout .page-post h1 {
+    max-width: none;
+    margin: 0 0 1.5rem;
+    text-align: left;
+    font-size: clamp(1.8rem, 1.35rem + 1vw, 2.35rem);
+  }
+
+  .event-detail-layout .event-info {
+    box-shadow: 0 2px 10px rgba(13, 10, 76, 0.06);
+  }
+
+  .event-detail-layout .share-row {
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--card-border);
+  }
+
+  .event-detail-layout--no-image {
+    display: block;
+    max-width: 780px;
+    margin-inline: auto;
+  }
+
+  .event-detail-layout--no-image .page-post h1,
+  .event-detail-layout--no-image .event-type-row {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

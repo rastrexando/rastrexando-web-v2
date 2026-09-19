@@ -34,9 +34,11 @@ title: Calendario - Rastrexando
           <h2>{{ month.name }}</h2>
           <span>{{ month.events.length }} {% if month.events.length == 1 %}evento{% else %}eventos{% endif %}</span>
         </header>
-        {% for post in month.events %}
-          {% renderPost post %}
-        {% endfor %}
+        <div class="calendar-events-grid">
+          {% for post in month.events %}
+            {% renderPost post %}
+          {% endfor %}
+        </div>
       </section>
     {% endfor %}
   </div>

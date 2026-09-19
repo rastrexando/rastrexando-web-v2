@@ -13,6 +13,7 @@ title: Evento — Rastrexando
   </ul>
 </nav>
 
+<div class="event-detail-layout{% if not image %} event-detail-layout--no-image{% endif %}">
 {% if image %}
   <a class="event-hero-link" href="/recursos/imaxes/{{ image }}" title="{{ title }}" target="_blank" rel="noopener noreferrer">
     <img class="event-hero" src="/recursos/imaxes/{{ image }}" alt="{{ title }}" />
@@ -100,6 +101,7 @@ title: Evento — Rastrexando
     {% endif %}
   </div>
 
+</div>
 </div>
 
 <script type="application/ld+json">
