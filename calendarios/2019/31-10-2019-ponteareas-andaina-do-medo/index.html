@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,10 +216,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>xoves, 31 de outubro de 2019</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Xinzo, Ponteareas</span>
-    </div>
+    
     
     <div class="event-info-item">
       
@@ -223,6 +226,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Xinzo, Ponteareas</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.183540&amp;mlon=-8.565910#map=14/42.183540/-8.565910"
+          data-geo-url="geo:42.183540,-8.565910?q=42.183540,-8.565910"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.583910%2C42.171540%2C-8.547910%2C42.195540&amp;layer=mapnik&amp;marker=42.183540%2C-8.565910"
+        title="Localización aproximada de Xinzo, Ponteareas"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -285,7 +310,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Xinzo, Ponteareas"
+    "name": "Xinzo, Ponteareas",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.18354,
+      "longitude": -8.56591
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/cd/de5909-6f95-48ba-b6c6-de0f0f516d0d.jpg",
   "organizer": {

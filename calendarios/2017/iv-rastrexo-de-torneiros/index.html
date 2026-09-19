@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,10 +216,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 7 de outubro de 2017</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Torneiros, Porriño</span>
-    </div>
+    
     
     <div class="event-info-item">
       
@@ -223,6 +226,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Torneiros, Porriño</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.153705&amp;mlon=-8.641605#map=14/42.153705/-8.641605"
+          data-geo-url="geo:42.153705,-8.641605?q=42.153705,-8.641605"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.659605%2C42.141705%2C-8.623605%2C42.165705&amp;layer=mapnik&amp;marker=42.153705%2C-8.641605"
+        title="Localización aproximada de Torneiros, Porriño"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -285,7 +310,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Torneiros, Porriño"
+    "name": "Torneiros, Porriño",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.153705,
+      "longitude": -8.641605
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/bb/0399b7-af46-4c0a-8e5d-9dd093e3eca8.jpg",
   "organizer": {

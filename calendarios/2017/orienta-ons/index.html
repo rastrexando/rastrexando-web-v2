@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,10 +216,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 5 de agosto de 2017</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Illa de Ons, Bueu</span>
-    </div>
+    
     
     <div class="event-info-item">
       
@@ -223,6 +226,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Illa de Ons, Bueu</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.377372&amp;mlon=-8.937552#map=14/42.377372/-8.937552"
+          data-geo-url="geo:42.377372,-8.937552?q=42.377372,-8.937552"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.955552%2C42.365372%2C-8.919552%2C42.389372&amp;layer=mapnik&amp;marker=42.377372%2C-8.937552"
+        title="Localización aproximada de Illa de Ons, Bueu"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -285,7 +310,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Illa de Ons, Bueu"
+    "name": "Illa de Ons, Bueu",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.377372,
+      "longitude": -8.937552
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/86/8b2e0d-aa75-421d-acaf-e1d39ffc73b1.jpg",
   "organizer": {

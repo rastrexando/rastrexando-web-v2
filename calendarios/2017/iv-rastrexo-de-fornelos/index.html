@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,10 +216,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>domingo, 30 de abril de 2017</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Fornelos, Salvaterra de Miño</span>
-    </div>
+    
     
     <div class="event-info-item">
       
@@ -223,6 +226,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Fornelos, Salvaterra de Miño</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.130584&amp;mlon=-8.499884#map=14/42.130584/-8.499884"
+          data-geo-url="geo:42.130584,-8.499884?q=42.130584,-8.499884"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.517884%2C42.118584%2C-8.481884%2C42.142584&amp;layer=mapnik&amp;marker=42.130584%2C-8.499884"
+        title="Localización aproximada de Fornelos, Salvaterra de Miño"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -285,7 +310,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Fornelos, Salvaterra de Miño"
+    "name": "Fornelos, Salvaterra de Miño",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.130584,
+      "longitude": -8.499884
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/43/42ff4f-5169-4706-af7d-85d83790b235.png",
   "organizer": {

@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,10 +216,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 2 de xullo de 2016</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Areas, Ponteareas</span>
-    </div>
+    
     
     <div class="event-info-item">
       
@@ -223,6 +226,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Areas, Ponteareas</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.171662&amp;mlon=-8.525121#map=14/42.171662/-8.525121"
+          data-geo-url="geo:42.171662,-8.525121?q=42.171662,-8.525121"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.543121%2C42.159662%2C-8.507121%2C42.183662&amp;layer=mapnik&amp;marker=42.171662%2C-8.525121"
+        title="Localización aproximada de Areas, Ponteareas"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -285,7 +310,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Areas, Ponteareas"
+    "name": "Areas, Ponteareas",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.171662,
+      "longitude": -8.525121
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/4c/e30fba-e98b-415b-a22e-d8f56f2164a6.jpeg",
   "organizer": {

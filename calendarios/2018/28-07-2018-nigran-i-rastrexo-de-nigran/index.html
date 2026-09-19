@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -205,10 +211,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 28 de xullo de 2018</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>As Angustias, Nigrán</span>
-    </div>
+    
     
     <div class="event-info-item">
       
@@ -218,6 +221,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> As Angustias, Nigrán</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.148697&amp;mlon=-8.803488#map=14/42.148697/-8.803488"
+          data-geo-url="geo:42.148697,-8.803488?q=42.148697,-8.803488"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.821488%2C42.136697%2C-8.785488%2C42.160697&amp;layer=mapnik&amp;marker=42.148697%2C-8.803488"
+        title="Localización aproximada de As Angustias, Nigrán"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -280,7 +305,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "As Angustias, Nigrán"
+    "name": "As Angustias, Nigrán",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.148697,
+      "longitude": -8.803488
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "organizer": {
     "@type": "Organization",

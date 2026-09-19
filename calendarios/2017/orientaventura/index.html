@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,10 +216,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 12 de agosto de 2017</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Maus de Salas, Parque Natural Serra do Xurés</span>
-    </div>
+    
     
     <div class="event-info-item">
       
@@ -223,6 +226,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Maus de Salas, Parque Natural Serra do Xurés</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=41.936340&amp;mlon=-7.923997#map=14/41.936340/-7.923997"
+          data-geo-url="geo:41.936340,-7.923997?q=41.936340,-7.923997"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-7.941997%2C41.924340%2C-7.905997%2C41.948340&amp;layer=mapnik&amp;marker=41.936340%2C-7.923997"
+        title="Localización aproximada de Maus de Salas, Parque Natural Serra do Xurés"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -285,7 +310,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Maus de Salas, Parque Natural Serra do Xurés"
+    "name": "Maus de Salas, Parque Natural Serra do Xurés",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.93634,
+      "longitude": -7.923997
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Ourense",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/0a/789ba6-ce5b-4ae8-8d92-a2d668a182b1.jpg",
   "organizer": {

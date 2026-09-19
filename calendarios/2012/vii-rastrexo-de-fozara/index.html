@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,10 +216,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 11 de agosto de 2012</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Fozara, Ponteareas</span>
-    </div>
+    
     
     <div class="event-info-item">
       <i class="fi-home is-light-blue"></i>
@@ -221,6 +224,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Fozara, Ponteareas</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.231898&amp;mlon=-8.512039#map=14/42.231898/-8.512039"
+          data-geo-url="geo:42.231898,-8.512039?q=42.231898,-8.512039"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.530039%2C42.219898%2C-8.494039%2C42.243898&amp;layer=mapnik&amp;marker=42.231898%2C-8.512039"
+        title="Localización aproximada de Fozara, Ponteareas"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
     <section class="video-section">
@@ -283,7 +308,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Fozara, Ponteareas"
+    "name": "Fozara, Ponteareas",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.231898,
+      "longitude": -8.512039
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/da/697478-ff62-4e38-ac5d-67447a823c28.jpg",
   "organizer": {

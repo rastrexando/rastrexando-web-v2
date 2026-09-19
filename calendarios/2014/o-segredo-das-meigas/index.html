@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -205,10 +211,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>venres, 15 de agosto de 2014</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Chan das Pipas, Redondela</span>
-    </div>
+    
     
     <div class="event-info-item">
       <i class="fi-home is-light-blue"></i>
@@ -216,6 +219,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Chan das Pipas, Redondela</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.245213&amp;mlon=-8.607816#map=14/42.245213/-8.607816"
+          data-geo-url="geo:42.245213,-8.607816?q=42.245213,-8.607816"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.625816%2C42.233213%2C-8.589816%2C42.257213&amp;layer=mapnik&amp;marker=42.245213%2C-8.607816"
+        title="Localización aproximada de Chan das Pipas, Redondela"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -278,7 +303,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Chan das Pipas, Redondela"
+    "name": "Chan das Pipas, Redondela",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.245213,
+      "longitude": -8.607816
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "organizer": {
     "@type": "Organization",

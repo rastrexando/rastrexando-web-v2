@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -205,10 +211,7 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 5 de setembro de 2015</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Moreira, Ponteareas</span>
-    </div>
+    
     
     <div class="event-info-item">
       <i class="fi-home is-light-blue"></i>
@@ -216,6 +219,28 @@
     </div>
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Moreira, Ponteareas</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.146426&amp;mlon=-8.501669#map=14/42.146426/-8.501669"
+          data-geo-url="geo:42.146426,-8.501669?q=42.146426,-8.501669"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.519669%2C42.134426%2C-8.483669%2C42.158426&amp;layer=mapnik&amp;marker=42.146426%2C-8.501669"
+        title="Localización aproximada de Moreira, Ponteareas"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -278,7 +303,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Moreira, Ponteareas"
+    "name": "Moreira, Ponteareas",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.146426,
+      "longitude": -8.501669
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "organizer": {
     "@type": "Organization",

@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,12 +216,31 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 4 de xullo de 2015</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Pereiras, Mos</span>
-    </div>
+    
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Pereiras, Mos</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.171232&amp;mlon=-8.646779#map=14/42.171232/-8.646779"
+          data-geo-url="geo:42.171232,-8.646779?q=42.171232,-8.646779"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.664779%2C42.159232%2C-8.628779%2C42.183232&amp;layer=mapnik&amp;marker=42.171232%2C-8.646779"
+        title="Localización aproximada de Pereiras, Mos"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -278,7 +303,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Pereiras, Mos"
+    "name": "Pereiras, Mos",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.171232,
+      "longitude": -8.646779
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/eb/b27762-9156-4584-aab5-faa52ba435cb.jpg"
 }

@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,12 +216,31 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>domingo, 29 de xullo de 2018</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Gargamala, Mondariz</span>
-    </div>
+    
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Gargamala, Mondariz</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.270652&amp;mlon=-8.453622#map=14/42.270652/-8.453622"
+          data-geo-url="geo:42.270652,-8.453622?q=42.270652,-8.453622"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.471622%2C42.258652%2C-8.435622%2C42.282652&amp;layer=mapnik&amp;marker=42.270652%2C-8.453622"
+        title="Localización aproximada de Gargamala, Mondariz"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -278,7 +303,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Gargamala, Mondariz"
+    "name": "Gargamala, Mondariz",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.270652,
+      "longitude": -8.453622
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/59/d712c5-0ea9-4190-b294-3d78096fca4c.jpeg"
 }

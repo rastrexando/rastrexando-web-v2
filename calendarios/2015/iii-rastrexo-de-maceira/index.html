@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,12 +216,31 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 22 de agosto de 2015</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>Maceira, Covelo</span>
-    </div>
+    
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Maceira, Covelo</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.263140&amp;mlon=-8.345354#map=14/42.263140/-8.345354"
+          data-geo-url="geo:42.263140,-8.345354?q=42.263140,-8.345354"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.363354%2C42.251140%2C-8.327354%2C42.275140&amp;layer=mapnik&amp;marker=42.263140%2C-8.345354"
+        title="Localización aproximada de Maceira, Covelo"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -278,7 +303,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Maceira, Covelo"
+    "name": "Maceira, Covelo",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.26314,
+      "longitude": -8.345354
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/2d/bade77-516d-48b6-9982-a59cb784ebae.jpg"
 }

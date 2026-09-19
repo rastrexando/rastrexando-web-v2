@@ -48,6 +48,7 @@
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
     <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
 
     <!-- Structured data -->
@@ -147,6 +148,11 @@
     <div class="page-center-content">
       <div class="page-content">
         
+
+
+
+
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -210,12 +216,31 @@
       <i class="fi-calendar is-light-blue"></i>
       <span>sábado, 28 de abril de 2018</span>
     </div>
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>San Xurxo, Salceda de Caselas</span>
-    </div>
+    
     
   </div>
+
+  
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> San Xurxo, Salceda de Caselas</h2>
+        <a
+          class="event-map-open"
+          href="https://www.openstreetmap.org/?mlat=42.116191&amp;mlon=-8.566517#map=14/42.116191/-8.566517"
+          data-geo-url="geo:42.116191,-8.566517?q=42.116191,-8.566517"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-8.584517%2C42.104191%2C-8.548517%2C42.128191&amp;layer=mapnik&amp;marker=42.116191%2C-8.566517"
+        title="Localización aproximada de San Xurxo, Salceda de Caselas"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
+    </section>
+  
 
   
 
@@ -278,7 +303,17 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "San Xurxo, Salceda de Caselas"
+    "name": "San Xurxo, Salceda de Caselas",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.116191,
+      "longitude": -8.566517
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/09/02b371-530c-4d74-a3e9-3314b617bd97.jpg"
 }
