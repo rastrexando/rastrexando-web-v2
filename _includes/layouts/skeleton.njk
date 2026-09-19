@@ -7,6 +7,29 @@ title: Rastrexando
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="theme-color" name="theme-color" content="#f5f7fa">
+    <script>
+      (function () {
+        var storedTheme;
+        try {
+          storedTheme = localStorage.getItem("rastrexando-theme");
+        } catch (error) {
+          storedTheme = null;
+        }
+
+        if (storedTheme === "light" || storedTheme === "dark") {
+          document.documentElement.dataset.theme = storedTheme;
+        }
+
+        var resolvedTheme = storedTheme === "light" || storedTheme === "dark"
+          ? storedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+        document.documentElement.dataset.resolvedTheme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+        document.getElementById("theme-color").content = resolvedTheme === "dark" ? "#11141c" : "#f5f7fa";
+      })();
+    </script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -57,7 +80,6 @@ title: Rastrexando
     <meta name="apple-mobile-web-app-title" content="Rastrexando">
     <meta name="application-name" content="Rastrexando">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
@@ -68,6 +90,7 @@ title: Rastrexando
     <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
     <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/theme.js"></script>
 
     <!-- Structured data -->
     <script type="application/ld+json">

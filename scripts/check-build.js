@@ -120,7 +120,18 @@ if (fs.existsSync(homePath)) {
     "Falta a coruxa do indicador HTMX global"
   );
   check(homeHtml.includes('role="status"'), "O indicador HTMX non comunica o seu estado de forma accesible");
+  check(
+    homeHtml.includes('id="theme-toggle"') &&
+      homeHtml.includes('aria-label="Activar tema escuro"') &&
+      homeHtml.includes('aria-pressed="false"'),
+    "Falta o selector de tema accesible"
+  );
+  check(
+    homeHtml.indexOf('localStorage.getItem("rastrexando-theme")') < homeHtml.indexOf('href="/recursos/bundle.css"'),
+    "O tema non se resolve antes de cargar os estilos"
+  );
 }
+
 
 const robotsPath = path.join(outputRoot, "robots.txt");
 if (fs.existsSync(robotsPath)) {
@@ -232,6 +243,18 @@ if (fs.existsSync(bottomNavigationPath)) {
     bottomNavigationSource.includes("IntersectionObserver") &&
       bottomNavigationSource.includes("prev-next-buttons--docked"),
     "A navegación inferior non evita o solapamento co footer"
+  );
+}
+
+const themeResource = "recursos/js/theme.js";
+const themePath = path.join(outputRoot, themeResource);
+check(fs.existsSync(themePath), `Falta o control de tema: ${themeResource}`);
+if (fs.existsSync(themePath)) {
+  const themeSource = fs.readFileSync(themePath, "utf8");
+  check(
+    themeSource.includes('matchMedia("(prefers-color-scheme: dark)")') &&
+      themeSource.includes("localStorage.setItem(storageKey, theme)"),
+    "O selector non respecta o sistema ou non garda a preferencia de tema"
   );
 }
 
