@@ -4,6 +4,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="theme-color" name="theme-color" content="#f5f7fa">
+    <script>
+      (function () {
+        var storedTheme;
+        try {
+          storedTheme = localStorage.getItem("rastrexando-theme");
+        } catch (error) {
+          storedTheme = null;
+        }
+
+        if (storedTheme === "light" || storedTheme === "dark") {
+          document.documentElement.dataset.theme = storedTheme;
+        }
+
+        var resolvedTheme = storedTheme === "light" || storedTheme === "dark"
+          ? storedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+        document.documentElement.dataset.resolvedTheme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+        document.getElementById("theme-color").content = resolvedTheme === "dark" ? "#11141c" : "#f5f7fa";
+      })();
+    </script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -46,7 +69,6 @@
     <meta name="apple-mobile-web-app-title" content="Rastrexando">
     <meta name="application-name" content="Rastrexando">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
 
     <!-- Scripts -->
     <script src="/recursos/js/htmx.min.js"></script>
@@ -56,6 +78,8 @@
     <script src="/recursos/js/map-links.js"></script>
     <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
+    <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/theme.js"></script>
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -99,7 +123,18 @@
   </head>
   <body class="relative">
     
-<div id="layout-base" hx-indicator="#rastrexando-logo img">
+<div id="layout-base" hx-indicator="#global-htmx-indicator">
+  <div
+    id="global-htmx-indicator"
+    class="htmx-indicator global-htmx-indicator"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <span class="global-htmx-indicator-glow" aria-hidden="true"></span>
+    <img src="/recursos/rastrexando-simbolo.png" alt="" width="64" height="64" />
+    <span class="visually-hidden">Cargando contido…</span>
+  </div>
   <div class="site-header-shell">
       <span class="star-glints" aria-hidden="true"></span>
       <header id="main-header" class="wrapper">
@@ -147,6 +182,22 @@
             hx-push-url="true"
             aria-current="page"
           ><i class="fi-info"></i> Axuda</a>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Activar tema escuro"
+            aria-pressed="false"
+            title="Activar tema escuro"
+          >
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.6 15.2A8.5 8.5 0 0 1 8.8 3.4 8.5 8.5 0 1 0 20.6 15.2Z" />
+            </svg>
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+          </button>
         </nav>
       </header>
   </div>
