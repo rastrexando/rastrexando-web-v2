@@ -51,10 +51,12 @@ title: Evento — Rastrexando
       <i class="fi-calendar is-light-blue"></i>
       <span>{{ date | toGlLocale }}</span>
     </div>
+    {% if not (eventMapLat and eventMapLng) %}
     <div class="event-info-item">
       <i class="fi-marker is-light-blue"></i>
       <span>{{ location }}</span>
     </div>
+    {% endif %}
     {% if source_url %}
     <div class="event-info-item">
       {% if "instagram.com" in source_url %}
@@ -75,8 +77,14 @@ title: Evento — Rastrexando
   {% if eventMapLat and eventMapLng %}
     <section class="event-map" aria-labelledby="event-map-title">
       <div class="event-map-heading">
-        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Localización</h2>
-        <a href="{{ eventMapLat | mapLinkUrl(eventMapLng) }}" target="_blank" rel="noopener noreferrer">Abrir en OpenStreetMap <span aria-hidden="true">↗</span></a>
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> {{ location }}</h2>
+        <a
+          class="event-map-open"
+          href="{{ eventMapLat | mapLinkUrl(eventMapLng) }}"
+          data-geo-url="{{ eventMapLat | geoUrl(eventMapLng) }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir</a>
       </div>
       <iframe
         class="event-map-frame"
@@ -84,7 +92,7 @@ title: Evento — Rastrexando
         title="Localización aproximada de {{ location }}"
         loading="lazy"
       ></iframe>
-      <p class="event-map-notice"><strong>Localización aproximada.</strong> O punto no mapa indica a zona do evento; consulta a publicación da organización para coñecer o lugar exacto de saída.</p>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
   {% endif %}
 

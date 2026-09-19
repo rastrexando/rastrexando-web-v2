@@ -114,6 +114,15 @@ module.exports = function (eleventyConfig) {
     return `https://www.openstreetmap.org/?mlat=${lat.toFixed(6)}&mlon=${lon.toFixed(6)}#map=14/${lat.toFixed(6)}/${lon.toFixed(6)}`;
   });
 
+  eleventyConfig.addFilter("geoUrl", function (latitude, longitude) {
+    const lat = Number(latitude);
+    const lon = Number(longitude);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return "";
+
+    const coordinates = `${lat.toFixed(6)},${lon.toFixed(6)}`;
+    return `geo:${coordinates}?q=${coordinates}`;
+  });
+
   /* Collections */
   const now = new Date();
 
