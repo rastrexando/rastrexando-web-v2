@@ -938,6 +938,50 @@ hr {
   margin-top: 0.1rem;
 }
 
+.event-map {
+  margin: 0 0 1.5rem;
+}
+
+.event-map-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.65rem;
+}
+
+.event-map-heading h2 {
+  margin: 0;
+  color: var(--brand-dark-blue);
+  font-size: 1.2rem;
+}
+
+.event-map-heading a {
+  color: var(--brand-dark-blue);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.event-map-heading a:hover {
+  color: var(--brand-light-blue);
+}
+
+.event-map-frame {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: 1px solid #e2e6ec;
+  border-radius: 12px;
+}
+
+.event-map-notice {
+  margin: 0.65rem 0 0;
+  color: #596675;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
 /* Constrain any images inside event body content */
 .page-post img {
   max-width: 100%;

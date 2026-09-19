@@ -3,6 +3,11 @@ layout: base
 title: Evento — Rastrexando
 ---
 
+{% set catalogLocation = locations[location] or {} %}
+{% set eventMapLat = map_lat or catalogLocation.lat %}
+{% set eventMapLng = map_lng or catalogLocation.lng %}
+{% set eventProvince = province or catalogLocation.province %}
+
 <nav class="breadcrumbs">
   <ul>
     <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
@@ -67,6 +72,22 @@ title: Evento — Rastrexando
     {% endif %}
   </div>
 
+  {% if eventMapLat and eventMapLng %}
+    <section class="event-map" aria-labelledby="event-map-title">
+      <div class="event-map-heading">
+        <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> Localización</h2>
+        <a href="{{ eventMapLat | mapLinkUrl(eventMapLng) }}" target="_blank" rel="noopener noreferrer">Abrir en OpenStreetMap <span aria-hidden="true">↗</span></a>
+      </div>
+      <iframe
+        class="event-map-frame"
+        src="{{ eventMapLat | mapEmbedUrl(eventMapLng) }}"
+        title="Localización aproximada de {{ location }}"
+        loading="lazy"
+      ></iframe>
+      <p class="event-map-notice"><strong>Localización aproximada.</strong> O punto no mapa indica a zona do evento; consulta a publicación da organización para coñecer o lugar exacto de saída.</p>
+    </section>
+  {% endif %}
+
   {% if videos %}
     <section class="video-section">
       <h2>Vídeos</h2>
@@ -115,7 +136,17 @@ title: Evento — Rastrexando
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "{{ location }}"
+    "name": "{{ location }}"{% if eventMapLat and eventMapLng %},
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": {{ eventMapLat }},
+      "longitude": {{ eventMapLng }}
+    }{% endif %}{% if eventProvince %},
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "{{ eventProvince }}",
+      "addressCountry": "ES"
+    }{% endif %}
   }{% if image %},
   "image": "https://rastrexando.eu/recursos/imaxes/{{ image }}"{% endif %}{% if source_name %},
   "organizer": {

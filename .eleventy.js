@@ -89,6 +89,31 @@ module.exports = function (eleventyConfig) {
     return (covers || []).find(item => String(item.year) === String(year));
   });
 
+  eleventyConfig.addFilter("mapEmbedUrl", function (latitude, longitude) {
+    const lat = Number(latitude);
+    const lon = Number(longitude);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return "";
+
+    const latOffset = 0.012;
+    const lonOffset = 0.018;
+    const bbox = [
+      (lon - lonOffset).toFixed(6),
+      (lat - latOffset).toFixed(6),
+      (lon + lonOffset).toFixed(6),
+      (lat + latOffset).toFixed(6)
+    ].join("%2C");
+
+    return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat.toFixed(6)}%2C${lon.toFixed(6)}`;
+  });
+
+  eleventyConfig.addFilter("mapLinkUrl", function (latitude, longitude) {
+    const lat = Number(latitude);
+    const lon = Number(longitude);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return "";
+
+    return `https://www.openstreetmap.org/?mlat=${lat.toFixed(6)}&mlon=${lon.toFixed(6)}#map=14/${lat.toFixed(6)}/${lon.toFixed(6)}`;
+  });
+
   /* Collections */
   const now = new Date();
 

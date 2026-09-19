@@ -8,7 +8,9 @@ Collect from the user:
 - **title**: Event name (e.g., "IX Rastrexo Camos")
 - **date**: Event date (YYYY-MM-DD format)
 - **type**: Either "rastrexo" or "andaina"
-- **location**: City and province (e.g., "Campos, Nigrán")
+- **location**: Locality and municipality (e.g., "Campos, Nigrán")
+- **province** (optional): province for structured data (e.g., "Pontevedra")
+- **map_lat** / **map_lng** (optional): approximate coordinates of the locality or event area, never the departure point unless confirmed. Prefer adding the location to `_data/locations.json` so historical and future events reuse it; use front matter only for an explicit override.
 - **source_url**: Facebook page or website URL
 - **source_name**: Organizer name
 - **image_url**: URL to download the event poster/image from
@@ -58,7 +60,20 @@ Check if these exist, create if missing:
 
 Check if the year exists in `_data/years.json`. If not, add it in chronological order.
 
-### 6. Create the event file
+### 6. Resolve the approximate location
+
+1. Run `npm run geocode -- "<location>"`.
+2. If it returns a catalogue entry, use the exact same `location` text in the event front matter.
+3. If it returns Nominatim candidates, validate that the selected result represents the locality or event area — never infer an exact departure point.
+4. Save the confirmed result before creating the event:
+
+```bash
+npm run geocode -- "<location>" --add --lat <latitude> --lng <longitude> --province <province>
+```
+
+Do not run geocoding in batches or in parallel. The lookup command never changes the catalogue.
+
+### 7. Create the event file
 
 Create `calendarios/<year>/<slug>.njk` with this template:
 
@@ -71,6 +86,9 @@ date: <YYYY-MM-DD>
 source_url: <source_url>
 source_name: "<source_name>"
 location: "<location>"
+province: "<optional province>"
+map_lat: <optional approximate latitude>
+map_lng: <optional approximate longitude>
 image: <year>/<image-filename>
 ---
 
@@ -85,7 +103,7 @@ videos:
     title: "<video title>"
 ```
 
-### 7. Verify the build
+### 8. Verify the build
 
 Run `npx @11ty/eleventy` to ensure the site builds without errors.
 

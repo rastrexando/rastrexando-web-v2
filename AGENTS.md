@@ -21,8 +21,18 @@ title: "<event title>"
 date: <YYYY-MM-DD>
 source_url: <facebook or website url>
 source_name: "<organizer name>"
-location: "<city>, <province>"
+location: "<city>, <municipality>"
+province: "<optional province>"
+map_lat: <optional approximate latitude>
+map_lng: <optional approximate longitude>
 image: <year>/<image-filename>
+```
+
+Approximate coordinates and province are resolved from `_data/locations.json` when the `location` text matches an entry. Use front matter fields only to override a catalogue entry.
+
+For a new location, first run `npm run geocode -- "<location>"`. Validate the candidate manually, then add it with `npm run geocode -- "<location>" --add --lat <latitude> --lng <longitude> --province <province>`. The script never writes during lookup and must not be run in batches or in parallel, in accordance with Nominatim usage limits.
+
+```yaml
 videos: # optional
   - id: <youtube-video-id>
     title: "<video title>"
