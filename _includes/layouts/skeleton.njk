@@ -20,10 +20,12 @@ title: Rastrexando
 
     {%- set _siteDesc = "Rastrexando — A túa plataforma de referencia para non perderte ningún Rastrexo" -%}
     {%- set _desc = description if description else _siteDesc -%}
-    {%- set _baseUrl = "https://rastrexando.eu" -%}
+    {%- set _baseUrl = site.url -%}
+    {%- set _canonicalUrl = _baseUrl + page.url -%}
     {%- set _ogImage = (_baseUrl + "/recursos/imaxes/" + image) if image else (_baseUrl + "/recursos/landing.jpg") -%}
 
     <meta name="description" content="{{ _desc }}">
+    <link rel="canonical" href="{{ _canonicalUrl }}">
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Rastrexando">
@@ -31,7 +33,7 @@ title: Rastrexando
     <meta property="og:type" content="{{ 'article' if image else 'website' }}">
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ _desc }}">
-    <meta property="og:url" content="{{ _baseUrl }}{{ page.url }}">
+    <meta property="og:url" content="{{ _canonicalUrl }}">
     <meta property="og:image" content="{{ _ogImage }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
