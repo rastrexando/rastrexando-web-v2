@@ -55,212 +55,171 @@ body {
 
 /* Layout */
 #layout-base {
-  display: grid;
-  grid-template-rows: 72px 1fr 40px;
-  grid-template-columns: 1fr;
-  height: 100dvh;
-}
-
-@media (min-width: 640px) {
-  #layout-base {
-    grid-template-rows: 80px 1fr 48px;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 #main-container {
   position: relative;
-  z-index: 10;
-  margin-top: 10px;
-  overflow-y: auto;
-}
-
-/*
-* Source
-* https://alvarotrigo.com/blog/animated-backgrounds-css/
-* Wave background animation
-* Thank you!
-*/
-.animated-bg-wrapper {
-  z-index: 0;
-}
-.animated-section {
-  position: fixed;
-  width: 100%;
-  height: 142px;
-  padding-top: 0.5rem;
-  background: #bae1ff;
-  overflow: hidden;
-  z-index: 5;
-}
-.animated-section .air {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: url(/recursos/wave.png);
-  background-size: 1000px 80px;
-}
-.animated-section .air.air1 {
-  animation: wave 30s linear infinite;
-  z-index: 1000;
-  opacity: 1;
-  animation-delay: 0s;
-  bottom: 0;
-}
-.animated-section .air.air2 {
-  animation: wave2 15s linear infinite;
-  z-index: 999;
-  opacity: 0.5;
-  animation-delay: -5s;
-  bottom: 10px;
-}
-.animated-section .air.air3 {
-  animation: wave 30s linear infinite;
-  z-index: 998;
-  opacity: 0.2;
-  animation-delay: -2s;
-  bottom: 15px;
-}
-.animated-section .air.air4 {
-  animation: wave2 5s linear infinite;
-  z-index: 997;
-  opacity: 0.7;
-  animation-delay: -5s;
-  bottom: 20px;
-}
-
-@keyframes wave {
-  0% {
-    background-position-x: 0px;
-  }
-  100% {
-    background-position-x: 1000px;
-  }
-}
-@keyframes wave2 {
-  0% {
-    background-position-x: 0px;
-  }
-  100% {
-    background-position-x: -1000px;
-  }
+  flex: 1 0 auto;
 }
 
 .page-center-content {
-  overflow: auto;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-/** Para pantallas grandes */
 #layout-base .page-content {
   max-width: var(--breakpoint);
   width: 100%;
 }
 
-footer {
-  height: fit-content;
-}
-
-#main-header {
-  width: 100%;
-  height: 72px;
-  box-shadow: 0 7px 10px -5px gray;
-}
-
-#main-header .header-icon {
-  font-size: 1.5rem;
-}
-
-#main-header {
+/* Static site header */
+.site-header-shell {
+  position: relative;
+  z-index: 200;
+  flex: 0 0 auto;
   color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.75rem;
-  padding: 0 1rem;
-  width: 100%;
-  height: 100%;
-  max-width: var(--breakpoint);
-  margin: 0 auto;
+  background:
+    radial-gradient(circle at 12% -40%, rgba(37, 156, 244, 0.42), transparent 38%),
+    radial-gradient(circle at 92% 130%, rgba(232, 149, 42, 0.2), transparent 32%),
+    linear-gradient(135deg, #0d0a4c 0%, #17266d 58%, #12598b 100%);
+  border-bottom: 3px solid rgba(37, 156, 244, 0.72);
+  box-shadow: 0 5px 18px rgba(13, 10, 76, 0.2);
 }
 
-
-#main-footer {
-  background-color: var(--almost-black);
+#main-header {
   width: 100%;
-  height: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: var(--breakpoint);
+  min-height: 106px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  gap: 0.55rem;
+  margin: 0 auto;
+  padding: 0.65rem 1rem 0.6rem;
+  color: white;
+}
+
+.header-nav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.header-nav a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.header-nav a:hover,
+.header-nav a[aria-current="page"] {
+  color: white;
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.header-nav a:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 2px;
+  color: white;
+}
+
+/* Footer */
+#main-footer {
+  flex: 0 0 auto;
+  width: 100%;
+  color: white;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(37, 156, 244, 0.14), transparent 34%),
+    linear-gradient(145deg, #171824, #0d0a33);
+  border-top: 3px solid var(--brand-light-blue);
 }
 
 #main-footer .wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
   width: 100%;
-  height: 100%;
   max-width: var(--breakpoint);
-  margin: 0 auto;
-}
-
-@media (min-width: 640px) {
-  #main-header {
-    height: 80px;
-  }
-
-  #main-footer .wrapper {
-    padding: 0 2rem;
-  }
-}
-
-.footer-home {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
-  transition: color 0.15s ease;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 1.4rem;
 }
 
-.footer-home:hover {
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.footer-brand > a {
   color: white;
+  font-family: "Survivor Wood";
+  font-size: 1.35rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.footer-brand > a:hover,
+.footer-brand > a:focus-visible {
+  color: #8ed1ff;
 }
 
 .footer-copy {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.7rem;
   letter-spacing: 0.02em;
 }
 
 .footer-nav {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
 }
 
 .footer-nav a {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  display: flex;
+  min-height: 38px;
+  display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  transition: color 0.15s ease;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
-.footer-nav a:hover {
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
   color: white;
+  background: rgba(37, 156, 244, 0.2);
 }
 
-.footer-sep {
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 0.7rem;
+.footer-nav a:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 2px;
 }
 
 #rastrexando-logo {
@@ -273,25 +232,30 @@ footer {
   cursor: pointer;
 }
 
+#rastrexando-logo {
+  color: white;
+}
+
 #rastrexando-logo:hover,
-#rastrexando-logo:focus {
-  color: var(--brand-dark-blue);
+#rastrexando-logo:focus-visible {
+  color: #8ed1ff;
+}
+
+#rastrexando-logo:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 #rastrexando-logo .title {
   font-family: "Survivor Wood";
-  font-size: 2rem;
+  font-size: 1.8rem;
+  line-height: 1;
 }
 
 #rastrexando-logo img {
-  max-width: 200px;
-  max-height: 58px;
-  animation: rotateLogo 4s infinite ease-in-out;
-  animation-iteration-count: 1
-}
-
-.header-nav {
-  display: none;
+  max-width: 54px;
+  max-height: 48px;
 }
 
 /* Page */
@@ -1035,10 +999,10 @@ hr {
    ============================================================ */
 .prev-next-buttons {
   position: fixed;
-  bottom: 40px;
+  bottom: 0.75rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: calc(100% - 2rem);
   max-width: var(--breakpoint);
   z-index: 100;
   display: flex;
@@ -1049,8 +1013,9 @@ hr {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid #e2e6ec;
-  box-shadow: 0 -4px 16px rgba(13, 10, 76, 0.08);
+  border: 1px solid #e2e6ec;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(13, 10, 76, 0.14);
 }
 
 .prev-next-buttons a {
@@ -1092,7 +1057,7 @@ hr {
   .prev-next-buttons {
     width: auto;
     max-width: none;
-    bottom: calc(48px + 1.5rem);
+    bottom: 1.5rem;
     border-radius: 999px;
     border: 1px solid #e2e6ec;
     border-top: 1px solid #e2e6ec;
@@ -1260,15 +1225,6 @@ hr {
 
 .text-right {
   text-align: right;
-}
-
-/* ============================================================
-   Animations
-   ============================================================ */
-@keyframes rotateLogo {
-  50% {
-    transform: rotate(-45deg);
-  }
 }
 
 /* ============================================================
@@ -1833,18 +1789,14 @@ hr {
   }
 }
 
-/* ============================================================
-   Desktop layout
-   ============================================================ */
-@media (min-width: 1024px) {
-  .animated-section {
-    box-shadow: 0 7px 12px -7px rgba(13, 10, 76, 0.45);
-  }
-
+@media (min-width: 768px) {
   #main-header {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 0 3rem;
-    box-shadow: none;
+    gap: 2rem;
+    padding: 0 2rem;
   }
 
   #rastrexando-logo {
@@ -1852,35 +1804,45 @@ hr {
   }
 
   .header-nav {
+    width: auto;
     display: flex;
     align-items: center;
-    gap: 0.35rem;
   }
 
   .header-nav a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    padding-inline: 0.75rem;
+  }
+
+  #main-footer .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.35rem 2rem;
+  }
+
+  .footer-brand {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer-nav {
+    justify-content: flex-end;
+  }
+}
+
+/* ============================================================
+   Desktop layout
+   ============================================================ */
+@media (min-width: 1024px) {
+  #main-header {
+    padding-inline: 3rem;
+  }
+
+  .header-nav a {
     min-height: 42px;
-    padding: 0.45rem 0.85rem;
+    padding-inline: 0.9rem;
     border-radius: 999px;
-    color: var(--brand-dark-blue);
     font-size: 0.86rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: color 0.15s ease, background 0.15s ease;
-  }
-
-  .header-nav a:hover,
-  .header-nav a:focus-visible,
-  .header-nav a[aria-current="page"] {
-    color: var(--brand-dark-blue);
-    background: rgba(255, 255, 255, 0.72);
-  }
-
-  .header-nav a:focus-visible {
-    outline: 3px solid white;
-    outline-offset: 2px;
   }
 
   #main-footer .wrapper {
