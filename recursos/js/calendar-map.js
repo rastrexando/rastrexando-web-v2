@@ -13,6 +13,160 @@
     mixed: "±"
   };
   var ACTIVE_MAPS = new Set();
+  var EXPANDED_MAP = null;
+
+  function addControlLabel(container, text, side) {
+    container.classList.add("map-labeled-control", "map-labeled-control--" + side);
+    container.dataset.controlLabel = text;
+  }
+
+  function addZoomControlLabel(map) {
+    var container = map.zoomControl && map.zoomControl.getContainer();
+    if (container) addControlLabel(container, "Zoom", "left");
+  }
+
+  function updateExpandButton(button, expanded) {
+    var label = expanded ? "Saír da pantalla completa" : "Ampliar mapa";
+    button.setAttribute("aria-label", label);
+    button.setAttribute("aria-pressed", String(expanded));
+    button.title = label;
+    if (button.parentNode) {
+      button.parentNode.dataset.controlLabel = expanded ? "Saír" : "Pantalla completa";
+    }
+  }
+
+  function refreshMapSize(map, resetView) {
+    window.requestAnimationFrame(function () {
+      map.invalidateSize({ pan: false });
+      if (resetView) resetView();
+    });
+  }
+
+  function setMapExpanded(canvas, map, button, expanded, restoreFocus) {
+    if (expanded && EXPANDED_MAP && EXPANDED_MAP.canvas !== canvas) {
+      setMapExpanded(
+        EXPANDED_MAP.canvas,
+        EXPANDED_MAP.map,
+        EXPANDED_MAP.button,
+        false,
+        false
+      );
+    }
+
+    canvas.classList.toggle("map-is-expanded", expanded);
+    document.documentElement.classList.toggle("map-expanded", expanded);
+    document.body.classList.toggle("map-expanded", expanded);
+    updateExpandButton(button, expanded);
+
+    if (expanded) {
+      map.scrollWheelZoom.enable();
+      EXPANDED_MAP = { canvas: canvas, map: map, button: button };
+    } else {
+      map.scrollWheelZoom.disable();
+      if (EXPANDED_MAP && EXPANDED_MAP.canvas === canvas) EXPANDED_MAP = null;
+    }
+
+    refreshMapSize(map, canvas._resetMapView);
+    if (expanded && canvas._mapCloseButton) {
+      canvas._mapCloseButton.focus({ preventScroll: true });
+    } else if (!expanded && restoreFocus && button.isConnected) {
+      button.focus({ preventScroll: true });
+    }
+  }
+
+  function addExpandedBar(canvas, map, expandButton) {
+    var bar = L.DomUtil.create("div", "map-expanded-bar", canvas);
+    var logo = L.DomUtil.create("img", "map-expanded-logo", bar);
+    var copy = L.DomUtil.create("span", "map-expanded-copy", bar);
+    var eyebrow = L.DomUtil.create("span", "map-expanded-eyebrow", copy);
+    var title = L.DomUtil.create("strong", "map-expanded-title", copy);
+    var closeButton = L.DomUtil.create("button", "map-expanded-close", bar);
+
+    logo.src = "/recursos/rastrexando-simbolo.png";
+    logo.alt = "";
+    logo.width = 40;
+    logo.height = 40;
+    eyebrow.textContent = "Rastrexando · " + (canvas.dataset.mapKind || "Mapa");
+    title.textContent = canvas.dataset.mapTitle || canvas.getAttribute("aria-label") || "Mapa";
+    closeButton.type = "button";
+    closeButton.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>' +
+      "<span>Pechar mapa</span>";
+    closeButton.setAttribute("aria-label", "Pechar mapa");
+
+    L.DomEvent.disableClickPropagation(bar);
+    L.DomEvent.disableScrollPropagation(bar);
+    closeButton.addEventListener("click", function () {
+      setMapExpanded(canvas, map, expandButton, false, true);
+    });
+    canvas._mapCloseButton = closeButton;
+  }
+
+  function addExpandControl(canvas, map) {
+    var control = L.control({ position: "topright" });
+    var button;
+
+    control.onAdd = function () {
+      var container = L.DomUtil.create("div", "leaflet-bar map-expand-control");
+      button = L.DomUtil.create("button", "map-expand-button", container);
+      button.type = "button";
+      button.innerHTML =
+        '<svg class="map-expand-icon map-expand-icon--enter" viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" />' +
+        '</svg>' +
+        '<svg class="map-expand-icon map-expand-icon--exit" viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5" />' +
+        '</svg>';
+      addControlLabel(container, "Pantalla completa", "right");
+      updateExpandButton(button, false);
+
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+      button.addEventListener("click", function () {
+        setMapExpanded(canvas, map, button, !canvas.classList.contains("map-is-expanded"), true);
+      });
+
+      return container;
+    };
+
+    control.addTo(map);
+    addExpandedBar(canvas, map, button);
+  }
+
+  function addResetControl(canvas, map, resetView, label) {
+    var control = L.control({ position: "topleft" });
+    canvas._resetMapView = resetView;
+
+    control.onAdd = function () {
+      var container = L.DomUtil.create("div", "leaflet-bar map-reset-control");
+      var button = L.DomUtil.create("button", "map-reset-button", container);
+      button.type = "button";
+      button.title = label;
+      button.setAttribute("aria-label", label);
+      button.innerHTML =
+        '<svg class="map-reset-icon" viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M8 4H4v4M16 4h4v4M20 16v4h-4M8 20H4v-4" />' +
+          '<circle cx="9" cy="10" r="1.4" /><circle cx="15" cy="14" r="1.4" />' +
+        '</svg>';
+      addControlLabel(container, "Centrar", "left");
+
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+      button.addEventListener("click", function () {
+        map.closePopup();
+        resetView();
+      });
+      return container;
+    };
+
+    control.addTo(map);
+  }
+
+  function collapseExpandedMap(restoreFocus) {
+    if (!EXPANDED_MAP) return;
+    var current = EXPANDED_MAP;
+    setMapExpanded(current.canvas, current.map, current.button, false, restoreFocus);
+  }
 
   function addTileLayer(map) {
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -171,6 +325,8 @@
     }
 
     var locations = data.locations || [];
+    canvas.dataset.mapKind = "Mapa de eventos";
+    canvas.dataset.mapTitle = "Calendario " + data.year;
     var eventCount = locations.reduce(function (total, location) {
       return total + location.events.length;
     }, 0);
@@ -191,6 +347,8 @@
     });
     registerMap(section, map);
     addTileLayer(map);
+    addZoomControlLabel(map);
+    addExpandControl(canvas, map);
 
     var clusterGroup = L.markerClusterGroup({
       iconCreateFunction: clusterIcon,
@@ -220,11 +378,17 @@
     });
 
     map.addLayer(clusterGroup);
-    if (bounds.length === 1) {
-      map.setView(bounds[0], 12);
-    } else {
-      map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
+
+    function resetCalendarView() {
+      if (bounds.length === 1) {
+        map.setView(bounds[0], 12, { animate: false });
+      } else {
+        map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12, animate: false });
+      }
     }
+
+    resetCalendarView();
+    addResetControl(canvas, map, resetCalendarView, "Centrar os marcadores");
 
     window.setTimeout(function () {
       if (section._leafletMap) section._leafletMap.invalidateSize();
@@ -238,6 +402,11 @@
     var longitude = Number(canvas.dataset.lng);
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return;
 
+    var pagePost = canvas.closest(".page-post");
+    var pageTitle = pagePost ? pagePost.querySelector("h1") : null;
+    canvas.dataset.mapKind = "Evento";
+    canvas.dataset.mapTitle = pageTitle ? pageTitle.textContent.trim() : canvas.dataset.location;
+
     var position = [latitude, longitude];
     var map = L.map(canvas, {
       center: position,
@@ -247,10 +416,15 @@
     });
     registerMap(canvas, map);
     addTileLayer(map);
+    addZoomControlLabel(map);
+    addExpandControl(canvas, map);
 
     L.marker(position, {
       title: canvas.dataset.location || "Localización aproximada"
     }).addTo(map);
+    addResetControl(canvas, map, function () {
+      map.setView(position, 14, { animate: false });
+    }, "Centrar a localización");
 
     window.setTimeout(function () {
       if (canvas._leafletMap) canvas._leafletMap.invalidateSize();
@@ -267,12 +441,19 @@
   }
 
   function cleanupMaps() {
+    collapseExpandedMap(false);
     ACTIVE_MAPS.forEach(function (entry) {
       entry.map.remove();
       delete entry.owner._leafletMap;
     });
     ACTIVE_MAPS.clear();
   }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && EXPANDED_MAP) {
+      collapseExpandedMap(true);
+    }
+  });
 
   document.addEventListener("DOMContentLoaded", function () {
     initialiseMaps(document);
@@ -283,6 +464,7 @@
     var removedElement = event.detail.elt;
     ACTIVE_MAPS.forEach(function (entry) {
       if (entry.owner === removedElement || removedElement.contains(entry.owner)) {
+        if (EXPANDED_MAP && EXPANDED_MAP.map === entry.map) collapseExpandedMap(false);
         entry.map.remove();
         delete entry.owner._leafletMap;
         ACTIVE_MAPS.delete(entry);

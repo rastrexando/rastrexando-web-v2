@@ -234,6 +234,39 @@ for (const resource of localMapResources) {
   check(fs.existsSync(path.join(outputRoot, resource)), `Falta o recurso local do mapa: ${resource}`);
 }
 
+const calendarMapPath = path.join(outputRoot, "recursos/js/calendar-map.js");
+if (fs.existsSync(calendarMapPath)) {
+  const calendarMapSource = fs.readFileSync(calendarMapPath, "utf8");
+  const expandControlUses = calendarMapSource.match(/addExpandControl\(canvas, map\);/g) || [];
+  check(
+    calendarMapSource.includes("map-is-expanded") &&
+      calendarMapSource.includes('event.key === "Escape"') &&
+      calendarMapSource.includes("map.scrollWheelZoom.enable()") &&
+      calendarMapSource.includes("map-expanded-bar") &&
+      calendarMapSource.includes("Centrar os marcadores") &&
+      calendarMapSource.includes("Centrar a localización") &&
+      calendarMapSource.includes("canvas._resetMapView") &&
+      calendarMapSource.includes("dataset.controlLabel") &&
+      calendarMapSource.includes('addZoomControlLabel(map)') &&
+      expandControlUses.length === 2,
+    "O control ampliado non está completo nos mapas anual e de evento"
+  );
+}
+
+const bundleCssPath = path.join(outputRoot, "recursos/bundle.css");
+if (fs.existsSync(bundleCssPath)) {
+  const bundleCssSource = fs.readFileSync(bundleCssPath, "utf8");
+  check(
+    bundleCssSource.includes(".map-expand-button") &&
+      bundleCssSource.includes(".map-reset-button") &&
+      bundleCssSource.includes(".map-reset-icon") &&
+      bundleCssSource.includes(".map-labeled-control::after") &&
+      bundleCssSource.includes(".map-expanded-bar") &&
+      bundleCssSource.includes(".calendar-map-canvas.map-is-expanded"),
+    "Faltan os estilos do mapa a pantalla completa"
+  );
+}
+
 const bottomNavigationResource = "recursos/js/bottom-navigation.js";
 const bottomNavigationPath = path.join(outputRoot, bottomNavigationResource);
 check(fs.existsSync(bottomNavigationPath), `Falta o control da navegación inferior: ${bottomNavigationResource}`);
