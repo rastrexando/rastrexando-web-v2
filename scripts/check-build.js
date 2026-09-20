@@ -325,6 +325,7 @@ if (eventDetailPath && fs.existsSync(eventDetailPath)) {
   const eventDetailHtml = fs.readFileSync(eventDetailPath, "utf8");
   check(!eventDetailHtml.includes("data-calendar-map"), "A ficha de evento inclúe por erro o mapa anual");
   check(eventDetailHtml.includes("data-event-map"), "A ficha non inclúe o seu mapa Leaflet");
+  check(!eventDetailHtml.includes("event-map-open"), "A ficha ofrece abrir unha localización que só é aproximada");
   check(!eventDetailHtml.includes("<iframe"), "A ficha aínda usa un iframe para o mapa");
   check(eventDetailHtml.includes('class="prev-next-buttons"'), "A ficha non inclúe a navegación entre eventos");
   check(

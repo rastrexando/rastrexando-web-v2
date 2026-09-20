@@ -1081,17 +1081,6 @@ hr {
   font-size: 1.2rem;
 }
 
-.event-map-heading a {
-  color: var(--brand-dark-blue);
-  font-size: 0.9rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.event-map-heading a:hover {
-  color: var(--brand-light-blue);
-}
-
 .event-map-frame {
   position: relative;
   z-index: 0;

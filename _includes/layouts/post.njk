@@ -78,13 +78,6 @@ title: Evento — Rastrexando
     <section class="event-map" aria-labelledby="event-map-title">
       <div class="event-map-heading">
         <h2 id="event-map-title"><i class="fi-marker is-light-blue"></i> {{ location }}</h2>
-        <a
-          class="event-map-open"
-          href="{{ eventMapLat | mapLinkUrl(eventMapLng) }}"
-          data-geo-url="{{ eventMapLat | geoUrl(eventMapLng) }}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Abrir</a>
       </div>
       <div
         class="event-map-frame event-map-leaflet"
