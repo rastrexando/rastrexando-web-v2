@@ -28,6 +28,32 @@ npm run geocode -- "Nova localidade, Concello" --add --lat 42.123456 --lng -8.12
 
 La utilidad no modifica el catálogo durante una consulta. Usa Nominatim de forma puntual y no debe ejecutarse en lotes ni en paralelo.
 
+## Avisos en las fichas
+
+Las correcciones o informaciones importantes se declaran en el frontmatter con `notices`. El layout las muestra después de la tarjeta de datos del evento y antes del mapa:
+
+```yaml
+notices:
+  - date: "2026-07-21"
+    message: "Corrixiuse o correo electrónico de contacto na imaxe do evento."
+```
+
+El campo acepta varios avisos, siempre con fecha `YYYY-MM-DD` y texto en gallego. No insertes el shortcode `renderNotice` directamente en el cuerpo de la ficha, porque aparecería después del mapa y de los vídeos.
+
+## Vídeos de eventos
+
+Los vídeos de YouTube se vinculan a su evento desde el frontmatter. `published` y `channel` son opcionales para mantener compatibles las fichas históricas:
+
+```yaml
+videos:
+  - id: "NAFo107VFoQ"
+    title: "VI RASTREXO NOCTURNO SOLIDARIO LOS PITUFOS"
+    published: "2026-08-29"
+    channel: "Cultural Verducido"
+```
+
+La portada muestra como máximo los tres vídeos más recientes asociados a eventos del año en curso. Se ordenan por `published`; si falta, se utiliza la fecha del evento.
+
 ## Mapa interactivo de calendarios
 
 La home y las páginas anuales reutilizan el shortcode `renderCalendarMap` definido en [`.eleventy.js`](.eleventy.js). El shortcode recibe la colección del año visible, resuelve las coordenadas con el mismo criterio que las fichas (`map_lat`/`map_lng` como override y [`_data/locations.json`](_data/locations.json) como catálogo) y genera únicamente el JSON de ese año. Los eventos sin coordenadas válidas se omiten.

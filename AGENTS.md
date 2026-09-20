@@ -36,7 +36,15 @@ For a new location, first run `npm run geocode -- "<location>"`. Validate the ca
 videos: # optional
   - id: <youtube-video-id>
     title: "<video title>"
+    published: <optional YYYY-MM-DD upload date>
+    channel: "<optional channel name>"
+
+notices: # optional; rendered between event information and the map
+  - date: <YYYY-MM-DD>
+    message: "<notice text>"
 ```
+
+Video `published` and `channel` fields are optional for compatibility with historical entries. The home page only features videos attached to events from the current build year, ordered by `published` with the event date as fallback.
 
 ## Conventions
 - Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., `ix-rastrexo-camos.njk`)

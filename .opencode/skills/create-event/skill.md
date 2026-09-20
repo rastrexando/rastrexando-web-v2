@@ -15,7 +15,8 @@ Collect from the user:
 - **source_name**: Organizer name
 - **image_url**: URL to download the event poster/image from
 - **body** (optional): HTML content for the event description. See "Body text rules" below.
-- **videos** (optional): Array of YouTube video objects with `id` and `title`
+- **videos** (optional): Array of YouTube video objects with `id`, `title`, and optional `published` (`YYYY-MM-DD`) and `channel`
+- **notices** (optional): Array of important event notices with `date` (`YYYY-MM-DD`) and a Galician `message`. Notices render between the event information card and the map.
 
 ## Body text rules
 
@@ -101,6 +102,16 @@ If videos are provided, add them to the frontmatter:
 videos:
   - id: <youtube-video-id>
     title: "<video title>"
+    published: <optional YYYY-MM-DD upload date>
+    channel: "<optional channel name>"
+```
+
+If notices are provided, add them to the frontmatter instead of calling `renderNotice` in the body:
+
+```yaml
+notices:
+  - date: <YYYY-MM-DD>
+    message: "<notice text in Galician>"
 ```
 
 ### 8. Verify the build

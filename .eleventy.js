@@ -138,6 +138,39 @@ module.exports = function (eleventyConfig) {
     })
   });
 
+  eleventyConfig.addCollection("currentYearVideos", function (collectionApi) {
+    const currentYear = String(now.getFullYear());
+    const videos = collectionApi.getAllSorted()
+      .filter(function(item) {
+        return item.data.tags?.includes("post") &&
+               item.data.tags.includes(currentYear) &&
+               Array.isArray(item.data.videos);
+      })
+      .flatMap(function(item) {
+        return item.data.videos.map(function(video) {
+          const publishedDate = video.published ? new Date(video.published) : item.data.date;
+          return {
+            id: video.id,
+            title: video.title,
+            channel: video.channel || "",
+            publishedDate,
+            eventTitle: item.data.title,
+            eventUrl: item.url,
+            eventDate: item.data.date,
+            location: item.data.location
+          };
+        });
+      })
+      .filter(function(video) {
+        return video.id && video.title && !Number.isNaN(video.publishedDate.getTime());
+      })
+      .sort(function(first, second) {
+        return second.publishedDate - first.publishedDate;
+      });
+
+    return videos.slice(0, 3);
+  });
+
   eleventyConfig.addCollection("yearCovers", function(collectionApi) {
     const years = require("./_data/years.json");
     const coverImages = require("./_data/yearCoverImages.json");

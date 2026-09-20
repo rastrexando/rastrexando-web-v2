@@ -68,6 +68,55 @@ pagination:
     {% renderCalendarMap collections[activeYear.year], locations, activeYear.year %}
   </section>
 
+  {% if collections.currentYearVideos.length > 0 %}
+  <section class="current-videos-section" aria-labelledby="current-videos-title">
+    <header class="home-section-header">
+      <div>
+        <h2 id="current-videos-title"><i class="fi-play-video is-light-blue"></i> Últimos vídeos</h2>
+        <p>Unha ollada aos rastrexos e andainas máis recentes</p>
+      </div>
+    </header>
+    <div class="current-videos-grid">
+      {% for video in collections.currentYearVideos %}
+      <article class="current-video-card">
+        <a
+          class="current-video-media"
+          href="https://www.youtube.com/watch?v={{ video.id }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Reproducir {{ video.title }} en YouTube"
+        >
+          <img
+            src="https://i.ytimg.com/vi/{{ video.id }}/hqdefault.jpg"
+            alt=""
+            loading="lazy"
+            width="480"
+            height="360"
+          />
+          <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+        </a>
+        <div class="current-video-body">
+          <p class="current-video-meta">
+            {% if video.channel %}<span>{{ video.channel }}</span><span aria-hidden="true">·</span>{% endif %}
+            <time datetime="{{ video.publishedDate | toISODate }}">{{ video.publishedDate | toGLMonthDay }}</time>
+          </p>
+          <h3>{{ video.title }}</h3>
+          <a
+            class="current-video-event"
+            href="{{ video.eventUrl }}"
+            hx-get="{{ video.eventUrl }}"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+          >Ver ficha: {{ video.eventTitle }} <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   <section class="year-covers-section">
     <header class="home-section-header">
       <div>
