@@ -1063,6 +1063,15 @@ hr {
   margin-top: 0.1rem;
 }
 
+.event-notice-content {
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.event-notice-content strong {
+  white-space: nowrap;
+}
+
 .event-map {
   margin: 0 0 1.5rem;
 }

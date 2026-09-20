@@ -287,7 +287,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("renderNotice", function (date, message) {
     const [year, month, day] = date.split("-");
     const formattedDate = `${day}-${month}-${year}`;
-    return `<p class="event-notice"><i class="fi-alert"></i> <strong>${formattedDate}:</strong> ${message}</p>`;
+    return `<p class="event-notice"><i class="fi-alert" aria-hidden="true"></i><span class="event-notice-content"><strong><time datetime="${date}">${formattedDate}</time>:</strong> ${message}</span></p>`;
   })
 
   eleventyConfig.addAsyncShortcode("renderYearHero", async function (cover) {

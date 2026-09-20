@@ -74,6 +74,14 @@ title: Evento — Rastrexando
     {% endif %}
   </div>
 
+  {% if notices %}
+    <div class="event-notices" aria-label="Avisos do evento">
+      {% for notice in notices %}
+        {% renderNotice notice.date, notice.message %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
   {% if eventMapLat and eventMapLng %}
     <section class="event-map" aria-labelledby="event-map-title">
       <div class="event-map-heading">
