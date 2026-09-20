@@ -131,9 +131,11 @@
     aria-live="polite"
     aria-atomic="true"
   >
-    <span class="global-htmx-indicator-glow" aria-hidden="true"></span>
-    <img src="/recursos/rastrexando-simbolo.png" alt="" width="64" height="64" />
-    <span class="visually-hidden">Cargando contido…</span>
+    <span class="global-htmx-indicator-icon" aria-hidden="true">
+      <span class="global-htmx-indicator-glow"></span>
+      <img src="/recursos/rastrexando-simbolo.png" alt="" width="64" height="64" />
+    </span>
+    <span class="global-htmx-indicator-label">Cargando…</span>
   </div>
   <div class="site-header-shell">
       <span class="star-glints" aria-hidden="true"></span>
@@ -392,6 +394,55 @@
       </section>
     
   </section>
+
+  
+  <section class="current-videos-section" aria-labelledby="current-videos-title">
+    <header class="home-section-header">
+      <div>
+        <h2 id="current-videos-title"><i class="fi-play-video is-light-blue"></i> Últimos vídeos</h2>
+        <p>Unha ollada aos rastrexos e andainas máis recentes</p>
+      </div>
+    </header>
+    <div class="current-videos-grid">
+      
+      <article class="current-video-card">
+        <a
+          class="current-video-media"
+          href="https://www.youtube.com/watch?v=NAFo107VFoQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Reproducir VI RASTREXO NOCTURNO SOLIDARIO LOS PITUFOS en YouTube"
+        >
+          <img
+            src="https://i.ytimg.com/vi/NAFo107VFoQ/hqdefault.jpg"
+            alt=""
+            loading="lazy"
+            width="480"
+            height="360"
+          />
+          <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+        </a>
+        <div class="current-video-body">
+          <p class="current-video-meta">
+            <span>Cultural Verducido</span><span aria-hidden="true">·</span>
+            <time datetime="2026-08-29">29 de ago.</time>
+          </p>
+          <h3>VI RASTREXO NOCTURNO SOLIDARIO LOS PITUFOS</h3>
+          <a
+            class="current-video-event"
+            href="/calendarios/2026/verducido-los-pitufos/"
+            hx-get="/calendarios/2026/verducido-los-pitufos/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+          >Ver ficha: VI Rastrexo solidario Los Pitufos <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      
+    </div>
+  </section>
+  
 
   <section class="year-covers-section">
     <header class="home-section-header">
