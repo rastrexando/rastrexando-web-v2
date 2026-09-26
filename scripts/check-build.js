@@ -104,6 +104,7 @@ const organizationNames = new Set();
 const organizationCanonicalUrls = new Map();
 const organizationLinksBySlug = new Map();
 const organizationEventReferences = [];
+const organizationVideoReferences = [];
 const videoIds = new Map();
 
 function normalizeOrganizationName(name) {
@@ -239,6 +240,9 @@ for (const eventTemplateFile of eventTemplateFiles) {
       if (id) {
         check(!videoIds.has(id), `${relativeEventTemplate}: o vídeo ${id} xa aparece en ${videoIds.get(id)}`);
         videoIds.set(id, relativeEventTemplate);
+        for (const organizationSlug of organizerReferences) {
+          organizationVideoReferences.push({ organizationSlug, videoId: id, relativeEventTemplate });
+        }
       }
     }
   }
@@ -338,6 +342,20 @@ if (organizationsIndexPath && fs.existsSync(organizationsIndexPath)) {
       `Falta a páxina da organización ${organization.name}`
     );
   }
+
+  const alphabetizedOrganizations = organizations
+    .slice()
+    .sort((first, second) => first.name.localeCompare(second.name, "gl", { sensitivity: "base" }));
+  let previousOrganizationPosition = -1;
+  for (const organization of alphabetizedOrganizations) {
+    const organizationPosition = organizationsIndexHtml.indexOf(`href="/organizacions/${organization.slug}/"`);
+    check(
+      organizationPosition > previousOrganizationPosition,
+      `O directorio non está ordenado alfabeticamente: ${organization.name}`
+    );
+    previousOrganizationPosition = organizationPosition;
+  }
+
   if (organizations.some(organization => !organization.logo)) {
     check(
       /class="organization-avatar" style="--organization-avatar-from: #[0-9a-f]{6}; --organization-avatar-to: #[0-9a-f]{6}" aria-hidden="true">[^<]{1,2}<\/span>/.test(organizationsIndexHtml),
@@ -357,6 +375,21 @@ for (const { organizationSlug, eventUrl, relativeEventTemplate } of organization
   check(
     organizationPageHtml.includes(`href="${eventUrl}"`),
     `${relativeEventTemplate}: non aparece na páxina de ${organizationSlug}`
+  );
+}
+
+for (const { organizationSlug, videoId, relativeEventTemplate } of organizationVideoReferences) {
+  const organizationPagePath = outputPathForUrl(`/organizacions/${organizationSlug}/`);
+  if (!organizationPagePath || !fs.existsSync(organizationPagePath)) continue;
+  const organizationPageHtml = fs.readFileSync(organizationPagePath, "utf8");
+  check(
+    organizationPageHtml.includes(`/vi/${videoId}/hqdefault.jpg`),
+    `${relativeEventTemplate}: o vídeo ${videoId} non aparece na páxina de ${organizationSlug}`
+  );
+  check(
+    organizationPageHtml.indexOf('id="organization-events-title"') <
+      organizationPageHtml.indexOf('id="organization-videos-title"'),
+    `${organizationSlug}: os vídeos deben aparecer despois dos eventos`
   );
 }
 

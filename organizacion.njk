@@ -41,6 +41,8 @@ eleventyComputed:
   </header>
 
   {% set organizationEvents = collections.post | eventsForOrganization(organization.slug) %}
+  {% set organizationVideos = collections.allVideos | videosForOrganization(organization.slug) %}
+
   <section class="organization-events" aria-labelledby="organization-events-title">
     <header class="home-section-header">
       <div>
@@ -54,4 +56,28 @@ eleventyComputed:
       {% endfor %}
     </div>
   </section>
+
+  {% if organizationVideos.length > 0 %}
+    <section class="organization-videos" aria-labelledby="organization-videos-title">
+      <header class="home-section-header home-section-header--action">
+        <div>
+          <h2 id="organization-videos-title"><i class="fi-play-video is-light-blue"></i> Vídeos</h2>
+          <p>{{ organizationVideos.length }} {% if organizationVideos.length == 1 %}vídeo relacionado{% else %}vídeos relacionados{% endif %}</p>
+        </div>
+        <a
+          href="/videos/"
+          hx-get="/videos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Ver todos <span aria-hidden="true">→</span></a>
+      </header>
+      <div class="current-videos-grid">
+        {% for video in organizationVideos %}
+          {% include "components/video-card.njk" %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
 </div>

@@ -8,7 +8,6 @@ title: Evento — Rastrexando
 {% set eventMapLng = map_lng or catalogLocation.lng %}
 {% set eventProvince = province or catalogLocation.province %}
 {% set eventOrganizations = organizers | resolveOrganizations(organizations) %}
-{% set relatedOrganizationVideos = collections.allVideos | relatedOrganizationVideos(organizers, page.url) %}
 
 <nav class="breadcrumbs">
   <ul>
@@ -160,7 +159,7 @@ title: Evento — Rastrexando
 
   {% if videos %}
     <section class="video-section" aria-labelledby="event-videos-title">
-      <h2 id="event-videos-title"><i class="fi-play-video is-light-blue"></i> Vídeos deste evento</h2>
+      <h2 id="event-videos-title"><i class="fi-play-video is-light-blue"></i> Vídeos</h2>
       <div class="video-list">
         {% for video in videos %}
           <article class="event-video">
@@ -168,34 +167,9 @@ title: Evento — Rastrexando
               <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.id }}" title="{{ video.title }}" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="event-video-copy">
-              <h3>{{ video.title }}</h3>
               <p>Publicado por {{ video.channel }}{% if video.published %} · <time datetime="{{ video.published | toISODate }}">{{ video.published | toGLMonthDay }}</time>{% endif %}</p>
             </div>
           </article>
-        {% endfor %}
-      </div>
-    </section>
-  {% endif %}
-
-  {% if relatedOrganizationVideos.length > 0 %}
-    <section class="related-videos-section" aria-labelledby="related-videos-title">
-      <header class="home-section-header home-section-header--action">
-        <div>
-          <h2 id="related-videos-title"><i class="fi-play-video is-light-blue"></i> Outros vídeos{% if eventOrganizations.length == 1 %} de {{ eventOrganizations[0].name }}{% else %} das organizacións{% endif %}</h2>
-          <p>Descubre como son outros eventos destas organizacións.</p>
-        </div>
-        <a
-          href="/videos/"
-          hx-get="/videos/"
-          hx-target="#main-container"
-          hx-select="#main-container"
-          hx-swap="outerHTML"
-          hx-push-url="true"
-        >Ver todos <span aria-hidden="true">→</span></a>
-      </header>
-      <div class="current-videos-grid">
-        {% for video in relatedOrganizationVideos %}
-          {% include "components/video-card.njk" %}
         {% endfor %}
       </div>
     </section>

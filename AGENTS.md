@@ -49,7 +49,7 @@ notices: # optional; rendered between event information and the map
     message: "<notice text>"
 ```
 
-Video `channel` is required and identifies the YouTube publisher, whether it is an organization, team, or individual; it must not be inferred from the event organizers. `published` is optional. Videos are ordered by `published`, using the event date only as a sorting fallback without displaying it as the publication date. The home page only features videos attached to events from the current build year. The full catalogue lives at `/videos/`, and event pages may recommend videos from other events sharing an organizer.
+Video `channel` is required and identifies the YouTube publisher, whether it is an organization, team, or individual; it must not be inferred from the event organizers. `published` is optional. Videos are ordered by `published`, using the event date only as a sorting fallback without displaying it as the publication date. The home page only features videos attached to events from the current build year. The full catalogue lives at `/videos/`, and organization profiles list videos from their events.
 
 ## Conventions
 - Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., `ix-rastrexo-camos.njk`)

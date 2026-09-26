@@ -22,7 +22,7 @@ description: Organizacións que promoven rastrexos e andainas publicados en Rast
   </header>
 
   <div class="organization-grid">
-    {% for organization in organizations %}
+    {% for organization in organizations | sortOrganizations %}
       {% set organizationEvents = collections.post | eventsForOrganization(organization.slug) %}
       <article class="organization-card">
         <a

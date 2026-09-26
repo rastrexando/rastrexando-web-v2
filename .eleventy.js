@@ -151,6 +151,12 @@ module.exports = function (eleventyConfig) {
       .filter(Boolean);
   });
 
+  eleventyConfig.addFilter("sortOrganizations", function (organizations) {
+    return (organizations || [])
+      .slice()
+      .sort((first, second) => first.name.localeCompare(second.name, "gl", { sensitivity: "base" }));
+  });
+
   eleventyConfig.addFilter("organizationPrimaryUrl", function (organization) {
     return organization?.links?.website ||
       organization?.links?.instagram ||
@@ -207,17 +213,9 @@ module.exports = function (eleventyConfig) {
       .slice(0, 3);
   });
 
-  eleventyConfig.addFilter("relatedOrganizationVideos", function (videos, organizationSlugs, currentUrl) {
-    const requestedSlugs = new Set(
-      Array.isArray(organizationSlugs) ? organizationSlugs : (organizationSlugs ? [organizationSlugs] : [])
-    );
-
-    if (requestedSlugs.size === 0) return [];
-
+  eleventyConfig.addFilter("videosForOrganization", function (videos, organizationSlug) {
     return (videos || [])
-      .filter(video => video.eventUrl !== currentUrl)
-      .filter(video => video.organizerSlugs.some(slug => requestedSlugs.has(slug)))
-      .slice(0, 3);
+      .filter(video => video.organizerSlugs.includes(organizationSlug));
   });
 
   eleventyConfig.addFilter("mapEmbedUrl", function (latitude, longitude) {

@@ -1884,25 +1884,10 @@ body.map-expanded {
   padding: 0.85rem 1rem 1rem;
 }
 
-.event-video-copy h3,
 .event-video-copy p {
   margin: 0;
-}
-
-.event-video-copy h3 {
-  color: var(--brand-dark-blue);
-  font-size: 1rem;
-  line-height: 1.35;
-}
-
-.event-video-copy p {
-  margin-top: 0.3rem;
   color: var(--text-muted);
   font-size: 0.78rem;
-}
-
-.related-videos-section {
-  margin: 2rem 0;
 }
 
 /* ============================================================
@@ -3442,6 +3427,14 @@ hr,
   font-size: 1.7rem;
 }
 
+.organization-videos {
+  margin: 0 0 2rem;
+}
+
+.organization-events {
+  margin: 1.5rem 0 2rem;
+}
+
 .organization-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -3517,10 +3510,6 @@ hr,
   background: var(--surface-tinted);
   border: 1px solid var(--card-border);
   border-radius: 999px;
-}
-
-.organization-events {
-  margin-bottom: 2rem;
 }
 
 .show-for-sr {
