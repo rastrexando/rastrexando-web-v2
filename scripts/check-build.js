@@ -98,6 +98,42 @@ function checkMapYear(urlPath, expectedYear, label) {
 
 const files = walk(outputRoot);
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
+const organizations = require(path.join(projectRoot, "_data", "organizations.json"));
+const organizationSlugs = new Set();
+
+for (const organization of organizations) {
+  check(Boolean(organization.slug), "Hai unha organización sen slug");
+  check(Boolean(organization.name), `A organización ${organization.slug || "sen slug"} non ten nome`);
+  check(
+    !organizationSlugs.has(organization.slug),
+    `O slug de organización ${organization.slug} está duplicado`
+  );
+  organizationSlugs.add(organization.slug);
+}
+
+const eventTemplateFiles = walk(path.join(projectRoot, "calendarios"))
+  .filter((file) => file.endsWith(".njk"));
+for (const eventTemplateFile of eventTemplateFiles) {
+  const source = fs.readFileSync(eventTemplateFile, "utf8");
+  const organizerBlock = source.match(/^organizers:\s*\n((?:[ \t]+-[^\n]*\n?)+)/m);
+  const organizerReferences = organizerBlock
+    ? [...organizerBlock[1].matchAll(/^\s+-\s+([a-z0-9-]+)\s*$/gm)].map(match => match[1])
+    : [];
+
+  for (const organizationSlug of organizerReferences) {
+    check(
+      organizationSlugs.has(organizationSlug),
+      `${path.relative(projectRoot, eventTemplateFile)}: organización descoñecida ${organizationSlug}`
+    );
+  }
+
+  const is2026Event = eventTemplateFile.includes(`${path.sep}2026${path.sep}`) &&
+    /^tags:\s*\[[^\n]*"post"/m.test(source);
+  if (is2026Event) {
+    check(organizerReferences.length > 0, `${path.relative(projectRoot, eventTemplateFile)}: falta organizers`);
+    check(!/^source_name:/m.test(source), `${path.relative(projectRoot, eventTemplateFile)}: conserva source_name`);
+  }
+}
 
 check(fs.existsSync(path.join(outputRoot, "index.html")), "Falta a páxina de inicio");
 check(fs.existsSync(path.join(outputRoot, "robots.txt")), "Falta robots.txt");
@@ -151,6 +187,27 @@ if (fs.existsSync(sitemapPath)) {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
   check(!sitemap.includes(legacyCamosUrl), "O sitemap inclúe a URL antiga de Camos con maiúsculas");
   check(sitemap.includes(canonicalCamosUrl), "O sitemap non inclúe a URL canónica de Camos");
+  check(sitemap.includes(`${siteUrl}/organizacions/`), "O sitemap non inclúe o directorio de organizacións");
+}
+
+const organizationsIndexPath = outputPathForUrl("/organizacions/");
+check(
+  organizationsIndexPath && fs.existsSync(organizationsIndexPath),
+  "Falta o directorio de organizacións"
+);
+if (organizationsIndexPath && fs.existsSync(organizationsIndexPath)) {
+  const organizationsIndexHtml = fs.readFileSync(organizationsIndexPath, "utf8");
+  for (const organization of organizations) {
+    const organizationUrl = `/organizacions/${organization.slug}/`;
+    check(
+      organizationsIndexHtml.includes(`href="${organizationUrl}"`),
+      `O directorio non enlaza ${organization.name}`
+    );
+    check(
+      fs.existsSync(outputPathForUrl(organizationUrl)),
+      `Falta a páxina da organización ${organization.name}`
+    );
+  }
 }
 
 for (const htmlFile of htmlFiles) {
@@ -329,8 +386,68 @@ if (eventDetailPath && fs.existsSync(eventDetailPath)) {
   check(!eventDetailHtml.includes("<iframe"), "A ficha aínda usa un iframe para o mapa");
   check(eventDetailHtml.includes('class="prev-next-buttons"'), "A ficha non inclúe a navegación entre eventos");
   check(
+    eventDetailHtml.includes('class="event-info event-date-info"') &&
+      eventDetailHtml.includes('<i class="fi-calendar is-light-blue"></i>') &&
+      eventDetailHtml.includes('<time datetime="2026-05-09">sábado, 9 de maio de 2026</time>'),
+    "A ficha non mostra a data co formato orixinal"
+  );
+  check(
+    eventDetailHtml.includes('href="https://www.facebook.com/rastrexocoruxo" target="_blank"') &&
+      eventDetailHtml.includes('href="/organizacions/union-musical-de-coruxo/"') &&
+      eventDetailHtml.includes('Ver todos os eventos (1)') &&
+      eventDetailHtml.includes('"name": "Unión Musical de Coruxo"'),
+    "A ficha non mostra o perfil e o arquivo da súa organización"
+  );
+  check(
     eventDetailHtml.includes('src="/recursos/js/bottom-navigation.js"'),
     "A ficha non carga o control que evita tapar o footer"
+  );
+}
+
+const organizedEventPath = outputPathForUrl("/calendarios/2026/triloxia-samain-2026-capitulo-1-o-camino/");
+if (organizedEventPath && fs.existsSync(organizedEventPath)) {
+  const organizedEventHtml = fs.readFileSync(organizedEventPath, "utf8");
+  const posterPosition = organizedEventHtml.indexOf('class="event-hero"');
+  const datePosition = organizedEventHtml.indexOf('class="event-info event-date-info"');
+  const relativeDatePosition = organizedEventHtml.indexOf('class="relative-date event-date-relative"');
+  const titlePosition = organizedEventHtml.indexOf("<h1>");
+  const typePosition = organizedEventHtml.indexOf('class="event-type-row"');
+  const descriptionPosition = organizedEventHtml.indexOf('class="event-description"');
+  const organizationPosition = organizedEventHtml.indexOf('class="event-organizations"');
+  const mapPosition = organizedEventHtml.indexOf('class="event-map"');
+  check(
+    posterPosition >= 0 &&
+      posterPosition < titlePosition &&
+      titlePosition < typePosition &&
+      typePosition < relativeDatePosition &&
+      relativeDatePosition < datePosition &&
+      datePosition < descriptionPosition &&
+      descriptionPosition < organizationPosition &&
+      organizationPosition < mapPosition,
+    "A ficha non respecta a orde cartel, título, tipo, data, información, organización e mapa"
+  );
+  check(
+    organizedEventHtml.includes('class="event-primary-header"') &&
+      !organizedEventHtml.includes('id="event-date-title"') &&
+      !organizedEventHtml.includes('id="event-description-title"'),
+    "A ficha non agrupa data e título nunha cabeceira limpa"
+  );
+  check(
+    organizedEventHtml.includes('<i class="fi-torsos-all is-light-blue"></i> Organiza') &&
+      !organizedEventHtml.includes('<i class="fi-home is-light-blue"></i> Organización'),
+    "A ficha non mostra a cabeceira «Organiza» co icono correcto"
+  );
+}
+
+const camosEventPath = outputPathForUrl("/calendarios/2026/ix-rastrexo-camos/");
+if (camosEventPath && fs.existsSync(camosEventPath)) {
+  const camosEventHtml = fs.readFileSync(camosEventPath, "utf8");
+  check(
+    camosEventHtml.includes("Outros eventos") &&
+      camosEventHtml.includes("Rastrexo Camos Especial CEIP da Cruz") &&
+      camosEventHtml.includes('<time datetime="2026-08-01">01-08-2026</time>') &&
+      camosEventHtml.includes("Ver todos os eventos (2)"),
+    "A ficha de Camos non mostra a selección e o arquivo de eventos da organización"
   );
 }
 

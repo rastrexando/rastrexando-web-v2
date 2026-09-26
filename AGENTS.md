@@ -19,8 +19,9 @@ layout: post
 tags: ["post", "<year>", "<rastrexo|andaina>"]
 title: "<event title>"
 date: <YYYY-MM-DD>
-source_url: <facebook or website url>
-source_name: "<organizer name>"
+organizers:
+  - <organization-slug>
+source_url: <optional original announcement or registration URL>
 location: "<city>, <municipality>"
 province: "<optional province>"
 map_lat: <optional approximate latitude>
@@ -31,6 +32,8 @@ image: <year>/<image-filename>
 Approximate coordinates and province are resolved from `_data/locations.json` when the `location` text matches an entry. Use front matter fields only to override a catalogue entry.
 
 For a new location, first run `npm run geocode -- "<location>"`. Validate the candidate manually, then add it with `npm run geocode -- "<location>" --add --lat <latitude> --lng <longitude> --province <province>`. The script never writes during lookup and must not be run in batches or in parallel, in accordance with Nominatim usage limits.
+
+Organizations are stored in `_data/organizations.json` and referenced by stable slugs in the `organizers` array. Reuse an existing organization before creating one. Organization profile URLs belong in the organization entity; `source_url` is reserved for an event-specific original announcement, registration page, or other direct source. Historical events may still use `source_name` and `source_url` as a compatibility fallback.
 
 ```yaml
 videos: # optional

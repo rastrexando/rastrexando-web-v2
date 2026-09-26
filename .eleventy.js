@@ -50,6 +50,18 @@ module.exports = function (eleventyConfig) {
     return ""
   });
 
+  eleventyConfig.addFilter("toGLWeekday", function(value) {
+    return value ? value.toLocaleDateString("gl", { weekday: "long" }) : "";
+  });
+
+  eleventyConfig.addFilter("toGLDay", function(value) {
+    return value ? value.toLocaleDateString("gl", { day: "numeric" }) : "";
+  });
+
+  eleventyConfig.addFilter("toGLMonthYear", function(value) {
+    return value ? value.toLocaleDateString("gl", { month: "long", year: "numeric" }) : "";
+  });
+
   eleventyConfig.addFilter("toRelativeDate", function(date) {
     const now = new Date();
     const diffDays = Math.ceil((date - now) / (1000 * 60 * 60 * 24));
@@ -63,6 +75,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("toISODate", function (dateVal) {
     return new Date(dateVal).toISOString().slice(0, 10);
+  });
+
+  eleventyConfig.addFilter("toNumericDate", function (dateVal) {
+    return new Date(dateVal).toISOString().slice(0, 10).split("-").reverse().join("-");
   });
 
   eleventyConfig.addFilter("groupEventsByMonth", function (events) {
@@ -93,6 +109,47 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("findYearCover", function (covers, year) {
     return (covers || []).find(item => String(item.year) === String(year));
+  });
+
+  eleventyConfig.addFilter("resolveOrganizations", function (slugs, organizations) {
+    const requestedSlugs = Array.isArray(slugs) ? slugs : (slugs ? [slugs] : []);
+    const organizationsBySlug = new Map(
+      (organizations || []).map(organization => [organization.slug, organization])
+    );
+
+    return requestedSlugs
+      .map(slug => organizationsBySlug.get(slug))
+      .filter(Boolean);
+  });
+
+  eleventyConfig.addFilter("organizationPrimaryUrl", function (organization) {
+    return organization?.links?.website ||
+      organization?.links?.instagram ||
+      organization?.links?.facebook ||
+      "";
+  });
+
+  eleventyConfig.addFilter("eventsForOrganization", function (events, organizationSlug) {
+    return (events || [])
+      .filter(event => Array.isArray(event.data.organizers) && event.data.organizers.includes(organizationSlug))
+      .slice()
+      .sort((first, second) => second.data.date - first.data.date);
+  });
+
+  eleventyConfig.addFilter("relatedOrganizationEvents", function (events, organizationSlugs, currentUrl) {
+    const requestedSlugs = new Set(
+      Array.isArray(organizationSlugs) ? organizationSlugs : (organizationSlugs ? [organizationSlugs] : [])
+    );
+
+    if (requestedSlugs.size === 0) return [];
+
+    return (events || [])
+      .filter(event => event.url !== currentUrl)
+      .filter(event => Array.isArray(event.data.organizers) &&
+        event.data.organizers.some(slug => requestedSlugs.has(slug)))
+      .slice()
+      .sort((first, second) => second.data.date - first.data.date)
+      .slice(0, 3);
   });
 
   eleventyConfig.addFilter("mapEmbedUrl", function (latitude, longitude) {
@@ -387,7 +444,7 @@ module.exports = function (eleventyConfig) {
     `;
   });
 
-  eleventyConfig.addAsyncShortcode("renderPost", async function (post) {
+  eleventyConfig.addAsyncShortcode("renderPost", async function (post, organizations = []) {
     const date = post.data.date;
     const day = date.toLocaleDateString("gl", { day: "numeric" });
     const month = date.toLocaleDateString("gl", { month: "short" });
@@ -420,12 +477,21 @@ module.exports = function (eleventyConfig) {
       ? `<span class="post-card-location"><i class="fi-marker"></i> ${post.data.location}</span>`
       : "";
 
+    const organizationsBySlug = new Map(
+      (organizations || []).map(organization => [organization.slug, organization])
+    );
+    const eventOrganizations = (post.data.organizers || [])
+      .map(slug => organizationsBySlug.get(slug))
+      .filter(Boolean);
+    const organizationNames = eventOrganizations.map(organization => organization.name).join(", ");
     const sourceIcon = post.data.source_url?.includes("instagram.com")
       ? "fi-social-instagram"
       : "fi-social-facebook";
-    const sourceHTML = post.data.source_url
-      ? `<span class="post-card-source"><i class="${sourceIcon}"></i> ${post.data.source_name}</span>`
-      : (post.data.source_name ? `<span class="post-card-source">${post.data.source_name}</span>` : "");
+    const sourceHTML = organizationNames
+      ? `<span class="post-card-source"><i class="fi-home"></i> ${organizationNames}</span>`
+      : (post.data.source_url
+        ? `<span class="post-card-source"><i class="${sourceIcon}"></i> ${post.data.source_name}</span>`
+        : (post.data.source_name ? `<span class="post-card-source">${post.data.source_name}</span>` : ""));
 
     let thumbnailUrl = "";
     if (post.data.image) {

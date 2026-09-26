@@ -28,6 +28,20 @@ npm run geocode -- "Nova localidade, Concello" --add --lat 42.123456 --lng -8.12
 
 La utilidad no modifica el catálogo durante una consulta. Usa Nominatim de forma puntual y no debe ejecutarse en lotes ni en paralelo.
 
+## Organizaciones
+
+Las organizaciones se definen una sola vez en [`_data/organizations.json`](_data/organizations.json) y los eventos las referencian mediante slugs estables:
+
+```yaml
+organizers:
+  - rastrexo-camos
+source_url: https://www.facebook.com/permalink.php?story_fbid=...
+```
+
+`organizers` admite varias entidades. Los perfiles sociales y la web oficial pertenecen al catálogo de organizaciones; `source_url` se reserva para una publicación, inscripción u otra fuente específica del evento y se omite cuando no existe. Las fichas históricas que todavía usan `source_name` y `source_url` continúan siendo compatibles durante la migración progresiva.
+
+El sitio genera el directorio `/organizacions/`, una ficha por entidad y relaciones entre eventos que comparten organización. Los logos son opcionales y deben ser imágenes locales bajo `recursos/imaxes/`.
+
 ## Avisos en las fichas
 
 Las correcciones o informaciones importantes se declaran en el frontmatter con `notices`. El layout las muestra después de la tarjeta de datos del evento y antes del mapa:

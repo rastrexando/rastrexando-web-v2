@@ -38,7 +38,7 @@ title: Calendario - Rastrexando
         </header>
         <div class="calendar-events-grid">
           {% for post in month.events %}
-            {% renderPost post %}
+            {% renderPost post, organizations %}
           {% endfor %}
         </div>
       </section>

@@ -11,8 +11,8 @@ Collect from the user:
 - **location**: Locality and municipality (e.g., "Campos, Nigrán")
 - **province** (optional): province for structured data (e.g., "Pontevedra")
 - **map_lat** / **map_lng** (optional): approximate coordinates of the locality or event area, never the departure point unless confirmed. Prefer adding the location to `_data/locations.json` so historical and future events reuse it; use front matter only for an explicit override.
-- **source_url**: Facebook page or website URL
-- **source_name**: Organizer name
+- **organizers**: One or more organization names and, when available, their official website or social profiles
+- **source_url** (optional): URL of the original event announcement, registration page, or another event-specific direct source. Do not use an organization profile as the event source.
 - **image_url**: URL to download the event poster/image from
 - **body** (optional): HTML content for the event description. See "Body text rules" below.
 - **videos** (optional): Array of YouTube video objects with `id`, `title`, and optional `published` (`YYYY-MM-DD`) and `channel`
@@ -74,7 +74,30 @@ npm run geocode -- "<location>" --add --lat <latitude> --lng <longitude> --provi
 
 Do not run geocoding in batches or in parallel. The lookup command never changes the catalogue.
 
-### 7. Create the event file
+### 7. Resolve the organizations
+
+1. Read `_data/organizations.json` and look for each organizer before creating a new entity.
+2. Match primarily by a canonical website or social account. Treat normalized names only as suggestions and review ambiguous matches.
+3. Reuse the existing stable `slug` when a match exists.
+4. If the organization is new, add one object to `_data/organizations.json` in alphabetical order:
+
+```json
+{
+  "slug": "<stable-organization-slug>",
+  "name": "<display name>",
+  "links": {
+    "website": "<optional canonical website>",
+    "facebook": "<optional canonical Facebook profile>",
+    "instagram": "<optional canonical Instagram profile>"
+  }
+}
+```
+
+Omit empty link properties. An optional `logo` may reference a local image below `recursos/imaxes/`; never hotlink a remote logo.
+
+Use `organizers` for entities responsible for or materially involved in the event. Do not create a duplicate entity merely because an older event used another spelling. Collaborator roles are not currently distinguished.
+
+### 8. Create the event file
 
 Create `calendarios/<year>/<slug>.njk` with this template:
 
@@ -84,8 +107,9 @@ layout: post
 tags: ["post", "<year>", "<type>"]
 title: "<title>"
 date: <YYYY-MM-DD>
-source_url: <source_url>
-source_name: "<source_name>"
+organizers:
+  - <organization-slug>
+source_url: <optional event-specific source_url>
 location: "<location>"
 province: "<optional province>"
 map_lat: <optional approximate latitude>
@@ -114,7 +138,9 @@ notices:
     message: "<notice text in Galician>"
 ```
 
-### 8. Verify the build
+Omit `source_url` when no event-specific original source is available. Organization profile links belong only in `_data/organizations.json`.
+
+### 9. Verify the build
 
 Run `npx @11ty/eleventy` to ensure the site builds without errors.
 
@@ -125,11 +151,14 @@ User provides:
 - date: "2026-07-11"
 - type: "rastrexo"
 - location: "Campos, Nigrán"
-- source_url: "https://www.facebook.com/profile.php?id=100057577212657"
-- source_name: "Rastrexo Camos"
-- image_url: "https://example.com/poster.jpg"
+- organizers: `Rastrexo Camos`
+- organization Facebook: `https://www.facebook.com/profile.php?id=100057577212657`
+- source_url: URL of the original event post, if available
+- image_url: `https://example.com/poster.jpg`
 
 Result:
+- Reuse or create organization slug: `rastrexo-camos`
 - Filename: `calendarios/2026/ix-rastrexo-camos.njk`
 - Image: `recursos/imaxes/2026/ix-camos.jpg`
+- Frontmatter organizer: `rastrexo-camos`
 - Frontmatter image field: `2026/ix-camos.jpg`

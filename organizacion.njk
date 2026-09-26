@@ -1,0 +1,57 @@
+---
+layout: base
+pagination:
+  data: organizations
+  size: 1
+  alias: organization
+permalink: "/organizacions/{{ organization.slug }}/index.html"
+eleventyComputed:
+  title: "{{ organization.name }} — Rastrexando"
+  description: "Eventos publicados en Rastrexando da organización {{ organization.name }}."
+---
+
+<nav class="breadcrumbs">
+  <ul>
+    <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
+    <li class="breadcrumb-sep">›</li>
+    <li>{% renderHTMXLink "/organizacions/", "Organizacións", "link" %}</li>
+    <li class="breadcrumb-sep">›</li>
+    <li class="is-light-blue">{{ organization.name }}</li>
+  </ul>
+</nav>
+
+<div class="page page-organization">
+  <header class="organization-profile">
+    {% if organization.logo %}
+      <img class="organization-avatar organization-avatar--large" src="/recursos/imaxes/{{ organization.logo }}" alt="" />
+    {% else %}
+      <span class="organization-avatar organization-avatar--large" aria-hidden="true">{{ organization.name | first }}</span>
+    {% endif %}
+    <div>
+      <span class="organization-profile-eyebrow">Organización</span>
+      <h1>{{ organization.name }}</h1>
+      {% if organization.links %}
+        <div class="organization-links">
+          {% if organization.links.website %}<a href="{{ organization.links.website }}" target="_blank" rel="noopener noreferrer"><i class="fi-web"></i> Web</a>{% endif %}
+          {% if organization.links.facebook %}<a href="{{ organization.links.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fi-social-facebook"></i> Facebook</a>{% endif %}
+          {% if organization.links.instagram %}<a href="{{ organization.links.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fi-social-instagram"></i> Instagram</a>{% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  {% set organizationEvents = collections.post | eventsForOrganization(organization.slug) %}
+  <section class="organization-events" aria-labelledby="organization-events-title">
+    <header class="home-section-header">
+      <div>
+        <h2 id="organization-events-title">Eventos publicados</h2>
+        <p>{{ organizationEvents.length }} {% if organizationEvents.length == 1 %}evento relacionado{% else %}eventos relacionados{% endif %}</p>
+      </div>
+    </header>
+    <div class="calendar-events-grid">
+      {% for post in organizationEvents %}
+        {% renderPost post, organizations %}
+      {% endfor %}
+    </div>
+  </section>
+</div>

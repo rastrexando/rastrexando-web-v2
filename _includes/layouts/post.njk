@@ -7,6 +7,7 @@ title: Evento — Rastrexando
 {% set eventMapLat = map_lat or catalogLocation.lat %}
 {% set eventMapLng = map_lng or catalogLocation.lng %}
 {% set eventProvince = province or catalogLocation.province %}
+{% set eventOrganizations = organizers | resolveOrganizations(organizations) %}
 
 <nav class="breadcrumbs">
   <ul>
@@ -28,6 +29,11 @@ title: Evento — Rastrexando
 
 <div class="page page-post">
 
+  {% set relDate = date | toRelativeDate %}
+  <header class="event-primary-header">
+    <h1>{{ title }}</h1>
+  </header>
+
   <div class="event-type-row">
     {% if tags %}
       {% if "andaina" in tags %}
@@ -38,41 +44,29 @@ title: Evento — Rastrexando
         <span class="type-pill rastrexo">Rastrexo</span>
       {% endif %}
     {% endif %}
-    {% set relDate = date | toRelativeDate %}
     {% if relDate %}
-      <span class="relative-date" data-date="{{ date.toISOString() }}">{{ relDate }}</span>
+      <span class="relative-date event-date-relative" data-date="{{ date.toISOString() }}">{{ relDate }}</span>
     {% endif %}
   </div>
 
-  <h1>{{ title }}</h1>
-
-  <div class="event-info">
+  <div class="event-info event-date-info">
     <div class="event-info-item">
       <i class="fi-calendar is-light-blue"></i>
-      <span>{{ date | toGlLocale }}</span>
+      <time datetime="{{ date | toISODate }}">{{ date | toGlLocale }}</time>
     </div>
     {% if not (eventMapLat and eventMapLng) %}
-    <div class="event-info-item">
-      <i class="fi-marker is-light-blue"></i>
-      <span>{{ location }}</span>
-    </div>
-    {% endif %}
-    {% if source_url %}
-    <div class="event-info-item">
-      {% if "instagram.com" in source_url %}
-      <i class="fi-social-instagram is-light-blue"></i>
-      {% else %}
-      <i class="fi-social-facebook is-light-blue"></i>
-      {% endif %}
-      <a href="{{ source_url }}" title="{{ source_name }}" target="_blank" rel="noopener noreferrer">{{ source_name }}</a>
-    </div>
-    {% elif source_name %}
-    <div class="event-info-item">
-      <i class="fi-home is-light-blue"></i>
-      <span>{{ source_name }}</span>
-    </div>
+      <div class="event-info-item">
+        <i class="fi-marker is-light-blue"></i>
+        <span>{{ location }}</span>
+      </div>
     {% endif %}
   </div>
+
+  {% if content | trim %}
+    <div class="event-description">
+      {{ content | safe }}
+    </div>
+  {% endif %}
 
   {% if notices %}
     <div class="event-notices" aria-label="Avisos do evento">
@@ -80,6 +74,98 @@ title: Evento — Rastrexando
         {% renderNotice notice.date, notice.message %}
       {% endfor %}
     </div>
+  {% endif %}
+
+  {% if eventOrganizations.length > 0 %}
+    <section class="event-organizations" aria-labelledby="event-organizations-title">
+      <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
+      <div class="event-organization-list">
+        {% for organization in eventOrganizations %}
+          {% set organizationUrl = organization | organizationPrimaryUrl %}
+          {% set organizationEvents = collections.post | eventsForOrganization(organization.slug) %}
+          {% set relatedEvents = collections.post | relatedOrganizationEvents(organization.slug, page.url) %}
+          <article class="event-organization-card">
+            <header class="event-organization-header">
+              {% if organization.logo %}
+                <img class="organization-avatar" src="/recursos/imaxes/{{ organization.logo }}" alt="" loading="lazy" />
+              {% else %}
+                <span class="organization-avatar" aria-hidden="true">{{ organization.name | first }}</span>
+              {% endif %}
+              <div>
+                <h3>{{ organization.name }}</h3>
+                {% if organizationUrl %}
+                  <a class="event-organization-external" href="{{ organizationUrl }}" target="_blank" rel="noopener noreferrer">
+                    {% if organization.links.website %}<i class="fi-web"></i> Páxina web{% elif organization.links.instagram %}<i class="fi-social-instagram"></i> Instagram{% else %}<i class="fi-social-facebook"></i> Facebook{% endif %}
+                    <span class="show-for-sr"> de {{ organization.name }}</span>
+                  </a>
+                {% endif %}
+              </div>
+            </header>
+
+            {% if relatedEvents.length > 0 %}
+              <div class="event-organization-related">
+                <h4>Outros eventos</h4>
+                <ul>
+                  {% for relatedEvent in relatedEvents %}
+                    <li>
+                      <a
+                        href="{{ relatedEvent.url }}"
+                        hx-get="{{ relatedEvent.url }}"
+                        hx-target="#main-container"
+                        hx-select="#main-container"
+                        hx-swap="outerHTML"
+                        hx-push-url="true"
+                      >
+                        <span title="{{ relatedEvent.data.title }}">{{ relatedEvent.data.title }}</span>
+                        <time datetime="{{ relatedEvent.data.date | toISODate }}">{{ relatedEvent.data.date | toNumericDate }}</time>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            <a
+              class="event-organization-all"
+              href="/organizacions/{{ organization.slug }}/"
+              hx-get="/organizacions/{{ organization.slug }}/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-swap="outerHTML"
+              hx-push-url="true"
+            >Ver todos os eventos ({{ organizationEvents.length }}) <span aria-hidden="true">→</span></a>
+          </article>
+        {% endfor %}
+      </div>
+      {% if source_url %}
+        <a class="event-source-link" href="{{ source_url }}" target="_blank" rel="noopener noreferrer"><i class="fi-link"></i> Ver a publicación orixinal</a>
+      {% endif %}
+    </section>
+  {% elif source_name or source_url %}
+    <section class="event-organizations event-organizations--legacy" aria-labelledby="event-organizations-title">
+      <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
+      <div class="event-info">
+        <div class="event-info-item">
+          {% if source_url and "instagram.com" in source_url %}
+            <i class="fi-social-instagram is-light-blue"></i>
+          {% else %}
+            <i class="fi-social-facebook is-light-blue"></i>
+          {% endif %}
+          {% if source_url %}<a href="{{ source_url }}" title="{{ source_name }}" target="_blank" rel="noopener noreferrer">{{ source_name or "Máis información" }}</a>{% else %}<span>{{ source_name }}</span>{% endif %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if videos %}
+    <section class="video-section">
+      <h2>Vídeos</h2>
+      <div class="video-list">
+        {% for video in videos %}
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.id }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {% endfor %}
+      </div>
+    </section>
   {% endif %}
 
   {% if eventMapLat and eventMapLng %}
@@ -102,19 +188,6 @@ title: Evento — Rastrexando
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
   {% endif %}
-
-  {% if videos %}
-    <section class="video-section">
-      <h2>Vídeos</h2>
-      <div class="video-list">
-        {% for video in videos %}
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.id }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        {% endfor %}
-      </div>
-    </section>
-  {% endif %}
-
-  {{ content | safe }}
 
   <div class="share-row">
     <span class="share-label">Compartir:</span>
@@ -163,7 +236,15 @@ title: Evento — Rastrexando
       "addressCountry": "ES"
     }{% endif %}
   }{% if image %},
-  "image": "https://rastrexando.eu/recursos/imaxes/{{ image }}"{% endif %}{% if source_name %},
+  "image": "https://rastrexando.eu/recursos/imaxes/{{ image }}"{% endif %}{% if eventOrganizations.length > 0 %},
+  "organizer": [
+    {% for organization in eventOrganizations %}{
+      "@type": "Organization",
+      "name": "{{ organization.name }}",
+      "url": "https://rastrexando.eu/organizacions/{{ organization.slug }}/"{% set organizationUrl = organization | organizationPrimaryUrl %}{% if organizationUrl %},
+      "sameAs": "{{ organizationUrl }}"{% endif %}
+    }{% if not loop.last %},{% endif %}{% endfor %}
+  ]{% elif source_name %},
   "organizer": {
     "@type": "Organization",
     "name": "{{ source_name }}"{% if source_url %},

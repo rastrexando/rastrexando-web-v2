@@ -1,0 +1,50 @@
+---
+layout: base
+title: Organizacións — Rastrexando
+description: Organizacións que promoven rastrexos e andainas publicados en Rastrexando.
+---
+
+<nav class="breadcrumbs">
+  <ul>
+    <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
+    <li class="breadcrumb-sep">›</li>
+    <li class="is-light-blue">Organizacións</li>
+  </ul>
+</nav>
+
+<div class="page page-organizations">
+  <header class="page-header organizations-page-header">
+    <span class="organization-avatar organization-avatar--large" aria-hidden="true"><i class="fi-torsos-all"></i></span>
+    <div>
+      <h1>Organizacións</h1>
+      <p>Coñece as entidades que fan posibles os eventos publicados en Rastrexando.</p>
+    </div>
+  </header>
+
+  <div class="organization-grid">
+    {% for organization in organizations %}
+      {% set organizationEvents = collections.post | eventsForOrganization(organization.slug) %}
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/{{ organization.slug }}/"
+          hx-get="/organizacions/{{ organization.slug }}/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          {% if organization.logo %}
+            <img class="organization-avatar" src="/recursos/imaxes/{{ organization.logo }}" alt="" loading="lazy" />
+          {% else %}
+            <span class="organization-avatar" aria-hidden="true">{{ organization.name | first }}</span>
+          {% endif %}
+          <span>
+            <strong>{{ organization.name }}</strong>
+            <small>{{ organizationEvents.length }} {% if organizationEvents.length == 1 %}evento{% else %}eventos{% endif %}</small>
+          </span>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</div>

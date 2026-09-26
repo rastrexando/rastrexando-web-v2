@@ -22,7 +22,7 @@ pagination:
     {% if pagination.items.length > 0 %}
     <div class="featured-grid">
       {% for post in pagination.items %}
-        {% renderPost post %}
+        {% renderPost post, organizations %}
       {% endfor %}
     </div>
 

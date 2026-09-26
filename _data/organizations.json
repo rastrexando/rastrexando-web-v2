@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "asociacion-cultural-de-verducido",
+    "name": "Asociación Cultural de Verducido",
+    "links": {
+      "facebook": "https://www.facebook.com/asociacionculturalverducido"
+    }
+  },
+  {
+    "slug": "centro-cultural-pexegueiro",
+    "name": "Centro Cultural Pexegueiro",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100005506787811"
+    }
+  },
+  {
+    "slug": "centro-cultural-recreativo-parada-do-minor",
+    "name": "Centro Cultural e Recreativo Parada do Miñor",
+    "links": {
+      "facebook": "https://www.facebook.com/OCaminodoTerror"
+    }
+  },
+  {
+    "slug": "comision-de-festas-de-areas",
+    "name": "Comisión de Festas de Areas",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=61579909820275"
+    }
+  },
+  {
+    "slug": "comparsa-os-imprescindibles",
+    "name": "Comparsa Os Imprescindibles",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100094030441582"
+    }
+  },
+  {
+    "slug": "politicamente-incorrectos",
+    "name": "Políticamente Incorrectos",
+    "links": {
+      "facebook": "https://www.facebook.com/comparsapoliticamenteincorrectos"
+    }
+  },
+  {
+    "slug": "rastrexo-camos",
+    "name": "Rastrexo Camos",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100057577212657"
+    }
+  },
+  {
+    "slug": "union-musical-de-coruxo",
+    "name": "Unión Musical de Coruxo",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexocoruxo"
+    }
+  },
+  {
+    "slug": "vigorienta",
+    "name": "VIGOrienta",
+    "links": {
+      "instagram": "https://www.instagram.com/vigorienta/"
+    }
+  }
+]
