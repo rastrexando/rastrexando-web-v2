@@ -3316,11 +3316,17 @@ hr,
   line-height: 1.3;
 }
 
+.event-organization-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin-top: 0.35rem;
+}
+
 .event-organization-external {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  margin-top: 0.35rem;
   color: var(--brand-light-blue);
   font-size: 0.82rem;
   font-weight: 700;
