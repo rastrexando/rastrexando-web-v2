@@ -3411,11 +3411,6 @@ hr,
 }
 
 @media (min-width: 960px) {
-  .event-organization-list:has(.event-organization-card:nth-child(2)) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-
   .organization-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
