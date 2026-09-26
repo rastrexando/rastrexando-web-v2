@@ -21,6 +21,34 @@ async function createImageVariant(image, width, folder, quality = 76) {
   }
 }
 
+function collectVideos(collectionApi) {
+  return collectionApi.getAllSorted()
+    .filter(item => item.data.tags?.includes("post") && Array.isArray(item.data.videos))
+    .flatMap(item => item.data.videos.map(video => {
+      const candidatePublishedDate = video.published ? new Date(video.published) : null;
+      const publishedDate = candidatePublishedDate && !Number.isNaN(candidatePublishedDate.getTime())
+        ? candidatePublishedDate
+        : null;
+
+      return {
+        id: video.id,
+        title: video.title,
+        channel: video.channel || "",
+        publishedDate,
+        sortDate: publishedDate || item.data.date,
+        eventTitle: item.data.title,
+        eventUrl: item.url,
+        eventDate: item.data.date,
+        eventYear: String(item.data.date.getFullYear()),
+        location: item.data.location,
+        organizerSlugs: Array.isArray(item.data.organizers) ? item.data.organizers : []
+      };
+    }))
+    .filter(video => video.id && video.title && video.channel &&
+      video.sortDate && !Number.isNaN(video.sortDate.getTime()))
+    .sort((first, second) => second.sortDate - first.sortDate);
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("skeleton", "layouts/skeleton.njk");
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
@@ -44,10 +72,11 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("toGLMonthDay", function(value) {
-    if (value) {
-      return value.toLocaleDateString("gl", {month: "short", day: "numeric"})
-    }
-    return ""
+    if (!value) return "";
+    const date = value instanceof Date ? value : new Date(value);
+    return Number.isNaN(date.getTime())
+      ? ""
+      : date.toLocaleDateString("gl", {month: "short", day: "numeric"});
   });
 
   eleventyConfig.addFilter("toGLWeekday", function(value) {
@@ -178,6 +207,19 @@ module.exports = function (eleventyConfig) {
       .slice(0, 3);
   });
 
+  eleventyConfig.addFilter("relatedOrganizationVideos", function (videos, organizationSlugs, currentUrl) {
+    const requestedSlugs = new Set(
+      Array.isArray(organizationSlugs) ? organizationSlugs : (organizationSlugs ? [organizationSlugs] : [])
+    );
+
+    if (requestedSlugs.size === 0) return [];
+
+    return (videos || [])
+      .filter(video => video.eventUrl !== currentUrl)
+      .filter(video => video.organizerSlugs.some(slug => requestedSlugs.has(slug)))
+      .slice(0, 3);
+  });
+
   eleventyConfig.addFilter("mapEmbedUrl", function (latitude, longitude) {
     const lat = Number(latitude);
     const lon = Number(longitude);
@@ -221,37 +263,15 @@ module.exports = function (eleventyConfig) {
     })
   });
 
+  eleventyConfig.addCollection("allVideos", function (collectionApi) {
+    return collectVideos(collectionApi);
+  });
+
   eleventyConfig.addCollection("currentYearVideos", function (collectionApi) {
     const currentYear = String(now.getFullYear());
-    const videos = collectionApi.getAllSorted()
-      .filter(function(item) {
-        return item.data.tags?.includes("post") &&
-               item.data.tags.includes(currentYear) &&
-               Array.isArray(item.data.videos);
-      })
-      .flatMap(function(item) {
-        return item.data.videos.map(function(video) {
-          const publishedDate = video.published ? new Date(video.published) : item.data.date;
-          return {
-            id: video.id,
-            title: video.title,
-            channel: video.channel || "",
-            publishedDate,
-            eventTitle: item.data.title,
-            eventUrl: item.url,
-            eventDate: item.data.date,
-            location: item.data.location
-          };
-        });
-      })
-      .filter(function(video) {
-        return video.id && video.title && !Number.isNaN(video.publishedDate.getTime());
-      })
-      .sort(function(first, second) {
-        return second.publishedDate - first.publishedDate;
-      });
-
-    return videos.slice(0, 3);
+    return collectVideos(collectionApi)
+      .filter(video => video.eventYear === currentYear)
+      .slice(0, 3);
   });
 
   eleventyConfig.addCollection("yearCovers", function(collectionApi) {

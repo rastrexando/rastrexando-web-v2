@@ -104,6 +104,7 @@ const organizationNames = new Set();
 const organizationCanonicalUrls = new Map();
 const organizationLinksBySlug = new Map();
 const organizationEventReferences = [];
+const videoIds = new Map();
 
 function normalizeOrganizationName(name) {
   return String(name || "")
@@ -218,6 +219,30 @@ for (const eventTemplateFile of eventTemplateFiles) {
     }
   }
 
+  const videosBlock = source.match(/^videos:\s*\n([\s\S]*?)(?=^[a-z_][a-z0-9_-]*:\s*|^---\s*$)/m)?.[1];
+  if (videosBlock) {
+    const videoEntries = videosBlock.split(/^\s*-\s+/m).slice(1);
+    check(videoEntries.length > 0, `${relativeEventTemplate}: videos non contén entradas`);
+
+    for (const videoEntry of videoEntries) {
+      const id = videoEntry.match(/^\s*id:\s*["']?([^\s"']+)/m)?.[1];
+      const title = videoEntry.match(/^\s*title:\s*(.+)$/m)?.[1]?.trim().replace(/^["']|["']$/g, "");
+      const channel = videoEntry.match(/^\s*channel:\s*(.+)$/m)?.[1]?.trim().replace(/^["']|["']$/g, "");
+      const published = videoEntry.match(/^\s*published:\s*["']?([^\s"']+)/m)?.[1];
+
+      check(Boolean(id), `${relativeEventTemplate}: hai un vídeo sen id`);
+      check(Boolean(title), `${relativeEventTemplate}: o vídeo ${id || "sen id"} non ten título`);
+      check(Boolean(channel), `${relativeEventTemplate}: o vídeo ${id || "sen id"} non ten channel`);
+      if (published) {
+        check(/^\d{4}-\d{2}-\d{2}$/.test(published), `${relativeEventTemplate}: data de vídeo non válida (${published})`);
+      }
+      if (id) {
+        check(!videoIds.has(id), `${relativeEventTemplate}: o vídeo ${id} xa aparece en ${videoIds.get(id)}`);
+        videoIds.set(id, relativeEventTemplate);
+      }
+    }
+  }
+
   const is2026Event = eventTemplateFile.includes(`${path.sep}2026${path.sep}`) &&
     /^tags:\s*\[[^\n]*"post"/m.test(source);
   if (is2026Event) {
@@ -226,6 +251,7 @@ for (const eventTemplateFile of eventTemplateFiles) {
 }
 
 check(fs.existsSync(path.join(outputRoot, "index.html")), "Falta a páxina de inicio");
+check(fs.existsSync(path.join(outputRoot, "videos", "index.html")), "Falta o catálogo de vídeos");
 check(fs.existsSync(path.join(outputRoot, "robots.txt")), "Falta robots.txt");
 check(fs.existsSync(path.join(outputRoot, "sitemap.txt")), "Falta sitemap.txt");
 check(htmlFiles.length >= 250, `Só se xeraron ${htmlFiles.length} páxinas HTML`);

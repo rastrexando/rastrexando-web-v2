@@ -56,6 +56,15 @@ layout: skeleton
             {% if "/calendarios/" in page.url %}aria-current="page"{% endif %}
           ><i class="fi-calendar"></i> Calendario</a>
           <a
+            href="/videos/"
+            hx-get="/videos/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            {% if page.url == "/videos/" %}aria-current="page"{% endif %}
+          ><i class="fi-play-video"></i> Vídeos</a>
+          <a
             href="/axuda/"
             hx-get="/axuda/"
             hx-target="#main-container"
@@ -116,6 +125,14 @@ layout: skeleton
           hx-swap="outerHTML"
           hx-push-url="true"
         ><i class="fi-calendar"></i> Calendario</a>
+        <a
+          href="/videos/"
+          hx-get="/videos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-play-video"></i> Vídeos</a>
         <a
           href="/axuda/"
           hx-get="/axuda/"

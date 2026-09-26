@@ -1,0 +1,37 @@
+---
+layout: base
+title: Vídeos — Rastrexando
+description: Vídeos de rastrexos e andainas publicados en Rastrexando.
+---
+
+<nav class="breadcrumbs">
+  <ul>
+    <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
+    <li class="breadcrumb-sep">›</li>
+    <li class="is-light-blue">Vídeos</li>
+  </ul>
+</nav>
+
+<div class="page page-videos">
+  <header class="page-header videos-page-header">
+    <span class="videos-page-icon" aria-hidden="true"><i class="fi-play-video"></i></span>
+    <div>
+      <h1>Vídeos</h1>
+      <p>Revive os rastrexos e andainas a través dos vídeos das organizacións, equipos e participantes.</p>
+    </div>
+  </header>
+
+  <section class="videos-catalog" aria-labelledby="videos-catalog-title">
+    <header class="home-section-header">
+      <div>
+        <h2 id="videos-catalog-title">Todos os vídeos</h2>
+        <p>{{ collections.allVideos.length }} {% if collections.allVideos.length == 1 %}vídeo publicado{% else %}vídeos publicados{% endif %}</p>
+      </div>
+    </header>
+    <div class="current-videos-grid videos-catalog-grid">
+      {% for video in collections.allVideos %}
+        {% include "components/video-card.njk" %}
+      {% endfor %}
+    </div>
+  </section>
+</div>

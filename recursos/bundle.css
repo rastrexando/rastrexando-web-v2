@@ -302,7 +302,7 @@ body {
 .header-nav {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
   gap: 0.35rem;
 }
 
@@ -358,6 +358,18 @@ body {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+@media (max-width: 420px) {
+  .header-nav a {
+    gap: 0.2rem;
+    padding-inline: 0.2rem;
+    font-size: 0.72rem;
+  }
+
+  .header-nav a i {
+    display: none;
+  }
 }
 
 .theme-icon--sun,
@@ -1849,6 +1861,50 @@ body.map-expanded {
   gap: 2rem;
 }
 
+.event-video {
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  box-shadow: 0 3px 14px rgba(13, 10, 76, 0.07);
+}
+
+.event-video-frame {
+  aspect-ratio: 16 / 9;
+  background: #111;
+}
+
+.event-video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.event-video-copy {
+  padding: 0.85rem 1rem 1rem;
+}
+
+.event-video-copy h3,
+.event-video-copy p {
+  margin: 0;
+}
+
+.event-video-copy h3 {
+  color: var(--brand-dark-blue);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.event-video-copy p {
+  margin-top: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.related-videos-section {
+  margin: 2rem 0;
+}
+
 /* ============================================================
    Prev / Next — floating nav bar
    ============================================================ */
@@ -2257,6 +2313,13 @@ body.map-expanded {
   color: var(--brand-dark-blue);
   font-size: 1rem;
   line-height: 1.35;
+}
+
+.current-video-organizations {
+  margin: 0.35rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
 }
 
 .current-video-event {
@@ -3295,6 +3358,40 @@ hr,
 
 :root[data-resolved-theme="dark"] .leaflet-control-attribution a {
   color: var(--brand-light-blue);
+}
+
+/* ============================================================
+   Videos catalog
+   ============================================================ */
+.videos-page-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.videos-page-header p {
+  margin: 0.2rem 0 0;
+}
+
+.videos-page-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  flex: 0 0 4.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.7rem;
+  background: linear-gradient(135deg, var(--brand-dark-blue), var(--brand-light-blue));
+  border-radius: 50%;
+}
+
+.videos-catalog {
+  margin-top: 1.5rem;
+}
+
+.videos-catalog-grid {
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
 }
 
 /* ============================================================

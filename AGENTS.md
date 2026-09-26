@@ -42,14 +42,14 @@ videos: # optional
   - id: <youtube-video-id>
     title: "<video title>"
     published: <optional YYYY-MM-DD upload date>
-    channel: "<optional channel name>"
+    channel: "<YouTube channel name>"
 
 notices: # optional; rendered between event information and the map
   - date: <YYYY-MM-DD>
     message: "<notice text>"
 ```
 
-Video `published` and `channel` fields are optional for compatibility with historical entries. The home page only features videos attached to events from the current build year, ordered by `published` with the event date as fallback.
+Video `channel` is required and identifies the YouTube publisher, whether it is an organization, team, or individual; it must not be inferred from the event organizers. `published` is optional. Videos are ordered by `published`, using the event date only as a sorting fallback without displaying it as the publication date. The home page only features videos attached to events from the current build year. The full catalogue lives at `/videos/`, and event pages may recommend videos from other events sharing an organizer.
 
 ## Conventions
 - Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., `ix-rastrexo-camos.njk`)
