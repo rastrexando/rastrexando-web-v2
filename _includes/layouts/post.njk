@@ -81,7 +81,6 @@ title: Evento — Rastrexando
       <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
       <div class="event-organization-list">
         {% for organization in eventOrganizations %}
-          {% set organizationUrl = organization | organizationPrimaryUrl %}
           {% set organizationEvents = collections.post | eventsForOrganization(organization.slug) %}
           {% set relatedEvents = collections.post | relatedOrganizationEvents(organization.slug, page.url) %}
           <article class="event-organization-card">
@@ -93,11 +92,12 @@ title: Evento — Rastrexando
               {% endif %}
               <div>
                 <h3>{{ organization.name }}</h3>
-                {% if organizationUrl %}
-                  <a class="event-organization-external" href="{{ organizationUrl }}" target="_blank" rel="noopener noreferrer">
-                    {% if organization.links.website %}<i class="fi-web"></i> Páxina web{% elif organization.links.instagram %}<i class="fi-social-instagram"></i> Instagram{% else %}<i class="fi-social-facebook"></i> Facebook{% endif %}
-                    <span class="show-for-sr"> de {{ organization.name }}</span>
-                  </a>
+                {% if organization.links %}
+                  <div class="event-organization-links">
+                    {% if organization.links.website %}<a class="event-organization-external" href="{{ organization.links.website }}" target="_blank" rel="noopener noreferrer"><i class="fi-web"></i> Páxina web<span class="show-for-sr"> de {{ organization.name }}</span></a>{% endif %}
+                    {% if organization.links.facebook %}<a class="event-organization-external" href="{{ organization.links.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fi-social-facebook"></i> Facebook<span class="show-for-sr"> de {{ organization.name }}</span></a>{% endif %}
+                    {% if organization.links.instagram %}<a class="event-organization-external" href="{{ organization.links.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fi-social-instagram"></i> Instagram<span class="show-for-sr"> de {{ organization.name }}</span></a>{% endif %}
+                  </div>
                 {% endif %}
               </div>
             </header>
