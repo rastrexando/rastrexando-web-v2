@@ -35,6 +35,8 @@ For a new location, first run `npm run geocode -- "<location>"`. Validate the ca
 
 Organizations are stored in `_data/organizations.json` and referenced by stable slugs in the `organizers` array. Reuse an existing organization before creating one. Organization profile URLs belong in the organization entity; `source_url` is reserved for an event-specific original announcement, registration page, or other direct source. Historical events may still use `source_name` and `source_url` as a compatibility fallback.
 
+Organization avatars use a local `logo` path under `recursos/imaxes/organizacions/` plus an official HTTP(S) `logo_source`. The logo filename must match the organization slug. Do not hotlink remote images or use event posters as organization logos. Organizations without a verified logo automatically receive deterministic initials and colors generated from their name and slug.
+
 ```yaml
 videos: # optional
   - id: <youtube-video-id>

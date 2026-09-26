@@ -162,6 +162,23 @@ for (const organization of organizations) {
     );
     organizationCanonicalUrls.set(normalizedUrl, organization.name);
   }
+
+  if (organization.logo) {
+    check(
+      new RegExp(`^organizacions/${organization.slug}\\.(?:png|jpe?g|webp|svg)$`, "i").test(organization.logo),
+      `${organization.name}: a ruta do logotipo non usa o slug da organización (${organization.logo})`
+    );
+    check(
+      fs.existsSync(path.join(projectRoot, "recursos", "imaxes", organization.logo)),
+      `${organization.name}: non existe o logotipo ${organization.logo}`
+    );
+    check(
+      Boolean(normalizeExternalUrl(organization.logo_source)) && /^https?:\/\//.test(organization.logo_source || ""),
+      `${organization.name}: falta unha fonte válida para o logotipo`
+    );
+  } else {
+    check(!organization.logo_source, `${organization.name}: ten logo_source pero non ten logotipo`);
+  }
 }
 
 const eventTemplateFiles = walk(path.join(projectRoot, "calendarios"))
@@ -281,6 +298,16 @@ if (organizationsIndexPath && fs.existsSync(organizationsIndexPath)) {
       `Falta a páxina da organización ${organization.name}`
     );
   }
+  if (organizations.some(organization => !organization.logo)) {
+    check(
+      /class="organization-avatar" style="--organization-avatar-from: #[0-9a-f]{6}; --organization-avatar-to: #[0-9a-f]{6}" aria-hidden="true">[^<]{1,2}<\/span>/.test(organizationsIndexHtml),
+      "O directorio non mostra o avatar xerado con iniciais e paleta estable"
+    );
+  }
+  check(
+    !/(?:dicebear|ui-avatars|gravatar)\./i.test(organizationsIndexHtml),
+    "O directorio depende dun servizo externo de avatares"
+  );
 }
 
 for (const { organizationSlug, eventUrl, relativeEventTemplate } of organizationEventReferences) {

@@ -87,9 +87,9 @@ title: Evento — Rastrexando
           <article class="event-organization-card">
             <header class="event-organization-header">
               {% if organization.logo %}
-                <img class="organization-avatar" src="/recursos/imaxes/{{ organization.logo }}" alt="" loading="lazy" />
+                <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/{{ organization.logo }}" alt="" loading="lazy" />
               {% else %}
-                <span class="organization-avatar" aria-hidden="true">{{ organization.name | first }}</span>
+                <span class="organization-avatar" style="{{ organization.slug | organizationAvatarStyle }}" aria-hidden="true">{{ organization.name | organizationInitials }}</span>
               {% endif %}
               <div>
                 <h3>{{ organization.name }}</h3>

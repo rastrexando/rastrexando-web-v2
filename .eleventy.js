@@ -129,6 +129,32 @@ module.exports = function (eleventyConfig) {
       "";
   });
 
+  eleventyConfig.addFilter("organizationInitials", function (name) {
+    const words = String(name || "").match(/[\p{L}\p{N}]+/gu) || [];
+    if (words.length === 0) return "?";
+    if (words.length === 1) return words[0].slice(0, 2).toLocaleUpperCase("gl-ES");
+
+    return `${words[0][0]}${words[words.length - 1][0]}`.toLocaleUpperCase("gl-ES");
+  });
+
+  eleventyConfig.addFilter("organizationAvatarStyle", function (slug) {
+    const palette = [
+      ["#143a52", "#1d6f8a"],
+      ["#512e5f", "#7d3c98"],
+      ["#6e2c00", "#a04000"],
+      ["#145a32", "#229954"],
+      ["#7d4e00", "#b9770e"],
+      ["#154360", "#2874a6"],
+      ["#641e16", "#a93226"],
+      ["#1b4d3e", "#2e7d61"]
+    ];
+    const hash = [...String(slug || "")]
+      .reduce((value, character) => ((value * 31) + character.codePointAt(0)) >>> 0, 0);
+    const [from, to] = palette[hash % palette.length];
+
+    return `--organization-avatar-from: ${from}; --organization-avatar-to: ${to}`;
+  });
+
   eleventyConfig.addFilter("eventsForOrganization", function (events, organizationSlug) {
     return (events || [])
       .filter(event => Array.isArray(event.data.organizers) && event.data.organizers.includes(organizationSlug))

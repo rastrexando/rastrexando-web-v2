@@ -3141,9 +3141,20 @@ hr,
   color: #fff;
   font-size: 1.2rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--brand-dark-blue), var(--brand-light-blue));
+  background: linear-gradient(
+    135deg,
+    var(--organization-avatar-from, var(--brand-dark-blue)),
+    var(--organization-avatar-to, var(--brand-light-blue))
+  );
   border-radius: 50%;
   object-fit: cover;
+}
+
+.organization-avatar--logo {
+  padding: 0.2rem;
+  background: #fff;
+  border: 1px solid var(--card-border);
+  object-fit: contain;
 }
 
 .organization-avatar--large {

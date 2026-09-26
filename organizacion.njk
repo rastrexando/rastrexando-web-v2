@@ -23,9 +23,9 @@ eleventyComputed:
 <div class="page page-organization">
   <header class="organization-profile">
     {% if organization.logo %}
-      <img class="organization-avatar organization-avatar--large" src="/recursos/imaxes/{{ organization.logo }}" alt="" />
+      <img class="organization-avatar organization-avatar--large organization-avatar--logo" src="/recursos/imaxes/{{ organization.logo }}" alt="" />
     {% else %}
-      <span class="organization-avatar organization-avatar--large" aria-hidden="true">{{ organization.name | first }}</span>
+      <span class="organization-avatar organization-avatar--large" style="{{ organization.slug | organizationAvatarStyle }}" aria-hidden="true">{{ organization.name | organizationInitials }}</span>
     {% endif %}
     <div>
       <span class="organization-profile-eyebrow">Organización</span>
