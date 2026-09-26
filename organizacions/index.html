@@ -1,0 +1,2226 @@
+
+<!doctype html>
+<html lang="gl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="theme-color" name="theme-color" content="#f5f7fa">
+    <script>
+      (function () {
+        var storedTheme;
+        try {
+          storedTheme = localStorage.getItem("rastrexando-theme");
+        } catch (error) {
+          storedTheme = null;
+        }
+
+        if (storedTheme === "light" || storedTheme === "dark") {
+          document.documentElement.dataset.theme = storedTheme;
+        }
+
+        var resolvedTheme = storedTheme === "light" || storedTheme === "dark"
+          ? storedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+        document.documentElement.dataset.resolvedTheme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+        document.getElementById("theme-color").content = resolvedTheme === "dark" ? "#11141c" : "#f5f7fa";
+      })();
+    </script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
+		<link rel="stylesheet" href="/recursos/bundle.css">
+    <title>Organizacións — Rastrexando</title>
+
+		<!-- Meta -->
+		<meta name="author" content="Carlos González Goce">
+    <meta name="keywords" content="rastrexo,rastrexar,rastrexando,andaina,galicia"/><meta name="description" content="Organizacións que promoven rastrexos e andainas publicados en Rastrexando.">
+    <link rel="canonical" href="https://rastrexando.eu/organizacions/">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Rastrexando">
+    <meta property="og:locale" content="gl_ES">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Organizacións — Rastrexando">
+    <meta property="og:description" content="Organizacións que promoven rastrexos e andainas publicados en Rastrexando.">
+    <meta property="og:url" content="https://rastrexando.eu/organizacions/">
+    <meta property="og:image" content="https://rastrexando.eu/recursos/landing.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Organizacións — Rastrexando">
+    <meta name="twitter:description" content="Organizacións que promoven rastrexos e andainas publicados en Rastrexando.">
+    <meta name="twitter:image" content="https://rastrexando.eu/recursos/landing.jpg">
+
+		<!-- Favicon (made with http://realfavicongenerator.net/) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/recursos/apple-touch-icon.png?v2=Gvk3Pm9dNO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/recursos/favicon-32x32.png?v2=Gvk3Pm9dNO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/recursos/favicon-16x16.png?v2=Gvk3Pm9dNO">
+    <link rel="manifest" href="/recursos/site.webmanifest?v2=Gvk3Pm9dNO">
+    <link rel="mask-icon" href="/recursos/safari-pinned-tab.svg?v2=Gvk3Pm9dNO" color="#5bbad5">
+    <link rel="shortcut icon" href="/recursos/favicon.ico?v2=Gvk3Pm9dNO">
+    <meta name="apple-mobile-web-app-title" content="Rastrexando">
+    <meta name="application-name" content="Rastrexando">
+    <meta name="msapplication-TileColor" content="#da532c">
+
+    <!-- Scripts -->
+    <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
+    <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
+    <script src="/recursos/js/header-navigation.js?v=1"></script>
+    <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/theme.js"></script>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://rastrexando.eu",
+      "name": "Rastrexando",
+      "description": "A túa plataforma de referencia para non perderte ningún Rastrexo"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Rastrexando",
+      "url": "https://rastrexando.eu",
+      "logo": "https://rastrexando.eu/recursos/rastrexando-simbolo.png",
+      "foundingDate": "2017",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Carlos González Goce",
+          "sameAs": ["https://www.linkedin.com/in/carlos-goce/"]
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Baiona",
+        "addressRegion": "Pontevedra",
+        "addressCountry": "ES"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "carlos@rastrexando.eu"
+      },
+      "sameAs": ["https://www.facebook.com/rastrexando/"]
+    }
+    </script>
+  </head>
+  <body class="relative">
+    
+<div id="layout-base" hx-indicator="#global-htmx-indicator">
+  <div
+    id="global-htmx-indicator"
+    class="htmx-indicator global-htmx-indicator"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <span class="global-htmx-indicator-icon" aria-hidden="true">
+      <span class="global-htmx-indicator-glow"></span>
+      <img src="/recursos/rastrexando-simbolo.png" alt="" width="64" height="64" />
+    </span>
+    <span class="global-htmx-indicator-label">Cargando…</span>
+  </div>
+  <div class="site-header-shell">
+      <span class="star-glints" aria-hidden="true"></span>
+      <header id="main-header" class="wrapper">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          <img class="image" src="/recursos/rastrexando-circular.png" alt="Curuxa e lúa de Rastrexando" />
+          <span class="brand-copy">
+            <span class="title">Rastrexando</span>
+            <span class="tagline">Rastrexos e andainas</span>
+          </span>
+        </a>
+        
+        <nav class="header-nav" aria-label="Navegación principal">
+          <a
+            href="/"
+            hx-get="/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-home"></i> Inicio</a>
+          <a
+            href="/calendarios/2026/"
+            hx-get="/calendarios/2026/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-calendar"></i> Calendario</a>
+          <a
+            href="/axuda/"
+            hx-get="/axuda/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-info"></i> Axuda</a>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Activar tema escuro"
+            aria-pressed="false"
+            title="Activar tema escuro"
+          >
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.6 15.2A8.5 8.5 0 0 1 8.8 3.4 8.5 8.5 0 1 0 20.6 15.2Z" />
+            </svg>
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+          </button>
+        </nav>
+      </header>
+  </div>
+  <main id="main-container">
+    <div class="page-center-content">
+      <div class="page-content">
+        
+<nav class="breadcrumbs">
+  <ul>
+    <li>
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    </li>
+    <li class="breadcrumb-sep">›</li>
+    <li class="is-light-blue">Organizacións</li>
+  </ul>
+</nav>
+
+<div class="page page-organizations">
+  <header class="page-header organizations-page-header">
+    <span class="organization-avatar organization-avatar--large" aria-hidden="true"><i class="fi-torsos-all"></i></span>
+    <div>
+      <h1>Organizacións</h1>
+      <p>Coñece as entidades que fan posibles os eventos publicados en Rastrexando.</p>
+    </div>
+  </header>
+
+  <div class="organization-grid">
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/a-turonia/"
+          hx-get="/organizacions/a-turonia/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/a-turonia.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>A Turonia</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/ac-a-lineira/"
+          hx-get="/organizacions/ac-a-lineira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #154360; --organization-avatar-to: #2874a6" aria-hidden="true">AL</span>
+          
+          <span>
+            <strong>A.C. A Liñeira</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/ac-lembranzas-da-terra-de-guillarei/"
+          hx-get="/organizacions/ac-lembranzas-da-terra-de-guillarei/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">AG</span>
+          
+          <span>
+            <strong>A.C. Lembranzas da Terra de Guillarei</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/airinos-de-san-simon/"
+          hx-get="/organizacions/airinos-de-san-simon/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #1b4d3e; --organization-avatar-to: #2e7d61" aria-hidden="true">AS</span>
+          
+          <span>
+            <strong>Airiños de San Simón</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/alumnos-tafad-ies-maria-solino/"
+          hx-get="/organizacions/alumnos-tafad-ies-maria-solino/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #641e16; --organization-avatar-to: #a93226" aria-hidden="true">AS</span>
+          
+          <span>
+            <strong>Alumnos TAFAD do IES María Soliño</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/amigos-do-rastrexo-de-gulans/"
+          hx-get="/organizacions/amigos-do-rastrexo-de-gulans/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">AG</span>
+          
+          <span>
+            <strong>Amigos do Rastrexo de Guláns</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/anpa-a-lourina/"
+          hx-get="/organizacions/anpa-a-lourina/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #512e5f; --organization-avatar-to: #7d3c98" aria-hidden="true">AL</span>
+          
+          <span>
+            <strong>ANPA A Louriña</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/as-lebres-de-oia/"
+          hx-get="/organizacions/as-lebres-de-oia/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/as-lebres-de-oia.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>As lebres de Oia</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-crd-san-martin-de-moreira/"
+          hx-get="/organizacions/asociacion-crd-san-martin-de-moreira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">AM</span>
+          
+          <span>
+            <strong>Asociación C. R. D. San Martín de Moreira</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-as-angustias/"
+          hx-get="/organizacions/asociacion-cultural-as-angustias/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/asociacion-cultural-as-angustias.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Asociación Cultural As Angustias</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-as-dores-de-fornelos/"
+          hx-get="/organizacions/asociacion-cultural-as-dores-de-fornelos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">AF</span>
+          
+          <span>
+            <strong>Asociación Cultural As Dores de Fornelos</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-barca-de-loimil-arbo/"
+          hx-get="/organizacions/asociacion-cultural-barca-de-loimil-arbo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/asociacion-cultural-barca-de-loimil-arbo.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Asociación Cultural Barca de Loimil - Arbo</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-de-gulans/"
+          hx-get="/organizacions/asociacion-cultural-de-gulans/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #145a32; --organization-avatar-to: #229954" aria-hidden="true">AG</span>
+          
+          <span>
+            <strong>Asociación Cultural de Guláns</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-de-verducido/"
+          hx-get="/organizacions/asociacion-cultural-de-verducido/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/asociacion-cultural-de-verducido.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Asociación Cultural de Verducido</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-e-social-de-herville/"
+          hx-get="/organizacions/asociacion-cultural-e-social-de-herville/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/asociacion-cultural-e-social-de-herville.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Asociación Cultural e Social de Herville</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-festas-de-cristinade/"
+          hx-get="/organizacions/asociacion-cultural-festas-de-cristinade/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">AC</span>
+          
+          <span>
+            <strong>Asociación Cultural Festas de Cristiñade</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-cultural-pedra-de-garza/"
+          hx-get="/organizacions/asociacion-cultural-pedra-de-garza/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #145a32; --organization-avatar-to: #229954" aria-hidden="true">AG</span>
+          
+          <span>
+            <strong>Asociación Cultural Pedra de Garza</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-de-vecinos-a-lavandeira/"
+          hx-get="/organizacions/asociacion-de-vecinos-a-lavandeira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #1b4d3e; --organization-avatar-to: #2e7d61" aria-hidden="true">AL</span>
+          
+          <span>
+            <strong>Asociación de Veciños A Lavandeira</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-de-vecinos-san-salvador-de-torneiros/"
+          hx-get="/organizacions/asociacion-de-vecinos-san-salvador-de-torneiros/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #1b4d3e; --organization-avatar-to: #2e7d61" aria-hidden="true">AT</span>
+          
+          <span>
+            <strong>Asociación de Vecinos San Salvador de Torneiros</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-ludica-deportiva-couso/"
+          hx-get="/organizacions/asociacion-ludica-deportiva-couso/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #145a32; --organization-avatar-to: #229954" aria-hidden="true">AC</span>
+          
+          <span>
+            <strong>Asociación Lúdica Deportiva Couso</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-ludica-y-cultural-o-cubreiro/"
+          hx-get="/organizacions/asociacion-ludica-y-cultural-o-cubreiro/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/asociacion-ludica-y-cultural-o-cubreiro.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Asociación Lúdica y Cultural O Cubreiro</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-revolucion-show/"
+          hx-get="/organizacions/asociacion-revolucion-show/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #641e16; --organization-avatar-to: #a93226" aria-hidden="true">AS</span>
+          
+          <span>
+            <strong>Asociación Revolución Show</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/avv-galineiro-de-vincios/"
+          hx-get="/organizacions/avv-galineiro-de-vincios/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">AV</span>
+          
+          <span>
+            <strong>AVV Galiñeiro de Vincios</strong>
+            <small>5 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/baixo-mino-randufe-futsal/"
+          hx-get="/organizacions/baixo-mino-randufe-futsal/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/baixo-mino-randufe-futsal.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Baixo Miño Randufe Futsal</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/carnaval-castro-barreiro/"
+          hx-get="/organizacions/carnaval-castro-barreiro/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/carnaval-castro-barreiro.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Carnaval Castro Barreiro</strong>
+            <small>5 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/carnaval-san-xurxo/"
+          hx-get="/organizacions/carnaval-san-xurxo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">CX</span>
+          
+          <span>
+            <strong>Carnaval San Xurxo</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/casa-cultural-de-arcos/"
+          hx-get="/organizacions/casa-cultural-de-arcos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">CA</span>
+          
+          <span>
+            <strong>Casa Cultural de Arcos</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/centro-cultural-a-cela-de-baredo/"
+          hx-get="/organizacions/centro-cultural-a-cela-de-baredo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">CB</span>
+          
+          <span>
+            <strong>Centro Cultural A Cela de Baredo</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/centro-cultural-chan-das-pipas/"
+          hx-get="/organizacions/centro-cultural-chan-das-pipas/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">CP</span>
+          
+          <span>
+            <strong>Centro Cultural Chan das Pipas</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/centro-cultural-de-fozara/"
+          hx-get="/organizacions/centro-cultural-de-fozara/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #143a52; --organization-avatar-to: #1d6f8a" aria-hidden="true">CF</span>
+          
+          <span>
+            <strong>Centro Cultural de Fozara</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/centro-cultural-de-xinzo/"
+          hx-get="/organizacions/centro-cultural-de-xinzo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/centro-cultural-de-xinzo.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Centro Cultural de Xinzo</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/centro-cultural-pexegueiro/"
+          hx-get="/organizacions/centro-cultural-pexegueiro/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">CP</span>
+          
+          <span>
+            <strong>Centro Cultural Pexegueiro</strong>
+            <small>7 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/centro-cultural-recreativo-parada-do-minor/"
+          hx-get="/organizacions/centro-cultural-recreativo-parada-do-minor/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/centro-cultural-recreativo-parada-do-minor.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Centro Cultural e Recreativo Parada do Miñor</strong>
+            <small>13 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/cerveceria-marenum/"
+          hx-get="/organizacions/cerveceria-marenum/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #145a32; --organization-avatar-to: #229954" aria-hidden="true">CM</span>
+          
+          <span>
+            <strong>Cervecería Marenum</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/cipc-san-mamed-taboexa/"
+          hx-get="/organizacions/cipc-san-mamed-taboexa/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #641e16; --organization-avatar-to: #a93226" aria-hidden="true">CT</span>
+          
+          <span>
+            <strong>CIPC San Mamed Taboexa</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comerciantes-mercado-do-relo/"
+          hx-get="/organizacions/comerciantes-mercado-do-relo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">CR</span>
+          
+          <span>
+            <strong>Comerciantes Mercado do Reló</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-da-peregrina/"
+          hx-get="/organizacions/comision-de-festas-da-peregrina/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comision-de-festas-da-peregrina.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comisión de Festas da Peregrina</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-de-areas/"
+          hx-get="/organizacions/comision-de-festas-de-areas/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #512e5f; --organization-avatar-to: #7d3c98" aria-hidden="true">CA</span>
+          
+          <span>
+            <strong>Comisión de Festas de Areas</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-de-camos/"
+          hx-get="/organizacions/comision-de-festas-de-camos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #641e16; --organization-avatar-to: #a93226" aria-hidden="true">CC</span>
+          
+          <span>
+            <strong>Comisión de Festas de Camos</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-de-san-lorenzo-de-pineiro/"
+          hx-get="/organizacions/comision-de-festas-de-san-lorenzo-de-pineiro/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comision-de-festas-de-san-lorenzo-de-pineiro.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comisión de Festas de San Lorenzo de Piñeiro</strong>
+            <small>6 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-de-santiago-de-oliveira/"
+          hx-get="/organizacions/comision-de-festas-de-santiago-de-oliveira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #154360; --organization-avatar-to: #2874a6" aria-hidden="true">CO</span>
+          
+          <span>
+            <strong>Comisión de Festas de Santiago de Oliveira</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-dos-remedios/"
+          hx-get="/organizacions/comision-de-festas-dos-remedios/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #143a52; --organization-avatar-to: #1d6f8a" aria-hidden="true">CR</span>
+          
+          <span>
+            <strong>Comisión de Festas dos Remedios</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-san-benito-de-atios/"
+          hx-get="/organizacions/comision-de-festas-san-benito-de-atios/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comision-de-festas-san-benito-de-atios.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comisión de Festas San Benito de Atios</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-san-cristobal/"
+          hx-get="/organizacions/comision-de-festas-san-cristobal/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #154360; --organization-avatar-to: #2874a6" aria-hidden="true">CC</span>
+          
+          <span>
+            <strong>Comisión de Festas San Cristóbal</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-san-eleuterio/"
+          hx-get="/organizacions/comision-de-festas-san-eleuterio/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comision-de-festas-san-eleuterio.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comisión de Festas San Eleuterio</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-festas-virxe-da-cela-de-baredo/"
+          hx-get="/organizacions/comision-de-festas-virxe-da-cela-de-baredo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #145a32; --organization-avatar-to: #229954" aria-hidden="true">CB</span>
+          
+          <span>
+            <strong>Comisión de Festas Virxe da Cela de Baredo</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-de-fiestas-de-as-angustias/"
+          hx-get="/organizacions/comision-de-fiestas-de-as-angustias/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">CA</span>
+          
+          <span>
+            <strong>Comisión de Fiestas de As Angustias</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comision-san-caetano-de-paramos/"
+          hx-get="/organizacions/comision-san-caetano-de-paramos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comision-san-caetano-de-paramos.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comisión San Caetano de Paramos</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comparsa-ciklon/"
+          hx-get="/organizacions/comparsa-ciklon/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comparsa-ciklon.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comparsa Ciklón</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comparsa-luces/"
+          hx-get="/organizacions/comparsa-luces/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #512e5f; --organization-avatar-to: #7d3c98" aria-hidden="true">CL</span>
+          
+          <span>
+            <strong>Comparsa Luces</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comparsa-os-imprescindibles/"
+          hx-get="/organizacions/comparsa-os-imprescindibles/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comparsa-os-imprescindibles.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comparsa Os Imprescindibles</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comparsa-talisman/"
+          hx-get="/organizacions/comparsa-talisman/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comparsa-talisman.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Comparsa Talismán</strong>
+            <small>5 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comunidade-de-montes-de-camos/"
+          hx-get="/organizacions/comunidade-de-montes-de-camos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">CC</span>
+          
+          <span>
+            <strong>Comunidade de Montes de Camos</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/comunidade-de-montes-de-couso/"
+          hx-get="/organizacions/comunidade-de-montes-de-couso/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">CC</span>
+          
+          <span>
+            <strong>Comunidade de Montes de Couso</strong>
+            <small>9 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/concello-de-mondariz/"
+          hx-get="/organizacions/concello-de-mondariz/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/concello-de-mondariz.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Concello de Mondariz</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/entroido-picona/"
+          hx-get="/organizacions/entroido-picona/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/entroido-picona.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Entroido Picoña</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/entroido-soutelo/"
+          hx-get="/organizacions/entroido-soutelo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">ES</span>
+          
+          <span>
+            <strong>Entroido Soutelo</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/erizana-cf/"
+          hx-get="/organizacions/erizana-cf/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/erizana-cf.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Erizana CF</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/espenicelo/"
+          hx-get="/organizacions/espenicelo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/espenicelo.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Espenicelo</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/estumballadas/"
+          hx-get="/organizacions/estumballadas/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/estumballadas.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Estumballadas</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/festa-virxe-da-o-picona/"
+          hx-get="/organizacions/festa-virxe-da-o-picona/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #512e5f; --organization-avatar-to: #7d3c98" aria-hidden="true">FP</span>
+          
+          <span>
+            <strong>Festa Virxe da O Picoña</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/festas-virxe-da-guia/"
+          hx-get="/organizacions/festas-virxe-da-guia/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/festas-virxe-da-guia.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Festas Virxe da Guía</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/grupo-rastrexo-avispados/"
+          hx-get="/organizacions/grupo-rastrexo-avispados/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #512e5f; --organization-avatar-to: #7d3c98" aria-hidden="true">GA</span>
+          
+          <span>
+            <strong>Grupo Rastrexo Avispados</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/mini-rastrexo-cangas/"
+          hx-get="/organizacions/mini-rastrexo-cangas/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/mini-rastrexo-cangas.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Mini Rastrexo Cangas</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/nieves-futbol-club/"
+          hx-get="/organizacions/nieves-futbol-club/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #641e16; --organization-avatar-to: #a93226" aria-hidden="true">NC</span>
+          
+          <span>
+            <strong>Nieves Fútbol Club</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/omix-mondariz/"
+          hx-get="/organizacions/omix-mondariz/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">OM</span>
+          
+          <span>
+            <strong>OMIX Mondariz</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/pikona-salceda/"
+          hx-get="/organizacions/pikona-salceda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #143a52; --organization-avatar-to: #1d6f8a" aria-hidden="true">PS</span>
+          
+          <span>
+            <strong>Pikoña Salceda</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/politicamente-incorrectos/"
+          hx-get="/organizacions/politicamente-incorrectos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/politicamente-incorrectos.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Políticamente Incorrectos</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/ponte-a-fuxir/"
+          hx-get="/organizacions/ponte-a-fuxir/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/ponte-a-fuxir.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Ponte a Fuxir</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-amorin/"
+          hx-get="/organizacions/rastrexo-amorin/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-amorin.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Amorín</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-areas/"
+          hx-get="/organizacions/rastrexo-areas/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-areas.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Areas</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-barciademera/"
+          hx-get="/organizacions/rastrexo-barciademera/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-barciademera.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Barciademera</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-batallans/"
+          hx-get="/organizacions/rastrexo-batallans/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-batallans.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Batalláns</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-camos/"
+          hx-get="/organizacions/rastrexo-camos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-camos.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Camos</strong>
+            <small>12 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-cidade-universitaria/"
+          hx-get="/organizacions/rastrexo-cidade-universitaria/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #641e16; --organization-avatar-to: #a93226" aria-hidden="true">RU</span>
+          
+          <span>
+            <strong>Rastrexo Cidade Universitaria</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-costeira/"
+          hx-get="/organizacions/rastrexo-costeira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #145a32; --organization-avatar-to: #229954" aria-hidden="true">RC</span>
+          
+          <span>
+            <strong>Rastrexo Costeira</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-cristelos/"
+          hx-get="/organizacions/rastrexo-cristelos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-cristelos.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Cristelos</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-de-lira/"
+          hx-get="/organizacions/rastrexo-de-lira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #154360; --organization-avatar-to: #2874a6" aria-hidden="true">RL</span>
+          
+          <span>
+            <strong>Rastrexo de Lira</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-de-villar/"
+          hx-get="/organizacions/rastrexo-de-villar/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #154360; --organization-avatar-to: #2874a6" aria-hidden="true">RV</span>
+          
+          <span>
+            <strong>Rastrexo de Villar</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-festivexe/"
+          hx-get="/organizacions/rastrexo-festivexe/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-festivexe.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Festivexe</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-gulans/"
+          hx-get="/organizacions/rastrexo-gulans/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #145a32; --organization-avatar-to: #229954" aria-hidden="true">RG</span>
+          
+          <span>
+            <strong>Rastrexo Guláns</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-infantil-fornelos-e-lourido/"
+          hx-get="/organizacions/rastrexo-infantil-fornelos-e-lourido/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #143a52; --organization-avatar-to: #1d6f8a" aria-hidden="true">RL</span>
+          
+          <span>
+            <strong>Rastrexo Infantil Fornelos e Lourido</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-lobarinas/"
+          hx-get="/organizacions/rastrexo-lobarinas/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-lobarinas.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Asociación veciñal de Lobariñas</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-oliveira/"
+          hx-get="/organizacions/rastrexo-oliveira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #143a52; --organization-avatar-to: #1d6f8a" aria-hidden="true">RO</span>
+          
+          <span>
+            <strong>Rastrexo Oliveira</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-pereiras/"
+          hx-get="/organizacions/rastrexo-pereiras/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-pereiras.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Pereiras</strong>
+            <small>6 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-san-pedro/"
+          hx-get="/organizacions/rastrexo-san-pedro/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">RP</span>
+          
+          <span>
+            <strong>Rastrexo San Pedro</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-soutolobre/"
+          hx-get="/organizacions/rastrexo-soutolobre/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-soutolobre.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Soutolobre</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-taborda/"
+          hx-get="/organizacions/rastrexo-taborda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-taborda.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Rastrexo Taborda</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-virxe-da-guia/"
+          hx-get="/organizacions/rastrexo-virxe-da-guia/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #6e2c00; --organization-avatar-to: #a04000" aria-hidden="true">RG</span>
+          
+          <span>
+            <strong>Rastrexo Virxe da Guía</strong>
+            <small>1 evento</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/territorio-comanche/"
+          hx-get="/organizacions/territorio-comanche/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/territorio-comanche.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Territorio Comanche</strong>
+            <small>6 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/union-musical-de-coruxo/"
+          hx-get="/organizacions/union-musical-de-coruxo/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/union-musical-de-coruxo.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Unión Musical de Coruxo</strong>
+            <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/vigorienta/"
+          hx-get="/organizacions/vigorienta/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/vigorienta.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>VIGOrienta</strong>
+            <small>3 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+  </div>
+</div>
+
+      </div>
+    </div>
+  </main>
+  <footer id="main-footer">
+    <div class="wrapper">
+      <div class="footer-brand">
+        <a
+          class="footer-brand-link"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          <img class="footer-symbol" src="/recursos/rastrexando-contratipo.png" alt="" loading="lazy" decoding="async" />
+          <span>Rastrexando</span>
+        </a>
+        <span class="footer-copy">Rastrexos e andainas en Galicia · 2017–2026</span>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación secundaria">
+        <a
+          href="/calendarios/2026/"
+          hx-get="/calendarios/2026/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-calendar"></i> Calendario</a>
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-info"></i> Axuda</a>
+        <a href="https://www.facebook.com/rastrexando" target="_blank" rel="noopener noreferrer">
+          <i class="fi-social-facebook"></i> Facebook
+        </a>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+  </body>
+</html>

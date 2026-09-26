@@ -212,6 +212,7 @@
 
 
 
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -258,6 +259,11 @@
 
 <div class="page page-post">
 
+  
+  <header class="event-primary-header">
+    <h1>I Rastrexo de Paramos</h1>
+  </header>
+
   <div class="event-type-row">
     
       
@@ -265,26 +271,82 @@
       
     
     
-    
   </div>
 
-  <h1>I Rastrexo de Paramos</h1>
-
-  <div class="event-info">
+  <div class="event-info event-date-info">
     <div class="event-info-item">
       <i class="fi-calendar is-light-blue"></i>
-      <span>sábado, 18 de xuño de 2016</span>
-    </div>
-    
-    
-    <div class="event-info-item">
-      
-      <i class="fi-social-facebook is-light-blue"></i>
-      
-      <a href="https://www.facebook.com/comisionsancaetano/" title="II Rastrexo De Paramos" target="_blank" rel="noopener noreferrer">II Rastrexo De Paramos</a>
+      <time datetime="2016-06-18">sábado, 18 de xuño de 2016</time>
     </div>
     
   </div>
+
+  
+
+  
+
+  
+    <section class="event-organizations" aria-labelledby="event-organizations-title">
+      <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
+      <div class="event-organization-list">
+        
+          
+          
+          
+          <article class="event-organization-card">
+            <header class="event-organization-header">
+              
+                <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/comision-san-caetano-de-paramos.webp" alt="" loading="lazy" />
+              
+              <div>
+                <h3>Comisión San Caetano de Paramos</h3>
+                
+                  <a class="event-organization-external" href="https://www.facebook.com/comisionsancaetano/" target="_blank" rel="noopener noreferrer">
+                    <i class="fi-social-facebook"></i> Facebook
+                    <span class="show-for-sr"> de Comisión San Caetano de Paramos</span>
+                  </a>
+                
+              </div>
+            </header>
+
+            
+              <div class="event-organization-related">
+                <h4>Outros eventos</h4>
+                <ul>
+                  
+                    <li>
+                      <a
+                        href="/calendarios/2017/ii-rastrexo-paramos-tui/"
+                        hx-get="/calendarios/2017/ii-rastrexo-paramos-tui/"
+                        hx-target="#main-container"
+                        hx-select="#main-container"
+                        hx-swap="outerHTML"
+                        hx-push-url="true"
+                      >
+                        <span title="II Rastrexo Páramos - Tui">II Rastrexo Páramos - Tui</span>
+                        <time datetime="2017-06-17">17-06-2017</time>
+                      </a>
+                    </li>
+                  
+                </ul>
+              </div>
+            
+
+            <a
+              class="event-organization-all"
+              href="/organizacions/comision-san-caetano-de-paramos/"
+              hx-get="/organizacions/comision-san-caetano-de-paramos/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-swap="outerHTML"
+              hx-push-url="true"
+            >Ver todos os eventos (2) <span aria-hidden="true">→</span></a>
+          </article>
+        
+      </div>
+      
+    </section>
+  
 
   
 
@@ -307,10 +369,6 @@
       </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
-  
-
-  
-
   
 
   <div class="share-row">
@@ -383,11 +441,14 @@
     }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/26/07fff3-003c-4716-9e0b-7bfed99906d9.jpeg",
-  "organizer": {
-    "@type": "Organization",
-    "name": "II Rastrexo De Paramos",
-    "url": "https://www.facebook.com/comisionsancaetano/"
-  }
+  "organizer": [
+    {
+      "@type": "Organization",
+      "name": "Comisión San Caetano de Paramos",
+      "url": "https://rastrexando.eu/organizacions/comision-san-caetano-de-paramos/",
+      "sameAs": "https://www.facebook.com/comisionsancaetano/"
+    }
+  ]
 }
 </script>
 

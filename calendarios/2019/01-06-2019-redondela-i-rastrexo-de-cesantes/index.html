@@ -212,6 +212,7 @@
 
 
 
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -258,6 +259,11 @@
 
 <div class="page page-post">
 
+  
+  <header class="event-primary-header">
+    <h1>I Rastrexo de Cesantes</h1>
+  </header>
+
   <div class="event-type-row">
     
       
@@ -265,24 +271,56 @@
       
     
     
-    
   </div>
 
-  <h1>I Rastrexo de Cesantes</h1>
-
-  <div class="event-info">
+  <div class="event-info event-date-info">
     <div class="event-info-item">
       <i class="fi-calendar is-light-blue"></i>
-      <span>sábado, 1 de xuño de 2019</span>
-    </div>
-    
-    
-    <div class="event-info-item">
-      <i class="fi-home is-light-blue"></i>
-      <span>Airiños de San Simón</span>
+      <time datetime="2019-06-01">sábado, 1 de xuño de 2019</time>
     </div>
     
   </div>
+
+  
+
+  
+
+  
+    <section class="event-organizations" aria-labelledby="event-organizations-title">
+      <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
+      <div class="event-organization-list">
+        
+          
+          
+          
+          <article class="event-organization-card">
+            <header class="event-organization-header">
+              
+                <span class="organization-avatar" style="--organization-avatar-from: #1b4d3e; --organization-avatar-to: #2e7d61" aria-hidden="true">AS</span>
+              
+              <div>
+                <h3>Airiños de San Simón</h3>
+                
+              </div>
+            </header>
+
+            
+
+            <a
+              class="event-organization-all"
+              href="/organizacions/airinos-de-san-simon/"
+              hx-get="/organizacions/airinos-de-san-simon/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-swap="outerHTML"
+              hx-push-url="true"
+            >Ver todos os eventos (1) <span aria-hidden="true">→</span></a>
+          </article>
+        
+      </div>
+      
+    </section>
+  
 
   
 
@@ -305,10 +343,6 @@
       </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
-  
-
-  
-
   
 
   <div class="share-row">
@@ -381,10 +415,13 @@
     }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/13/20adae-f75c-423a-b766-8813295baf50.jpeg",
-  "organizer": {
-    "@type": "Organization",
-    "name": "Airiños de San Simón"
-  }
+  "organizer": [
+    {
+      "@type": "Organization",
+      "name": "Airiños de San Simón",
+      "url": "https://rastrexando.eu/organizacions/airinos-de-san-simon/"
+    }
+  ]
 }
 </script>
 

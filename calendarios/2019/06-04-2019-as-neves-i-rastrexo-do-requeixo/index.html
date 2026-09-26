@@ -212,6 +212,7 @@
 
 
 
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -258,6 +259,11 @@
 
 <div class="page page-post">
 
+  
+  <header class="event-primary-header">
+    <h1>I Rastrexo do Requeixo</h1>
+  </header>
+
   <div class="event-type-row">
     
       
@@ -265,24 +271,56 @@
       
     
     
-    
   </div>
 
-  <h1>I Rastrexo do Requeixo</h1>
-
-  <div class="event-info">
+  <div class="event-info event-date-info">
     <div class="event-info-item">
       <i class="fi-calendar is-light-blue"></i>
-      <span>sábado, 6 de abril de 2019</span>
-    </div>
-    
-    
-    <div class="event-info-item">
-      <i class="fi-home is-light-blue"></i>
-      <span>A.C. A Liñeira</span>
+      <time datetime="2019-04-06">sábado, 6 de abril de 2019</time>
     </div>
     
   </div>
+
+  
+
+  
+
+  
+    <section class="event-organizations" aria-labelledby="event-organizations-title">
+      <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
+      <div class="event-organization-list">
+        
+          
+          
+          
+          <article class="event-organization-card">
+            <header class="event-organization-header">
+              
+                <span class="organization-avatar" style="--organization-avatar-from: #154360; --organization-avatar-to: #2874a6" aria-hidden="true">AL</span>
+              
+              <div>
+                <h3>A.C. A Liñeira</h3>
+                
+              </div>
+            </header>
+
+            
+
+            <a
+              class="event-organization-all"
+              href="/organizacions/ac-a-lineira/"
+              hx-get="/organizacions/ac-a-lineira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-swap="outerHTML"
+              hx-push-url="true"
+            >Ver todos os eventos (1) <span aria-hidden="true">→</span></a>
+          </article>
+        
+      </div>
+      
+    </section>
+  
 
   
 
@@ -305,10 +343,6 @@
       </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
-  
-
-  
-
   
 
   <div class="share-row">
@@ -381,10 +415,13 @@
     }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/36/30216a-c074-41b5-8761-6eb14bdd4f8b.jpeg",
-  "organizer": {
-    "@type": "Organization",
-    "name": "A.C. A Liñeira"
-  }
+  "organizer": [
+    {
+      "@type": "Organization",
+      "name": "A.C. A Liñeira",
+      "url": "https://rastrexando.eu/organizacions/ac-a-lineira/"
+    }
+  ]
 }
 </script>
 

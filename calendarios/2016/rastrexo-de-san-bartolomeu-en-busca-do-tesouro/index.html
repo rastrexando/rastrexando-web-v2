@@ -212,6 +212,7 @@
 
 
 
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -258,6 +259,11 @@
 
 <div class="page page-post">
 
+  
+  <header class="event-primary-header">
+    <h1>Rastrexo de San Bartolomeu &quot;En busca do tesouro&quot;</h1>
+  </header>
+
   <div class="event-type-row">
     
       
@@ -265,26 +271,61 @@
       
     
     
-    
   </div>
 
-  <h1>Rastrexo de San Bartolomeu &quot;En busca do tesouro&quot;</h1>
-
-  <div class="event-info">
+  <div class="event-info event-date-info">
     <div class="event-info-item">
       <i class="fi-calendar is-light-blue"></i>
-      <span>sábado, 16 de xullo de 2016</span>
-    </div>
-    
-    
-    <div class="event-info-item">
-      
-      <i class="fi-social-facebook is-light-blue"></i>
-      
-      <a href="https://www.facebook.com/espenicelo/" title="Espenicelo" target="_blank" rel="noopener noreferrer">Espenicelo</a>
+      <time datetime="2016-07-16">sábado, 16 de xullo de 2016</time>
     </div>
     
   </div>
+
+  
+
+  
+
+  
+    <section class="event-organizations" aria-labelledby="event-organizations-title">
+      <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
+      <div class="event-organization-list">
+        
+          
+          
+          
+          <article class="event-organization-card">
+            <header class="event-organization-header">
+              
+                <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/espenicelo.webp" alt="" loading="lazy" />
+              
+              <div>
+                <h3>Espenicelo</h3>
+                
+                  <a class="event-organization-external" href="https://www.facebook.com/espenicelo/" target="_blank" rel="noopener noreferrer">
+                    <i class="fi-social-facebook"></i> Facebook
+                    <span class="show-for-sr"> de Espenicelo</span>
+                  </a>
+                
+              </div>
+            </header>
+
+            
+
+            <a
+              class="event-organization-all"
+              href="/organizacions/espenicelo/"
+              hx-get="/organizacions/espenicelo/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-swap="outerHTML"
+              hx-push-url="true"
+            >Ver todos os eventos (1) <span aria-hidden="true">→</span></a>
+          </article>
+        
+      </div>
+      
+    </section>
+  
 
   
 
@@ -307,10 +348,6 @@
       </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
-  
-
-  
-
   
 
   <div class="share-row">
@@ -383,11 +420,14 @@
     }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/9c/f09016-f85c-438d-a26a-7c6b000d27c4.jpeg",
-  "organizer": {
-    "@type": "Organization",
-    "name": "Espenicelo",
-    "url": "https://www.facebook.com/espenicelo/"
-  }
+  "organizer": [
+    {
+      "@type": "Organization",
+      "name": "Espenicelo",
+      "url": "https://rastrexando.eu/organizacions/espenicelo/",
+      "sameAs": "https://www.facebook.com/espenicelo/"
+    }
+  ]
 }
 </script>
 

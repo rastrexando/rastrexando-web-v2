@@ -212,6 +212,7 @@
 
 
 
+
 <nav class="breadcrumbs">
   <ul>
     <li>
@@ -258,6 +259,11 @@
 
 <div class="page page-post">
 
+  
+  <header class="event-primary-header">
+    <h1>III Rastrexo de Lira</h1>
+  </header>
+
   <div class="event-type-row">
     
       
@@ -265,26 +271,58 @@
       
     
     
-    
   </div>
 
-  <h1>III Rastrexo de Lira</h1>
-
-  <div class="event-info">
+  <div class="event-info event-date-info">
     <div class="event-info-item">
       <i class="fi-calendar is-light-blue"></i>
-      <span>domingo, 21 de setembro de 2014</span>
-    </div>
-    
-    
-    <div class="event-info-item">
-      
-      <i class="fi-social-facebook is-light-blue"></i>
-      
-      <a href="https://www.facebook.com/RastrexoDeLira/photos/a.686764378074041.1073741827.354455234638292/686764344740711/?type=3" title="Rastrexo de Lira" target="_blank" rel="noopener noreferrer">Rastrexo de Lira</a>
+      <time datetime="2014-09-21">domingo, 21 de setembro de 2014</time>
     </div>
     
   </div>
+
+  
+
+  
+
+  
+    <section class="event-organizations" aria-labelledby="event-organizations-title">
+      <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
+      <div class="event-organization-list">
+        
+          
+          
+          
+          <article class="event-organization-card">
+            <header class="event-organization-header">
+              
+                <span class="organization-avatar" style="--organization-avatar-from: #154360; --organization-avatar-to: #2874a6" aria-hidden="true">RL</span>
+              
+              <div>
+                <h3>Rastrexo de Lira</h3>
+                
+              </div>
+            </header>
+
+            
+
+            <a
+              class="event-organization-all"
+              href="/organizacions/rastrexo-de-lira/"
+              hx-get="/organizacions/rastrexo-de-lira/"
+              hx-target="#main-container"
+              hx-select="#main-container"
+              hx-swap="outerHTML"
+              hx-push-url="true"
+            >Ver todos os eventos (1) <span aria-hidden="true">→</span></a>
+          </article>
+        
+      </div>
+      
+        <a class="event-source-link" href="https://www.facebook.com/RastrexoDeLira/photos/a.686764378074041.1073741827.354455234638292/686764344740711/?type=3" target="_blank" rel="noopener noreferrer"><i class="fi-link"></i> Ver a publicación orixinal</a>
+      
+    </section>
+  
 
   
 
@@ -307,10 +345,6 @@
       </noscript>
       <p class="event-map-notice"><strong>Localización aproximada.</strong> Consulta a organización para o punto de saída.</p>
     </section>
-  
-
-  
-
   
 
   <div class="share-row">
@@ -383,11 +417,13 @@
     }
   },
   "image": "https://rastrexando.eu/recursos/imaxes/2012-2020/3e/ee65f7-6ef1-4570-9e72-3ca1eda542b0.jpg",
-  "organizer": {
-    "@type": "Organization",
-    "name": "Rastrexo de Lira",
-    "url": "https://www.facebook.com/RastrexoDeLira/photos/a.686764378074041.1073741827.354455234638292/686764344740711/?type=3"
-  }
+  "organizer": [
+    {
+      "@type": "Organization",
+      "name": "Rastrexo de Lira",
+      "url": "https://rastrexando.eu/organizacions/rastrexo-de-lira/"
+    }
+  ]
 }
 </script>
 
