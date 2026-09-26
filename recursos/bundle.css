@@ -2473,6 +2473,187 @@ body.map-expanded {
 }
 
 /* ============================================================
+   Not found page
+   ============================================================ */
+.page-not-found {
+  display: grid;
+  min-height: min(560px, calc(100dvh - 18rem));
+  place-items: center;
+}
+
+.not-found-card {
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  background: var(--card-bg);
+  box-shadow: 0 12px 36px rgba(13, 10, 76, 0.1);
+}
+
+.not-found-illustration {
+  position: relative;
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(142, 209, 255, 0.3), transparent 35%),
+    linear-gradient(145deg, #080729, #123d69);
+}
+
+.not-found-illustration::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.65;
+  background-image:
+    radial-gradient(circle, white 0 1px, transparent 1.5px),
+    radial-gradient(circle, #8ed1ff 0 1px, transparent 1.6px);
+  background-position: 13px 17px, 67px 43px;
+  background-size: 97px 71px, 151px 109px;
+}
+
+.not-found-illustration::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid rgba(142, 209, 255, 0.75);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.98) 0 58%,
+    rgba(142, 209, 255, 0.92) 60%,
+    rgba(37, 156, 244, 0.2) 72%,
+    transparent 74%
+  );
+  box-shadow: 0 0 2rem rgba(37, 156, 244, 0.42);
+}
+
+.not-found-illustration img {
+  position: relative;
+  z-index: 1;
+  width: 6.5rem;
+  height: 6.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 7px rgba(0, 0, 0, 0.32));
+}
+
+.not-found-code {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: clamp(7rem, 35vw, 11rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.08em;
+}
+
+.not-found-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.not-found-eyebrow {
+  margin: 0 0 0.25rem;
+  color: var(--brand-light-blue);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.not-found-content h1 {
+  margin: 0;
+  color: var(--brand-dark-blue);
+  font-size: clamp(1.75rem, 1.35rem + 2vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.not-found-content > p:not(.not-found-eyebrow) {
+  max-width: 52ch;
+  margin: 0.75rem auto 0;
+  color: var(--text-muted);
+}
+
+.not-found-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.not-found-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.55rem 0.95rem;
+  border: 2px solid var(--brand-dark-blue);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.not-found-action--primary,
+.not-found-action:hover {
+  color: white;
+  background: var(--brand-deep);
+}
+
+.not-found-action:hover {
+  transform: translateY(-1px);
+}
+
+.not-found-action:focus-visible,
+.not-found-help:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 3px;
+}
+
+.not-found-help {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .not-found-card {
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .not-found-illustration {
+    min-height: 330px;
+  }
+
+  .not-found-content {
+    align-self: center;
+    padding: 2.5rem;
+    text-align: left;
+  }
+
+  .not-found-content > p:not(.not-found-eyebrow) {
+    margin-inline: 0;
+  }
+
+  .not-found-actions {
+    justify-content: flex-start;
+  }
+}
+
+:root[data-resolved-theme="dark"] .not-found-action--primary,
+:root[data-resolved-theme="dark"] .not-found-action:hover {
+  color: var(--brand-deep);
+  background: var(--brand-light-blue);
+}
+
+/* ============================================================
    Help page
    ============================================================ */
 .help-page-header {
