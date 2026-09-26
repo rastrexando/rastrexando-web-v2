@@ -15,7 +15,7 @@ Collect from the user:
 - **source_url** (optional): URL of the original event announcement, registration page, or another event-specific direct source. Do not use an organization profile as the event source.
 - **image_url**: URL to download the event poster/image from
 - **body** (optional): HTML content for the event description. See "Body text rules" below.
-- **videos** (optional): Array of YouTube video objects with `id`, `title`, required `channel`, and optional `published` (`YYYY-MM-DD`). `channel` is the YouTube publisher and may be an organization, team, or individual.
+- **videos** (optional): Array of YouTube video objects with `id`, `title`, required `channel`, and required `published` (`YYYY-MM-DD`). `channel` is the YouTube publisher and may be an organization, team, or individual. Read the real publication date from YouTube metadata; do not use the event date.
 - **notices** (optional): Array of important event notices with `date` (`YYYY-MM-DD`) and a Galician `message`. Notices render between the event information card and the map.
 
 ## Body text rules
@@ -126,7 +126,7 @@ If videos are provided, add them to the frontmatter:
 videos:
   - id: <youtube-video-id>
     title: "<video title>"
-    published: <optional YYYY-MM-DD upload date>
+    published: <YYYY-MM-DD upload date>
     channel: "<YouTube channel name>"
 ```
 

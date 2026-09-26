@@ -234,6 +234,7 @@ for (const eventTemplateFile of eventTemplateFiles) {
       check(Boolean(id), `${relativeEventTemplate}: hai un vídeo sen id`);
       check(Boolean(title), `${relativeEventTemplate}: o vídeo ${id || "sen id"} non ten título`);
       check(Boolean(channel), `${relativeEventTemplate}: o vídeo ${id || "sen id"} non ten channel`);
+      check(Boolean(published), `${relativeEventTemplate}: o vídeo ${id || "sen id"} non ten published`);
       if (published) {
         check(/^\d{4}-\d{2}-\d{2}$/.test(published), `${relativeEventTemplate}: data de vídeo non válida (${published})`);
       }
@@ -285,6 +286,48 @@ if (fs.existsSync(homePath)) {
   check(
     homeHtml.indexOf('localStorage.getItem("rastrexando-theme")') < homeHtml.indexOf('href="/recursos/bundle.css"'),
     "O tema non se resolve antes de cargar os estilos"
+  );
+}
+
+const videosIndexPath = outputPathForUrl("/videos/");
+if (videosIndexPath && fs.existsSync(videosIndexPath)) {
+  const videosIndexHtml = fs.readFileSync(videosIndexPath, "utf8");
+  check(
+    videosIndexHtml.includes("data-video-filters") &&
+      videosIndexHtml.includes('name="canal"') &&
+      videosIndexHtml.includes('name="organizacion"') &&
+      videosIndexHtml.includes('name="ano"'),
+    "O catálogo non inclúe os tres filtros de vídeos"
+  );
+  check(
+    (videosIndexHtml.match(/data-video-card/g) || []).length === videoIds.size,
+    "O catálogo non expón metadatos para todos os vídeos"
+  );
+  check(
+    videosIndexHtml.includes('src="/recursos/js/video-filters.js"'),
+    "O catálogo non carga o script de filtros"
+  );
+  check(
+    videosIndexHtml.includes('data-video-channel="Cultural Verducido"') &&
+      videosIndexHtml.includes('data-video-organizations="asociacion-cultural-de-verducido"'),
+    "O catálogo non inclúe os valores necesarios para filtrar"
+  );
+  check(
+    videosIndexHtml.includes("Por Cultural Verducido") &&
+      videosIndexHtml.includes('>29-08-2026</time>') &&
+      !videosIndexHtml.includes("Publicado por"),
+    "O catálogo non usa os metadatos compactos de publicación"
+  );
+}
+
+const videoEventPath = outputPathForUrl("/calendarios/2026/verducido-los-pitufos/");
+if (videoEventPath && fs.existsSync(videoEventPath)) {
+  const videoEventHtml = fs.readFileSync(videoEventPath, "utf8");
+  check(
+    videoEventHtml.includes("Por Cultural Verducido") &&
+      videoEventHtml.includes('>29-08-2026</time>') &&
+      !videoEventHtml.includes("Publicado por"),
+    "A ficha do evento non usa os metadatos compactos de publicación"
   );
 }
 
@@ -390,6 +433,10 @@ for (const { organizationSlug, videoId, relativeEventTemplate } of organizationV
     organizationPageHtml.indexOf('id="organization-events-title"') <
       organizationPageHtml.indexOf('id="organization-videos-title"'),
     `${organizationSlug}: os vídeos deben aparecer despois dos eventos`
+  );
+  check(
+    organizationPageHtml.includes(`/videos/?organizacion=${organizationSlug}`),
+    `${organizationSlug}: o enlace a todos os vídeos non conserva a organización`
   );
 }
 

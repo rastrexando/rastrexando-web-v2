@@ -65,8 +65,8 @@ eleventyComputed:
           <p>{{ organizationVideos.length }} {% if organizationVideos.length == 1 %}vídeo relacionado{% else %}vídeos relacionados{% endif %}</p>
         </div>
         <a
-          href="/videos/"
-          hx-get="/videos/"
+          href="/videos/?organizacion={{ organization.slug }}"
+          hx-get="/videos/?organizacion={{ organization.slug }}"
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"

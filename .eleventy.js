@@ -35,7 +35,7 @@ function collectVideos(collectionApi) {
         title: video.title,
         channel: video.channel || "",
         publishedDate,
-        sortDate: publishedDate || item.data.date,
+        sortDate: publishedDate,
         eventTitle: item.data.title,
         eventUrl: item.url,
         eventDate: item.data.date,
@@ -44,8 +44,8 @@ function collectVideos(collectionApi) {
         organizerSlugs: Array.isArray(item.data.organizers) ? item.data.organizers : []
       };
     }))
-    .filter(video => video.id && video.title && video.channel &&
-      video.sortDate && !Number.isNaN(video.sortDate.getTime()))
+    .filter(video => video.id && video.title && video.channel && video.publishedDate &&
+      !Number.isNaN(video.publishedDate.getTime()))
     .sort((first, second) => second.sortDate - first.sortDate);
 }
 
@@ -216,6 +216,27 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("videosForOrganization", function (videos, organizationSlug) {
     return (videos || [])
       .filter(video => video.organizerSlugs.includes(organizationSlug));
+  });
+
+  eleventyConfig.addFilter("videoChannels", function (videos) {
+    return [...new Set((videos || []).map(video => video.channel).filter(Boolean))]
+      .sort((first, second) => first.localeCompare(second, "gl", { sensitivity: "base" }));
+  });
+
+  eleventyConfig.addFilter("videoYears", function (videos) {
+    return [...new Set((videos || []).map(video => video.eventYear).filter(Boolean))]
+      .sort((first, second) => Number(second) - Number(first));
+  });
+
+  eleventyConfig.addFilter("organizationsForVideos", function (videos, organizations) {
+    const organizationSlugs = new Set(
+      (videos || []).flatMap(video => video.organizerSlugs || [])
+    );
+
+    return (organizations || [])
+      .filter(organization => organizationSlugs.has(organization.slug))
+      .slice()
+      .sort((first, second) => first.name.localeCompare(second.name, "gl", { sensitivity: "base" }));
   });
 
   eleventyConfig.addFilter("mapEmbedUrl", function (latitude, longitude) {

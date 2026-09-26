@@ -21,17 +21,48 @@ description: Vídeos de rastrexos e andainas publicados en Rastrexando.
     </div>
   </header>
 
-  <section class="videos-catalog" aria-labelledby="videos-catalog-title">
+  <section class="videos-catalog" aria-labelledby="videos-catalog-title" data-video-catalog>
     <header class="home-section-header">
       <div>
         <h2 id="videos-catalog-title">Todos os vídeos</h2>
-        <p>{{ collections.allVideos.length }} {% if collections.allVideos.length == 1 %}vídeo publicado{% else %}vídeos publicados{% endif %}</p>
+        <p data-video-count aria-live="polite">{{ collections.allVideos.length }} {% if collections.allVideos.length == 1 %}vídeo publicado{% else %}vídeos publicados{% endif %}</p>
       </div>
     </header>
-    <div class="current-videos-grid videos-catalog-grid">
+
+    {% set channelOptions = collections.allVideos | videoChannels %}
+    {% set yearOptions = collections.allVideos | videoYears %}
+    {% set organizationOptions = collections.allVideos | organizationsForVideos(organizations) %}
+    <form class="video-filters" data-video-filters hidden>
+      <label>
+        <span>Canal</span>
+        <select name="canal" aria-controls="videos-catalog-grid">
+          <option value="">Todos os canais</option>
+          {% for channel in channelOptions %}<option value="{{ channel }}">{{ channel }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Organización</span>
+        <select name="organizacion" aria-controls="videos-catalog-grid">
+          <option value="">Todas as organizacións</option>
+          {% for organization in organizationOptions %}<option value="{{ organization.slug }}">{{ organization.name }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Ano do evento</span>
+        <select name="ano" aria-controls="videos-catalog-grid">
+          <option value="">Todos os anos</option>
+          {% for year in yearOptions %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
+        </select>
+      </label>
+      <button class="video-filters-clear" type="button" data-video-filters-clear hidden>Limpar filtros</button>
+    </form>
+
+    {% set filterableVideoCards = true %}
+    <div id="videos-catalog-grid" class="current-videos-grid videos-catalog-grid">
       {% for video in collections.allVideos %}
         {% include "components/video-card.njk" %}
       {% endfor %}
     </div>
+    <p class="videos-empty" data-video-empty hidden>Non hai vídeos que coincidan con estes filtros.</p>
   </section>
 </div>

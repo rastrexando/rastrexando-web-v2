@@ -56,7 +56,7 @@ El campo acepta varios avisos, siempre con fecha `YYYY-MM-DD` y texto en gallego
 
 ## Vídeos de eventos
 
-Los vídeos de YouTube se vinculan a su evento desde el frontmatter. `channel` identifica el canal que publicó el vídeo —sea una organización, un equipo o una persona— y es obligatorio; `published` es opcional:
+Los vídeos de YouTube se vinculan a su evento desde el frontmatter. `channel` identifica el canal que publicó el vídeo —sea una organización, un equipo o una persona— y tanto este campo como la fecha real `published` son obligatorios:
 
 ```yaml
 videos:
@@ -66,7 +66,7 @@ videos:
     channel: "Cultural Verducido"
 ```
 
-La portada muestra como máximo los tres vídeos más recientes asociados a eventos del año en curso y `/videos/` reúne el catálogo completo. Se ordenan por `published`; si falta, se utiliza la fecha del evento únicamente para ordenar y no se presenta como fecha de publicación. Los perfiles de organización reúnen los vídeos de sus eventos.
+La portada muestra como máximo los tres vídeos más recientes asociados a eventos del año en curso y `/videos/` reúne el catálogo completo. Se ordenan por `published` y la fecha mostrada incluye siempre el año. El catálogo se puede filtrar por canal, organización y año del evento; los filtros se conservan en la URL. Los perfiles de organización reúnen los vídeos de sus eventos.
 
 ## Mapa interactivo de calendarios
 

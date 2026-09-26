@@ -41,7 +41,7 @@ Organization avatars use a local `logo` path under `recursos/imaxes/organizacion
 videos: # optional
   - id: <youtube-video-id>
     title: "<video title>"
-    published: <optional YYYY-MM-DD upload date>
+    published: <YYYY-MM-DD upload date>
     channel: "<YouTube channel name>"
 
 notices: # optional; rendered between event information and the map
@@ -49,7 +49,7 @@ notices: # optional; rendered between event information and the map
     message: "<notice text>"
 ```
 
-Video `channel` is required and identifies the YouTube publisher, whether it is an organization, team, or individual; it must not be inferred from the event organizers. `published` is optional. Videos are ordered by `published`, using the event date only as a sorting fallback without displaying it as the publication date. The home page only features videos attached to events from the current build year. The full catalogue lives at `/videos/`, and organization profiles list videos from their events.
+Video `channel` is required and identifies the YouTube publisher, whether it is an organization, team, or individual; it must not be inferred from the event organizers. `published` is also required and must contain the real YouTube publication date. Videos are ordered by `published`, and displayed publication dates always include the year. The home page only features videos attached to events from the current build year. The full catalogue lives at `/videos/`, supports client-side filtering by channel, organization, and event year, and organization profiles list videos from their events.
 
 ## Conventions
 - Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., `ix-rastrexo-camos.njk`)

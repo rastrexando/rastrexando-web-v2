@@ -1,5 +1,13 @@
 {% set videoOrganizations = video.organizerSlugs | resolveOrganizations(organizations) %}
-<article class="current-video-card">
+<article
+  class="current-video-card"
+  {% if filterableVideoCards %}
+    data-video-card
+    data-video-channel="{{ video.channel }}"
+    data-video-year="{{ video.eventYear }}"
+    data-video-organizations="{{ video.organizerSlugs | join(',') }}"
+  {% endif %}
+>
   <a
     class="current-video-media"
     href="https://www.youtube.com/watch?v={{ video.id }}"
@@ -18,10 +26,10 @@
   </a>
   <div class="current-video-body">
     <p class="current-video-meta">
-      <span>Publicado por {{ video.channel }}</span>
+      <span>Por {{ video.channel }}</span>
       {% if video.publishedDate %}
         <span aria-hidden="true">·</span>
-        <time datetime="{{ video.publishedDate | toISODate }}">{{ video.publishedDate | toGLMonthDay }}</time>
+        <time datetime="{{ video.publishedDate | toISODate }}">{{ video.publishedDate | toNumericDate }}</time>
       {% endif %}
     </p>
     <h3>{{ video.title }}</h3>
