@@ -100,21 +100,75 @@ const files = walk(outputRoot);
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
 const organizations = require(path.join(projectRoot, "_data", "organizations.json"));
 const organizationSlugs = new Set();
+const organizationNames = new Set();
+const organizationCanonicalUrls = new Map();
+const organizationLinksBySlug = new Map();
+const organizationEventReferences = [];
+
+function normalizeOrganizationName(name) {
+  return String(name || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function normalizeExternalUrl(value) {
+  try {
+    const url = new URL(value);
+    url.hash = "";
+    for (const parameter of [...url.searchParams.keys()]) {
+      if (!(url.hostname.endsWith("facebook.com") && url.pathname === "/profile.php" && parameter === "id")) {
+        url.searchParams.delete(parameter);
+      }
+    }
+    url.pathname = url.pathname.replace(/\/+$/, "");
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return "";
+  }
+}
 
 for (const organization of organizations) {
   check(Boolean(organization.slug), "Hai unha organización sen slug");
   check(Boolean(organization.name), `A organización ${organization.slug || "sen slug"} non ten nome`);
   check(
+    /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(organization.slug || ""),
+    `O slug de organización ${organization.slug || "baleiro"} non é válido`
+  );
+  check(
     !organizationSlugs.has(organization.slug),
     `O slug de organización ${organization.slug} está duplicado`
   );
   organizationSlugs.add(organization.slug);
+
+  const normalizedName = normalizeOrganizationName(organization.name);
+  check(
+    !organizationNames.has(normalizedName),
+    `O nome de organización ${organization.name} está duplicado ou é demasiado semellante`
+  );
+  organizationNames.add(normalizedName);
+
+  const links = Object.values(organization.links || {});
+  organizationLinksBySlug.set(organization.slug, new Set(links.map(normalizeExternalUrl).filter(Boolean)));
+  for (const link of links) {
+    const normalizedUrl = normalizeExternalUrl(link);
+    check(Boolean(normalizedUrl) && /^https?:\/\//.test(link), `${organization.name}: enlace canónico non válido (${link})`);
+    if (!normalizedUrl) continue;
+    check(
+      !organizationCanonicalUrls.has(normalizedUrl),
+      `${organization.name}: enlace canónico xa usado por ${organizationCanonicalUrls.get(normalizedUrl)} (${link})`
+    );
+    organizationCanonicalUrls.set(normalizedUrl, organization.name);
+  }
 }
 
 const eventTemplateFiles = walk(path.join(projectRoot, "calendarios"))
   .filter((file) => file.endsWith(".njk"));
 for (const eventTemplateFile of eventTemplateFiles) {
   const source = fs.readFileSync(eventTemplateFile, "utf8");
+  const relativeEventTemplate = path.relative(projectRoot, eventTemplateFile);
   const organizerBlock = source.match(/^organizers:\s*\n((?:[ \t]+-[^\n]*\n?)+)/m);
   const organizerReferences = organizerBlock
     ? [...organizerBlock[1].matchAll(/^\s+-\s+([a-z0-9-]+)\s*$/gm)].map(match => match[1])
@@ -123,15 +177,34 @@ for (const eventTemplateFile of eventTemplateFiles) {
   for (const organizationSlug of organizerReferences) {
     check(
       organizationSlugs.has(organizationSlug),
-      `${path.relative(projectRoot, eventTemplateFile)}: organización descoñecida ${organizationSlug}`
+      `${relativeEventTemplate}: organización descoñecida ${organizationSlug}`
     );
+  }
+
+  if (organizerReferences.length > 0) {
+    check(!/^source_name:/m.test(source), `${relativeEventTemplate}: conserva source_name tras a migración`);
+    check(!/^source_url:[ \t]*$/m.test(source), `${relativeEventTemplate}: conserva source_url baleiro tras a migración`);
+    const sourceUrl = source.match(/^source_url:[ \t]*(\S.*)$/m)?.[1]?.trim();
+    const normalizedSourceUrl = normalizeExternalUrl(sourceUrl);
+    if (normalizedSourceUrl) {
+      for (const organizationSlug of organizerReferences) {
+        check(
+          !organizationLinksBySlug.get(organizationSlug)?.has(normalizedSourceUrl),
+          `${relativeEventTemplate}: source_url duplica o perfil canónico de ${organizationSlug}`
+        );
+      }
+    }
+
+    const eventUrl = `/${relativeEventTemplate.replace(/\\/g, "/").replace(/\.njk$/, "/")}`;
+    for (const organizationSlug of organizerReferences) {
+      organizationEventReferences.push({ organizationSlug, eventUrl, relativeEventTemplate });
+    }
   }
 
   const is2026Event = eventTemplateFile.includes(`${path.sep}2026${path.sep}`) &&
     /^tags:\s*\[[^\n]*"post"/m.test(source);
   if (is2026Event) {
-    check(organizerReferences.length > 0, `${path.relative(projectRoot, eventTemplateFile)}: falta organizers`);
-    check(!/^source_name:/m.test(source), `${path.relative(projectRoot, eventTemplateFile)}: conserva source_name`);
+    check(organizerReferences.length > 0, `${relativeEventTemplate}: falta organizers`);
   }
 }
 
@@ -208,6 +281,16 @@ if (organizationsIndexPath && fs.existsSync(organizationsIndexPath)) {
       `Falta a páxina da organización ${organization.name}`
     );
   }
+}
+
+for (const { organizationSlug, eventUrl, relativeEventTemplate } of organizationEventReferences) {
+  const organizationPagePath = outputPathForUrl(`/organizacions/${organizationSlug}/`);
+  if (!organizationPagePath || !fs.existsSync(organizationPagePath)) continue;
+  const organizationPageHtml = fs.readFileSync(organizationPagePath, "utf8");
+  check(
+    organizationPageHtml.includes(`href="${eventUrl}"`),
+    `${relativeEventTemplate}: non aparece na páxina de ${organizationSlug}`
+  );
 }
 
 for (const htmlFile of htmlFiles) {
@@ -394,7 +477,7 @@ if (eventDetailPath && fs.existsSync(eventDetailPath)) {
   check(
     eventDetailHtml.includes('href="https://www.facebook.com/rastrexocoruxo" target="_blank"') &&
       eventDetailHtml.includes('href="/organizacions/union-musical-de-coruxo/"') &&
-      eventDetailHtml.includes('Ver todos os eventos (1)') &&
+      eventDetailHtml.includes('Ver todos os eventos (4)') &&
       eventDetailHtml.includes('"name": "Unión Musical de Coruxo"'),
     "A ficha non mostra o perfil e o arquivo da súa organización"
   );
@@ -446,7 +529,7 @@ if (camosEventPath && fs.existsSync(camosEventPath)) {
     camosEventHtml.includes("Outros eventos") &&
       camosEventHtml.includes("Rastrexo Camos Especial CEIP da Cruz") &&
       camosEventHtml.includes('<time datetime="2026-08-01">01-08-2026</time>') &&
-      camosEventHtml.includes("Ver todos os eventos (2)"),
+      camosEventHtml.includes("Ver todos os eventos (12)"),
     "A ficha de Camos non mostra a selección e o arquivo de eventos da organización"
   );
 }

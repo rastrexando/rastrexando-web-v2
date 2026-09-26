@@ -1,9 +1,172 @@
 [
   {
+    "slug": "a-turonia",
+    "name": "A Turonia",
+    "links": {
+      "facebook": "https://www.facebook.com/aturonia/"
+    }
+  },
+  {
+    "slug": "ac-a-lineira",
+    "name": "A.C. A Liñeira"
+  },
+  {
+    "slug": "ac-lembranzas-da-terra-de-guillarei",
+    "name": "A.C. Lembranzas da Terra de Guillarei",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100069073501811"
+    }
+  },
+  {
+    "slug": "airinos-de-san-simon",
+    "name": "Airiños de San Simón"
+  },
+  {
+    "slug": "alumnos-tafad-ies-maria-solino",
+    "name": "Alumnos TAFAD do IES María Soliño",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexomariasolinho/"
+    }
+  },
+  {
+    "slug": "amigos-do-rastrexo-de-gulans",
+    "name": "Amigos do Rastrexo de Guláns"
+  },
+  {
+    "slug": "anpa-a-lourina",
+    "name": "ANPA A Louriña"
+  },
+  {
+    "slug": "as-lebres-de-oia",
+    "name": "As lebres de Oia",
+    "links": {
+      "facebook": "https://www.facebook.com/I-Rastrexo-de-Oia-1673398706266602/"
+    }
+  },
+  {
+    "slug": "asociacion-crd-san-martin-de-moreira",
+    "name": "Asociación C. R. D. San Martín de Moreira"
+  },
+  {
+    "slug": "asociacion-cultural-as-angustias",
+    "name": "Asociación Cultural As Angustias",
+    "links": {
+      "facebook": "https://www.facebook.com/ASOCIACION-CULTURAL-AS-ANGUSTIAS-108305035928648/"
+    }
+  },
+  {
+    "slug": "asociacion-cultural-as-dores-de-fornelos",
+    "name": "Asociación Cultural As Dores de Fornelos"
+  },
+  {
+    "slug": "asociacion-cultural-barca-de-loimil-arbo",
+    "name": "Asociación Cultural Barca de Loimil - Arbo",
+    "links": {
+      "facebook": "https://www.facebook.com/Barca-de-Loimil-113324502355872/"
+    }
+  },
+  {
+    "slug": "asociacion-cultural-de-gulans",
+    "name": "Asociación Cultural de Guláns"
+  },
+  {
     "slug": "asociacion-cultural-de-verducido",
     "name": "Asociación Cultural de Verducido",
     "links": {
       "facebook": "https://www.facebook.com/asociacionculturalverducido"
+    }
+  },
+  {
+    "slug": "asociacion-cultural-e-social-de-herville",
+    "name": "Asociación Cultural e Social de Herville",
+    "links": {
+      "facebook": "https://www.facebook.com/acsherville/"
+    }
+  },
+  {
+    "slug": "asociacion-cultural-festas-de-cristinade",
+    "name": "Asociación Cultural Festas de Cristiñade"
+  },
+  {
+    "slug": "asociacion-cultural-pedra-de-garza",
+    "name": "Asociación Cultural Pedra de Garza"
+  },
+  {
+    "slug": "asociacion-de-vecinos-a-lavandeira",
+    "name": "Asociación de Veciños A Lavandeira"
+  },
+  {
+    "slug": "asociacion-de-vecinos-san-salvador-de-torneiros",
+    "name": "Asociación de Vecinos San Salvador de Torneiros",
+    "links": {
+      "facebook": "https://www.facebook.com/avvsansalvador.torneiros"
+    }
+  },
+  {
+    "slug": "asociacion-ludica-deportiva-couso",
+    "name": "Asociación Lúdica Deportiva Couso"
+  },
+  {
+    "slug": "asociacion-ludica-y-cultural-o-cubreiro",
+    "name": "Asociación Lúdica y Cultural O Cubreiro",
+    "links": {
+      "facebook": "https://www.facebook.com/ocubreiro/"
+    }
+  },
+  {
+    "slug": "asociacion-revolucion-show",
+    "name": "Asociación Revolución Show"
+  },
+  {
+    "slug": "avv-galineiro-de-vincios",
+    "name": "AVV Galiñeiro de Vincios",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100004974829035"
+    }
+  },
+  {
+    "slug": "baixo-mino-randufe-futsal",
+    "name": "Baixo Miño Randufe Futsal",
+    "links": {
+      "facebook": "https://www.facebook.com/Baixo-Mi%C3%B1o-Randufe-Futsal-380408242154853/"
+    }
+  },
+  {
+    "slug": "carnaval-castro-barreiro",
+    "name": "Carnaval Castro Barreiro",
+    "links": {
+      "website": "http://carnavalcastrobarreiro.com",
+      "facebook": "https://www.facebook.com/CastroBarreiroNSN"
+    }
+  },
+  {
+    "slug": "carnaval-san-xurxo",
+    "name": "Carnaval San Xurxo"
+  },
+  {
+    "slug": "casa-cultural-de-arcos",
+    "name": "Casa Cultural de Arcos"
+  },
+  {
+    "slug": "centro-cultural-a-cela-de-baredo",
+    "name": "Centro Cultural A Cela de Baredo",
+    "links": {
+      "facebook": "https://www.facebook.com/CCultural-A-Cela-de-Baredo-193170064473706/"
+    }
+  },
+  {
+    "slug": "centro-cultural-chan-das-pipas",
+    "name": "Centro Cultural Chan das Pipas"
+  },
+  {
+    "slug": "centro-cultural-de-fozara",
+    "name": "Centro Cultural de Fozara"
+  },
+  {
+    "slug": "centro-cultural-de-xinzo",
+    "name": "Centro Cultural de Xinzo",
+    "links": {
+      "facebook": "https://www.facebook.com/centroculturalxinzo/"
     }
   },
   {
@@ -21,6 +184,28 @@
     }
   },
   {
+    "slug": "cerveceria-marenum",
+    "name": "Cervecería Marenum"
+  },
+  {
+    "slug": "cipc-san-mamed-taboexa",
+    "name": "CIPC San Mamed Taboexa",
+    "links": {
+      "facebook": "https://www.facebook.com/cipcsanmamed.taboexa"
+    }
+  },
+  {
+    "slug": "comerciantes-mercado-do-relo",
+    "name": "Comerciantes Mercado do Reló"
+  },
+  {
+    "slug": "comision-de-festas-da-peregrina",
+    "name": "Comisión de Festas da Peregrina",
+    "links": {
+      "facebook": "https://www.facebook.com/fiestasdelaperegrinademeira/"
+    }
+  },
+  {
     "slug": "comision-de-festas-de-areas",
     "name": "Comisión de Festas de Areas",
     "links": {
@@ -28,10 +213,173 @@
     }
   },
   {
+    "slug": "comision-de-festas-de-camos",
+    "name": "Comisión de Festas de Camos",
+    "links": {
+      "facebook": "https://www.facebook.com/Comision-de-Camos-San-Roque-2017-1390557741001575/"
+    }
+  },
+  {
+    "slug": "comision-de-festas-de-san-lorenzo-de-pineiro",
+    "name": "Comisión de Festas de San Lorenzo de Piñeiro",
+    "links": {
+      "facebook": "https://www.facebook.com/romeriacabalo/"
+    }
+  },
+  {
+    "slug": "comision-de-festas-de-santiago-de-oliveira",
+    "name": "Comisión de Festas de Santiago de Oliveira"
+  },
+  {
+    "slug": "comision-de-festas-dos-remedios",
+    "name": "Comisión de Festas dos Remedios"
+  },
+  {
+    "slug": "comision-de-festas-san-benito-de-atios",
+    "name": "Comisión de Festas San Benito de Atios",
+    "links": {
+      "facebook": "https://www.facebook.com/Festa-San-Benito-Atios-Albar%C3%ADn-2019-424139261109912/"
+    }
+  },
+  {
+    "slug": "comision-de-festas-san-cristobal",
+    "name": "Comisión de Festas San Cristóbal"
+  },
+  {
+    "slug": "comision-de-festas-san-eleuterio",
+    "name": "Comisión de Festas San Eleuterio",
+    "links": {
+      "facebook": "https://www.facebook.com/saneleuterio.tameiga.9/"
+    }
+  },
+  {
+    "slug": "comision-de-festas-virxe-da-cela-de-baredo",
+    "name": "Comisión de Festas Virxe da Cela de Baredo"
+  },
+  {
+    "slug": "comision-de-fiestas-de-as-angustias",
+    "name": "Comisión de Fiestas de As Angustias"
+  },
+  {
+    "slug": "comision-san-caetano-de-paramos",
+    "name": "Comisión San Caetano de Paramos",
+    "links": {
+      "facebook": "https://www.facebook.com/comisionsancaetano/"
+    }
+  },
+  {
+    "slug": "comparsa-ciklon",
+    "name": "Comparsa Ciklón",
+    "links": {
+      "facebook": "https://www.facebook.com/comparsaciklon/"
+    }
+  },
+  {
+    "slug": "comparsa-luces",
+    "name": "Comparsa Luces"
+  },
+  {
     "slug": "comparsa-os-imprescindibles",
     "name": "Comparsa Os Imprescindibles",
     "links": {
       "facebook": "https://www.facebook.com/profile.php?id=100094030441582"
+    }
+  },
+  {
+    "slug": "comparsa-talisman",
+    "name": "Comparsa Talismán",
+    "links": {
+      "facebook": "https://www.facebook.com/carnavales.sanesteban/"
+    }
+  },
+  {
+    "slug": "comunidade-de-montes-de-camos",
+    "name": "Comunidade de Montes de Camos"
+  },
+  {
+    "slug": "comunidade-de-montes-de-couso",
+    "name": "Comunidade de Montes de Couso"
+  },
+  {
+    "slug": "concello-de-mondariz",
+    "name": "Concello de Mondariz"
+  },
+  {
+    "slug": "entroido-picona",
+    "name": "Entroido Picoña",
+    "links": {
+      "facebook": "https://www.facebook.com/entroidopiconha/"
+    }
+  },
+  {
+    "slug": "entroido-soutelo",
+    "name": "Entroido Soutelo",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100016913326846"
+    }
+  },
+  {
+    "slug": "erizana-cf",
+    "name": "Erizana CF",
+    "links": {
+      "facebook": "https://www.facebook.com/erizanaclubdefutboldebaiona/"
+    }
+  },
+  {
+    "slug": "espenicelo",
+    "name": "Espenicelo",
+    "links": {
+      "facebook": "https://www.facebook.com/espenicelo/"
+    }
+  },
+  {
+    "slug": "estumballadas",
+    "name": "Estumballadas",
+    "links": {
+      "facebook": "https://www.facebook.com/estumballadas/"
+    }
+  },
+  {
+    "slug": "festa-virxe-da-o-picona",
+    "name": "Festa Virxe da O Picoña"
+  },
+  {
+    "slug": "festas-virxe-da-guia",
+    "name": "Festas Virxe da Guía",
+    "links": {
+      "facebook": "https://www.facebook.com/festa.virxedaguia/"
+    }
+  },
+  {
+    "slug": "grupo-rastrexo-avispados",
+    "name": "Grupo Rastrexo Avispados"
+  },
+  {
+    "slug": "mini-rastrexo-cangas",
+    "name": "Mini Rastrexo Cangas",
+    "links": {
+      "facebook": "https://www.facebook.com/I-Mini-Rastrexo-Defensa-Da-Vila-252669805260807/"
+    }
+  },
+  {
+    "slug": "nieves-futbol-club",
+    "name": "Nieves Fútbol Club",
+    "links": {
+      "facebook": "https://www.facebook.com/nieves.clubdefutbol"
+    }
+  },
+  {
+    "slug": "omix-mondariz",
+    "name": "OMIX Mondariz",
+    "links": {
+      "facebook": "https://www.facebook.com/omix.mondariz"
+    }
+  },
+  {
+    "slug": "pikona-salceda",
+    "name": "Pikoña Salceda",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexopikona.salceda"
     }
   },
   {
@@ -42,10 +390,155 @@
     }
   },
   {
+    "slug": "ponte-a-fuxir",
+    "name": "Ponte a Fuxir",
+    "links": {
+      "facebook": "https://www.facebook.com/PonteAFuxir/"
+    }
+  },
+  {
+    "slug": "rastrexo-amorin",
+    "name": "Rastrexo Amorín",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexoamorin/"
+    }
+  },
+  {
+    "slug": "rastrexo-areas",
+    "name": "Rastrexo Areas",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexoareas/"
+    }
+  },
+  {
+    "slug": "rastrexo-barciademera",
+    "name": "Rastrexo Barciademera",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100018293313910"
+    }
+  },
+  {
+    "slug": "rastrexo-batallans",
+    "name": "Rastrexo Batalláns",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100009185512064"
+    }
+  },
+  {
     "slug": "rastrexo-camos",
     "name": "Rastrexo Camos",
     "links": {
       "facebook": "https://www.facebook.com/profile.php?id=100057577212657"
+    }
+  },
+  {
+    "slug": "rastrexo-cidade-universitaria",
+    "name": "Rastrexo Cidade Universitaria",
+    "links": {
+      "website": "http://rastrexo.webs.uvigo.es/Rastrexo/index.php"
+    }
+  },
+  {
+    "slug": "rastrexo-costeira",
+    "name": "Rastrexo Costeira",
+    "links": {
+      "facebook": "https://www.facebook.com/Rastrexo-costeira-830836753712618/"
+    }
+  },
+  {
+    "slug": "rastrexo-cristelos",
+    "name": "Rastrexo Cristelos",
+    "links": {
+      "facebook": "https://www.facebook.com/Rastrexo-Cristelos-208373965844288/"
+    }
+  },
+  {
+    "slug": "rastrexo-de-lira",
+    "name": "Rastrexo de Lira"
+  },
+  {
+    "slug": "rastrexo-de-villar",
+    "name": "Rastrexo de Villar",
+    "links": {
+      "facebook": "https://www.facebook.com/RastrexoDeVillar/"
+    }
+  },
+  {
+    "slug": "rastrexo-festivexe",
+    "name": "Rastrexo Festivexe",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexofestixeve"
+    }
+  },
+  {
+    "slug": "rastrexo-gulans",
+    "name": "Rastrexo Guláns",
+    "links": {
+      "facebook": "https://www.facebook.com/RastrexoGulans-Gulans-771944396173859/"
+    }
+  },
+  {
+    "slug": "rastrexo-infantil-fornelos-e-lourido",
+    "name": "Rastrexo Infantil Fornelos e Lourido",
+    "links": {
+      "facebook": "https://www.facebook.com/RastrexoInfantilFornelosLourido/"
+    }
+  },
+  {
+    "slug": "rastrexo-lobarinas",
+    "name": "Asociación veciñal de Lobariñas",
+    "links": {
+      "facebook": "https://www.facebook.com/groups/690106014415765/"
+    }
+  },
+  {
+    "slug": "rastrexo-oliveira",
+    "name": "Rastrexo Oliveira",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexo.oliveira/"
+    }
+  },
+  {
+    "slug": "rastrexo-pereiras",
+    "name": "Rastrexo Pereiras",
+    "links": {
+      "facebook": "https://www.facebook.com/rastrexopereiras/"
+    }
+  },
+  {
+    "slug": "rastrexo-san-pedro",
+    "name": "Rastrexo San Pedro",
+    "links": {
+      "facebook": "https://www.facebook.com/profile.php?id=100008231177844"
+    }
+  },
+  {
+    "slug": "rastrexo-soutolobre",
+    "name": "Rastrexo Soutolobre",
+    "links": {
+      "facebook": "https://www.facebook.com/RastrexoSoutolobre/"
+    }
+  },
+  {
+    "slug": "rastrexo-taborda",
+    "name": "Rastrexo Taborda",
+    "links": {
+      "facebook": "https://www.facebook.com/Rastrexo-Taborda-504634333032518/"
+    }
+  },
+  {
+    "slug": "rastrexo-virxe-da-guia",
+    "name": "Rastrexo Virxe da Guía",
+    "links": {
+      "facebook": "https://www.facebook.com/II-RASTREXO-VIRXE-DA-GUIA-728593800576797/"
+    }
+  },
+  {
+    "slug": "territorio-comanche",
+    "name": "Territorio Comanche",
+    "links": {
+      "website": "http://territorio-comanche.com",
+      "facebook": "https://www.facebook.com/territoriocomanche16/"
     }
   },
   {
