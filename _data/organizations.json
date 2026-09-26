@@ -353,7 +353,9 @@
     "links": {
       "facebook": "https://www.facebook.com/AFeiraEntroido",
       "instagram": "https://www.instagram.com/entroidoafeira/"
-    }
+    },
+    "logo": "organizacions/entroido-a-feira.webp",
+    "logo_source": "https://www.instagram.com/entroidoafeira/"
   },
   {
     "slug": "entroido-picona",

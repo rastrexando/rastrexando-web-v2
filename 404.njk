@@ -1,0 +1,55 @@
+---
+layout: base
+title: Páxina non atopada - Rastrexando
+description: A páxina que buscas non existe ou cambiou de enderezo.
+permalink: /404.html
+eleventyExcludeFromCollections: true
+noindex: true
+---
+
+{% set currentYear = collections.yearCovers | last %}
+<div class="page page-not-found">
+  <section class="not-found-card" aria-labelledby="not-found-title">
+    <div class="not-found-illustration" aria-hidden="true">
+      <span class="not-found-code">404</span>
+      <img src="/recursos/rastrexando-simbolo.png" alt="" width="120" height="120" />
+    </div>
+
+    <div class="not-found-content">
+      <p class="not-found-eyebrow">Páxina non atopada</p>
+      <h1 id="not-found-title">Perdiches o rastro?</h1>
+      <p>A páxina que buscas non existe ou cambiou de enderezo. Podes volver ao inicio ou seguir explorando os próximos eventos.</p>
+
+      <nav class="not-found-actions" aria-label="Opcións para continuar">
+        <a
+          class="not-found-action not-found-action--primary"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-home" aria-hidden="true"></i> Volver ao inicio</a>
+        <a
+          class="not-found-action"
+          href="{{ currentYear.url }}"
+          hx-get="{{ currentYear.url }}"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-calendar" aria-hidden="true"></i> Ver o calendario</a>
+      </nav>
+
+      <a
+        class="not-found-help"
+        href="/axuda/"
+        hx-get="/axuda/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+      >Necesitas axuda? Consulta a guía <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</div>

@@ -258,6 +258,19 @@ if (fs.existsSync(homePath)) {
   );
 }
 
+const notFoundPath = path.join(outputRoot, "404.html");
+check(fs.existsSync(notFoundPath), "Falta a páxina 404");
+if (fs.existsSync(notFoundPath)) {
+  const notFoundHtml = fs.readFileSync(notFoundPath, "utf8");
+  check(notFoundHtml.includes('<meta name="robots" content="noindex, nofollow">'), "A páxina 404 non declara noindex");
+  check(notFoundHtml.includes("Perdiches o rastro?"), "A páxina 404 non mostra a mensaxe principal");
+  check(
+    notFoundHtml.includes('href="/"') &&
+      notFoundHtml.includes('href="/axuda/"') &&
+      notFoundHtml.includes('class="not-found-action not-found-action--primary"'),
+    "A páxina 404 non ofrece as opcións de recuperación"
+  );
+}
 
 const robotsPath = path.join(outputRoot, "robots.txt");
 if (fs.existsSync(robotsPath)) {
@@ -276,6 +289,7 @@ const sitemapPath = path.join(outputRoot, "sitemap.txt");
 if (fs.existsSync(sitemapPath)) {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
   check(!sitemap.includes(legacyCamosUrl), "O sitemap inclúe a URL antiga de Camos con maiúsculas");
+  check(!sitemap.includes(`${siteUrl}/404.html`), "O sitemap inclúe a páxina 404");
   check(sitemap.includes(canonicalCamosUrl), "O sitemap non inclúe a URL canónica de Camos");
   check(sitemap.includes(`${siteUrl}/organizacions/`), "O sitemap non inclúe o directorio de organizacións");
 }

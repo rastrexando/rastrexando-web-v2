@@ -51,6 +51,7 @@ title: Rastrexando
     {%- set _ogImage = (_baseUrl + "/recursos/imaxes/" + image) if image else (_baseUrl + "/recursos/landing.jpg") -%}
 
     <meta name="description" content="{{ _desc }}">
+    {% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
     <link rel="canonical" href="{{ _canonicalUrl }}">
 
     <!-- Open Graph -->
