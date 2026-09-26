@@ -80,6 +80,7 @@
     <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
     <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/video-filters.js"></script>
     <script src="/recursos/js/theme.js"></script>
 
     <!-- Structured data -->
@@ -177,6 +178,15 @@
             
           ><i class="fi-calendar"></i> Calendario</a>
           <a
+            href="/videos/"
+            hx-get="/videos/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-play-video"></i> Vídeos</a>
+          <a
             href="/axuda/"
             hx-get="/axuda/"
             hx-target="#main-container"
@@ -257,6 +267,8 @@
   </header>
 
   
+  
+
   <section class="organization-events" aria-labelledby="organization-events-title">
     <header class="home-section-header">
       <div>
@@ -349,6 +361,172 @@
       
     </div>
   </section>
+
+  
+    <section class="organization-videos" aria-labelledby="organization-videos-title">
+      <header class="home-section-header home-section-header--action">
+        <div>
+          <h2 id="organization-videos-title"><i class="fi-play-video is-light-blue"></i> Vídeos</h2>
+          <p>3 vídeos relacionados</p>
+        </div>
+        <a
+          href="/videos/?organizacion=centro-cultural-de-fozara"
+          hx-get="/videos/?organizacion=centro-cultural-de-fozara"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Ver todos <span aria-hidden="true">→</span></a>
+      </header>
+      <div class="current-videos-grid">
+        
+          
+<article
+  class="current-video-card"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=lcYIZWjMIR0"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Rastrexo Fozara 2012 O CATAMARÁN DO RÍO TEA en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/lcYIZWjMIR0/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Rastrexo de Fozara</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2014-06-21">21-06-2014</time>
+      
+    </p>
+    <h3>Rastrexo Fozara 2012 O CATAMARÁN DO RÍO TEA</h3>
+    
+      <p class="current-video-organizations">
+        Centro Cultural de Fozara
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VII Rastrexo de Fozara <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+        
+          
+<article
+  class="current-video-card"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=unUobT50XZg"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Rastrexo Fozara 2012 (TOMAS FALSAS) en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/unUobT50XZg/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Rastrexo de Fozara</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2014-06-20">20-06-2014</time>
+      
+    </p>
+    <h3>Rastrexo Fozara 2012 (TOMAS FALSAS)</h3>
+    
+      <p class="current-video-organizations">
+        Centro Cultural de Fozara
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VII Rastrexo de Fozara <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+        
+          
+<article
+  class="current-video-card"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=9uqagxm85rg"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Rastrexo de Fozara 2012 en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/9uqagxm85rg/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Palomar Filmes</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2012-10-11">11-10-2012</time>
+      
+    </p>
+    <h3>Rastrexo de Fozara 2012</h3>
+    
+      <p class="current-video-organizations">
+        Centro Cultural de Fozara
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VII Rastrexo de Fozara <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+        
+      </div>
+    </section>
+  
 </div>
 
       </div>
@@ -380,6 +558,14 @@
           hx-swap="outerHTML"
           hx-push-url="true"
         ><i class="fi-calendar"></i> Calendario</a>
+        <a
+          href="/videos/"
+          hx-get="/videos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-play-video"></i> Vídeos</a>
         <a
           href="/axuda/"
           hx-get="/axuda/"

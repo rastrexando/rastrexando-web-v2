@@ -80,6 +80,7 @@
     <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
     <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/video-filters.js"></script>
     <script src="/recursos/js/theme.js"></script>
 
     <!-- Structured data -->
@@ -177,6 +178,15 @@
             
           ><i class="fi-calendar"></i> Calendario</a>
           <a
+            href="/videos/"
+            hx-get="/videos/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-play-video"></i> Vídeos</a>
+          <a
             href="/axuda/"
             hx-get="/axuda/"
             hx-target="#main-container"
@@ -263,6 +273,8 @@
   </header>
 
   
+  
+
   <section class="organization-events" aria-labelledby="organization-events-title">
     <header class="home-section-header">
       <div>
@@ -382,6 +394,172 @@
       
     </div>
   </section>
+
+  
+    <section class="organization-videos" aria-labelledby="organization-videos-title">
+      <header class="home-section-header home-section-header--action">
+        <div>
+          <h2 id="organization-videos-title"><i class="fi-play-video is-light-blue"></i> Vídeos</h2>
+          <p>3 vídeos relacionados</p>
+        </div>
+        <a
+          href="/videos/?organizacion=asociacion-cultural-de-verducido"
+          hx-get="/videos/?organizacion=asociacion-cultural-de-verducido"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Ver todos <span aria-hidden="true">→</span></a>
+      </header>
+      <div class="current-videos-grid">
+        
+          
+<article
+  class="current-video-card"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=NAFo107VFoQ"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir VI RASTREXO NOCTURNO SOLIDARIO LOS PITUFOS en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/NAFo107VFoQ/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Cultural Verducido</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2026-08-29">29-08-2026</time>
+      
+    </p>
+    <h3>VI RASTREXO NOCTURNO SOLIDARIO LOS PITUFOS</h3>
+    
+      <p class="current-video-organizations">
+        Asociación Cultural de Verducido
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2026/verducido-los-pitufos/"
+      hx-get="/calendarios/2026/verducido-los-pitufos/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VI Rastrexo solidario Los Pitufos <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+        
+          
+<article
+  class="current-video-card"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=jjfuLsVLeuk"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir IV RASTREXO 2024 SOLIDARIO, LOS PAYASOS en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/jjfuLsVLeuk/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Cultural Verducido</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2025-09-25">25-09-2025</time>
+      
+    </p>
+    <h3>IV RASTREXO 2024 SOLIDARIO, LOS PAYASOS</h3>
+    
+      <p class="current-video-organizations">
+        Asociación Cultural de Verducido
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
+      hx-get="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: IV Rastrexo solidario Verducido <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+        
+          
+<article
+  class="current-video-card"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=kz3y278-524"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir V RASTREXO SOLIDARIO CUENTOS CLÁSICOS en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/kz3y278-524/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Cultural Verducido</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2025-09-25">25-09-2025</time>
+      
+    </p>
+    <h3>V RASTREXO SOLIDARIO CUENTOS CLÁSICOS</h3>
+    
+      <p class="current-video-organizations">
+        Asociación Cultural de Verducido
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2025/2025-08-30-v-rastrexo-verducido/"
+      hx-get="/calendarios/2025/2025-08-30-v-rastrexo-verducido/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: V Rastrexo solidario Verducido: Cuentos clásicos <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+        
+      </div>
+    </section>
+  
 </div>
 
       </div>
@@ -413,6 +591,14 @@
           hx-swap="outerHTML"
           hx-push-url="true"
         ><i class="fi-calendar"></i> Calendario</a>
+        <a
+          href="/videos/"
+          hx-get="/videos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-play-video"></i> Vídeos</a>
         <a
           href="/axuda/"
           hx-get="/axuda/"

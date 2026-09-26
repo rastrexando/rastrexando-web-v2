@@ -1,0 +1,882 @@
+
+<!doctype html>
+<html lang="gl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="theme-color" name="theme-color" content="#f5f7fa">
+    <script>
+      (function () {
+        var storedTheme;
+        try {
+          storedTheme = localStorage.getItem("rastrexando-theme");
+        } catch (error) {
+          storedTheme = null;
+        }
+
+        if (storedTheme === "light" || storedTheme === "dark") {
+          document.documentElement.dataset.theme = storedTheme;
+        }
+
+        var resolvedTheme = storedTheme === "light" || storedTheme === "dark"
+          ? storedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+        document.documentElement.dataset.resolvedTheme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+        document.getElementById("theme-color").content = resolvedTheme === "dark" ? "#11141c" : "#f5f7fa";
+      })();
+    </script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+		<link rel="stylesheet" href="/recursos/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/recursos/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="/recursos/vendor/leaflet.markercluster/MarkerCluster.Default.css">
+		<link rel="stylesheet" href="/recursos/bundle.css">
+    <title>Vídeos — Rastrexando</title>
+
+		<!-- Meta -->
+		<meta name="author" content="Carlos González Goce">
+    <meta name="keywords" content="rastrexo,rastrexar,rastrexando,andaina,galicia"/><meta name="description" content="Vídeos de rastrexos e andainas publicados en Rastrexando.">
+    
+    <link rel="canonical" href="https://rastrexando.eu/videos/">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Rastrexando">
+    <meta property="og:locale" content="gl_ES">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vídeos — Rastrexando">
+    <meta property="og:description" content="Vídeos de rastrexos e andainas publicados en Rastrexando.">
+    <meta property="og:url" content="https://rastrexando.eu/videos/">
+    <meta property="og:image" content="https://rastrexando.eu/recursos/landing.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vídeos — Rastrexando">
+    <meta name="twitter:description" content="Vídeos de rastrexos e andainas publicados en Rastrexando.">
+    <meta name="twitter:image" content="https://rastrexando.eu/recursos/landing.jpg">
+
+		<!-- Favicon (made with http://realfavicongenerator.net/) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/recursos/apple-touch-icon.png?v2=Gvk3Pm9dNO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/recursos/favicon-32x32.png?v2=Gvk3Pm9dNO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/recursos/favicon-16x16.png?v2=Gvk3Pm9dNO">
+    <link rel="manifest" href="/recursos/site.webmanifest?v2=Gvk3Pm9dNO">
+    <link rel="mask-icon" href="/recursos/safari-pinned-tab.svg?v2=Gvk3Pm9dNO" color="#5bbad5">
+    <link rel="shortcut icon" href="/recursos/favicon.ico?v2=Gvk3Pm9dNO">
+    <meta name="apple-mobile-web-app-title" content="Rastrexando">
+    <meta name="application-name" content="Rastrexando">
+    <meta name="msapplication-TileColor" content="#da532c">
+
+    <!-- Scripts -->
+    <script src="/recursos/js/htmx.min.js"></script>
+    <script src="/recursos/vendor/leaflet/leaflet.js"></script>
+    <script src="/recursos/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
+    <script src="/recursos/js/relative-dates.js"></script>
+    <script src="/recursos/js/map-links.js"></script>
+    <script src="/recursos/js/calendar-map.js"></script>
+    <script src="/recursos/js/header-navigation.js?v=1"></script>
+    <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/video-filters.js"></script>
+    <script src="/recursos/js/theme.js"></script>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://rastrexando.eu",
+      "name": "Rastrexando",
+      "description": "A túa plataforma de referencia para non perderte ningún Rastrexo"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Rastrexando",
+      "url": "https://rastrexando.eu",
+      "logo": "https://rastrexando.eu/recursos/rastrexando-simbolo.png",
+      "foundingDate": "2017",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Carlos González Goce",
+          "sameAs": ["https://www.linkedin.com/in/carlos-goce/"]
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Baiona",
+        "addressRegion": "Pontevedra",
+        "addressCountry": "ES"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "carlos@rastrexando.eu"
+      },
+      "sameAs": ["https://www.facebook.com/rastrexando/"]
+    }
+    </script>
+  </head>
+  <body class="relative">
+    
+<div id="layout-base" hx-indicator="#global-htmx-indicator">
+  <div
+    id="global-htmx-indicator"
+    class="htmx-indicator global-htmx-indicator"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <span class="global-htmx-indicator-icon" aria-hidden="true">
+      <span class="global-htmx-indicator-glow"></span>
+      <img src="/recursos/rastrexando-simbolo.png" alt="" width="64" height="64" />
+    </span>
+    <span class="global-htmx-indicator-label">Cargando…</span>
+  </div>
+  <div class="site-header-shell">
+      <span class="star-glints" aria-hidden="true"></span>
+      <header id="main-header" class="wrapper">
+        <a
+          id="rastrexando-logo"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          <img class="image" src="/recursos/rastrexando-circular.png" alt="Curuxa e lúa de Rastrexando" />
+          <span class="brand-copy">
+            <span class="title">Rastrexando</span>
+            <span class="tagline">Rastrexos e andainas</span>
+          </span>
+        </a>
+        
+        <nav class="header-nav" aria-label="Navegación principal">
+          <a
+            href="/"
+            hx-get="/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-home"></i> Inicio</a>
+          <a
+            href="/calendarios/2026/"
+            hx-get="/calendarios/2026/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-calendar"></i> Calendario</a>
+          <a
+            href="/videos/"
+            hx-get="/videos/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            aria-current="page"
+          ><i class="fi-play-video"></i> Vídeos</a>
+          <a
+            href="/axuda/"
+            hx-get="/axuda/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-info"></i> Axuda</a>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Activar tema escuro"
+            aria-pressed="false"
+            title="Activar tema escuro"
+          >
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.6 15.2A8.5 8.5 0 0 1 8.8 3.4 8.5 8.5 0 1 0 20.6 15.2Z" />
+            </svg>
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+          </button>
+        </nav>
+      </header>
+  </div>
+  <main id="main-container">
+    <div class="page-center-content">
+      <div class="page-content">
+        
+<nav class="breadcrumbs">
+  <ul>
+    <li>
+      <a
+        href="/"
+        hx-get="/"
+        hx-target="#main-container"
+        hx-select="#main-container"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        title="Inicio"
+        class="link"
+      >
+        Inicio
+      </a>
+    </li>
+    <li class="breadcrumb-sep">›</li>
+    <li class="is-light-blue">Vídeos</li>
+  </ul>
+</nav>
+
+<div class="page page-videos">
+  <header class="page-header videos-page-header">
+    <span class="videos-page-icon" aria-hidden="true"><i class="fi-play-video"></i></span>
+    <div>
+      <h1>Vídeos</h1>
+      <p>Revive os rastrexos e andainas a través dos vídeos das organizacións, equipos e participantes.</p>
+    </div>
+  </header>
+
+  <section class="videos-catalog" aria-labelledby="videos-catalog-title" data-video-catalog>
+    <header class="home-section-header">
+      <div>
+        <h2 id="videos-catalog-title">Todos os vídeos</h2>
+        <p data-video-count aria-live="polite">10 vídeos publicados</p>
+      </div>
+    </header>
+
+    
+    
+    
+    <form class="video-filters" data-video-filters hidden>
+      <label>
+        <span>Canal</span>
+        <select name="canal" aria-controls="videos-catalog-grid">
+          <option value="">Todos os canais</option>
+          <option value="Cultural Verducido">Cultural Verducido</option><option value="Hugo Pérez Cabaleiro">Hugo Pérez Cabaleiro</option><option value="Os Torakka">Os Torakka</option><option value="Palomar Filmes">Palomar Filmes</option><option value="Rastremaos">Rastremaos</option><option value="Rastreo Piñeiro San Lorenzo">Rastreo Piñeiro San Lorenzo</option><option value="Rastrexo de Fozara">Rastrexo de Fozara</option>
+        </select>
+      </label>
+      <label>
+        <span>Organización</span>
+        <select name="organizacion" aria-controls="videos-catalog-grid">
+          <option value="">Todas as organizacións</option>
+          <option value="alumnos-tafad-ies-maria-solino">Alumnos TAFAD do IES María Soliño</option><option value="asociacion-cultural-de-verducido">Asociación Cultural de Verducido</option><option value="centro-cultural-de-fozara">Centro Cultural de Fozara</option><option value="comision-de-festas-de-san-lorenzo-de-pineiro">Comisión de Festas de San Lorenzo de Piñeiro</option>
+        </select>
+      </label>
+      <label>
+        <span>Ano do evento</span>
+        <select name="ano" aria-controls="videos-catalog-grid">
+          <option value="">Todos os anos</option>
+          <option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2016">2016</option><option value="2012">2012</option>
+        </select>
+      </label>
+      <button class="video-filters-clear" type="button" data-video-filters-clear hidden>Limpar filtros</button>
+    </form>
+
+    
+    <div id="videos-catalog-grid" class="current-videos-grid videos-catalog-grid">
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Cultural Verducido"
+    data-video-year="2026"
+    data-video-organizations="asociacion-cultural-de-verducido"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=NAFo107VFoQ"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir VI RASTREXO NOCTURNO SOLIDARIO LOS PITUFOS en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/NAFo107VFoQ/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Cultural Verducido</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2026-08-29">29-08-2026</time>
+      
+    </p>
+    <h3>VI RASTREXO NOCTURNO SOLIDARIO LOS PITUFOS</h3>
+    
+      <p class="current-video-organizations">
+        Asociación Cultural de Verducido
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2026/verducido-los-pitufos/"
+      hx-get="/calendarios/2026/verducido-los-pitufos/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VI Rastrexo solidario Los Pitufos <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Cultural Verducido"
+    data-video-year="2024"
+    data-video-organizations="asociacion-cultural-de-verducido"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=jjfuLsVLeuk"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir IV RASTREXO 2024 SOLIDARIO, LOS PAYASOS en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/jjfuLsVLeuk/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Cultural Verducido</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2025-09-25">25-09-2025</time>
+      
+    </p>
+    <h3>IV RASTREXO 2024 SOLIDARIO, LOS PAYASOS</h3>
+    
+      <p class="current-video-organizations">
+        Asociación Cultural de Verducido
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
+      hx-get="/calendarios/2024/2024-08-31-iv-rastrexo-solidario-verducido/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: IV Rastrexo solidario Verducido <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Cultural Verducido"
+    data-video-year="2025"
+    data-video-organizations="asociacion-cultural-de-verducido"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=kz3y278-524"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir V RASTREXO SOLIDARIO CUENTOS CLÁSICOS en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/kz3y278-524/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Cultural Verducido</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2025-09-25">25-09-2025</time>
+      
+    </p>
+    <h3>V RASTREXO SOLIDARIO CUENTOS CLÁSICOS</h3>
+    
+      <p class="current-video-organizations">
+        Asociación Cultural de Verducido
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2025/2025-08-30-v-rastrexo-verducido/"
+      hx-get="/calendarios/2025/2025-08-30-v-rastrexo-verducido/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: V Rastrexo solidario Verducido: Cuentos clásicos <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Rastreo Piñeiro San Lorenzo"
+    data-video-year="2023"
+    data-video-organizations="comision-de-festas-de-san-lorenzo-de-pineiro"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=GCFdINPM9AY"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir VI RASTREXO PIÑEIRO - O XOGO DA OCA en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/GCFdINPM9AY/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Rastreo Piñeiro San Lorenzo</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2023-05-28">28-05-2023</time>
+      
+    </p>
+    <h3>VI RASTREXO PIÑEIRO - O XOGO DA OCA</h3>
+    
+      <p class="current-video-organizations">
+        Comisión de Festas de San Lorenzo de Piñeiro
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2023/2023-06-03-vi-rastrexo-pinheiro/"
+      hx-get="/calendarios/2023/2023-06-03-vi-rastrexo-pinheiro/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VI Rastrexo Piñeiro <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Os Torakka"
+    data-video-year="2016"
+    data-video-organizations="alumnos-tafad-ies-maria-solino"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=BeaEtbJtl-w"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Os Torakka en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/BeaEtbJtl-w/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Os Torakka</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2016-11-09">09-11-2016</time>
+      
+    </p>
+    <h3>Os Torakka</h3>
+    
+      <p class="current-video-organizations">
+        Alumnos TAFAD do IES María Soliño
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2016/i-rastrexo-maria-solino/"
+      hx-get="/calendarios/2016/i-rastrexo-maria-solino/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: I Rastrexo María Soliño <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Rastremaos"
+    data-video-year="2016"
+    data-video-organizations="alumnos-tafad-ies-maria-solino"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=SDSMgoTfOqk"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Rastremaos en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/SDSMgoTfOqk/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Rastremaos</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2016-11-08">08-11-2016</time>
+      
+    </p>
+    <h3>Rastremaos</h3>
+    
+      <p class="current-video-organizations">
+        Alumnos TAFAD do IES María Soliño
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2016/i-rastrexo-maria-solino/"
+      hx-get="/calendarios/2016/i-rastrexo-maria-solino/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: I Rastrexo María Soliño <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Hugo Pérez Cabaleiro"
+    data-video-year="2016"
+    data-video-organizations="alumnos-tafad-ies-maria-solino"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=k6izRWA_sqM"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir RASTREXO MARÍA SOLIÑO (Noite de Bruxas) en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/k6izRWA_sqM/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Hugo Pérez Cabaleiro</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2016-10-19">19-10-2016</time>
+      
+    </p>
+    <h3>RASTREXO MARÍA SOLIÑO (Noite de Bruxas)</h3>
+    
+      <p class="current-video-organizations">
+        Alumnos TAFAD do IES María Soliño
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2016/i-rastrexo-maria-solino/"
+      hx-get="/calendarios/2016/i-rastrexo-maria-solino/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: I Rastrexo María Soliño <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Rastrexo de Fozara"
+    data-video-year="2012"
+    data-video-organizations="centro-cultural-de-fozara"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=lcYIZWjMIR0"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Rastrexo Fozara 2012 O CATAMARÁN DO RÍO TEA en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/lcYIZWjMIR0/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Rastrexo de Fozara</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2014-06-21">21-06-2014</time>
+      
+    </p>
+    <h3>Rastrexo Fozara 2012 O CATAMARÁN DO RÍO TEA</h3>
+    
+      <p class="current-video-organizations">
+        Centro Cultural de Fozara
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VII Rastrexo de Fozara <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Rastrexo de Fozara"
+    data-video-year="2012"
+    data-video-organizations="centro-cultural-de-fozara"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=unUobT50XZg"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Rastrexo Fozara 2012 (TOMAS FALSAS) en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/unUobT50XZg/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Rastrexo de Fozara</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2014-06-20">20-06-2014</time>
+      
+    </p>
+    <h3>Rastrexo Fozara 2012 (TOMAS FALSAS)</h3>
+    
+      <p class="current-video-organizations">
+        Centro Cultural de Fozara
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VII Rastrexo de Fozara <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+        
+<article
+  class="current-video-card"
+  
+    data-video-card
+    data-video-channel="Palomar Filmes"
+    data-video-year="2012"
+    data-video-organizations="centro-cultural-de-fozara"
+  
+>
+  <a
+    class="current-video-media"
+    href="https://www.youtube.com/watch?v=9uqagxm85rg"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Reproducir Rastrexo de Fozara 2012 en YouTube"
+  >
+    <img
+      src="https://i.ytimg.com/vi/9uqagxm85rg/hqdefault.jpg"
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <span class="current-video-play" aria-hidden="true"><i class="fi-play"></i></span>
+  </a>
+  <div class="current-video-body">
+    <p class="current-video-meta">
+      <span>Por Palomar Filmes</span>
+      
+        <span aria-hidden="true">·</span>
+        <time datetime="2012-10-11">11-10-2012</time>
+      
+    </p>
+    <h3>Rastrexo de Fozara 2012</h3>
+    
+      <p class="current-video-organizations">
+        Centro Cultural de Fozara
+      </p>
+    
+    <a
+      class="current-video-event"
+      href="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-get="/calendarios/2012/vii-rastrexo-de-fozara/"
+      hx-target="#main-container"
+      hx-select="#main-container"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >Ver ficha: VII Rastrexo de Fozara <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+      
+    </div>
+    <p class="videos-empty" data-video-empty hidden>Non hai vídeos que coincidan con estes filtros.</p>
+  </section>
+</div>
+
+      </div>
+    </div>
+  </main>
+  <footer id="main-footer">
+    <div class="wrapper">
+      <div class="footer-brand">
+        <a
+          class="footer-brand-link"
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          <img class="footer-symbol" src="/recursos/rastrexando-contratipo.png" alt="" loading="lazy" decoding="async" />
+          <span>Rastrexando</span>
+        </a>
+        <span class="footer-copy">Rastrexos e andainas en Galicia · 2017–2026</span>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación secundaria">
+        <a
+          href="/calendarios/2026/"
+          hx-get="/calendarios/2026/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-calendar"></i> Calendario</a>
+        <a
+          href="/videos/"
+          hx-get="/videos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-play-video"></i> Vídeos</a>
+        <a
+          href="/axuda/"
+          hx-get="/axuda/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-info"></i> Axuda</a>
+        <a href="https://www.facebook.com/rastrexando" target="_blank" rel="noopener noreferrer">
+          <i class="fi-social-facebook"></i> Facebook
+        </a>
+        <a href="mailto:carlos@rastrexando.eu">
+          <i class="fi-mail"></i> Contacto
+        </a>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+  </body>
+</html>

@@ -80,6 +80,7 @@
     <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
     <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/video-filters.js"></script>
     <script src="/recursos/js/theme.js"></script>
 
     <!-- Structured data -->
@@ -176,6 +177,15 @@
             hx-push-url="true"
             
           ><i class="fi-calendar"></i> Calendario</a>
+          <a
+            href="/videos/"
+            hx-get="/videos/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-play-video"></i> Vídeos</a>
           <a
             href="/axuda/"
             hx-get="/axuda/"
@@ -601,27 +611,6 @@
       <article class="organization-card">
         <a
           class="organization-card-main"
-          href="/organizacions/asociacion-de-vecinos-a-lavandeira/"
-          hx-get="/organizacions/asociacion-de-vecinos-a-lavandeira/"
-          hx-target="#main-container"
-          hx-select="#main-container"
-          hx-swap="outerHTML"
-          hx-push-url="true"
-        >
-          
-            <span class="organization-avatar" style="--organization-avatar-from: #1b4d3e; --organization-avatar-to: #2e7d61" aria-hidden="true">AL</span>
-          
-          <span>
-            <strong>Asociación de Veciños A Lavandeira</strong>
-            <small>1 evento</small>
-          </span>
-        </a>
-      </article>
-    
-      
-      <article class="organization-card">
-        <a
-          class="organization-card-main"
           href="/organizacions/asociacion-de-vecinos-san-salvador-de-torneiros/"
           hx-get="/organizacions/asociacion-de-vecinos-san-salvador-de-torneiros/"
           hx-target="#main-container"
@@ -635,6 +624,27 @@
           <span>
             <strong>Asociación de Vecinos San Salvador de Torneiros</strong>
             <small>4 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/asociacion-de-vecinos-a-lavandeira/"
+          hx-get="/organizacions/asociacion-de-vecinos-a-lavandeira/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #1b4d3e; --organization-avatar-to: #2e7d61" aria-hidden="true">AL</span>
+          
+          <span>
+            <strong>Asociación de Veciños A Lavandeira</strong>
+            <small>1 evento</small>
           </span>
         </a>
       </article>
@@ -697,6 +707,27 @@
           
           <span>
             <strong>Asociación Revolución Show</strong>
+            <small>2 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/rastrexo-lobarinas/"
+          hx-get="/organizacions/rastrexo-lobarinas/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-lobarinas.webp" alt="" loading="lazy" />
+          
+          <span>
+            <strong>Asociación veciñal de Lobariñas</strong>
             <small>2 eventos</small>
           </span>
         </a>
@@ -895,27 +926,6 @@
       <article class="organization-card">
         <a
           class="organization-card-main"
-          href="/organizacions/centro-cultural-pexegueiro/"
-          hx-get="/organizacions/centro-cultural-pexegueiro/"
-          hx-target="#main-container"
-          hx-select="#main-container"
-          hx-swap="outerHTML"
-          hx-push-url="true"
-        >
-          
-            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">CP</span>
-          
-          <span>
-            <strong>Centro Cultural Pexegueiro</strong>
-            <small>7 eventos</small>
-          </span>
-        </a>
-      </article>
-    
-      
-      <article class="organization-card">
-        <a
-          class="organization-card-main"
           href="/organizacions/centro-cultural-recreativo-parada-do-minor/"
           hx-get="/organizacions/centro-cultural-recreativo-parada-do-minor/"
           hx-target="#main-container"
@@ -929,6 +939,27 @@
           <span>
             <strong>Centro Cultural e Recreativo Parada do Miñor</strong>
             <small>13 eventos</small>
+          </span>
+        </a>
+      </article>
+    
+      
+      <article class="organization-card">
+        <a
+          class="organization-card-main"
+          href="/organizacions/centro-cultural-pexegueiro/"
+          hx-get="/organizacions/centro-cultural-pexegueiro/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >
+          
+            <span class="organization-avatar" style="--organization-avatar-from: #7d4e00; --organization-avatar-to: #b9770e" aria-hidden="true">CP</span>
+          
+          <span>
+            <strong>Centro Cultural Pexegueiro</strong>
+            <small>7 eventos</small>
           </span>
         </a>
       </article>
@@ -1987,27 +2018,6 @@
       <article class="organization-card">
         <a
           class="organization-card-main"
-          href="/organizacions/rastrexo-lobarinas/"
-          hx-get="/organizacions/rastrexo-lobarinas/"
-          hx-target="#main-container"
-          hx-select="#main-container"
-          hx-swap="outerHTML"
-          hx-push-url="true"
-        >
-          
-            <img class="organization-avatar organization-avatar--logo" src="/recursos/imaxes/organizacions/rastrexo-lobarinas.webp" alt="" loading="lazy" />
-          
-          <span>
-            <strong>Asociación veciñal de Lobariñas</strong>
-            <small>2 eventos</small>
-          </span>
-        </a>
-      </article>
-    
-      
-      <article class="organization-card">
-        <a
-          class="organization-card-main"
           href="/organizacions/rastrexo-oliveira/"
           hx-get="/organizacions/rastrexo-oliveira/"
           hx-target="#main-container"
@@ -2225,6 +2235,14 @@
           hx-swap="outerHTML"
           hx-push-url="true"
         ><i class="fi-calendar"></i> Calendario</a>
+        <a
+          href="/videos/"
+          hx-get="/videos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-play-video"></i> Vídeos</a>
         <a
           href="/axuda/"
           hx-get="/axuda/"

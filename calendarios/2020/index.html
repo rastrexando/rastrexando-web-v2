@@ -80,6 +80,7 @@
     <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
     <script src="/recursos/js/bottom-navigation.js"></script>
+    <script src="/recursos/js/video-filters.js"></script>
     <script src="/recursos/js/theme.js"></script>
 
     <!-- Structured data -->
@@ -176,6 +177,15 @@
             hx-push-url="true"
             aria-current="page"
           ><i class="fi-calendar"></i> Calendario</a>
+          <a
+            href="/videos/"
+            hx-get="/videos/"
+            hx-target="#main-container"
+            hx-select="#main-container"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            
+          ><i class="fi-play-video"></i> Vídeos</a>
           <a
             href="/axuda/"
             hx-get="/axuda/"
@@ -466,6 +476,14 @@
           hx-swap="outerHTML"
           hx-push-url="true"
         ><i class="fi-calendar"></i> Calendario</a>
+        <a
+          href="/videos/"
+          hx-get="/videos/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        ><i class="fi-play-video"></i> Vídeos</a>
         <a
           href="/axuda/"
           hx-get="/axuda/"

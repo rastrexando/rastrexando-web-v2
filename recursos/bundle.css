@@ -302,7 +302,7 @@ body {
 .header-nav {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
   gap: 0.35rem;
 }
 
@@ -358,6 +358,18 @@ body {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+@media (max-width: 420px) {
+  .header-nav a {
+    gap: 0.2rem;
+    padding-inline: 0.2rem;
+    font-size: 0.72rem;
+  }
+
+  .header-nav a i {
+    display: none;
+  }
 }
 
 .theme-icon--sun,
@@ -1849,6 +1861,35 @@ body.map-expanded {
   gap: 2rem;
 }
 
+.event-video {
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  box-shadow: 0 3px 14px rgba(13, 10, 76, 0.07);
+}
+
+.event-video-frame {
+  aspect-ratio: 16 / 9;
+  background: #111;
+}
+
+.event-video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.event-video-copy {
+  padding: 0.85rem 1rem 1rem;
+}
+
+.event-video-copy p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
 /* ============================================================
    Prev / Next — floating nav bar
    ============================================================ */
@@ -2257,6 +2298,13 @@ body.map-expanded {
   color: var(--brand-dark-blue);
   font-size: 1rem;
   line-height: 1.35;
+}
+
+.current-video-organizations {
+  margin: 0.35rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
 }
 
 .current-video-event {
@@ -3298,6 +3346,129 @@ hr,
 }
 
 /* ============================================================
+   Videos catalog
+   ============================================================ */
+.videos-page-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.videos-page-header p {
+  margin: 0.2rem 0 0;
+}
+
+.videos-page-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  flex: 0 0 4.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.7rem;
+  background: linear-gradient(135deg, var(--brand-dark-blue), var(--brand-light-blue));
+  border-radius: 50%;
+}
+
+.videos-catalog {
+  margin-top: 1.5rem;
+}
+
+.video-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--surface-tinted);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+}
+
+.video-filters[hidden],
+.current-video-card[hidden],
+.videos-empty[hidden] {
+  display: none;
+}
+
+.video-filters label {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--brand-dark-blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.video-filters select {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.5rem 2rem 0.5rem 0.65rem;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 9px;
+  font: inherit;
+}
+
+.video-filters select:focus-visible,
+.video-filters-clear:focus-visible {
+  outline: 3px solid var(--brand-amber);
+  outline-offset: 2px;
+}
+
+.video-filters-clear {
+  min-height: 42px;
+  padding: 0.5rem 0.85rem;
+  color: var(--brand-dark-blue);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 9px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.video-filters-clear:hover {
+  color: var(--brand-light-blue);
+  border-color: currentColor;
+}
+
+.videos-catalog-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.videos-empty {
+  margin: 0;
+  padding: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  background: var(--surface-tinted);
+  border: 1px dashed var(--card-border);
+  border-radius: 12px;
+}
+
+@media (min-width: 640px) {
+  .videos-catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 760px) {
+  .video-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    align-items: end;
+  }
+}
+
+@media (min-width: 960px) {
+  .videos-catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ============================================================
    Organizations
    ============================================================ */
 .organizations-page-header,
@@ -3343,6 +3514,14 @@ hr,
   height: 4.5rem;
   flex-basis: 4.5rem;
   font-size: 1.7rem;
+}
+
+.organization-videos {
+  margin: 0 0 2rem;
+}
+
+.organization-events {
+  margin: 1.5rem 0 2rem;
 }
 
 .organization-grid {
@@ -3420,10 +3599,6 @@ hr,
   background: var(--surface-tinted);
   border: 1px solid var(--card-border);
   border-radius: 999px;
-}
-
-.organization-events {
-  margin-bottom: 2rem;
 }
 
 .show-for-sr {
