@@ -1,5 +1,6 @@
 const path = require("node:path");
 const Image = require("@11ty/eleventy-img").default;
+const standaloneVideos = require("./_data/standalone-videos.json");
 
 async function createImageVariant(image, width, folder, quality = 76) {
   const originalUrl = `/recursos/imaxes/${image}`;
@@ -21,28 +22,38 @@ async function createImageVariant(image, width, folder, quality = 76) {
   }
 }
 
-function collectVideos(collectionApi) {
-  return collectionApi.getAllSorted()
-    .filter(item => item.data.tags?.includes("post") && Array.isArray(item.data.videos))
-    .flatMap(item => item.data.videos.map(video => {
-      const candidatePublishedDate = video.published ? new Date(video.published) : null;
-      const publishedDate = candidatePublishedDate && !Number.isNaN(candidatePublishedDate.getTime())
-        ? candidatePublishedDate
-        : null;
+function normalizeVideo(video, event = {}) {
+  const candidatePublishedDate = video.published ? new Date(video.published) : null;
+  const publishedDate = candidatePublishedDate && !Number.isNaN(candidatePublishedDate.getTime())
+    ? candidatePublishedDate
+    : null;
 
-      return {
-        id: video.id,
-        title: video.title,
-        channel: video.channel || "",
-        publishedDate,
-        sortDate: publishedDate,
-        eventUrl: item.url,
-        eventDate: item.data.date,
-        eventYear: String(item.data.date.getFullYear()),
-        location: item.data.location,
-        organizerSlugs: Array.isArray(item.data.organizers) ? item.data.organizers : []
-      };
-    }))
+  return {
+    id: video.id,
+    title: video.title,
+    channel: video.channel || "",
+    publishedDate,
+    sortDate: publishedDate,
+    eventUrl: event.url || "",
+    eventDate: event.date || null,
+    eventYear: event.date ? String(event.date.getFullYear()) : "",
+    location: event.location || "",
+    organizerSlugs: Array.isArray(event.organizers) ? event.organizers : []
+  };
+}
+
+function collectVideos(collectionApi) {
+  const eventVideos = collectionApi.getAllSorted()
+    .filter(item => item.data.tags?.includes("post") && Array.isArray(item.data.videos))
+    .flatMap(item => item.data.videos.map(video => normalizeVideo(video, {
+      url: item.url,
+      date: item.data.date,
+      location: item.data.location,
+      organizers: item.data.organizers
+    })));
+  const independentVideos = standaloneVideos.map(video => normalizeVideo(video));
+
+  return [...eventVideos, ...independentVideos]
     .filter(video => video.id && video.title && video.channel && video.publishedDate &&
       !Number.isNaN(video.publishedDate.getTime()))
     .sort((first, second) => second.sortDate - first.sortDate);

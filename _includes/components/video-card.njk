@@ -32,15 +32,26 @@
         <time datetime="{{ video.publishedDate | toISODate }}">{{ video.publishedDate | toNumericDate }}</time>
       {% endif %}
     </p>
-    <h3><a
-      class="current-video-title-link"
-      href="{{ video.eventUrl }}"
-      hx-get="{{ video.eventUrl }}"
-      hx-target="#main-container"
-      hx-select="#main-container"
-      hx-swap="outerHTML"
-      hx-push-url="true"
-    >{{ video.title }}</a></h3>
+    <h3>
+      {% if video.eventUrl %}
+        <a
+          class="current-video-title-link"
+          href="{{ video.eventUrl }}"
+          hx-get="{{ video.eventUrl }}"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >{{ video.title }}</a>
+      {% else %}
+        <a
+          class="current-video-title-link"
+          href="https://www.youtube.com/watch?v={{ video.id }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >{{ video.title }}</a>
+      {% endif %}
+    </h3>
     {% if videoOrganizations.length > 0 %}
       <p class="current-video-organizations">
         {% for organization in videoOrganizations %}<a

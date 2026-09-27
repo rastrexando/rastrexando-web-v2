@@ -51,6 +51,8 @@ notices: # optional; rendered between event information and the map
 
 Video `channel` is required and identifies the YouTube publisher, whether it is an organization, team, or individual; it must not be inferred from the event organizers. `published` is also required and must contain the real YouTube publication date. Videos are ordered by `published`, and displayed publication dates always include the year. The home page features the three most recently published videos regardless of event year. The full catalogue lives at `/videos/`, supports client-side filtering by channel, organization, and event year, and organization profiles list videos from their events.
 
+Compilations and other videos that cannot be assigned to exactly one event belong in `_data/standalone-videos.json`, using the same `id`, `title`, `published`, and `channel` fields. Standalone videos appear in the main catalogue and latest-video ordering but have no event year, organization association, or event detail link. Never duplicate one YouTube ID across multiple events; use a standalone entry for multi-event videos.
+
 ## Conventions
 - Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., `ix-rastrexo-camos.njk`)
 - Images stored in `recursos/imaxes/<year>/` and referenced as `<year>/filename.ext`

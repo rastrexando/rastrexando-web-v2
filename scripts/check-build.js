@@ -99,6 +99,7 @@ function checkMapYear(urlPath, expectedYear, label) {
 const files = walk(outputRoot);
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
 const organizations = require(path.join(projectRoot, "_data", "organizations.json"));
+const standaloneVideos = require(path.join(projectRoot, "_data", "standalone-videos.json"));
 const years = require(path.join(projectRoot, "_data", "years.json"));
 const activeYear = String(years.at(-1).name);
 const organizationSlugs = new Set();
@@ -254,6 +255,19 @@ for (const eventTemplateFile of eventTemplateFiles) {
     /^tags:\s*\[[^\n]*"post"/m.test(source);
   if (is2026Event) {
     check(organizerReferences.length > 0, `${relativeEventTemplate}: falta organizers`);
+  }
+}
+
+check(Array.isArray(standaloneVideos), "_data/standalone-videos.json non contén unha lista");
+for (const video of standaloneVideos) {
+  const label = `_data/standalone-videos.json: ${video.id || "vídeo sen id"}`;
+  check(Boolean(video.id), `${label} non ten id`);
+  check(Boolean(video.title), `${label} non ten título`);
+  check(Boolean(video.channel), `${label} non ten channel`);
+  check(/^\d{4}-\d{2}-\d{2}$/.test(video.published || ""), `${label} non ten unha data published válida`);
+  if (video.id) {
+    check(!videoIds.has(video.id), `${label} xa aparece en ${videoIds.get(video.id)}`);
+    videoIds.set(video.id, "_data/standalone-videos.json");
   }
 }
 
