@@ -317,7 +317,8 @@ if (fs.existsSync(homePath)) {
   check(
     headerNavigation.includes('href="/"') &&
       headerNavigation.includes(`href="/calendarios/${activeYear}/"`) &&
-      headerNavigation.includes(`Calendario ${activeYear}</a>`) &&
+      headerNavigation.includes("Calendario</a>") &&
+      !headerNavigation.includes(`Calendario ${activeYear}</a>`) &&
       headerNavigation.includes('href="/videos/"') &&
       !headerNavigation.includes('href="/organizacions/"') &&
       !headerNavigation.includes('href="/axuda/"'),
