@@ -313,7 +313,9 @@ if (videosIndexPath && fs.existsSync(videosIndexPath)) {
     "O catálogo non inclúe os valores necesarios para filtrar"
   );
   check(
-    videosIndexHtml.includes("Por Cultural Verducido") &&
+    videosIndexHtml.includes("Canal: Cultural Verducido") &&
+      !videosIndexHtml.includes("current-video-chip") &&
+      !videosIndexHtml.includes('class="fi-upload"') &&
       videosIndexHtml.includes('>29-08-2026</time>') &&
       !videosIndexHtml.includes("Publicado por"),
     "O catálogo non usa os metadatos compactos de publicación"
@@ -329,7 +331,7 @@ const videoEventPath = outputPathForUrl("/calendarios/2026/verducido-los-pitufos
 if (videoEventPath && fs.existsSync(videoEventPath)) {
   const videoEventHtml = fs.readFileSync(videoEventPath, "utf8");
   check(
-    videoEventHtml.includes("Por Cultural Verducido") &&
+    videoEventHtml.includes("Canal: Cultural Verducido") &&
       videoEventHtml.includes('>29-08-2026</time>') &&
       !videoEventHtml.includes("Publicado por"),
     "A ficha do evento non usa os metadatos compactos de publicación"

@@ -36,7 +36,6 @@ function collectVideos(collectionApi) {
         channel: video.channel || "",
         publishedDate,
         sortDate: publishedDate,
-        eventTitle: item.data.title,
         eventUrl: item.url,
         eventDate: item.data.date,
         eventYear: String(item.data.date.getFullYear()),

@@ -2286,6 +2286,7 @@ body.map-expanded {
 .current-video-meta {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.25rem 0.4rem;
   margin: 0 0 0.35rem;
   color: var(--text-muted);
@@ -2298,6 +2299,16 @@ body.map-expanded {
   color: var(--brand-dark-blue);
   font-size: 1rem;
   line-height: 1.35;
+}
+
+.current-video-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.current-video-title-link:hover {
+  color: var(--brand-light-blue);
+  text-decoration: underline;
 }
 
 .current-video-organizations {
@@ -2315,21 +2326,6 @@ body.map-expanded {
 
 .current-video-meta a:hover,
 .current-video-organizations a:hover {
-  color: var(--brand-light-blue);
-  text-decoration: underline;
-}
-
-.current-video-event {
-  display: inline-block;
-  margin-top: 0.65rem;
-  color: var(--brand-dark-blue);
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1.4;
-  text-decoration: none;
-}
-
-.current-video-event:hover {
   color: var(--brand-light-blue);
   text-decoration: underline;
 }
