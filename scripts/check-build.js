@@ -307,7 +307,7 @@ if (fs.existsSync(homePath)) {
   check(
     (homeHtml.match(/class="current-video-card"/g) || []).length === 3 &&
       homeHtml.includes("NAFo107VFoQ") &&
-      homeHtml.includes("kz3y278-524") &&
+      homeHtml.includes("CpeNOGONgfo") &&
       homeHtml.includes("jjfuLsVLeuk"),
     "A portada non mostra os tres vídeos publicados máis recentemente"
   );
