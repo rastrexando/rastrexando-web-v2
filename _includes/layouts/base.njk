@@ -64,15 +64,6 @@ layout: skeleton
             hx-push-url="true"
             {% if page.url == "/videos/" %}aria-current="page"{% endif %}
           ><i class="fi-play-video"></i> Vídeos</a>
-          <a
-            href="/axuda/"
-            hx-get="/axuda/"
-            hx-target="#main-container"
-            hx-select="#main-container"
-            hx-swap="outerHTML"
-            hx-push-url="true"
-            {% if page.url == "/axuda/" %}aria-current="page"{% endif %}
-          ><i class="fi-info"></i> Axuda</a>
           <button
             id="theme-toggle"
             class="theme-toggle"
@@ -118,13 +109,21 @@ layout: skeleton
       </div>
       <nav class="footer-nav" aria-label="Navegación secundaria">
         <a
+          href="/"
+          hx-get="/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Inicio</a>
+        <a
           href="{{ currentYear.url }}"
           hx-get="{{ currentYear.url }}"
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        ><i class="fi-calendar"></i> Calendario</a>
+        >Calendario</a>
         <a
           href="/videos/"
           hx-get="/videos/"
@@ -132,7 +131,15 @@ layout: skeleton
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        ><i class="fi-play-video"></i> Vídeos</a>
+        >Vídeos</a>
+        <a
+          href="/organizacions/"
+          hx-get="/organizacions/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Organizacións</a>
         <a
           href="/axuda/"
           hx-get="/axuda/"
@@ -140,13 +147,23 @@ layout: skeleton
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        ><i class="fi-info"></i> Axuda</a>
-        <a href="https://www.facebook.com/rastrexando" target="_blank" rel="noopener noreferrer">
-          <i class="fi-social-facebook"></i> Facebook
-        </a>
-        <a href="mailto:carlos@rastrexando.eu">
-          <i class="fi-mail"></i> Contacto
-        </a>
+        >Axuda</a>
+        <a
+          href="/sobre/"
+          hx-get="/sobre/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Sobre nós</a>
+        <span class="footer-nav-external">
+          <a href="https://www.facebook.com/rastrexando" target="_blank" rel="noopener noreferrer">
+            <i class="fi-social-facebook" aria-hidden="true"></i> Facebook
+          </a>
+          <a href="mailto:carlos@rastrexando.eu">
+            <i class="fi-mail" aria-hidden="true"></i> Contacto
+          </a>
+        </span>
       </nav>
     </div>
   </footer>

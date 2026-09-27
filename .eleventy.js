@@ -289,11 +289,8 @@ module.exports = function (eleventyConfig) {
     return collectVideos(collectionApi);
   });
 
-  eleventyConfig.addCollection("currentYearVideos", function (collectionApi) {
-    const currentYear = String(now.getFullYear());
-    return collectVideos(collectionApi)
-      .filter(video => video.eventYear === currentYear)
-      .slice(0, 3);
+  eleventyConfig.addCollection("latestVideos", function (collectionApi) {
+    return collectVideos(collectionApi).slice(0, 3);
   });
 
   eleventyConfig.addCollection("yearCovers", function(collectionApi) {

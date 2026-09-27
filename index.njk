@@ -68,12 +68,12 @@ pagination:
     {% renderCalendarMap collections[activeYear.year], locations, activeYear.year %}
   </section>
 
-  {% if collections.currentYearVideos.length > 0 %}
+  {% if collections.latestVideos.length > 0 %}
   <section class="current-videos-section" aria-labelledby="current-videos-title">
     <header class="home-section-header home-section-header--action">
       <div>
         <h2 id="current-videos-title"><i class="fi-play-video is-light-blue"></i> Últimos vídeos</h2>
-        <p>Unha ollada aos rastrexos e andainas máis recentes</p>
+        <p>Os vídeos publicados máis recentemente</p>
       </div>
       <a
         href="/videos/"
@@ -85,7 +85,7 @@ pagination:
       >Ver todos <span aria-hidden="true">→</span></a>
     </header>
     <div class="current-videos-grid">
-      {% for video in collections.currentYearVideos %}
+      {% for video in collections.latestVideos %}
         {% include "components/video-card.njk" %}
       {% endfor %}
     </div>

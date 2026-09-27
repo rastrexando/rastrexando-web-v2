@@ -99,6 +99,8 @@ function checkMapYear(urlPath, expectedYear, label) {
 const files = walk(outputRoot);
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
 const organizations = require(path.join(projectRoot, "_data", "organizations.json"));
+const years = require(path.join(projectRoot, "_data", "years.json"));
+const activeYear = String(years.at(-1).name);
 const organizationSlugs = new Set();
 const organizationNames = new Set();
 const organizationCanonicalUrls = new Map();
@@ -287,6 +289,43 @@ if (fs.existsSync(homePath)) {
     homeHtml.indexOf('localStorage.getItem("rastrexando-theme")') < homeHtml.indexOf('href="/recursos/bundle.css"'),
     "O tema non se resolve antes de cargar os estilos"
   );
+  check(
+    (homeHtml.match(/class="current-video-card"/g) || []).length === 3 &&
+      homeHtml.includes("NAFo107VFoQ") &&
+      homeHtml.includes("kz3y278-524") &&
+      homeHtml.includes("jjfuLsVLeuk"),
+    "A portada non mostra os tres vídeos publicados máis recentemente"
+  );
+
+  const headerNavigation = homeHtml.match(/<nav class="header-nav"[\s\S]*?<\/nav>/)?.[0] || "";
+  const footerNavigation = homeHtml.match(/<nav class="footer-nav"[\s\S]*?<\/nav>/)?.[0] || "";
+  check(
+    headerNavigation.includes('href="/"') &&
+      headerNavigation.includes(`href="/calendarios/${activeYear}/"`) &&
+      headerNavigation.includes('href="/videos/"') &&
+      !headerNavigation.includes('href="/organizacions/"') &&
+      !headerNavigation.includes('href="/axuda/"'),
+    "A cabeceira non está limitada á navegación principal"
+  );
+  for (const footerHref of [
+    '/',
+    `/calendarios/${activeYear}/`,
+    '/videos/',
+    '/organizacions/',
+    '/axuda/',
+    '/sobre/',
+    'https://www.facebook.com/rastrexando',
+    'mailto:carlos@rastrexando.eu'
+  ]) {
+    check(footerNavigation.includes(`href="${footerHref}"`), `O footer non enlaza ${footerHref}`);
+  }
+  check(
+    footerNavigation.includes('>Sobre nós</a>') &&
+      footerNavigation.includes('class="footer-nav-external"') &&
+      footerNavigation.includes('class="fi-social-facebook" aria-hidden="true"') &&
+      footerNavigation.includes('class="fi-mail" aria-hidden="true"'),
+    "O footer non distingue correctamente os enlaces externos"
+  );
 }
 
 const videosIndexPath = outputPathForUrl("/videos/");
@@ -378,6 +417,14 @@ if (fs.existsSync(sitemapPath)) {
   check(!sitemap.includes(`${siteUrl}/404.html`), "O sitemap inclúe a páxina 404");
   check(sitemap.includes(canonicalCamosUrl), "O sitemap non inclúe a URL canónica de Camos");
   check(sitemap.includes(`${siteUrl}/organizacions/`), "O sitemap non inclúe o directorio de organizacións");
+  for (const organization of organizations) {
+    const organizationUrl = `${siteUrl}/organizacions/${organization.slug}/`;
+    check(sitemap.includes(organizationUrl), `O sitemap non inclúe ${organizationUrl}`);
+    check(
+      sitemap.split(organizationUrl).length === 2,
+      `O sitemap inclúe máis dunha vez ${organizationUrl}`
+    );
+  }
 }
 
 const organizationsIndexPath = outputPathForUrl("/organizacions/");
@@ -565,6 +612,25 @@ if (fs.existsSync(bundleCssPath)) {
       bundleCssSource.includes(".calendar-map-canvas.map-is-expanded"),
     "Faltan os estilos do mapa a pantalla completa"
   );
+  check(
+    bundleCssSource.includes(".prev-next-buttons--docked {\n  position: absolute;") &&
+      !bundleCssSource.includes("@media (max-width: 767px) {\n  .prev-next-buttons--docked"),
+    "A navegación inferior non se atraca sobre o footer en todos os tamaños"
+  );
+  check(
+    bundleCssSource.includes("text-underline-offset: 0.2em") &&
+      !bundleCssSource.includes("background: rgba(255, 255, 255, 0.055)"),
+    "Os enlaces do footer non usan o estilo textual"
+  );
+  check(
+    bundleCssSource.includes("@media (max-width: 767px) {\n  .footer-nav-external {") &&
+      bundleCssSource.includes("border-left: 0;"),
+    "O footer non elimina o separador externo en móbil"
+  );
+  check(
+    bundleCssSource.includes(".page-index .current-videos-grid {\n    grid-template-columns: repeat(3, minmax(0, 1fr));"),
+    "A portada non mantén os tres últimos vídeos na mesma fila"
+  );
 }
 
 const bottomNavigationResource = "recursos/js/bottom-navigation.js";
@@ -591,8 +657,6 @@ if (fs.existsSync(themePath)) {
   );
 }
 
-const years = require(path.join(projectRoot, "_data", "years.json"));
-const activeYear = String(years.at(-1).name);
 const homeMap = checkMapYear("/", activeYear, "Inicio");
 const activeMap = checkMapYear(`/calendarios/${activeYear}/`, activeYear, `Calendario ${activeYear}`);
 const historicMap = checkMapYear("/calendarios/2018/", "2018", "Calendario histórico 2018");

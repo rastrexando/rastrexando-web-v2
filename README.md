@@ -66,7 +66,7 @@ videos:
     channel: "Cultural Verducido"
 ```
 
-La portada muestra como máximo los tres vídeos más recientes asociados a eventos del año en curso y `/videos/` reúne el catálogo completo. Se ordenan por `published` y la fecha mostrada incluye siempre el año. El catálogo se puede filtrar por canal, organización y año del evento; los filtros se conservan en la URL. Los perfiles de organización reúnen los vídeos de sus eventos.
+La portada muestra como máximo los tres vídeos publicados más recientemente, sin importar el año del evento, y `/videos/` reúne el catálogo completo. Se ordenan por `published` y la fecha mostrada incluye siempre el año. El catálogo se puede filtrar por canal, organización y año del evento; los filtros se conservan en la URL. Los perfiles de organización reúnen los vídeos de sus eventos.
 
 ## Mapa interactivo de calendarios
 

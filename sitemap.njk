@@ -3,4 +3,5 @@ eleventyExcludeFromCollections: true
 permalink: /sitemap.txt
 ---
 {% for item in collections.all %}{{ site.url }}{{ item.url }}
+{% endfor %}{% for organization in organizations %}{{ site.url }}/organizacions/{{ organization.slug }}/
 {% endfor %}
