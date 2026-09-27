@@ -2321,7 +2321,8 @@ body.map-expanded {
 .current-video-meta a,
 .current-video-organizations a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .current-video-meta a:hover,
