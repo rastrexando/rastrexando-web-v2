@@ -51,7 +51,8 @@
 
       count.textContent = visibleCount === 1 ? "1 vídeo publicado" : visibleCount + " vídeos publicados";
       empty.hidden = visibleCount !== 0;
-      clearButton.hidden = !filters.canal && !filters.organizacion && !filters.ano;
+      clearButton.hidden = false;
+      clearButton.disabled = !filters.canal && !filters.organizacion && !filters.ano;
       if (writeUrl) updateUrl(filters);
     }
 

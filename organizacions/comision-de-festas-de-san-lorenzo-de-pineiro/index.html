@@ -80,7 +80,7 @@
     <script src="/recursos/js/calendar-map.js"></script>
     <script src="/recursos/js/header-navigation.js?v=1"></script>
     <script src="/recursos/js/bottom-navigation.js"></script>
-    <script src="/recursos/js/video-filters.js"></script>
+    <script src="/recursos/js/video-filters.js?v=2"></script>
     <script src="/recursos/js/theme.js"></script>
 
     <!-- Structured data -->
@@ -490,27 +490,33 @@
   </a>
   <div class="current-video-body">
     <p class="current-video-meta">
-      <span>Por Rastreo Piñeiro San Lorenzo</span>
+      <a href="/videos/?canal=Rastreo%20Pi%C3%B1eiro%20San%20Lorenzo">Canal: Rastreo Piñeiro San Lorenzo</a>
       
         <span aria-hidden="true">·</span>
         <time datetime="2023-05-28">28-05-2023</time>
       
     </p>
-    <h3>VI RASTREXO PIÑEIRO - O XOGO DA OCA</h3>
-    
-      <p class="current-video-organizations">
-        Comisión de Festas de San Lorenzo de Piñeiro
-      </p>
-    
-    <a
-      class="current-video-event"
+    <h3><a
+      class="current-video-title-link"
       href="/calendarios/2023/2023-06-03-vi-rastrexo-pinheiro/"
       hx-get="/calendarios/2023/2023-06-03-vi-rastrexo-pinheiro/"
       hx-target="#main-container"
       hx-select="#main-container"
       hx-swap="outerHTML"
       hx-push-url="true"
-    >Ver ficha: VI Rastrexo Piñeiro <span aria-hidden="true">→</span></a>
+    >VI RASTREXO PIÑEIRO - O XOGO DA OCA</a></h3>
+    
+      <p class="current-video-organizations">
+        <a
+          href="/organizacions/comision-de-festas-de-san-lorenzo-de-pineiro/"
+          hx-get="/organizacions/comision-de-festas-de-san-lorenzo-de-pineiro/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >Comisión de Festas de San Lorenzo de Piñeiro</a>
+      </p>
+    
   </div>
 </article>
 
