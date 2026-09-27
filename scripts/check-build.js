@@ -258,6 +258,7 @@ for (const eventTemplateFile of eventTemplateFiles) {
 }
 
 check(fs.existsSync(path.join(outputRoot, "index.html")), "Falta a páxina de inicio");
+check(fs.existsSync(path.join(outputRoot, "calendarios", "index.html")), "Falta o directorio de calendarios");
 check(fs.existsSync(path.join(outputRoot, "videos", "index.html")), "Falta o catálogo de vídeos");
 check(fs.existsSync(path.join(outputRoot, "robots.txt")), "Falta robots.txt");
 check(fs.existsSync(path.join(outputRoot, "sitemap.txt")), "Falta sitemap.txt");
@@ -302,6 +303,7 @@ if (fs.existsSync(homePath)) {
   check(
     headerNavigation.includes('href="/"') &&
       headerNavigation.includes(`href="/calendarios/${activeYear}/"`) &&
+      headerNavigation.includes(`Calendario ${activeYear}</a>`) &&
       headerNavigation.includes('href="/videos/"') &&
       !headerNavigation.includes('href="/organizacions/"') &&
       !headerNavigation.includes('href="/axuda/"'),
@@ -309,7 +311,7 @@ if (fs.existsSync(homePath)) {
   );
   for (const footerHref of [
     '/',
-    `/calendarios/${activeYear}/`,
+    '/calendarios/',
     '/videos/',
     '/organizacions/',
     '/axuda/',
@@ -416,6 +418,13 @@ if (fs.existsSync(sitemapPath)) {
   check(!sitemap.includes(legacyCamosUrl), "O sitemap inclúe a URL antiga de Camos con maiúsculas");
   check(!sitemap.includes(`${siteUrl}/404.html`), "O sitemap inclúe a páxina 404");
   check(sitemap.includes(canonicalCamosUrl), "O sitemap non inclúe a URL canónica de Camos");
+  const calendarsIndexUrl = `${siteUrl}/calendarios/`;
+  const sitemapLines = sitemap.split(/\r?\n/).map(line => line.trim());
+  check(sitemapLines.includes(calendarsIndexUrl), "O sitemap non inclúe o directorio de calendarios");
+  check(
+    sitemapLines.filter(line => line === calendarsIndexUrl).length === 1,
+    "O sitemap non inclúe unha única vez o directorio de calendarios"
+  );
   check(sitemap.includes(`${siteUrl}/organizacions/`), "O sitemap non inclúe o directorio de organizacións");
   for (const organization of organizations) {
     const organizationUrl = `${siteUrl}/organizacions/${organization.slug}/`;
@@ -423,6 +432,30 @@ if (fs.existsSync(sitemapPath)) {
     check(
       sitemap.split(organizationUrl).length === 2,
       `O sitemap inclúe máis dunha vez ${organizationUrl}`
+    );
+  }
+}
+
+const calendarsIndexPath = outputPathForUrl("/calendarios/");
+check(
+  calendarsIndexPath && fs.existsSync(calendarsIndexPath),
+  "Falta o directorio de calendarios"
+);
+if (calendarsIndexPath && fs.existsSync(calendarsIndexPath)) {
+  const calendarsIndexHtml = fs.readFileSync(calendarsIndexPath, "utf8");
+  const calendarsBreadcrumbs = calendarsIndexHtml.match(/<nav class="breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+  check(
+    calendarsBreadcrumbs.includes('href="/"') && calendarsBreadcrumbs.includes("Calendarios"),
+    "O directorio de calendarios non inclúe as migas Inicio > Calendarios"
+  );
+  check(
+    (calendarsIndexHtml.match(/class="year-cover-item/g) || []).length === years.length,
+    "O directorio de calendarios non mostra todos os anos"
+  );
+  for (const year of years) {
+    check(
+      calendarsIndexHtml.includes(`href="/calendarios/${year.name}/"`),
+      `O directorio de calendarios non enlaza o ano ${year.name}`
     );
   }
 }
@@ -660,6 +693,17 @@ if (fs.existsSync(themePath)) {
 const homeMap = checkMapYear("/", activeYear, "Inicio");
 const activeMap = checkMapYear(`/calendarios/${activeYear}/`, activeYear, `Calendario ${activeYear}`);
 const historicMap = checkMapYear("/calendarios/2018/", "2018", "Calendario histórico 2018");
+const activeCalendarPath = outputPathForUrl(`/calendarios/${activeYear}/`);
+if (activeCalendarPath && fs.existsSync(activeCalendarPath)) {
+  const activeCalendarHtml = fs.readFileSync(activeCalendarPath, "utf8");
+  const activeCalendarBreadcrumbs = activeCalendarHtml.match(/<nav class="breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+  check(
+    activeCalendarBreadcrumbs.includes('href="/"') &&
+      activeCalendarBreadcrumbs.includes('href="/calendarios/"') &&
+      activeCalendarBreadcrumbs.includes(`>${activeYear}</li>`),
+    `Calendario ${activeYear}: faltan as migas Inicio > Calendarios > ${activeYear}`
+  );
+}
 
 if (homeMap && activeMap) {
   check(
@@ -687,6 +731,12 @@ if (map2026) {
 const eventDetailPath = outputPathForUrl("/calendarios/2026/iv-rastrexo-coruxo/");
 if (eventDetailPath && fs.existsSync(eventDetailPath)) {
   const eventDetailHtml = fs.readFileSync(eventDetailPath, "utf8");
+  const eventBreadcrumbs = eventDetailHtml.match(/<nav class="breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+  check(
+    eventBreadcrumbs.includes('href="/calendarios/"') &&
+      eventBreadcrumbs.includes('href="/calendarios/2026/"'),
+    "A ficha de evento non inclúe Calendarios e 2026 nas migas"
+  );
   check(!eventDetailHtml.includes("data-calendar-map"), "A ficha de evento inclúe por erro o mapa anual");
   check(eventDetailHtml.includes("data-event-map"), "A ficha non inclúe o seu mapa Leaflet");
   check(!eventDetailHtml.includes("event-map-open"), "A ficha ofrece abrir unha localización que só é aproximada");

@@ -1,0 +1,30 @@
+---
+layout: base
+title: Calendarios — Rastrexando
+description: Arquivo de calendarios de rastrexos e andainas publicados en Rastrexando.
+---
+
+<nav class="breadcrumbs">
+  <ul>
+    <li>{% renderHTMXLink "/", "Inicio", "link" %}</li>
+    <li class="breadcrumb-sep">›</li>
+    <li class="is-light-blue">Calendarios</li>
+  </ul>
+</nav>
+
+<div class="page page-calendarios">
+  <header class="home-section-header">
+    <div>
+      <h1><i class="fi-calendar is-light-blue"></i> Calendarios</h1>
+      <p>Arquivo de todos os eventos publicados ano a ano</p>
+    </div>
+  </header>
+
+  <section class="year-covers-section" aria-label="Calendarios por ano">
+    <div class="year-covers-grid">
+      {% for item in collections.yearCovers | reverse %}
+        {% renderYearCoverItem item %}
+      {% endfor %}
+    </div>
+  </section>
+</div>

@@ -54,7 +54,7 @@ layout: skeleton
             hx-swap="outerHTML"
             hx-push-url="true"
             {% if "/calendarios/" in page.url %}aria-current="page"{% endif %}
-          ><i class="fi-calendar"></i> Calendario</a>
+          ><i class="fi-calendar"></i> Calendario {{ currentYear.year }}</a>
           <a
             href="/videos/"
             hx-get="/videos/"
@@ -117,13 +117,13 @@ layout: skeleton
           hx-push-url="true"
         >Inicio</a>
         <a
-          href="{{ currentYear.url }}"
-          hx-get="{{ currentYear.url }}"
+          href="/calendarios/"
+          hx-get="/calendarios/"
           hx-target="#main-container"
           hx-select="#main-container"
           hx-swap="outerHTML"
           hx-push-url="true"
-        >Calendario</a>
+        >Calendarios</a>
         <a
           href="/videos/"
           hx-get="/videos/"
