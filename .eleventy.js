@@ -106,6 +106,10 @@ module.exports = function (eleventyConfig) {
     return new Date(dateVal).toISOString().slice(0, 10);
   });
 
+  eleventyConfig.addFilter("urlEncode", function (value) {
+    return encodeURIComponent(String(value || ""));
+  });
+
   eleventyConfig.addFilter("toNumericDate", function (dateVal) {
     return new Date(dateVal).toISOString().slice(0, 10).split("-").reverse().join("-");
   });

@@ -2307,6 +2307,18 @@ body.map-expanded {
   line-height: 1.4;
 }
 
+.current-video-meta a,
+.current-video-organizations a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.current-video-meta a:hover,
+.current-video-organizations a:hover {
+  color: var(--brand-light-blue);
+  text-decoration: underline;
+}
+
 .current-video-event {
   display: inline-block;
   margin-top: 0.65rem;

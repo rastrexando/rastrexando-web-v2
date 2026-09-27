@@ -26,7 +26,7 @@
   </a>
   <div class="current-video-body">
     <p class="current-video-meta">
-      <span>Por {{ video.channel }}</span>
+      <a href="/videos/?canal={{ video.channel | urlEncode }}">Por {{ video.channel }}</a>
       {% if video.publishedDate %}
         <span aria-hidden="true">·</span>
         <time datetime="{{ video.publishedDate | toISODate }}">{{ video.publishedDate | toNumericDate }}</time>
@@ -35,7 +35,14 @@
     <h3>{{ video.title }}</h3>
     {% if videoOrganizations.length > 0 %}
       <p class="current-video-organizations">
-        {% for organization in videoOrganizations %}{{ organization.name }}{% if not loop.last %}, {% endif %}{% endfor %}
+        {% for organization in videoOrganizations %}<a
+          href="/organizacions/{{ organization.slug }}/"
+          hx-get="/organizacions/{{ organization.slug }}/"
+          hx-target="#main-container"
+          hx-select="#main-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+        >{{ organization.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
       </p>
     {% endif %}
     <a

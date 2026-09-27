@@ -318,6 +318,11 @@ if (videosIndexPath && fs.existsSync(videosIndexPath)) {
       !videosIndexHtml.includes("Publicado por"),
     "O catálogo non usa os metadatos compactos de publicación"
   );
+  check(
+    videosIndexHtml.includes('/videos/?canal=Hugo%20P%C3%A9rez%20Cabaleiro') &&
+      videosIndexHtml.includes('href="/organizacions/asociacion-cultural-de-verducido/"'),
+    "Os metadatos do catálogo non enlazan o canal e a organización"
+  );
 }
 
 const videoEventPath = outputPathForUrl("/calendarios/2026/verducido-los-pitufos/");
