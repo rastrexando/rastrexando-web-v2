@@ -300,11 +300,17 @@ if (videosIndexPath && fs.existsSync(videosIndexPath)) {
     "O catálogo non inclúe os tres filtros de vídeos"
   );
   check(
+    videosIndexHtml.includes('data-video-filters-clear disabled') &&
+      videosIndexHtml.includes('class="fi-x" aria-hidden="true"') &&
+      videosIndexHtml.includes("Limpar filtros"),
+    "O botón para limpar filtros non está visible, desactivado e identificado"
+  );
+  check(
     (videosIndexHtml.match(/data-video-card/g) || []).length === videoIds.size,
     "O catálogo non expón metadatos para todos os vídeos"
   );
   check(
-    videosIndexHtml.includes('src="/recursos/js/video-filters.js"'),
+    videosIndexHtml.includes('src="/recursos/js/video-filters.js?v=2"'),
     "O catálogo non carga o script de filtros"
   );
   check(

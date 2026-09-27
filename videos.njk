@@ -54,7 +54,7 @@ description: Vídeos de rastrexos e andainas publicados en Rastrexando.
           {% for year in yearOptions %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
         </select>
       </label>
-      <button class="video-filters-clear" type="button" data-video-filters-clear hidden>Limpar filtros</button>
+      <button class="video-filters-clear" type="button" data-video-filters-clear disabled><i class="fi-x" aria-hidden="true"></i> Limpar filtros</button>
     </form>
 
     {% set filterableVideoCards = true %}
