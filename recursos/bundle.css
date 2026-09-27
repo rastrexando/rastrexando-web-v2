@@ -1502,39 +1502,6 @@ body.map-expanded {
   box-shadow: 0 1px 5px rgba(13, 10, 76, 0.35);
 }
 
-.map-labeled-control {
-  position: relative;
-  overflow: visible !important;
-}
-
-.map-labeled-control::after {
-  content: attr(data-control-label);
-  position: absolute;
-  top: 50%;
-  z-index: 0;
-  padding: 0.28rem 0.48rem;
-  border: 1px solid var(--card-border);
-  border-radius: 6px;
-  color: var(--text-primary);
-  background: var(--floating-bg-strong);
-  box-shadow: 0 1px 5px rgba(13, 10, 76, 0.2);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  line-height: 1;
-  pointer-events: none;
-  transform: translateY(-50%);
-  white-space: nowrap;
-}
-
-.map-labeled-control--left::after {
-  left: calc(100% + 6px);
-}
-
-.map-labeled-control--right::after {
-  right: calc(100% + 6px);
-}
-
 .map-expand-button,
 .map-reset-button {
   width: 42px;
