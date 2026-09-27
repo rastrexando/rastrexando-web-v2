@@ -15,14 +15,19 @@
   var ACTIVE_MAPS = new Set();
   var EXPANDED_MAP = null;
 
-  function addControlLabel(container, text, side) {
-    container.classList.add("map-labeled-control", "map-labeled-control--" + side);
-    container.dataset.controlLabel = text;
-  }
-
-  function addZoomControlLabel(map) {
+  function localizeZoomControl(map) {
     var container = map.zoomControl && map.zoomControl.getContainer();
-    if (container) addControlLabel(container, "Zoom", "left");
+    var zoomIn = container && container.querySelector(".leaflet-control-zoom-in");
+    var zoomOut = container && container.querySelector(".leaflet-control-zoom-out");
+
+    if (zoomIn) {
+      zoomIn.title = "Achegar o mapa";
+      zoomIn.setAttribute("aria-label", "Achegar o mapa");
+    }
+    if (zoomOut) {
+      zoomOut.title = "Afastar o mapa";
+      zoomOut.setAttribute("aria-label", "Afastar o mapa");
+    }
   }
 
   function updateExpandButton(button, expanded) {
@@ -30,9 +35,6 @@
     button.setAttribute("aria-label", label);
     button.setAttribute("aria-pressed", String(expanded));
     button.title = label;
-    if (button.parentNode) {
-      button.parentNode.dataset.controlLabel = expanded ? "Saír" : "Pantalla completa";
-    }
   }
 
   function refreshMapSize(map, resetView) {
@@ -117,7 +119,6 @@
         '<svg class="map-expand-icon map-expand-icon--exit" viewBox="0 0 24 24" aria-hidden="true">' +
           '<path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5" />' +
         '</svg>';
-      addControlLabel(container, "Pantalla completa", "right");
       updateExpandButton(button, false);
 
       L.DomEvent.disableClickPropagation(container);
@@ -148,7 +149,6 @@
           '<path d="M8 4H4v4M16 4h4v4M20 16v4h-4M8 20H4v-4" />' +
           '<circle cx="9" cy="10" r="1.4" /><circle cx="15" cy="14" r="1.4" />' +
         '</svg>';
-      addControlLabel(container, "Centrar", "left");
 
       L.DomEvent.disableClickPropagation(container);
       L.DomEvent.disableScrollPropagation(container);
@@ -347,7 +347,7 @@
     });
     registerMap(section, map);
     addTileLayer(map);
-    addZoomControlLabel(map);
+    localizeZoomControl(map);
     addExpandControl(canvas, map);
 
     var clusterGroup = L.markerClusterGroup({
@@ -416,7 +416,7 @@
     });
     registerMap(canvas, map);
     addTileLayer(map);
-    addZoomControlLabel(map);
+    localizeZoomControl(map);
     addExpandControl(canvas, map);
 
     L.marker(position, {

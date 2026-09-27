@@ -626,8 +626,10 @@ if (fs.existsSync(calendarMapPath)) {
       calendarMapSource.includes("Centrar os marcadores") &&
       calendarMapSource.includes("Centrar a localización") &&
       calendarMapSource.includes("canvas._resetMapView") &&
-      calendarMapSource.includes("dataset.controlLabel") &&
-      calendarMapSource.includes('addZoomControlLabel(map)') &&
+      calendarMapSource.includes("Achegar o mapa") &&
+      calendarMapSource.includes("Afastar o mapa") &&
+      calendarMapSource.includes('localizeZoomControl(map)') &&
+      !calendarMapSource.includes("dataset.controlLabel") &&
       expandControlUses.length === 2,
     "O control ampliado non está completo nos mapas anual e de evento"
   );
@@ -640,7 +642,7 @@ if (fs.existsSync(bundleCssPath)) {
     bundleCssSource.includes(".map-expand-button") &&
       bundleCssSource.includes(".map-reset-button") &&
       bundleCssSource.includes(".map-reset-icon") &&
-      bundleCssSource.includes(".map-labeled-control::after") &&
+      !bundleCssSource.includes(".map-labeled-control") &&
       bundleCssSource.includes(".map-expanded-bar") &&
       bundleCssSource.includes(".calendar-map-canvas.map-is-expanded"),
     "Faltan os estilos do mapa a pantalla completa"
