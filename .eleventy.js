@@ -528,12 +528,13 @@ module.exports = function (eleventyConfig) {
     const tags = post.data.tags || [];
     const isAndaina = tags.includes("andaina");
     const isOrientacion = tags.includes("orientacion");
+    const isOutro = tags.includes("outro");
     const now = new Date();
     const diffMs = date - now;
     const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
-    const typeLabel = isAndaina ? "Andaina" : isOrientacion ? "Orientación" : "Rastrexo";
-    const typeClass = isAndaina ? "andaina" : isOrientacion ? "orientacion" : "rastrexo";
+    const typeLabel = isAndaina ? "Andaina" : isOrientacion ? "Orientación" : isOutro ? "Outro" : "Rastrexo";
+    const typeClass = isAndaina ? "andaina" : isOrientacion ? "orientacion" : isOutro ? "outro" : "rastrexo";
     const typePill = `<span class="type-pill ${typeClass}">${typeLabel}</span>`;
 
     let relativeLabel = "";

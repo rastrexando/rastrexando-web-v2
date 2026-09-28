@@ -16,7 +16,7 @@
 ## Event Frontmatter
 ```yaml
 layout: post
-tags: ["post", "<year>", "<rastrexo|andaina>"]
+tags: ["post", "<year>", "<rastrexo|andaina|orientacion|outro>"]
 title: "<event title>"
 date: <YYYY-MM-DD>
 organizers:
@@ -29,11 +29,13 @@ map_lng: <optional approximate longitude>
 image: <year>/<image-filename>
 ```
 
-Approximate coordinates and province are resolved from `_data/locations.json` when the `location` text matches an entry. Use front matter fields only to override a catalogue entry.
+Approximate coordinates and province are resolved from `_data/locations.json` when the `location` text matches an entry. Use front matter fields only to override a catalogue entry. Catalogue coordinates represent the locality centre or general event area; never replace them with exact coordinates printed on a poster or assume those coordinates are a departure point.
 
 For a new location, first run `npm run geocode -- "<location>"`. Validate the candidate manually, then add it with `npm run geocode -- "<location>" --add --lat <latitude> --lng <longitude> --province <province>`. The script never writes during lookup and must not be run in batches or in parallel, in accordance with Nominatim usage limits.
 
-Organizations are stored in `_data/organizations.json` and referenced by stable slugs in the `organizers` array. Reuse an existing organization before creating one. Organization profile URLs belong in the organization entity; `source_url` is reserved for an event-specific original announcement, registration page, or other direct source. Historical events may still use `source_name` and `source_url` as a compatibility fallback.
+When a poster contains a QR code, decode and validate it. Add useful, publicly available event-specific destinations directly to the event page so visitors do not need to scan the poster themselves. Do not publish destinations that return errors or are not public yet; preserve the poster's QR instruction and revisit the URL later. Classify ambiguous related activities as `outro` rather than defaulting to `rastrexo`.
+
+Organizations are stored in `_data/organizations.json` and referenced by stable slugs in the `organizers` array. Reuse an existing organization before creating one. Only assign an organizer when the source explicitly identifies it as responsible for the event; do not infer it from the venue, locality, prior editions, the account sharing a post, or collaborator logos. When no organizer is confirmed, omit `organizers` and preserve the announcement as `source_url`. Organization profile URLs belong in the organization entity; `source_url` is reserved for an event-specific original announcement, registration page, or other direct source. Historical events may still use `source_name` and `source_url` as a compatibility fallback.
 
 Organization avatars use a local `logo` path under `recursos/imaxes/organizacions/` plus an official HTTP(S) `logo_source`. The logo filename must match the organization slug. Do not hotlink remote images or use event posters as organization logos. Organizations without a verified logo automatically receive deterministic initials and colors generated from their name and slug.
 
@@ -56,7 +58,7 @@ Compilations and other videos that cannot be assigned to exactly one event belon
 ## Conventions
 - Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., `ix-rastrexo-camos.njk`)
 - Images stored in `recursos/imaxes/<year>/` and referenced as `<year>/filename.ext`
-- Tags must include: "post", year, and type ("rastrexo" or "andaina")
+- Tags must include: "post", year, and type (`rastrexo`, `andaina`, `orientacion`, or `outro`)
 - Year directories must exist in both `calendarios/` and `recursos/imaxes/`
 - Year must be listed in `_data/years.json`
 

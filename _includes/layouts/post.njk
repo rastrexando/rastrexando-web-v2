@@ -42,6 +42,8 @@ title: Evento — Rastrexando
         <span class="type-pill andaina">Andaina</span>
       {% elif "orientacion" in tags %}
         <span class="type-pill orientacion">Orientación</span>
+      {% elif "outro" in tags %}
+        <span class="type-pill outro">Outro</span>
       {% else %}
         <span class="type-pill rastrexo">Rastrexo</span>
       {% endif %}
@@ -143,7 +145,7 @@ title: Evento — Rastrexando
         <a class="event-source-link" href="{{ source_url }}" target="_blank" rel="noopener noreferrer"><i class="fi-link"></i> Ver a publicación orixinal</a>
       {% endif %}
     </section>
-  {% elif source_name or source_url %}
+  {% elif source_name %}
     <section class="event-organizations event-organizations--legacy" aria-labelledby="event-organizations-title">
       <h2 id="event-organizations-title"><i class="fi-torsos-all is-light-blue"></i> Organiza</h2>
       <div class="event-info">
@@ -153,9 +155,14 @@ title: Evento — Rastrexando
           {% else %}
             <i class="fi-social-facebook is-light-blue"></i>
           {% endif %}
-          {% if source_url %}<a href="{{ source_url }}" title="{{ source_name }}" target="_blank" rel="noopener noreferrer">{{ source_name or "Máis información" }}</a>{% else %}<span>{{ source_name }}</span>{% endif %}
+          {% if source_url %}<a href="{{ source_url }}" title="{{ source_name }}" target="_blank" rel="noopener noreferrer">{{ source_name }}</a>{% else %}<span>{{ source_name }}</span>{% endif %}
         </div>
       </div>
+    </section>
+  {% elif source_url %}
+    <section class="event-organizations event-organizations--legacy" aria-labelledby="event-source-title">
+      <h2 id="event-source-title"><i class="fi-link is-light-blue"></i> Fonte</h2>
+      <a class="event-source-link" href="{{ source_url }}" target="_blank" rel="noopener noreferrer">Ver a publicación orixinal</a>
     </section>
   {% endif %}
 

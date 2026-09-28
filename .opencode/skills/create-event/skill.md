@@ -1,16 +1,16 @@
 # Create Event Skill
 
-This skill creates new rastrexos (treasure hunts) or andainas (walking events) for the Rastrexando site.
+This skill creates new rastrexos, andainas, orientation events, and related activities for the Rastrexando site.
 
 ## Required Information
 
 Collect from the user:
 - **title**: Event name (e.g., "IX Rastrexo Camos")
 - **date**: Event date (YYYY-MM-DD format)
-- **type**: Either "rastrexo" or "andaina"
+- **type**: One of `rastrexo`, `andaina`, `orientacion`, or `outro`. Follow the official description; never default an ambiguous activity to `rastrexo`. Use `outro` when none of the specific categories is supported by the source.
 - **location**: Locality and municipality (e.g., "Campos, Nigrán")
 - **province** (optional): province for structured data (e.g., "Pontevedra")
-- **map_lat** / **map_lng** (optional): approximate coordinates of the locality or event area, never the departure point unless confirmed. Prefer adding the location to `_data/locations.json` so historical and future events reuse it; use front matter only for an explicit override.
+- **map_lat** / **map_lng** (optional): approximate coordinates of the locality or event area. Prefer adding the locality centre to `_data/locations.json` so historical and future events reuse it; use front matter only for an explicit event-area override. Do not save poster coordinates as the locality centre or assume that they are a departure point. Exact meeting/departure coordinates require an explicit source label and dedicated site support.
 - **organizers**: One or more organization names and, when available, their official website or social profiles
 - **source_url** (optional): URL of the original event announcement, registration page, or another event-specific direct source. Do not use an organization profile as the event source.
 - **image_url**: URL to download the event poster/image from
@@ -51,6 +51,8 @@ curl -L -o recursos/imaxes/<year>/<image-filename> <image_url>
 
 The image filename should be descriptive and lowercase (e.g., `ix-camos.jpg`, `areas.jpeg`).
 
+Inspect the downloaded poster for QR codes and decode every readable QR. Validate the destination before exposing it: add a useful, publicly available event-specific URL directly to the page so visitors are not forced to scan the poster. Use it as `source_url` when it is the primary original source; otherwise add a descriptive link to the body. Do not publish a QR destination that returns an error or is not public yet; preserve the poster's instruction to scan the QR and revisit the URL later.
+
 ### 4. Create year directories if needed
 
 Check if these exist, create if missing:
@@ -65,8 +67,8 @@ Check if the year exists in `_data/years.json`. If not, add it in chronological 
 
 1. Run `npm run geocode -- "<location>"`.
 2. If it returns a catalogue entry, use the exact same `location` text in the event front matter.
-3. If it returns Nominatim candidates, validate that the selected result represents the locality or event area — never infer an exact departure point.
-4. Save the confirmed result before creating the event:
+3. If it returns Nominatim candidates, validate that the selected result represents the locality centre or general event area — never substitute exact coordinates printed on a poster or infer an exact departure point.
+4. Save the confirmed approximate result before creating the event:
 
 ```bash
 npm run geocode -- "<location>" --add --lat <latitude> --lng <longitude> --province <province>
@@ -95,7 +97,7 @@ Do not run geocoding in batches or in parallel. The lookup command never changes
 
 Omit empty link properties. An optional `logo` may reference a local image below `recursos/imaxes/`; never hotlink a remote logo.
 
-Use `organizers` for entities responsible for or materially involved in the event. Do not create a duplicate entity merely because an older event used another spelling. Collaborator roles are not currently distinguished.
+Use `organizers` only for entities explicitly identified as responsible for organizing the event. Do not infer an organizer from the venue, locality, organizers of previous editions, the account sharing the announcement, or entities shown only as collaborators. When no organizer is confirmed, omit `organizers` and keep the announcement only as `source_url`. Do not create a duplicate entity merely because an older event used another spelling. Collaborator roles are not currently distinguished.
 
 ### 8. Create the event file
 
