@@ -823,6 +823,11 @@ hr {
   color: var(--brand-dark-blue);
 }
 
+.type-pill.outro {
+  background: var(--surface-subtle);
+  color: var(--text-primary);
+}
+
 /* Editorial card variant: poster + a simple information hierarchy */
 .post-card {
   align-items: stretch;
