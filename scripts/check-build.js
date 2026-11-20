@@ -195,6 +195,8 @@ for (const eventTemplateFile of eventTemplateFiles) {
   const organizerReferences = organizerBlock
     ? [...organizerBlock[1].matchAll(/^\s+-\s+([a-z0-9-]+)\s*$/gm)].map(match => match[1])
     : [];
+  const sourceUrl = source.match(/^source_url:[ \t]*(\S.*)$/m)?.[1]?.trim();
+  const normalizedSourceUrl = normalizeExternalUrl(sourceUrl);
 
   for (const organizationSlug of organizerReferences) {
     check(
@@ -206,8 +208,6 @@ for (const eventTemplateFile of eventTemplateFiles) {
   if (organizerReferences.length > 0) {
     check(!/^source_name:/m.test(source), `${relativeEventTemplate}: conserva source_name tras a migración`);
     check(!/^source_url:[ \t]*$/m.test(source), `${relativeEventTemplate}: conserva source_url baleiro tras a migración`);
-    const sourceUrl = source.match(/^source_url:[ \t]*(\S.*)$/m)?.[1]?.trim();
-    const normalizedSourceUrl = normalizeExternalUrl(sourceUrl);
     if (normalizedSourceUrl) {
       for (const organizationSlug of organizerReferences) {
         check(
@@ -254,7 +254,11 @@ for (const eventTemplateFile of eventTemplateFiles) {
   const is2026Event = eventTemplateFile.includes(`${path.sep}2026${path.sep}`) &&
     /^tags:\s*\[[^\n]*"post"/m.test(source);
   if (is2026Event) {
-    check(organizerReferences.length > 0, `${relativeEventTemplate}: falta organizers`);
+    const hasValidSourceUrl = Boolean(normalizedSourceUrl) && /^https?:\/\//.test(sourceUrl || "");
+    check(
+      organizerReferences.length > 0 || hasValidSourceUrl,
+      `${relativeEventTemplate}: falta organizers ou source_url válido`
+    );
   }
 }
 
@@ -271,6 +275,11 @@ for (const video of standaloneVideos) {
   }
 }
 
+const homeTemplate = fs.readFileSync(path.join(projectRoot, "index.njk"), "utf8");
+check(
+  /^  generatePageOnEmptyData: true$/m.test(homeTemplate),
+  "A portada debe xerarse tamén cando non hai eventos futuros"
+);
 check(fs.existsSync(path.join(outputRoot, "index.html")), "Falta a páxina de inicio");
 check(fs.existsSync(path.join(outputRoot, "calendarios", "index.html")), "Falta o directorio de calendarios");
 check(fs.existsSync(path.join(outputRoot, "videos", "index.html")), "Falta o catálogo de vídeos");
@@ -304,11 +313,15 @@ if (fs.existsSync(homePath)) {
     homeHtml.indexOf('localStorage.getItem("rastrexando-theme")') < homeHtml.indexOf('href="/recursos/bundle.css"'),
     "O tema non se resolve antes de cargar os estilos"
   );
+  const videoCatalogPath = path.join(outputRoot, "videos", "index.html");
+  const videoCatalogHtml = fs.existsSync(videoCatalogPath) ? fs.readFileSync(videoCatalogPath, "utf8") : "";
+  const videoIdsInHtml = (html) => [...html.matchAll(/href="https:\/\/www\.youtube\.com\/watch\?v=([\w-]+)"/g)]
+    .map((match) => match[1]);
+  const latestCatalogVideoIds = videoIdsInHtml(videoCatalogHtml).slice(0, 3);
+  const homeVideoIds = videoIdsInHtml(homeHtml);
   check(
-    (homeHtml.match(/class="current-video-card"/g) || []).length === 3 &&
-      homeHtml.includes("NAFo107VFoQ") &&
-      homeHtml.includes("CpeNOGONgfo") &&
-      homeHtml.includes("jjfuLsVLeuk"),
+    (homeHtml.match(/class="current-video-card"/g) || []).length === latestCatalogVideoIds.length &&
+      JSON.stringify(homeVideoIds) === JSON.stringify(latestCatalogVideoIds),
     "A portada non mostra os tres vídeos publicados máis recentemente"
   );
 

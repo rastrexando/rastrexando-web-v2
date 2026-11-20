@@ -291,9 +291,9 @@ module.exports = function (eleventyConfig) {
   const now = new Date();
 
   eleventyConfig.addCollection("featured", function (collectionApi) {
-    return collectionApi.getAllSorted().reverse().filter(function(item) {
-      return item.data.date > now && item.data.tags.includes("post")
-    })
+    const events = collectionApi.getAllSorted().filter(item => item.data.tags?.includes("post"));
+    const upcomingEvents = events.filter(item => item.data.date > now);
+    return upcomingEvents.length > 0 ? upcomingEvents : events.slice(-4).reverse();
   });
 
   eleventyConfig.addCollection("allVideos", function (collectionApi) {
@@ -561,14 +561,9 @@ module.exports = function (eleventyConfig) {
       .map(slug => organizationsBySlug.get(slug))
       .filter(Boolean);
     const organizationNames = eventOrganizations.map(organization => organization.name).join(", ");
-    const sourceIcon = post.data.source_url?.includes("instagram.com")
-      ? "fi-social-instagram"
-      : "fi-social-facebook";
     const sourceHTML = organizationNames
       ? `<span class="post-card-source"><i class="fi-home"></i> ${organizationNames}</span>`
-      : (post.data.source_url
-        ? `<span class="post-card-source"><i class="${sourceIcon}"></i> ${post.data.source_name}</span>`
-        : (post.data.source_name ? `<span class="post-card-source">${post.data.source_name}</span>` : ""));
+      : "";
 
     let thumbnailUrl = "";
     if (post.data.image) {

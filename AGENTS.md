@@ -55,6 +55,10 @@ Video `channel` is required and identifies the YouTube publisher, whether it is 
 
 Compilations and other videos that cannot be assigned to exactly one event belong in `_data/standalone-videos.json`, using the same `id`, `title`, `published`, and `channel` fields. Standalone videos appear in the main catalogue and latest-video ordering but have no event year, organization association, or event detail link. Never duplicate one YouTube ID across multiple events; use a standalone entry for multi-event videos.
 
+## Home page
+
+`index.njk` paginates `collections.featured`, labelled «Destacados»: future events in ascending event-date order (4 per page), or the 4 most recent events in descending event-date order when no future events exist. Do not reverse pagination: the collection already sets the intended order. Selection is evaluated at build time; avoid labels promising upcoming events on a static page. Keep `pagination.generatePageOnEmptyData: true` so an empty catalogue cannot cause `/` to return 404. Only when the entire catalogue is empty, omit the featured section and divider, and start with the active-year calendar as H1; otherwise «Destacados» is H1 and the calendar is H2. Latest videos follow the calendar.
+
 ## Conventions
 - Filenames: lowercase, hyphenated, preserve Roman numerals (e.g., `ix-rastrexo-camos.njk`)
 - Images stored in `recursos/imaxes/<year>/` and referenced as `<year>/filename.ext`
