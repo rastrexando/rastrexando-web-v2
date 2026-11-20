@@ -806,12 +806,17 @@ if (organizedEventPath && fs.existsSync(organizedEventPath)) {
     posterPosition >= 0 &&
       posterPosition < titlePosition &&
       titlePosition < typePosition &&
-      typePosition < relativeDatePosition &&
-      relativeDatePosition < datePosition &&
+      typePosition < datePosition &&
       datePosition < descriptionPosition &&
       descriptionPosition < organizationPosition &&
       organizationPosition < mapPosition,
     "A ficha non respecta a orde cartel, título, tipo, data, información, organización e mapa"
+  );
+  // Relative dates are intentionally absent for past or distant events.
+  check(
+    relativeDatePosition === -1 ||
+      (typePosition < relativeDatePosition && relativeDatePosition < datePosition),
+    "A data relativa, cando se mostra, debe aparecer entre o tipo e a data completa"
   );
   check(
     organizedEventHtml.includes('class="event-primary-header"') &&
